@@ -1,0 +1,29 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-color: $background-color;
+  transition: opacity $transition-duration $transition-timing-function,
+    visibility $transition-duration $transition-timing-function;
+  overflow-y: scroll;
+  z-index: 30;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal {
+  padding: 28px;
+  background-color: $white-color;
+  transition: transform $transition-duration $transition-timing-function;
+
+  .backdrop.is-hidden & {
+    transform: scale(1.1);
+  }
+}
