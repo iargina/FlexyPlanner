@@ -1,0 +1,56 @@
+.hero {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+
+.logo-link {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.hero__description {
+  font-family: 'Geometria';
+  font-weight: $bold-text;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: -0.02em;
+  color: $black-color;
+  margin-bottom: 10px;
+}
+
+.hero__accent-text {
+  color: $accent-color;
+}
+
+.hero__slider-text {
+  width: 162px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 32px;
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: $regular-text;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: $black-color;
+}
+
+.hero__btn {
+  display: block;
+  padding: 10px 56px;
+  margin: 0 auto;
+  width: 199px;
+  height: 42px;
+  background: $black-color;
+  color: $white-color;
+  border-radius: 4px;
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: $medium-text;
+  font-size: 18px;
+  line-height: 122%;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
