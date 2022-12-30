@@ -1,3 +1,20 @@
-//Containers
-$desktop: 1440px;
-$phone: 375px;
+$desktop-width: 1440px;
+$phone-width: 375px;
+
+$accent-color: #F3BB4A;
+$black-color: #111111;
+$white-color: #FFFFFF;
+$orange-color: #C34627;
+$background-color: #F3F3F3;
+$alert-color: #F7434B;
+$success-color: #01A045;
+$secondary-text-color: #3C3B3B;
+
+$font-family: 'Geometria', sans-serif;
+
+$regular-text: 400;
+$medium-text: 500;
+$bold-text: 700;
+
+$transition-duration: 250ms;
+$transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

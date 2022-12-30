@@ -1,1 +1,14 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 24px;
+  line-height: calc(32 / 24);
+  color: $black-color;
+  background-color: $white-color;
+}

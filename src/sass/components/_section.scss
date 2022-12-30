@@ -1,0 +1,7 @@
+.section {
+  padding: 72px 0;
+
+  @media screen and (min-width: $desktop-width) {
+    padding: 172px 0;
+  }
+}
