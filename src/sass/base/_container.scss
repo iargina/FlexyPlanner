@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+
+  @media screen and (min-width: $phone) {
+    max-width: $phone;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+  }
+}

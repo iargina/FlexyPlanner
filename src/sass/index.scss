@@ -1,0 +1,26 @@
+@import './common';
+/* utils */
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/placeholders';
+
+/* base */
+@import './base/container';
+
+/* layots */
+@import './layots/authors';
+@import './layots/contacts';
+@import './layots/deliveryInfo';
+@import './layots/description';
+@import './layots/description';
+@import './layots/finalSumm';
+@import './layots/footer';
+@import './layots/hero';
+@import './layots/hoitworks';
+@import './layots/modalSuccessOrder';
+@import './layots/motivate';
+@import './layots/order';
+@import './layots/personalCoatch';
+@import './layots/productOptions';
+@import './layots/promocode';
+@import './layots/qa';
