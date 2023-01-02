@@ -1,5 +1,9 @@
 .container {
   margin-bottom: 72px;
+  @media screen and (min-width: 1440px) {
+    max-width: 1022px;
+    margin-bottom: 172px;
+  }
 }
 
 .order {
@@ -7,12 +11,14 @@
   font-weight: $regular-text;
   text-align: center;
   letter-spacing: -0.02em;
+  color: $black-color;
 }
 
 .pre-order-title {
   margin-bottom: 16px;
 
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 1440px) {
+    font-size: 32px;
     margin-bottom: 18px;
   }
 
@@ -23,6 +29,10 @@
 
 .order-title {
   margin-bottom: 8px;
+  @media screen and (min-width: 1440px) {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
 
   &__accent {
     color: $accent-color;
@@ -37,6 +47,12 @@
     font-size: 18px;
     font-weight: $medium-text;
     margin-bottom: 16px;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 24px;
+      line-height: calc(28 / 24);
+      margin-bottom: 14px;
+    }
   }
 
   &__price {
@@ -47,24 +63,41 @@
     display: inline-block;
     margin-bottom: 24px;
     color: $secondary-text-color;
+
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 32px;
+      font-size: 18px;
+      font-weight: $regular-text;
+      line-height: calc(24 / 18);
+    }
   }
 
   &__btn {
     display: block;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
   }
 
   &__link {
     font-weight: $medium-text;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
     text-decoration: underline;
-    padding: 14px 0;
+    font-size: 14px;
+
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 50px;
+      font-size: 18px;
+      line-height: calc(28 / 18);
+      font-weight: $medium-text;
+    }
   }
 }
 
 .pre-order__delivery {
   width: 246px;
+  @media screen and (min-width: 1440px) {
+    width: 350px;
+  }
 }
 
 .motivation-block {
@@ -73,8 +106,27 @@
   background-color: $background-color;
   text-align: left;
 
+  @media screen and (min-width: 1440px) {
+    padding: 62px 66px;
+  }
+
   &__link {
     font-weight: $bold-text;
     font-style: normal;
+  }
+
+  &__text {
+    font-size: 14px;
+    @media screen and (min-width: 1440px) {
+      font-size: 24px;
+    }
+  }
+
+  &__text br {
+    display: none;
+    @media screen and (min-width: 1440px) {
+      display: initial;
+      padding-top: 20px;
+    }
   }
 }
