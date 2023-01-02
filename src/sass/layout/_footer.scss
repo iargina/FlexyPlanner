@@ -1,1 +1,70 @@
+.footer__section {
+  width: 100%;
+  position: relative;
+  background-color: $black-color;
+  padding: 40px 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media screen and (min-width: $desktop-width) {
+    padding: 50px 100px;
+  }
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 60px;
+  @media screen and (min-width: $desktop-width) {
+    gap: 14px;
+  }
+}
+.footer__title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: $accent-color;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+.footer__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  color: $white-color;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
 
+.footer__icon {
+  width: 28px;
+  height: 28px;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 32px;
+    height: 32px;
+  }
+}
+.footer__button {
+  width: 335px;
+  padding: 10px 65px;
+  @media screen and (min-width: $desktop-width) {
+    padding: 16px 32px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
