@@ -1,0 +1,97 @@
+.motivate__wrapper {
+  @extend %centered;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.motivate__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media screen and (min-width: $desktop-width) {
+    flex-direction: row;
+    gap: 210px;
+  }
+}
+
+.motivate__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 335px;
+
+  @media screen and (min-width: $desktop-width) {
+    gap: 32px;
+    width: 384px;
+    // треба буде замінити на 400px,
+    // коли буде підключений необхідний шрифт
+    // width: 400px;
+  }
+}
+
+.motivate__item {
+  display: flex;
+}
+
+.icon-motivate {
+  margin-right: 18px;
+
+  max-width: 24px;
+  height: 24px;
+
+  @media screen and (min-width: $desktop-width) {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
+
+.motivate__paragraph {
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  font-weight: $medium-text;
+  letter-spacing: -0.02em;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
+    font-weight: $medium-text;
+    letter-spacing: -0.02em;
+  }
+}
+
+.strong {
+  font-weight: $bold-text;
+}
+
+.motivate .title {
+  @extend %centered;
+  margin-bottom: 0px;
+
+  width: 230px;
+
+  // font-family: 'Geometria';
+  font-style: normal;
+  font-weight: $bold-text;
+  font-size: 28px;
+  line-height: 1.14;
+
+  letter-spacing: -0.02em;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 554px;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: $bold-text;
+    letter-spacing: -2%;
+  }
+}
+
+.section.motivate {
+  padding: 0 0 72px 0;
+}
+
+// .quotes .quotes__descr {
+//   max-width: 267px;
+// }
