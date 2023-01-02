@@ -1,18 +1,17 @@
 import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
 
-// const swiper = new Swiper('.swiper', {
-//    modules: [ Navigation, Pagination ],
-//  });
-
 Swiper.use([Navigation, Pagination, Autoplay]);
 
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
+    centeredSlides: true,
+    autoplayDisableOnInteraction: false,
     speed: 300,
     slidesPerView: 1,
-    spaceBetween: 10,
+    initialSlide: 0,
+    spaceBetween: 0,
   
     pagination: {
       el: '.swiper-pagination',
@@ -21,5 +20,6 @@ const swiper = new Swiper('.swiper', {
     },
     autoplay: {
         delay: 2000,
+        disableOnInteraction: false,
       },
   });
