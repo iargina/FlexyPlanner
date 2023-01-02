@@ -58,13 +58,22 @@
   }
 }
 .footer__button {
+  display: inline;
+  text-align: center;
   width: 335px;
+  margin: auto;
   padding: 10px 65px;
-  @media screen and (min-width: $desktop-width) {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  @media screen and (min-width: 591px) {
+    width: 268px;
     padding: 16px 32px;
     position: absolute;
     top: 50px;
     left: 50%;
     transform: translate(-50%, 0%);
+    line-height: 1.33;
   }
 }
