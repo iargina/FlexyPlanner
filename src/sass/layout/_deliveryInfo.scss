@@ -26,7 +26,7 @@
   display: block;
   font-size: 12px;
   line-height: calc(14 / 12);
-  padding: 13px 12px;
+  padding: 14px 12px;
   width: 100%;
   border-radius: 4px;
   outline: inherit;
@@ -47,35 +47,6 @@
   }
 }
 
-.input-wrapper {
-  position: relative;
-  width: 100%;
-
-  &::after {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    content: '';
-    display: block;
-    width: 18px;
-    height: 18px;
-    background-image: url('../../assets/ico/arrow_down.svg');
-    background-size: 18px 18px;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-
-  @media screen and (min-width: $desktop-width) {
-    &::after {
-      right: 15px;
-      width: 24px;
-      height: 24px;
-      background-size: 24px 24px;
-    }
-  }
-}
-
 .warehouse-wrapper {
   max-width: 335px;
   position: relative;
@@ -87,9 +58,66 @@
   }
 }
 
+.warehouse-btn {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  padding: 14px 12px;
+  border-radius: 4px;
+  text-align: left;
+  border: 1px solid rgba(60, 59, 59, 0.1);
+  color: $black-color;
+  background-color: $white-color;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url('../../assets/ico/arrow_down.svg');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+    padding: 16px 14px;
+
+    &::after {
+      right: 15px;
+      width: 24px;
+      height: 24px;
+      background-size: 24px 24px;
+    }
+  }
+}
+
+.warehouse-search {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+
+  @media screen and (min-width: $desktop-width) {
+    top: 90px;
+  }
+}
+
 .input--warehouse {
   border: 1px solid rgba(60, 59, 59, 0.1);
-  padding-right: 40px;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 0;
 }
 
 .autocomplete-list {
@@ -120,6 +148,14 @@
   }
 }
 
-.autocomplete.show {
+.warehouses {
+  border-top: unset;
+}
+
+.autocomplete-list.show {
   display: flex;
+}
+
+.warehouse-search.show {
+  display: block;
 }

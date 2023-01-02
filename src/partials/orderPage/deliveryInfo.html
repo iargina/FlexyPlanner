@@ -13,15 +13,18 @@
   </div>
   <div class="warehouse-wrapper">
     <label class="input-label" for="warehouse">Нова пошта</label>
-    <div class="input-wrapper">
+    <button class="warehouse-btn" type="button">
+      Виберіть відповідне відділення
+    </button>
+    <div class="warehouse-search">
       <input
         type="text"
         class="input input--warehouse"
         name="warehouse"
         id="warehouse"
-        placeholder="Виберіть відповідне відділення"
+        placeholder="Введіть адресу або номер відділення"
       />
+      <ul class="autocomplete-list warehouses"></ul>
     </div>
-    <ul class="autocomplete-list warehouses"></ul>
   </div>
 </div>
