@@ -1,0 +1,87 @@
+.personal-coatch {
+  width: 100%;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 100%;
+  }
+}
+.personal-coatch__wrapper {
+  margin: 0 auto;
+  margin-bottom: 72px;
+  max-width: 335px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1032px;
+    margin-bottom: 172px;
+  }
+}
+.personal-coatch__title {
+  &--accent {
+    color: $accent-color;
+  }
+}
+
+.personal-coatch__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @media screen and (min-width: $desktop-width) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+.personal-coatch__items-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @media screen and (min-width: $desktop-width) {
+    gap: 24px;
+  }
+}
+
+.personal-coatch__item {
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background-color: $background-color;
+  @media screen and (min-width: $desktop-width) {
+    margin-bottom: 0;
+    padding: 16px 32px;
+    width: 506px;
+  }
+}
+
+.personal-coatch__icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: $white-color;
+  @media screen and (min-width: $desktop-width) {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.personal-coatch__icon {
+  width: 24px;
+  height: 24px;
+  @media screen and (min-width: $desktop-width) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.personal-coatch__descr {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  letter-spacing: -0.02em;
+  color: $black-color;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
+  }
+}
