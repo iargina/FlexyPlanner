@@ -1,0 +1,159 @@
+.authors {
+  width: 100%;
+}
+.authors__wrap {
+  margin: 0 auto;
+  margin-bottom: 72px;
+  max-width: 335px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 822px;
+    margin-bottom: 172px;
+  }
+}
+.authors__text--list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin: 0;
+  :nth-child(odd) {
+    margin-right: 20px;
+  }
+  @media screen and (min-width: $desktop-width) {
+    flex-direction: column;
+    max-width: 822px;
+    gap: 38px;
+  }
+}
+.authors__text--item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  max-width: 157px;
+  margin-bottom: 24px;
+  padding: 0;
+
+  :nth-child(odd) {
+    max-width: 158px;
+    margin-right: 0;
+  }
+
+  letter-spacing: -0.02em;
+  color: $black-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: 1.33;
+    max-width: 822px;
+  }
+}
+.authors__text--item--accent--bold {
+  font-weight: 700;
+  margin-right: 0;
+}
+.authors__text--tem--accent {
+  font-weight: 700;
+  color: $accent-color;
+  margin: 0;
+}
+.author {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  @media screen and (min-width: $desktop-width) {
+    gap: 96px;
+    margin-bottom: 76px;
+  }
+}
+.authors__picture {
+  max-width: 90px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 200px;
+  }
+}
+
+.authors__info--subtitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 14px;
+  }
+}
+
+.authors__info--subtitle--text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  color: $secondary-text-color;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: 24px;
+  }
+}
+.authors__info--jobTitle--list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  @media screen and (min-width: $desktop-width) {
+    gap: 6px;
+  }
+}
+.authors__info--jobTitle--item {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $secondary-text-color;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+.authors__speach--wrap {
+  position: relative;
+  background: #111111;
+  border-radius: 4px;
+  max-width: 335px;
+  padding: 14px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 822px;
+    margin-bottom: 172px;
+    padding: 45px;
+  }
+}
+.authors__speach--icon {
+  position: absolute;
+  top: -11%;
+  left: 50px;
+  width: 34px;
+  height: 40px;
+  fill: #181818;
+}
+.authors__speach {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media screen and (min-width: $desktop-width) {
+    gap: 14px;
+  }
+}
+.authors__speach--text {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.02em;
+  color: $white-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
