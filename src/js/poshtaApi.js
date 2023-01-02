@@ -8,12 +8,12 @@ export default class PoshtaAPI {
     this.warehouse = '';
   }
 
-  selectCity(ref) {
-    this.city = ref;
+  selectCity(inputValue) {
+    this.city = inputValue;
   }
 
-  selectWarehouse(ref) {
-    this.warehouse = ref;
+  selectWarehouse(inputValue) {
+    this.warehouse = inputValue;
   }
 
   async searchSettlements() {
@@ -43,6 +43,7 @@ export default class PoshtaAPI {
         methodProperties: {
           CityRef: this.city,
           Limit: '5',
+          FindByString: this.warehouse,
         },
       })
     );
