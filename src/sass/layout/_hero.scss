@@ -1,0 +1,123 @@
+.hero {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width) {
+  }
+}
+
+.logo-link {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.hero__description {
+  font-family: 'Geometria';
+  font-weight: $bold-text;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: -0.02em;
+  color: $black-color;
+  margin-bottom: 10px;
+}
+
+.hero__accent-text {
+  color: $accent-color;
+}
+
+.hero__slider-text {
+  width: 162px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 32px;
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: $regular-text;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: $black-color;
+}
+
+.hero__btn {
+  display: block;
+  padding: 10px 56px;
+  margin: 0 auto;
+  width: 199px;
+  height: 42px;
+  background: $black-color;
+  color: $white-color;
+  border-radius: 4px;
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: $medium-text;
+  font-size: 18px;
+  line-height: 122%;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.hero__swiper {
+  margin-bottom: 18px;
+}
+.swiper-wrapper {
+  height: 300px;
+}
+.hero__swiper-slide {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  &:nth-of-type(even) {
+    transform: rotate(15deg);
+  }
+  &:nth-of-type(odd) {
+    transform: rotate(30deg);
+  }
+}
+.swiper-slide {
+  height: auto;
+  margin: 0;
+}
+.swiper-wrapper .swiper-slide-next {
+  right: calc((100vw - 350px) / 2);
+}
+
+.swiper-wrapper .swiper-slide-prev {
+  left: calc((100vw - 350px) / 2);
+}
+
+.hero__pagination {
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  left: 0;
+  z-index: 50;
+  span {
+    width: 14px;
+    height: 14px;
+    border: 2px solid $background-color;
+    border-radius: 50%;
+    background-color: $orange-color;
+    &:first-of-type {
+      background-color: $accent-color;
+    }
+    &:last-of-type {
+      background-color: $black-color;
+    }
+  }
+}
+.swiper-pagination-bullet {
+  opacity: 1;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border: 2px solid #e8e8e8;
+}
