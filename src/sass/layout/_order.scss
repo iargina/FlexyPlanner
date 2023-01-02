@@ -1,0 +1,80 @@
+.container {
+  margin-bottom: 72px;
+}
+
+.order {
+  font-size: 14px;
+  font-weight: $regular-text;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.pre-order-title {
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 1140px) {
+    margin-bottom: 18px;
+  }
+
+  &__crossed {
+    text-decoration: line-through;
+  }
+}
+
+.order-title {
+  margin-bottom: 8px;
+
+  &__accent {
+    color: $accent-color;
+  }
+}
+
+.pre-order,
+.order-now {
+  line-height: calc(22 / 18);
+
+  &__text {
+    font-size: 18px;
+    font-weight: $medium-text;
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    color: $alert-color;
+  }
+
+  &__delivery {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: $secondary-text-color;
+  }
+
+  &__btn {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  &__link {
+    font-weight: $medium-text;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    padding: 14px 0;
+  }
+}
+
+.pre-order__delivery {
+  width: 246px;
+}
+
+.motivation-block {
+  padding: 14px;
+  font-style: italic;
+  background-color: $background-color;
+  text-align: left;
+
+  &__link {
+    font-weight: $bold-text;
+    font-style: normal;
+  }
+}
