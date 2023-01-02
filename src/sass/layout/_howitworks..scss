@@ -1,3 +1,142 @@
 .howitworks {
-    max-width: 375px;
+    width: 100%;
+    background-color: $accent-color;
+    padding-top: 40px;
+    padding-bottom: 66px;
+
+    @media screen and (min-width: $desktop-width) {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+    .howitworks__list {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 40px;
+
+        @media screen and (min-width: $desktop-width) {
+            margin-top: 100px;
+            :last-child {
+                border: none;
+            }
+        }
+    }
+
+    .howitworks__item {
+        @media screen and (min-width: $desktop-width) {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+            padding-bottom: 57px;
+
+            :last-child {
+                border: none;
+            }
+        }
+    }
+    .howitworks__title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: calc(32 / 28);
+        text-align: center;
+
+        @media screen and (min-width: $desktop-width) {
+            font-size: 64px;
+            line-height: calc(64 / 64);
+        }
+    }
+
+    .howitworks__number {
+        font-size: 64px;
+        line-height: calc(64 / 64);
+        font-weight: 800;
+
+        @media screen and (min-width: $desktop-width) {
+            font-size: 128px;
+        }
+    }
+
+    .howitworks__text {
+        font-size: 18px;
+        line-height: calc(22 / 18);
+        font-weight: 800;
+        text-transform: uppercase;
+
+        @media screen and (min-width: $desktop-width) {
+            font-size: 32px;
+            line-height: calc(38 / 32);
+        }
+    }
+
+    .howitworks-item__wrapper {
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: $desktop-width) {
+            border: none;
+            width: 429px;
+        }
+    }
+
+    .howitworks-checkbox__item {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        @media screen and (min-width: $desktop-width) {
+            gap: 18px;
+        }
+    }
+
+    .howitworks-checkbox__text {
+        font-size: 14px;
+
+        @media screen and (min-width: $desktop-width) {
+            font-size: 24px;
+        }
+    }
+
+    .howitworks-checkbox__icon {
+        width: 20px;
+        height: 20px;
+
+        @media screen and (min-width: $desktop-width) {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .howitworks-checkbox__list {
+        padding-top: 20px;
+        display: none;
+        flex-direction: column;
+        gap: 14px;
+
+        @media screen and (min-width: $desktop-width) {
+            display: flex;
+            width: 429px;
+            gap: 32px;
+          }
+    }
+}
+
+.howitworks__arrow-icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: black;
+
+    @media screen and (min-width: $desktop-width) {
+        display: none;
+    }
+}
+
+.rotate {
+    rotate: 180deg;
+}
+
+.howitworks__icon-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
