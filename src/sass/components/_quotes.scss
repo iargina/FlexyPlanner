@@ -1,0 +1,46 @@
+.quotes {
+  padding: 28px 0;
+  background-color: $black-color;
+  width: 100%;
+  @media screen and (min-width: $desktop-width) {
+    padding: 50px 0;
+  }
+}
+.quotes__wrapper {
+  max-width: 335px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 840px;
+  }
+}
+.quotes__icon-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.quotes__icon {
+  width: 28px;
+  height: 28px;
+  @media screen and (min-width: $desktop-width) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.quotes__descr {
+  width: 267px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.02em;
+  color: $white-color;
+  @media screen and (min-width: $desktop-width) {
+    width: 710px;
+    font-size: 32px;
+    line-height: calc(40 / 32);
+  }
+}
+.quotes__descr--accent {
+  color: $accent-color;
+}
