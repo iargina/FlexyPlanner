@@ -11,12 +11,14 @@
   }
 }
 .authors__text--list {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  margin-right: 10px;
-  margin: 0;
+  align-items: flex-start;
   :nth-child(odd) {
     margin-right: 20px;
+  }
+  :nth-child(3) {
+    margin-top: -30px;
   }
   @media screen and (min-width: $desktop-width) {
     flex-direction: column;
@@ -46,6 +48,7 @@
     max-width: 822px;
   }
 }
+
 .authors__text--item--accent--bold {
   font-weight: 700;
   margin-right: 0;
@@ -59,6 +62,7 @@
   display: flex;
   gap: 8px;
   margin-bottom: 28px;
+  justify-content: center;
   @media screen and (min-width: $desktop-width) {
     gap: 96px;
     margin-bottom: 76px;
@@ -130,11 +134,17 @@
 }
 .authors__speach--icon {
   position: absolute;
-  top: -11%;
-  left: 50px;
-  width: 34px;
-  height: 40px;
-  fill: #181818;
+  left: 30px;
+  top: -20px;
+  fill: #111111;
+  width: 32px;
+  height: 22px;
+  @media screen and (min-width: $desktop-width) {
+    left: 135px;
+    top: -36px;
+    width: 46px;
+    height: 40px;
+  }
 }
 .authors__speach {
   display: flex;
