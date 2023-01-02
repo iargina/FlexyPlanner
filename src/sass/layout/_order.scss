@@ -75,7 +75,12 @@
   &__btn {
     display: block;
     margin: 0 auto;
+    padding: 10px 64px;
     margin-bottom: 24px;
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 14px;
+      padding: 14px 32px;
+    }
   }
 
   &__link {
