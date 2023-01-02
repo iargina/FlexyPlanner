@@ -200,6 +200,9 @@ body {
     max-width: 822px;
     gap: 38px;
   }
+  .authors__text--list :nth-child(odd) {
+    margin-right: 0;
+  }
 }
 
 .authors__text--item {
@@ -221,6 +224,9 @@ body {
     font-size: 24px;
     line-height: 1.33;
     max-width: 822px;
+  }
+  .authors__text--item :last-child {
+    margin-bottom: 0;
   }
 }
 
