@@ -24,6 +24,9 @@
     flex-direction: column;
     max-width: 822px;
     gap: 38px;
+    :nth-child(odd) {
+      margin-right: 0;
+    }
   }
 }
 .authors__text--item {
