@@ -1,10 +1,10 @@
 .personal-coatch {
   width: 100%;
-
   @media screen and (min-width: $desktop-width) {
     width: 100%;
   }
 }
+
 .personal-coatch__wrapper {
   margin: 0 auto;
   margin-bottom: 72px;
@@ -14,6 +14,7 @@
     margin-bottom: 172px;
   }
 }
+
 .personal-coatch__title {
   &--accent {
     color: $accent-color;
@@ -21,32 +22,29 @@
 }
 
 .personal-coatch__list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   @media screen and (min-width: $desktop-width) {
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-  }
-}
-.personal-coatch__items-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  @media screen and (min-width: $desktop-width) {
-    gap: 24px;
+    flex-direction: column;
+    gap: 24px 20px;
+    height: 300px;
+    width: 1032px;
   }
 }
 
 .personal-coatch__item {
+  margin-bottom: 8px;
   padding: 8px 18px;
   display: flex;
   align-items: center;
   gap: 18px;
   background-color: $background-color;
+  &:last-child {
+    margin-bottom: 0;
+  }
   @media screen and (min-width: $desktop-width) {
     margin-bottom: 0;
+    gap: 32px;
     padding: 16px 32px;
     width: 506px;
   }
