@@ -25,10 +25,15 @@ function onBtnToggle(e) {
 }
 function onFormSubmit(e) {
   e.preventDefault();
+  if(!e.target.elements.promo.value){
+    return;
+  }
   const promoFromInput = e.target.elements.promo.value;
-  const randomRequest = random();
-  console.log(randomRequest);
+  const randomRequest = random();  
+
   if(randomRequest){
+    const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
+    if(!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
     refs.successContainer.classList.remove('visually-hidden');
     const discount = randomDiscount();
     sessionStorage.setItem('discount', String(discount));
@@ -36,6 +41,8 @@ function onFormSubmit(e) {
     refs.promoForm.reset();
   } else {
     refs.errorIcon.classList.remove('visually-hidden');
+    refs.successContainer.classList.add('visually-hidden');
+
   }
 }
 function random(){  
