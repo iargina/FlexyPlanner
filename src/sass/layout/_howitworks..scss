@@ -37,7 +37,7 @@
     }
     .howitworks__title {
         font-size: 28px;
-        font-weight: 700;
+        font-family: $font-family700;
         line-height: calc(32 / 28);
         text-align: center;
 
@@ -50,7 +50,7 @@
     .howitworks__number {
         font-size: 64px;
         line-height: calc(64 / 64);
-        font-weight: 800;
+        font-family: $font-family800;
 
         @media screen and (min-width: $desktop-width) {
             font-size: 128px;
@@ -60,7 +60,7 @@
     .howitworks__text {
         font-size: 18px;
         line-height: calc(22 / 18);
-        font-weight: 800;
+        font-family: $font-family800;
         text-transform: uppercase;
 
         @media screen and (min-width: $desktop-width) {
@@ -91,9 +91,11 @@
 
     .howitworks-checkbox__text {
         font-size: 14px;
+        font-family: $font-family500;
 
         @media screen and (min-width: $desktop-width) {
             font-size: 24px;
+            line-height: calc(32 / 24);
         }
     }
 
@@ -115,15 +117,19 @@
 
         @media screen and (min-width: $desktop-width) {
             display: flex;
-            width: 429px;
+            width: 442px;
             gap: 32px;
           }
     }
 
     .howitworks__arrow-icon {
-        width: 24px;
-        height: 24px;
+        width: 12px;
+        height: 6px;
         stroke: $black-color;
+
+        transition-property: rotate;
+        transition-duration: 250ms;
+        transition-timing-function: $transition-timing-function;
     
         @media screen and (min-width: $desktop-width) {
             display: none;
@@ -138,6 +144,7 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 4px;
+        align-items: center;
     
         @media screen and (min-width: $desktop-width) {
             margin-top: 14px;
