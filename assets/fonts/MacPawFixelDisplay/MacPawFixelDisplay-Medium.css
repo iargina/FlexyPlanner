@@ -1,0 +1,9 @@
+/* Webfont: MacPawFixelDisplay-Medium */@font-face {
+    font-family: 'MacPawFixelDisplayMedium';
+    src: url('MacPawFixelDisplay-Medium.woff2') format('woff2'), /* Modern Browsers */
+         url('MacPawFixelDisplay-Medium.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
