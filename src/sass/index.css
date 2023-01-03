@@ -767,6 +767,173 @@ body {
   }
 }
 
+.howitworks {
+  width: 100%;
+  background-color: #f3bb4a;
+  padding-top: 40px;
+  padding-bottom: 66px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+.howitworks .howitworks__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 40px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__list {
+    margin-top: 100px;
+  }
+  .howitworks .howitworks__list :last-child {
+    border: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #111111;
+    padding-bottom: 57px;
+  }
+  .howitworks .howitworks__item :last-child {
+    border: none;
+  }
+}
+.howitworks .howitworks__title {
+  font-size: 28px;
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  line-height: 1.1428571429;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__title {
+    font-size: 64px;
+    line-height: 1;
+  }
+}
+.howitworks .howitworks__number {
+  font-size: 64px;
+  line-height: 1;
+  font-family: "MacPawFixelDisplay800", sans-serif;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__number {
+    font-size: 128px;
+  }
+}
+.howitworks .howitworks__text {
+  font-size: 18px;
+  line-height: 1.2222222222;
+  font-family: "MacPawFixelDisplay800", sans-serif;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__text {
+    font-size: 32px;
+    line-height: 1.1875;
+  }
+}
+.howitworks .howitworks-item__wrapper {
+  border-bottom: 1px solid #111111;
+  padding-bottom: 12px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-item__wrapper {
+    border: none;
+    width: 429px;
+  }
+}
+.howitworks .howitworks-checkbox__item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__item {
+    gap: 18px;
+  }
+}
+.howitworks .howitworks-checkbox__text {
+  font-size: 14px;
+  font-family: "MacPawFixelDisplay500", sans-serif;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__text {
+    font-size: 24px;
+    line-height: 1.3333333333;
+  }
+}
+.howitworks .howitworks-checkbox__icon {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+.howitworks .howitworks-checkbox__list {
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__list {
+    display: flex;
+    width: 442px;
+    gap: 32px;
+  }
+}
+.howitworks .howitworks__arrow-icon {
+  width: 12px;
+  height: 6px;
+  stroke: #111111;
+  transition-property: rotate;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__arrow-icon {
+    display: none;
+  }
+}
+.howitworks .rotate {
+  rotate: 180deg;
+}
+.howitworks .howitworks__icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  align-items: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__icon-wrapper {
+    margin-top: 14px;
+  }
+}
+.howitworks .howitworks-container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (min-width: 375px) {
+  .howitworks .howitworks-container {
+    max-width: 375px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-container {
+    max-width: 1440px;
+    padding: 0 204px;
+  }
+}
+
 .container {
   margin-bottom: 72px;
 }
@@ -919,6 +1086,124 @@ body {
     display: initial;
     padding-top: 20px;
   }
+}
+
+.qa {
+  padding-bottom: 0;
+}
+.qa .qa__title {
+  font-size: 28px;
+  line-height: 1.1428571429;
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__title {
+    font-size: 64px;
+    line-height: 1.0625;
+  }
+}
+.qa .qa__list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__list {
+    gap: 16px;
+    margin-top: 72px;
+  }
+}
+.qa .qa__item {
+  padding: 16px 14px;
+  background-color: #f3f3f3;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__item {
+    padding-left: 32px;
+    padding-right: 19px;
+    padding-top: 20px;
+  }
+}
+.qa .qa-item__text {
+  font-size: 14px;
+  line-height: 1.4285714286;
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  margin-top: 14px;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa-item__text {
+    font-size: 18px;
+  }
+}
+.qa .qa-item__title {
+  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3333333333;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa-item__title {
+    font-size: 24px;
+  }
+}
+.qa .qa-btn__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.qa .qa__btn {
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.827586px solid rgba(17, 17, 17, 0.12);
+  transition-property: background-color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.qa .qa__btn:hover {
+  border: 0.827586px solid #f3bb4a;
+  cursor: pointer;
+  background-color: #f3bb4a;
+  border-radius: 50%;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__btn {
+    height: 40px;
+    width: 40px;
+  }
+}
+.qa .qa__icon {
+  height: 24px;
+  width: 24px;
+  fill: none;
+  stroke: black;
+  transition-property: rotate;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__icon {
+    height: 40px;
+    width: 40px;
+  }
+}
+.qa .half-rotate {
+  rotate: 45deg;
+}
+.qa .active-btn {
+  border: 0.827586px solid #f3bb4a;
+  cursor: pointer;
+  background-color: #f3bb4a;
+  border-radius: 50%;
 }
 
 .personal-coatch {
