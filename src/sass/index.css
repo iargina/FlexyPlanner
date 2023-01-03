@@ -1,4 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import '~node_modules/swiper/swiper-bundle.min.css';
 ul {
   list-style: none;
 }
@@ -670,6 +671,248 @@ body {
   display: block;
 }
 
+.hero {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 70px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__main {
+    display: flex;
+    align-items: flex-start;
+    max-height: 507px;
+  }
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 648px) {
+  .hero__title {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__title {
+    gap: 94px;
+  }
+}
+
+.logo-link {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.hero__description {
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-weight: 700;
+  width: 295px;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 1440px) {
+  .hero__description {
+    width: 420px;
+    font-size: 32px;
+    line-height: 119%;
+  }
+}
+
+.hero__accent-text {
+  color: #f3bb4a;
+}
+
+.hero__slider-text {
+  width: 162px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 32px;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .hero__slider-text {
+    margin-bottom: 18px;
+    width: 229px;
+    margin-left: 0;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: left;
+  }
+}
+
+.hero__btn {
+  display: block;
+  padding: 10px 56px;
+  margin: 0 auto;
+  width: 199px;
+  height: 42px;
+  background: #111111;
+  color: #ffffff;
+  border-radius: 4px;
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-size: 18px;
+  line-height: 122%;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+@media screen and (min-width: 1440px) {
+  .hero__btn {
+    margin-left: 0;
+    width: 227px;
+    height: 56px;
+    padding: 14px 56px;
+    font-size: 24px;
+    line-height: 117%;
+  }
+}
+
+.hero__swiper {
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .hero__swiper {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__swiper.swiper {
+    top: -50px;
+    margin-left: 0;
+  }
+}
+
+.swiper-wrapper {
+  height: 300px;
+}
+@media screen and (min-width: 960px) {
+  .swiper-wrapper {
+    height: auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .swiper-wrapper {
+    height: 652px;
+  }
+}
+
+.hero__swiper-slide {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+@media screen and (min-width: 960px) {
+  .hero__swiper-slide {
+    width: 514px;
+    min-height: 270px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__swiper-slide {
+    width: 514px;
+    height: 507px;
+  }
+}
+
+.hero__swiper-slide.swiper-slide {
+  margin: 0;
+}
+@media screen and (min-width: 960px) {
+  .hero__swiper-slide.swiper-slide {
+    transform: rotate(15deg);
+  }
+}
+
+.swiper-slide__container > picture {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-wrapper .swiper-slide-next {
+  right: calc((100vw - 80px) / 2);
+  transform: rotate(4deg);
+}
+@media screen and (min-width: 376px) {
+  .swiper-wrapper .swiper-slide-next {
+    right: 0;
+  }
+}
+
+.swiper-wrapper .swiper-slide-prev {
+  left: calc((100vw - 80px) / 2);
+  transform: rotate(356deg);
+}
+@media screen and (min-width: 376px) {
+  .swiper-wrapper .swiper-slide-prev {
+    left: 0;
+  }
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.hero__pagination {
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  left: 0;
+  z-index: 50;
+}
+.hero__pagination span {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  background-color: #f3bb4a;
+}
+.hero__pagination span:first-of-type {
+  background-color: #c34627;
+}
+.hero__pagination span:last-of-type {
+  background-color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .hero__pagination {
+    position: absolute;
+    margin-top: 0;
+    display: block;
+    left: 96%;
+  }
+  .hero__pagination span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.swiper-pagination-bullet {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border: 2px solid #e8e8e8;
+}
+
 .footer__section {
   width: 100%;
   position: relative;
@@ -681,7 +924,7 @@ body {
 }
 @media screen and (min-width: 1440px) {
   .footer__section {
-    padding: 50px 100px;
+    padding: 50px 100px 100px;
   }
 }
 
@@ -694,6 +937,7 @@ body {
 @media screen and (min-width: 1440px) {
   .footer__contacts {
     gap: 14px;
+    margin-bottom: 0;
   }
 }
 
@@ -772,11 +1016,13 @@ body {
   background-color: #f3bb4a;
   padding-top: 40px;
   padding-bottom: 66px;
+  margin-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
   .howitworks {
     padding-top: 100px;
     padding-bottom: 100px;
+    margin-bottom: 172px;
   }
 }
 .howitworks .howitworks__list {
@@ -934,11 +1180,11 @@ body {
   }
 }
 
-.container {
+.container-order {
   margin-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
-  .container {
+  .container-order {
     max-width: 1022px;
     margin-bottom: 172px;
   }
@@ -946,7 +1192,7 @@ body {
 
 .order {
   font-size: 14px;
-  font-weight: 400;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   text-align: center;
   letter-spacing: -0.02em;
   color: #111111;
@@ -985,7 +1231,7 @@ body {
 .pre-order__text,
 .order-now__text {
   font-size: 18px;
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 1440px) {
@@ -1005,13 +1251,14 @@ body {
   display: inline-block;
   margin-bottom: 24px;
   color: #3c3b3b;
+  font-family: "MacPawFixelDisplay400", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__delivery,
 .order-now__delivery {
     margin-bottom: 32px;
     font-size: 18px;
-    font-weight: 400;
+    font-family: "MacPawFixelDisplay400", sans-serif;
     line-height: 1.3333333333;
   }
 }
@@ -1019,19 +1266,23 @@ body {
 .order-now__btn {
   display: block;
   margin: 0 auto;
-  padding: 10px 64px;
+  padding: 12px 62px 8px;
   margin-bottom: 24px;
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  line-height: 1.2222222222;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn,
 .order-now__btn {
     margin-bottom: 14px;
-    padding: 14px 32px;
+    padding: 15px 32px 13px;
   }
 }
 .pre-order__link,
 .order-now__link {
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 24px;
   text-decoration: underline;
   font-size: 14px;
@@ -1042,7 +1293,6 @@ body {
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 1.5555555556;
-    font-weight: 500;
   }
 }
 
@@ -1057,9 +1307,10 @@ body {
 
 .motivation-block {
   padding: 14px;
-  font-style: italic;
   background-color: #f3f3f3;
   text-align: left;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  line-height: 1.5714285714;
 }
 @media screen and (min-width: 1440px) {
   .motivation-block {
@@ -1067,7 +1318,7 @@ body {
   }
 }
 .motivation-block__link {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-style: normal;
 }
 .motivation-block__text {
@@ -1090,6 +1341,12 @@ body {
 
 .qa {
   padding-bottom: 0;
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .qa {
+    margin-bottom: 172px;
+  }
 }
 .qa .qa__title {
   font-size: 28px;
