@@ -27,7 +27,7 @@
         @media screen and (min-width: $desktop-width) {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $black-color;
             padding-bottom: 57px;
 
             :last-child {
@@ -70,8 +70,8 @@
     }
 
     .howitworks-item__wrapper {
-        border-bottom: 1px solid black;
-        padding-bottom: 10px;
+        border-bottom: 1px solid $black-color;
+        padding-bottom: 12px;
 
         @media screen and (min-width: $desktop-width) {
             border: none;
@@ -108,10 +108,10 @@
     }
 
     .howitworks-checkbox__list {
-        padding-top: 20px;
+        padding-top: 22px;
         display: none;
         flex-direction: column;
-        gap: 14px;
+        gap: 18px;
 
         @media screen and (min-width: $desktop-width) {
             display: flex;
@@ -119,24 +119,43 @@
             gap: 32px;
           }
     }
-}
 
-.howitworks__arrow-icon {
-    width: 24px;
-    height: 24px;
-    fill: none;
-    stroke: black;
-
-    @media screen and (min-width: $desktop-width) {
-        display: none;
+    .howitworks__arrow-icon {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: $black-color;
+    
+        @media screen and (min-width: $desktop-width) {
+            display: none;
+        }
     }
+    
+    .rotate {
+        rotate: 180deg;
+    }
+    
+    .howitworks__icon-wrapper {
+        display: flex;
+        justify-content: space-between;
+    
+        @media screen and (min-width: $desktop-width) {
+            margin-top: 14px;
+        }
+    }
+
+    .howitworks-container {
+        margin: 0 auto;
+        padding: 0 20px;
+      
+        @media screen and (min-width: $phone-width) {
+            max-width: $phone-width;
+        }
+      
+        @media screen and (min-width: $desktop-width) {
+          max-width: $desktop-width;
+          padding: 0 204px;
+        }
+      }
 }
 
-.rotate {
-    rotate: 180deg;
-}
-
-.howitworks__icon-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
