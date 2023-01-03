@@ -1,0 +1,9 @@
+/* Webfont: MacPawFixelDisplay-SemiBold */@font-face {
+    font-family: 'MacPawFixelDisplaySemiBold';
+    src: url('MacPawFixelDisplay-SemiBold.woff2') format('woff2'), /* Modern Browsers */
+         url('MacPawFixelDisplay-SemiBold.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
