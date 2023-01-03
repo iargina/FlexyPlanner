@@ -20,7 +20,7 @@
   }
 }
 .footer__title {
-  font-weight: 700;
+  font-family: $font-family700;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -31,7 +31,7 @@
   }
 }
 .footer__text {
-  font-weight: 400;
+  font-family: $font-familyExtraLight400;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
@@ -63,7 +63,7 @@
   width: 335px;
   margin: auto;
   padding: 10px 65px;
-  font-weight: 600;
+  font-family: $font-family600;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
