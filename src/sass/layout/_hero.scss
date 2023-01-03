@@ -28,8 +28,10 @@
   margin-bottom: 14px;
 }
 
-.hero__description {  
+.hero__description {
+  font-family: $font-family700;
   font-weight: $bold-text;
+  width: 295px;
   font-size: 18px;
   line-height: 122%;
   letter-spacing: -0.02em;
@@ -50,8 +52,8 @@
   width: 162px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 32px;  
-  font-style: normal;
+  margin-bottom: 32px;
+  font-family: $font-family400;
   font-weight: $regular-text;
   font-size: 14px;
   line-height: 129%;
@@ -76,8 +78,8 @@
   height: 42px;
   background: $black-color;
   color: $white-color;
-  border-radius: 4px;  
-  font-weight: $medium-text;
+  border-radius: 4px;
+  font-family: $font-family600;
   font-size: 18px;
   line-height: 122%;
   text-align: center;
@@ -131,7 +133,7 @@
   }
 }
 .hero__swiper-slide.swiper-slide {
-  margin: 0; 
+  margin: 0;
   @media screen and (min-width: 960px) {
     transform: rotate(15deg);
   }
