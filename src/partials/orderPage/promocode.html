@@ -1,16 +1,16 @@
-<div class="container">  
-  <div class="promo__wrapper">
+<div class="container promo__container">    
     <form autocomplite="off" class="promo__form">
-      <label for="promo">Промокод </label>
+     <div class="promo__wrapper">
+      <label for="promo" class="promo__label">Промокод </label>
       <button class="promo__toggle" type="button" aria-label="кнопка для застосування промокоду">Додати</button>
+     </div>
       <div class="promo__hide">
-        <input name="promo" id="promo" type="text" placeholder="Введіть промокод"/>
+        <input class="promo__input" name="promo" id="promo" type="text" placeholder="Введіть промокод"/>
         <button type="submit" aria-label="кнопка для підтвердження застосування промокоду">Застосувати</button>
-        <div class="promo__success">
+        <div class="promo__success vissually-hidden">
           <p class="promo__success-text">Промокод застосовано</p>
           <p class="promo__final">Знижка за промокодом <span class="promo__discount">100</span></p>
         </div>
       </div>
-    </form>
-  </div>
+    </form>  
 </div>
