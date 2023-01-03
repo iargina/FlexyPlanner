@@ -1,7 +1,9 @@
 .contacts__form {
   max-width: 335px;
+  margin-bottom: 72px;
   @media screen and (min-width: $desktop-width) {
     max-width: 420px;
+    margin-bottom: 100px;
   }
 }
 .contacts__label {

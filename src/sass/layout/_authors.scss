@@ -1,5 +1,9 @@
 .authors {
   width: 100%;
+  margin-bottom: 72px;
+  @media screen and (min-width: $desktop-width) {
+    margin-bottom: 172px;
+  }
 }
 .authors__wrap {
   margin: 0 auto;
@@ -135,7 +139,6 @@
   padding: 14px;
   @media screen and (min-width: $desktop-width) {
     max-width: 822px;
-    margin-bottom: 172px;
     padding: 45px;
   }
 }
