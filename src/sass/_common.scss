@@ -1,6 +1,84 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import '~node_modules/swiper/swiper-bundle.min.css';
 
+@font-face {
+  font-family: 'MacPawFixelDisplay700';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplay800';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplay400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplay500';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplay600';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplayLight400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'MacPawFixelDisplayExtraLight400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2')
+      format('woff2'),
+    /* Modern Browsers */
+      url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf')
+      format('opentype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
