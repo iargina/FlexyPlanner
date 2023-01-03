@@ -1,0 +1,122 @@
+.qa {
+  padding-bottom: 0;
+  .qa__title {
+    font-size: 28px;
+    line-height: calc(32 / 28);
+    font-family: $font-family700;
+    text-align: center;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 64px;
+      line-height: calc(68 / 64);
+    }
+  }
+
+  .qa__list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    @media screen and (min-width: $desktop-width) {
+      gap: 16px;
+      margin-top: 72px;
+    }
+  }
+
+  .qa__item {
+    padding: 16px 14px;
+    background-color: $background-color;
+
+    @media screen and (min-width: $desktop-width) {
+      padding-left: 32px;
+      padding-right: 19px;
+      padding-top: 20px;
+    }
+  }
+
+  .qa-item__text {
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    font-family: $font-familyLight400;
+    margin-top: 14px;
+    color: $secondary-text-color;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 18px;
+    }
+  }
+
+  .qa-item__title {
+    font-family: $font-family500;
+    font-weight: $medium-text;
+    font-size: 18px;
+    line-height: calc(24 / 18);
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 24px;
+    }
+  }
+
+  .qa-btn__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .qa__btn {
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    background: none;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.827586px solid rgba(17, 17, 17, 0.12);
+
+    transition-property: background-color, border;
+    transition-duration: 250ms;
+    transition-timing-function: $transition-timing-function;
+
+    &:hover {
+      border: 0.827586px solid $accent-color;
+      cursor: pointer;
+      background-color: $accent-color;
+      border-radius: 50%;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .qa__icon {
+    height: 24px;
+    width: 24px;
+    fill: none;
+    stroke: black;
+
+    transition-property: rotate;
+    transition-duration: 250ms;
+    transition-timing-function: $transition-timing-function;
+
+    @media screen and (min-width: $desktop-width) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .half-rotate {
+    rotate: 45deg;
+  }
+
+  .active-btn {
+    border: 0.827586px solid $accent-color;
+    cursor: pointer;
+    background-color: $accent-color;
+    border-radius: 50%;
+  }
+}
