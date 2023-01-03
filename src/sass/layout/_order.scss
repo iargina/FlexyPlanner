@@ -8,7 +8,7 @@
 
 .order {
   font-size: 14px;
-  font-weight: $regular-text;
+  font-family: $font-family400;
   text-align: center;
   letter-spacing: -0.02em;
   color: $black-color;
@@ -68,7 +68,7 @@
     @media screen and (min-width: 1440px) {
       margin-bottom: 32px;
       font-size: 18px;
-      font-weight: $regular-text;
+      font-family: $font-family400;
       line-height: calc(24 / 18);
     }
   }
@@ -90,7 +90,7 @@
   }
 
   &__link {
-    font-weight: $font-family500;
+    font-family: $font-family500;
     margin-bottom: 24px;
     text-decoration: underline;
     font-size: 14px;
