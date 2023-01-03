@@ -1,10 +1,15 @@
 .promo__container {
   padding-top: 72px;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
+  @media screen and (min-width: 1440px) {
+    padding-top: 50px;
+    padding-bottom: 150px;
+  }
 }
 .complite-form {
   background: $background-color;
   border-radius: 4px;
+  max-width:420px;
 }
 .promo__wrapper {
   display: flex;
@@ -15,14 +20,24 @@
   height: 46px;
   background: $background-color;
   border-radius: 4px;
+  @media screen and (min-width: 1440px) {
+    width: 420px;
+    height: 56px;
+    padding-left: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 }
 .promo__label {
   font-family: $font-family500;
-  font-weight: 500;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
   color: $black-color;
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+    line-height: 133%;
+  }
 }
 .promo__toggle {
   font-family: $font-family400;
@@ -38,15 +53,24 @@
   line-height: 150%;
   letter-spacing: -0.01em;
   color: $secondary-text-color;
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    line-height: 112%;
+  }
 }
 .promo__hide {
   margin-top: 14px;
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 14px;
+  @media screen and (min-width: 1440px) {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 18px;
+  }
 }
-.promo__error{
-    position: relative;
+.promo__error {
+  position: relative;
 }
 .promo__input {
   width: 100%;
@@ -59,11 +83,19 @@
   display: block;
   color: $black-color;
   font-family: $font-family400;
+  @media screen and (min-width: 1440px) {
+    padding: 14px;
+    font-size: 18px;
+    line-height: 133%;
+  }
 }
-.promocode__icon{
-    position: absolute;
-    top: 17%;
-    left: 282px;
+.promocode__icon {
+  position: absolute;
+  top: 17%;
+  left: 282px;
+  @media screen and (min-width: 1440px) {
+    left: 356px;
+  }
 }
 .promo__submit {
   display: inline-flex;
@@ -81,10 +113,19 @@
   line-height: 112%;
   letter-spacing: -0.02em;
   color: $black-color;
+  @media screen and (min-width: 1440px) {
+    width: 392px;
+    height: 56px;
+    font-size: 24px;
+    line-height: 117%;
+  }
 }
 .promo__success {
   margin-top: 12px;
   text-align: left;
+  @media screen and (min-width: 1440px) {
+    margin-top: 14px;
+  }
 }
 .promo__success-text {
   font-family: $font-family400;
@@ -93,24 +134,35 @@
   letter-spacing: -0.01em;
   color: $success-color;
   margin-bottom: 8px;
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 129%;
+  }
 }
-.promo__price{
+.promo__price {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.promo__final{
+.promo__final {
   font-family: $font-family400;
-font-size: 14px;
-line-height: 129%;
-letter-spacing: -0.01em;
-color: $black-color;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: $black-color;
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+    line-height: 133%;
+  }
 }
 .promo__discount {
-font-family: $font-family600;
-font-size: 14px;
-line-height: 129%;
-
-letter-spacing: -0.01em;
-color: $black-color;
+  font-family: $font-family600;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: $black-color;
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+    line-height: 133%;
+  }
 }

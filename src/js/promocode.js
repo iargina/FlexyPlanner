@@ -42,7 +42,6 @@ function onFormSubmit(e) {
   } else {
     refs.errorIcon.classList.remove('visually-hidden');
     refs.successContainer.classList.add('visually-hidden');
-
   }
 }
 function random(){  
