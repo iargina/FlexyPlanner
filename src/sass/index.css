@@ -499,6 +499,81 @@ body {
   }
 }
 
+.contacts__form {
+  max-width: 335px;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__form {
+    max-width: 420px;
+  }
+}
+
+.contacts__label {
+  display: block;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__label {
+    font-size: 16px;
+    line-height: 1.125;
+  }
+}
+
+.contacts__input {
+  width: 100%;
+  padding: 12px;
+  background: #f3f3f3;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.1666666667;
+  letter-spacing: -0.01em;
+  color: #3c3b3b;
+  border: none;
+  outline: transparent;
+  margin-bottom: 14px;
+}
+.contacts__input:last-child {
+  margin-bottom: 0;
+}
+.contacts__input::-moz-placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input:-ms-input-placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input::placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input--textarea {
+  min-height: 95px;
+  resize: none;
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__input {
+    font-size: 18px;
+    line-height: 1.3333333333;
+    padding: 16px 14px;
+    margin-bottom: 24px;
+  }
+  .contacts__input--textarea {
+    min-height: 132px;
+    margin-bottom: 40px;
+  }
+}
+
+.contacts__btn {
+  padding: 10px 44px;
+}
+
 .city-wrapper {
   max-width: 335px;
   position: relative;
@@ -1004,7 +1079,7 @@ body {
 }
 
 .personal-coatch__descr {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
