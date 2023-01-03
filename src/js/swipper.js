@@ -13,7 +13,6 @@ const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   initialSlide: 0,
   spaceBetween: 10,
-autoHeight: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -24,7 +23,7 @@ autoHeight: true,
     disableOnInteraction: false,
   },
   breakpoints: {
-    1439: {
+    1440: {
       direction: 'vertical',
     },
   },

@@ -28,8 +28,7 @@
   margin-bottom: 14px;
 }
 
-.hero__description {
-  font-family: 'Geometria';
+.hero__description {  
   font-weight: $bold-text;
   font-size: 18px;
   line-height: 122%;
@@ -51,8 +50,7 @@
   width: 162px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 32px;
-  font-family: 'Geometria';
+  margin-bottom: 32px;  
   font-style: normal;
   font-weight: $regular-text;
   font-size: 14px;
@@ -78,9 +76,7 @@
   height: 42px;
   background: $black-color;
   color: $white-color;
-  border-radius: 4px;
-  font-family: 'Geometria';
-  font-style: normal;
+  border-radius: 4px;  
   font-weight: $medium-text;
   font-size: 18px;
   line-height: 122%;
@@ -111,6 +107,9 @@
 
 .swiper-wrapper {
   height: 300px;
+  @media screen and (min-width: 960px) {
+    height: auto;
+  }
   @media screen and (min-width: 1440px) {
     height: 652px;
   }
@@ -122,6 +121,10 @@
   align-items: center;
   margin: 0;
 
+  @media screen and (min-width: 960px) {
+    width: 514px;
+    min-height: 270px;
+  }
   @media screen and (min-width: 1440px) {
     width: 514px;
     height: 507px;
@@ -129,7 +132,7 @@
 }
 .hero__swiper-slide.swiper-slide {
   margin: 0; 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 960px) {
     transform: rotate(15deg);
   }
 }
