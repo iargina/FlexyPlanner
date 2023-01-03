@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   @media screen and (min-width: $desktop-width) {
-    padding: 50px 100px;
+    padding: 50px 100px 100px;
   }
 }
 .footer__contacts {
@@ -17,6 +17,7 @@
   margin-bottom: 60px;
   @media screen and (min-width: $desktop-width) {
     gap: 14px;
+    margin-bottom: 0;
   }
 }
 .footer__title {
