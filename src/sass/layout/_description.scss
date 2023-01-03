@@ -2,7 +2,7 @@
   margin-bottom: 136px;
 
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 319px;
+    margin-bottom: 230px;
   }
 }
 
@@ -18,7 +18,7 @@
   margin-bottom: 134px;
 
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 260px;
+    margin-bottom: 292px;
   }
 }
 
@@ -87,8 +87,8 @@
 
   &:nth-child(4) {
     bottom: -62px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(50%);
 
     &::before {
       background: url('./../images/description/mob_1x_round_4.png') center /
@@ -154,131 +154,153 @@
     }
   }
 
+  &:nth-child(8) {
+    display: none;
+  }
+
   @media screen and (min-width: $desktop-width) {
     max-width: 200px;
 
     &::before {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       margin-bottom: 24px;
     }
 
     &:nth-child(1) {
-      top: -150px;
-      right: 94px;
+      top: -60px;
+      right: -254px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_1.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_1.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(2) {
-      top: 261px;
-      right: -134px;
+      top: 216px;
+      right: -96px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_2.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_2.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(3) {
-      bottom: 80px;
-      right: -38px;
+      bottom: 152px;
+      right: -268px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_3.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_3.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(4) {
-      bottom: -160px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: -120px;
+      right: -30px;
+      transform: translateX(0);
 
       &::before {
         background: url('./../images/description/desk_1x_round_4.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_4.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(5) {
-      bottom: 80px;
-      left: -25px;
+      bottom: -94px;
+      left: -20px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_5.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_5.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(6) {
-      top: 261px;
-      left: -117px;
+      top: 486px;
+      left: -256px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_6.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_6.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
         }
       }
     }
 
     &:nth-child(7) {
-      top: -150px;
-      left: 115px;
+      top: 214px;
+      left: -80px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_7.png') center /
-          150px 150px no-repeat;
+          140px 140px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_7.png') center /
-            150px 150px no-repeat;
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(8) {
+      display: block;
+      top: -58px;
+      left: -242px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_8.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_8.png') center /
+            140px 140px no-repeat;
         }
       }
     }
@@ -287,7 +309,7 @@
 
 .description__text {
   font-size: 8px;
-  font-weight: $bold-text;
+  font-family: $font-family700;
   line-height: calc(10 / 8);
   text-transform: uppercase;
 
