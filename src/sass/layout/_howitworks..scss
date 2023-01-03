@@ -109,7 +109,7 @@
 
     .howitworks-checkbox__list {
         padding-top: 22px;
-        display: none;
+        display: flex;
         flex-direction: column;
         gap: 18px;
 
@@ -123,7 +123,6 @@
     .howitworks__arrow-icon {
         width: 24px;
         height: 24px;
-        fill: none;
         stroke: $black-color;
     
         @media screen and (min-width: $desktop-width) {
@@ -138,6 +137,7 @@
     .howitworks__icon-wrapper {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 4px;
     
         @media screen and (min-width: $desktop-width) {
             margin-top: 14px;
