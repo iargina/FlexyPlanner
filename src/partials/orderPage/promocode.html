@@ -1,0 +1,43 @@
+<div class="container promo__container">
+  <form autocomplite="off" class="promo__form">
+    <div class="promo__wrapper">
+      <label for="promo" class="promo__label">Промокод </label>
+      <button
+        class="promo__toggle"
+        type="button"
+        aria-label="кнопка для застосування промокоду"
+      >
+        Додати
+      </button>
+    </div>
+    <div class="promo__hide visually-hidden">
+      <span class="promo__error">
+        <input
+        class="promo__input"
+        name="promo"
+        id="promo"
+        type="text"
+        placeholder="Введіть промокод"
+      />
+      <svg class="promocode__icon visually-hidden" width="15" height="15">
+        <use href="../assets/ico/sprite.svg#warning"></use>
+      </svg>
+      </span>
+      
+      <button
+        type="submit"
+        class="promo__submit"
+        aria-label="кнопка для підтвердження застосування промокоду"
+      >
+        Застосувати
+      </button>
+      <div class="promo__success visually-hidden">
+        <p class="promo__success-text">Промокод застосовано</p>
+        <div class="promo__price">
+          <p class="promo__final">Знижка за промокодом</p>
+          <span class="promo__discount">100 грн</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
