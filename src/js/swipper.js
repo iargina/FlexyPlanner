@@ -6,6 +6,7 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
+  loopedSlides:3,
   centeredSlides: true,
   autoplayDisableOnInteraction: false,
   speed: 300,
