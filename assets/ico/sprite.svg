@@ -3,9 +3,9 @@
     <symbol id="arrow_up" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 20l8-8 8 8"></path>
     </symbol>
-    <symbol id="arrow_down" viewBox="0 0 32 32">
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 12l8 8 8-8"></path>
-    </symbol>
+   <symbol id="arrow_down" viewBox="0 0 53 32">
+<path d="M0.781 2.114c1.041-1.041 2.73-1.041 3.771 0l22.114 22.114 22.114-22.114c1.041-1.041 2.73-1.041 3.771 0s1.041 2.73 0 3.771l-24 24c-1.041 1.041-2.73 1.041-3.771 0l-24-24c-1.041-1.041-1.041-2.73 0-3.771z"></path>
+</symbol>
     <symbol id="arrow_up_solid" viewBox="0 0 32 32">
       <path fill="#000" d="M17.379 4.344c-0.618-1.051-2.14-1.051-2.758 0l-14.621 24.856h32l-14.621-24.856z"></path>
     </symbol>
