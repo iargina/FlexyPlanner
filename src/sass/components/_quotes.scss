@@ -30,7 +30,7 @@
 
 .quotes__descr {
   width: 267px;
-  font-weight: 500;
+  font-family: $font-family500;
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.02em;
@@ -43,4 +43,5 @@
 }
 .quotes__descr--accent {
   color: $accent-color;
+  font-family: $font-family700;
 }

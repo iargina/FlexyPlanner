@@ -1,0 +1,9 @@
+/* Webfont: MacPawFixelDisplay-Black */@font-face {
+    font-family: 'MacPawFixelDisplayBlack';
+    src: url('MacPawFixelDisplay-Black.woff2') format('woff2'), /* Modern Browsers */
+         url('MacPawFixelDisplay-Black.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

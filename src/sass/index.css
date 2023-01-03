@@ -43,6 +43,55 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@font-face {
+  font-family: "MacPawFixelDisplay700";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplay800";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplay400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplay500";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplay600";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplayLight400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "MacPawFixelDisplayExtraLight400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -53,7 +102,7 @@ body {
   font-size: 24px;
   line-height: 1.3333333333;
   color: #111111;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .container {
@@ -84,7 +133,7 @@ body {
 .btn {
   display: inline-block;
   padding: 10px 56px;
-  font-family: "Geometria", sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2222222222;
@@ -102,27 +151,27 @@ body {
 }
 
 .btn--primary {
-  background-color: #F3BB4A;
+  background-color: #f3bb4a;
   color: #111111;
 }
 .btn--primary:hover, .btn--primary:focus {
   background-color: #111111;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn--primary:disabled {
-  color: #F3F3F3;
+  color: #f3f3f3;
 }
 
 .btn--secondary {
   background-color: #111111;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn--secondary:hover, .btn--secondary:focus {
-  background-color: #F3BB4A;
+  background-color: #f3bb4a;
   color: #111111;
 }
 .btn--secondary:disabled {
-  color: #F3F3F3;
+  color: #f3f3f3;
 }
 
 .backdrop {
@@ -132,7 +181,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 1;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
   z-index: 30;
@@ -145,7 +194,7 @@ body {
 
 .modal {
   padding: 28px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden .modal {
@@ -154,7 +203,7 @@ body {
 
 .title {
   font-size: 28px;
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.1428571429;
   text-align: center;
   margin-bottom: 40px;
@@ -169,7 +218,7 @@ body {
 
 .subtitle {
   font-size: 16px;
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   line-height: 1.125;
   margin-bottom: 18px;
 }
@@ -222,11 +271,11 @@ body {
 
 .quotes__descr {
   width: 267px;
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 1.2857142857;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
   .quotes__descr {
@@ -237,7 +286,8 @@ body {
 }
 
 .quotes__descr--accent {
-  color: #F3BB4A;
+  color: #f3bb4a;
+  font-family: "MacPawFixelDisplay700", sans-serif;
 }
 
 .authors {
@@ -279,7 +329,7 @@ body {
 }
 
 .authors__text--item {
-  font-weight: 400;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 14px;
   line-height: 1.43;
   max-width: 157px;
@@ -304,13 +354,13 @@ body {
 }
 
 .authors__text--item--accent--bold {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   margin-right: 0;
 }
 
 .authors__text--tem--accent {
-  font-weight: 700;
-  color: #F3BB4A;
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  color: #f3bb4a;
   margin: 0;
 }
 
@@ -337,7 +387,7 @@ body {
 }
 
 .authors__info--subtitle {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -352,12 +402,12 @@ body {
 }
 
 .authors__info--subtitle--text {
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
-  color: #3C3B3B;
+  color: #3c3b3b;
 }
 @media screen and (min-width: 1440px) {
   .authors__info--subtitle--text {
@@ -379,15 +429,16 @@ body {
 }
 
 .authors__info--jobTitle--item {
-  font-weight: 400;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 12px;
   line-height: 1.5;
-  color: #3C3B3B;
+  color: #3c3b3b;
 }
 @media screen and (min-width: 1440px) {
   .authors__info--jobTitle--item {
     font-size: 18px;
     line-height: 1.33;
+    width: 315px;
   }
 }
 
@@ -435,12 +486,11 @@ body {
 }
 
 .authors__speach--text {
-  font-style: italic;
-  font-weight: 400;
+  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
   .authors__speach--text {
@@ -494,7 +544,7 @@ body {
 
 .input--city {
   border: none;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 .input--city::-moz-placeholder {
   color: rgba(60, 59, 59, 0.3);
@@ -530,7 +580,7 @@ body {
   text-align: left;
   border: 1px solid rgba(60, 59, 59, 0.1);
   color: #111111;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .warehouse-btn::after {
@@ -588,7 +638,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   z-index: 10;
   color: #111111;
   font-size: 12px;
@@ -648,11 +698,11 @@ body {
 }
 
 .footer__title {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
-  color: #F3BB4A;
+  color: #f3bb4a;
 }
 @media screen and (min-width: 1440px) {
   .footer__title {
@@ -662,13 +712,13 @@ body {
 }
 
 .footer__text {
-  font-weight: 400;
+  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
   .footer__text {
@@ -700,7 +750,7 @@ body {
   width: 335px;
   margin: auto;
   padding: 10px 65px;
-  font-weight: 600;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -758,7 +808,7 @@ body {
   }
 }
 .order-title__accent {
-  color: #F3BB4A;
+  color: #f3bb4a;
 }
 
 .pre-order,
@@ -781,13 +831,13 @@ body {
 }
 .pre-order__price,
 .order-now__price {
-  color: #F7434B;
+  color: #f7434b;
 }
 .pre-order__delivery,
 .order-now__delivery {
   display: inline-block;
   margin-bottom: 24px;
-  color: #3C3B3B;
+  color: #3c3b3b;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__delivery,
@@ -841,7 +891,7 @@ body {
 .motivation-block {
   padding: 14px;
   font-style: italic;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   text-align: left;
 }
 @media screen and (min-width: 1440px) {
@@ -893,7 +943,7 @@ body {
 }
 
 .personal-coatch__title--accent {
-  color: #F3BB4A;
+  color: #f3bb4a;
 }
 
 @media screen and (min-width: 1440px) {
@@ -913,7 +963,7 @@ body {
   display: flex;
   align-items: center;
   gap: 18px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 .personal-coatch__item:last-child {
   margin-bottom: 0;
@@ -933,7 +983,7 @@ body {
   align-items: center;
   width: 44px;
   height: 44px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
   .personal-coatch__icon-wrapper {

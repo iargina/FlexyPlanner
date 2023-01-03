@@ -30,7 +30,7 @@
   }
 }
 .authors__text--item {
-  font-weight: 400;
+  font-family: $font-family400;
   font-size: 14px;
   line-height: 1.43;
   max-width: 157px;
@@ -56,11 +56,11 @@
 }
 
 .authors__text--item--accent--bold {
-  font-weight: 700;
+  font-family: $font-family700;
   margin-right: 0;
 }
 .authors__text--tem--accent {
-  font-weight: 700;
+  font-family: $font-family700;
   color: $accent-color;
   margin: 0;
 }
@@ -82,7 +82,7 @@
 }
 
 .authors__info--subtitle {
-  font-weight: 700;
+  font-family: $font-family700;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -95,7 +95,7 @@
 }
 
 .authors__info--subtitle--text {
-  font-weight: 500;
+  font-family: $font-family500;
   font-size: 14px;
   line-height: 1.29;
 
@@ -117,13 +117,14 @@
   }
 }
 .authors__info--jobTitle--item {
-  font-weight: 400;
+  font-family: $font-family400;
   font-size: 12px;
   line-height: 1.5;
   color: $secondary-text-color;
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
     line-height: 1.33;
+    width: 315px;
   }
 }
 .authors__speach--wrap {
@@ -161,8 +162,7 @@
   }
 }
 .authors__speach--text {
-  font-style: italic;
-  font-weight: 400;
+  font-family: $font-familyExtraLight400;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: -0.02em;
