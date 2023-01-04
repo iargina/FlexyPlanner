@@ -50,8 +50,8 @@
       <path fill="#f3bb4a" style="fill: var(--color1, #f3bb4a)" d="M30.228 12.389l-10.542-10.613c-0.586-0.59-1.464-0.59-2.050 0-0.271 0.261-0.439 0.627-0.439 1.032s0.168 0.771 0.438 1.031l0 0 0.293 0.295-8.492 6.044-4.685 0.59c-1.464 0.294-2.782 1.326-3.22 2.653-0.44 1.326-0.147 2.948 0.878 3.832l5.124 5.16-3.66 3.684c-0.271 0.261-0.439 0.627-0.439 1.032s0.168 0.771 0.439 1.032l0 0c0.293 0.295 0.732 0.442 1.025 0.442 0.292 0 0.732-0.147 1.024-0.442l3.66-3.685 5.125 5.159c0.732 0.737 1.61 1.032 2.635 1.032 0.44 0 0.879 0 1.172-0.148 1.464-0.442 2.489-1.768 2.635-3.242l0.732-4.717 5.857-8.402 0.439 0.442c0.293 0.295 0.732 0.442 1.025 0.442s0.732-0.147 1.025-0.442c0.585-0.59 0.585-1.622 0-2.211z"></path>
     </symbol>
     <symbol id="plus" viewBox="0 0 32 32">
-      <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.1040" stroke="#000" d="M16 0.552c8.532 0 15.448 6.916 15.448 15.448s-6.916 15.448-15.448 15.448c-8.532 0-15.448-6.916-15.448-15.448s6.916-15.448 15.448-15.448z"></path>
-      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.6547" stroke="#000" d="M12.029 16h7.944M16 12.027v7.947"></path>
+      <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0" d="M16 0.552c8.532 0 15.448 6.916 15.448 15.448s-6.916 15.448-15.448 15.448c-8.532 0-15.448-6.916-15.448-15.448s6.916-15.448 15.448-15.448z"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.6547" d="M12.029 16h7.944M16 12.027v7.947"></path>
     </symbol>
     <symbol id="plus_order" viewBox="0 0 32 32">
       <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" stroke="#000" d="M16 6.667v18.665M6.667 16h18.665"></path>

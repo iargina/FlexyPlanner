@@ -1,4 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import '~node_modules/swiper/swiper-bundle.min.css';
 ul {
   list-style: none;
 }
@@ -292,6 +293,12 @@ body {
 
 .authors {
   width: 100%;
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .authors {
+    margin-bottom: 172px;
+  }
 }
 
 .authors__wrap {
@@ -452,7 +459,6 @@ body {
 @media screen and (min-width: 1440px) {
   .authors__speach--wrap {
     max-width: 822px;
-    margin-bottom: 172px;
     padding: 45px;
   }
 }
@@ -497,6 +503,83 @@ body {
     font-size: 24px;
     line-height: 1.33;
   }
+}
+
+.contacts__form {
+  max-width: 335px;
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__form {
+    max-width: 420px;
+    margin-bottom: 100px;
+  }
+}
+
+.contacts__label {
+  display: block;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__label {
+    font-size: 16px;
+    line-height: 1.125;
+  }
+}
+
+.contacts__input {
+  width: 100%;
+  padding: 12px;
+  background: #f3f3f3;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.1666666667;
+  letter-spacing: -0.01em;
+  color: #3c3b3b;
+  border: none;
+  outline: transparent;
+  margin-bottom: 14px;
+}
+.contacts__input:last-child {
+  margin-bottom: 0;
+}
+.contacts__input::-moz-placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input:-ms-input-placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input::placeholder {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  color: rgba(60, 59, 59, 0.3);
+}
+.contacts__input--textarea {
+  min-height: 95px;
+  resize: none;
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__input {
+    font-size: 18px;
+    line-height: 1.3333333333;
+    padding: 16px 14px;
+    margin-bottom: 24px;
+  }
+  .contacts__input--textarea {
+    min-height: 132px;
+    margin-bottom: 40px;
+  }
+}
+
+.contacts__btn {
+  padding: 10px 44px;
 }
 
 .city-wrapper {
@@ -670,6 +753,248 @@ body {
   display: block;
 }
 
+.hero {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 70px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__main {
+    display: flex;
+    align-items: flex-start;
+    max-height: 507px;
+  }
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 648px) {
+  .hero__title {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__title {
+    gap: 94px;
+  }
+}
+
+.logo-link {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.hero__description {
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-weight: 700;
+  width: 295px;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 1440px) {
+  .hero__description {
+    width: 420px;
+    font-size: 32px;
+    line-height: 119%;
+  }
+}
+
+.hero__accent-text {
+  color: #f3bb4a;
+}
+
+.hero__slider-text {
+  width: 162px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 32px;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .hero__slider-text {
+    margin-bottom: 18px;
+    width: 229px;
+    margin-left: 0;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: left;
+  }
+}
+
+.hero__btn {
+  display: block;
+  padding: 10px 56px;
+  margin: 0 auto;
+  width: 199px;
+  height: 42px;
+  background: #111111;
+  color: #ffffff;
+  border-radius: 4px;
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-size: 18px;
+  line-height: 122%;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+@media screen and (min-width: 1440px) {
+  .hero__btn {
+    margin-left: 0;
+    width: 227px;
+    height: 56px;
+    padding: 14px 56px;
+    font-size: 24px;
+    line-height: 117%;
+  }
+}
+
+.hero__swiper {
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .hero__swiper {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__swiper.swiper {
+    top: -50px;
+    margin-left: 0;
+  }
+}
+
+.swiper-wrapper {
+  height: 300px;
+}
+@media screen and (min-width: 960px) {
+  .swiper-wrapper {
+    height: auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .swiper-wrapper {
+    height: 652px;
+  }
+}
+
+.hero__swiper-slide {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+@media screen and (min-width: 960px) {
+  .hero__swiper-slide {
+    width: 514px;
+    min-height: 270px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__swiper-slide {
+    width: 514px;
+    height: 507px;
+  }
+}
+
+.hero__swiper-slide.swiper-slide {
+  margin: 0;
+}
+@media screen and (min-width: 960px) {
+  .hero__swiper-slide.swiper-slide {
+    transform: rotate(15deg);
+  }
+}
+
+.swiper-slide__container > picture {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-wrapper .swiper-slide-next {
+  right: calc((100vw - 80px) / 2);
+  transform: rotate(4deg);
+}
+@media screen and (min-width: 376px) {
+  .swiper-wrapper .swiper-slide-next {
+    right: 0;
+  }
+}
+
+.swiper-wrapper .swiper-slide-prev {
+  left: calc((100vw - 80px) / 2);
+  transform: rotate(356deg);
+}
+@media screen and (min-width: 376px) {
+  .swiper-wrapper .swiper-slide-prev {
+    left: 0;
+  }
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.hero__pagination {
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  left: 0;
+  z-index: 50;
+}
+.hero__pagination span {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  background-color: #f3bb4a;
+}
+.hero__pagination span:first-of-type {
+  background-color: #c34627;
+}
+.hero__pagination span:last-of-type {
+  background-color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .hero__pagination {
+    position: absolute;
+    margin-top: 0;
+    display: block;
+    left: 96%;
+  }
+  .hero__pagination span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.swiper-pagination-bullet {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border: 2px solid #e8e8e8;
+}
+
 .footer__section {
   width: 100%;
   position: relative;
@@ -681,7 +1006,7 @@ body {
 }
 @media screen and (min-width: 1440px) {
   .footer__section {
-    padding: 50px 100px;
+    padding: 50px 100px 100px;
   }
 }
 
@@ -694,6 +1019,7 @@ body {
 @media screen and (min-width: 1440px) {
   .footer__contacts {
     gap: 14px;
+    margin-bottom: 0;
   }
 }
 
@@ -767,11 +1093,180 @@ body {
   }
 }
 
-.container {
+.howitworks {
+  width: 100%;
+  background-color: #f3bb4a;
+  padding-top: 40px;
+  padding-bottom: 66px;
   margin-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
-  .container {
+  .howitworks {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 172px;
+  }
+}
+.howitworks .howitworks__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 40px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__list {
+    margin-top: 100px;
+  }
+  .howitworks .howitworks__list :last-child {
+    border: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #111111;
+    padding-bottom: 57px;
+  }
+  .howitworks .howitworks__item :last-child {
+    border: none;
+  }
+}
+.howitworks .howitworks__title {
+  font-size: 28px;
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  line-height: 1.1428571429;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__title {
+    font-size: 64px;
+    line-height: 1;
+  }
+}
+.howitworks .howitworks__number {
+  font-size: 64px;
+  line-height: 1;
+  font-family: "MacPawFixelDisplay800", sans-serif;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__number {
+    font-size: 128px;
+  }
+}
+.howitworks .howitworks__text {
+  font-size: 18px;
+  line-height: 1.2222222222;
+  font-family: "MacPawFixelDisplay800", sans-serif;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__text {
+    font-size: 32px;
+    line-height: 1.1875;
+  }
+}
+.howitworks .howitworks-item__wrapper {
+  border-bottom: 1px solid #111111;
+  padding-bottom: 12px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-item__wrapper {
+    border: none;
+    width: 429px;
+  }
+}
+.howitworks .howitworks-checkbox__item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__item {
+    gap: 18px;
+  }
+}
+.howitworks .howitworks-checkbox__text {
+  font-size: 14px;
+  font-family: "MacPawFixelDisplay500", sans-serif;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__text {
+    font-size: 24px;
+    line-height: 1.3333333333;
+  }
+}
+.howitworks .howitworks-checkbox__icon {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+.howitworks .howitworks-checkbox__list {
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-checkbox__list {
+    display: flex;
+    width: 442px;
+    gap: 32px;
+  }
+}
+.howitworks .howitworks__arrow-icon {
+  width: 12px;
+  height: 6px;
+  stroke: #111111;
+  transition-property: rotate;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__arrow-icon {
+    display: none;
+  }
+}
+.howitworks .rotate {
+  rotate: 180deg;
+}
+.howitworks .howitworks__icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  align-items: center;
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks__icon-wrapper {
+    margin-top: 14px;
+  }
+}
+.howitworks .howitworks-container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (min-width: 375px) {
+  .howitworks .howitworks-container {
+    max-width: 375px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .howitworks .howitworks-container {
+    max-width: 1440px;
+    padding: 0 204px;
+  }
+}
+
+.container-order {
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .container-order {
     max-width: 1022px;
     margin-bottom: 172px;
   }
@@ -779,7 +1274,7 @@ body {
 
 .order {
   font-size: 14px;
-  font-weight: 400;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   text-align: center;
   letter-spacing: -0.02em;
   color: #111111;
@@ -818,7 +1313,7 @@ body {
 .pre-order__text,
 .order-now__text {
   font-size: 18px;
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 1440px) {
@@ -838,13 +1333,14 @@ body {
   display: inline-block;
   margin-bottom: 24px;
   color: #3c3b3b;
+  font-family: "MacPawFixelDisplay400", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__delivery,
 .order-now__delivery {
     margin-bottom: 32px;
     font-size: 18px;
-    font-weight: 400;
+    font-family: "MacPawFixelDisplay400", sans-serif;
     line-height: 1.3333333333;
   }
 }
@@ -852,19 +1348,23 @@ body {
 .order-now__btn {
   display: block;
   margin: 0 auto;
-  padding: 10px 64px;
+  padding: 12px 62px 8px;
   margin-bottom: 24px;
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  line-height: 1.2222222222;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn,
 .order-now__btn {
     margin-bottom: 14px;
-    padding: 14px 32px;
+    padding: 15px 32px 13px;
   }
 }
 .pre-order__link,
 .order-now__link {
-  font-weight: 500;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 24px;
   text-decoration: underline;
   font-size: 14px;
@@ -875,7 +1375,6 @@ body {
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 1.5555555556;
-    font-weight: 500;
   }
 }
 
@@ -890,9 +1389,10 @@ body {
 
 .motivation-block {
   padding: 14px;
-  font-style: italic;
   background-color: #f3f3f3;
   text-align: left;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  line-height: 1.5714285714;
 }
 @media screen and (min-width: 1440px) {
   .motivation-block {
@@ -900,7 +1400,7 @@ body {
   }
 }
 .motivation-block__link {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-style: normal;
 }
 .motivation-block__text {
@@ -919,6 +1419,338 @@ body {
     display: initial;
     padding-top: 20px;
   }
+}
+
+.promo__container {
+  padding-top: 72px;
+  padding-bottom: 28px;
+}
+@media screen and (min-width: 1440px) {
+  .promo__container {
+    padding-top: 50px;
+    padding-bottom: 150px;
+  }
+}
+
+.complite-form {
+  background: #f3f3f3;
+  border-radius: 4px;
+  max-width: 420px;
+}
+
+.promo__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  width: 335px;
+  height: 46px;
+  background: #f3f3f3;
+  border-radius: 4px;
+}
+@media screen and (min-width: 1440px) {
+  .promo__wrapper {
+    width: 420px;
+    height: 56px;
+    padding-left: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.promo__label {
+  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .promo__label {
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.promo__toggle {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .promo__toggle {
+    font-size: 16px;
+    line-height: 112%;
+  }
+}
+
+.promo__hide {
+  margin-top: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 14px;
+}
+@media screen and (min-width: 1440px) {
+  .promo__hide {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 18px;
+  }
+}
+
+.promo__error {
+  position: relative;
+}
+
+.promo__input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(60, 59, 59, 0.1);
+  border-radius: 4px;
+  padding: 14px 12px;
+  font-size: 12px;
+  line-height: 117%;
+  display: block;
+  color: #111111;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+}
+@media screen and (min-width: 1440px) {
+  .promo__input {
+    padding: 14px;
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.promocode__icon {
+  position: absolute;
+  top: 17%;
+  left: 282px;
+}
+@media screen and (min-width: 1440px) {
+  .promocode__icon {
+    left: 356px;
+  }
+}
+
+.promo__submit {
+  display: inline-flex;
+  margin-top: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 311px;
+  height: 38px;
+  background-color: #f3bb4a;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .promo__submit {
+    width: 392px;
+    height: 56px;
+    font-size: 24px;
+    line-height: 117%;
+  }
+}
+
+.promo__success {
+  margin-top: 12px;
+  text-align: left;
+}
+@media screen and (min-width: 1440px) {
+  .promo__success {
+    margin-top: 14px;
+  }
+}
+
+.promo__success-text {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #01a045;
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 1440px) {
+  .promo__success-text {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
+.promo__price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.promo__final {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .promo__final {
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.promo__discount {
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .promo__discount {
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.qa {
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .qa {
+    margin-bottom: 172px;
+  }
+}
+.qa .qa__title {
+  font-size: 28px;
+  line-height: 1.1428571429;
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__title {
+    font-size: 64px;
+    line-height: 1.0625;
+  }
+}
+.qa .qa__list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__list {
+    gap: 16px;
+    margin-top: 72px;
+  }
+}
+.qa .qa__item {
+  padding: 16px 14px;
+  background-color: #f3f3f3;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__item {
+    padding-left: 32px;
+    padding-right: 19px;
+    padding-top: 20px;
+  }
+}
+.qa .qa-item__text {
+  font-size: 14px;
+  line-height: 1.4285714286;
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  margin-top: 14px;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa-item__text {
+    font-size: 18px;
+  }
+}
+.qa .qa-item__title {
+  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3333333333;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa-item__title {
+    font-size: 24px;
+  }
+}
+.qa .qa-btn__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.qa .qa__btn {
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.827586px solid rgba(17, 17, 17, 0.12);
+  transition-property: background-color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.qa .qa__btn:hover {
+  border: 0.827586px solid #f3bb4a;
+  cursor: pointer;
+  background-color: #f3bb4a;
+  border-radius: 50%;
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__btn {
+    height: 40px;
+    width: 40px;
+  }
+}
+.qa .qa__icon {
+  height: 24px;
+  width: 24px;
+  fill: none;
+  stroke: black;
+  transition-property: rotate;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 1440px) {
+  .qa .qa__icon {
+    height: 40px;
+    width: 40px;
+  }
+}
+.qa .half-rotate {
+  rotate: 45deg;
+}
+.qa .active-btn {
+  border: 0.827586px solid #f3bb4a;
+  cursor: pointer;
+  background-color: #f3bb4a;
+  border-radius: 50%;
 }
 
 .personal-coatch {
@@ -1004,7 +1836,7 @@ body {
 }
 
 .personal-coatch__descr {
-  font-weight: 700;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
