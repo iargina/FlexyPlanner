@@ -1,0 +1,75 @@
+<section class="modalFeedBack backdrop">
+  <div class="modalFeedBack__modal">
+    <!-- <picture>
+        <source
+          srcset="
+            ../assets/img/logo/mob_logo_1x.png 1x,
+            ../assets/img/logo/mob_logo_2x.png 2x
+          "
+          media="(max-width: 375px)"
+        />
+        <source
+          srcset="
+            ../assets/img/logo/desk_logo_1x.png 1x,
+            ../assets/img/logo/desk_logo_2x.png 2x
+          "
+          media="(min-width: 980px)"
+        />
+        <img
+          src="../assets/img/logo/mob_logo_2x.png"
+          alt="flexxy planner logo"
+        />
+      </picture> -->
+    <img
+      src="../dist/desk_1x_planner_yellow.e3ab55c4.jpg"
+      alt="planner"
+      class="modalFeedBack__img"
+    />
+    <svg class="modalFeedBack__icon">
+      <use href="/assets/ico/sprite.svg#close_modal"></use>
+    </svg>
+    <div class="modalFeedBack__title--wrapper">
+        <h2 class="modalFeedBack__title">Повідомити про наявність</h2>
+    </div>
+    <form class="modalFeedBack__form">
+      <label for="username" class="modalFeedBack__label"
+        >Прізвище, ім’я
+        <input
+          type="text"
+          name="username"
+          placeholder="Рожило Андрій"
+          class="modalFeedBack__input"
+          id="username"
+          required
+          pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$"
+          title="Введіть Ім’я та
+            Прізвище"
+        />
+      </label>
+
+      <label for="email" class="modalFeedBack__label"
+        >Ваш email
+        <input
+          type="email"
+          name="email"
+          placeholder="email@gmail.com"
+          id="email"
+          class="modalFeedBack__input"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        />
+      </label>
+
+      <label for="comment" class="modalFeedBack__label"
+        >Повідомлення
+        <textarea
+          name="comment"
+          id="comment"
+          class="modalFeedBack__input modalFeedBack__input--comment"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="btn modalFeedBack__btn">Відправити</button>
+    </form>
+  </div>
+</section>
