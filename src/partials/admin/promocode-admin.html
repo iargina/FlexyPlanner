@@ -32,7 +32,7 @@
           class="form-control promocode__input"
         />
       </label>
-      <label for="amound" class="form-label"
+      <label for="amound" class="form-label label-amount-js"
         >Кількість
         <input
           type="number"
@@ -46,10 +46,14 @@
     </div>
     <div class="date__wrapper">
       <label for="start">Початкова дата:</label>
-      <input type="date" id="start" name="date-start" />
+      <input type="date" id="start" name="dateStart" />
       <label for="to">До якого числа:</label>
-      <input type="date" id="to" name="date-to" />
+      <input type="date" id="to" name="dateTo" />
     </div>
     <button class="btn btn-primary" type="submit">Підтвердити</button>
   </form>
+  <h3 class="promocode__title">Загальні промокоди</h3>
+  <ul class="common-promocode"></ul>
+  <h3 class="promocode__title">Персональні промокоди</h3>
+  <ul class="personal-promocode"></ul>
 </section>
