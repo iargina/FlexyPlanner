@@ -1,16 +1,35 @@
-// import templatePreOrder from '../templates/pre-order.hbs';
-import templatePreOrder from '../templates/order-now.hbs';
+// Test object from backend
+const orderModule = {
+  type: 'pre-order',
+  data: {
+    price: 1499,
+    salePrice: 995,
+  },
+};
 
-//Харкод об'єкта з цінами, які будуть приходити з адмінки.
+//Хардкод об'єкта з цінами, які будуть приходити з адмінки.
 const objectWithPrices = {
   price: 1499,
   salePrice: 995,
 };
 
-//Харкод створення актуального рядка розмітки з об'єктом цін
-const template = templatePreOrder(objectWithPrices);
+loadModule(orderModule);
 
-getOrderSection(template);
+async function loadModule({ type, data }) {
+  let template;
+  if (type === 'pre-order') {
+    const { default: getImportFile } = await import(
+      `../templates/pre-order.hbs`
+    );
+    template = getImportFile(data);
+  } else {
+    const { default: getImportFile } = await import(
+      `../templates/order-now.hbs`
+    );
+    template = getImportFile(data);
+  }
+  getOrderSection(template);
+}
 
 function getOrderSection(template) {
   const orderSection = document.querySelector('#order');
