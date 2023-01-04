@@ -1,0 +1,70 @@
+.modal--success {
+  max-width: 272px;
+  padding: 193px 20px 40px;
+  background: url('./../images/order/mob_1x_modalbg.jpg') 0 25px / contain
+      no-repeat,
+    $white-color;
+  text-align: center;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background: url('./../images/order/mob_2x_modalbg.jpg') 0 25px / contain
+        no-repeat,
+      $white-color;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    max-width: 480px;
+    padding: 277px 72px 52px;
+    background: url('./../images/order/desk_1x_modalbg.jpg') 0 24px / contain
+        no-repeat,
+      $white-color;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background: url('./../images/order/desk_2x_modalbg.jpg') 0 24px / contain
+          no-repeat,
+        $white-color;
+    }
+  }
+}
+
+.modal__title {
+  font-size: 18px;
+  font-family: $font-family700;
+  line-height: calc(24 / 18);
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 28px;
+    line-height: calc(32 / 28);
+    margin-bottom: 14px;
+  }
+}
+
+.modal__text {
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: $secondary-text-color;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+}
+
+.modal__btn {
+  padding: 8px 28px;
+  font-size: 14px;
+  font-family: $font-family600;
+  line-height: calc(18 / 14);
+
+  @media screen and (min-width: $desktop-width) {
+    padding: 12px 34px;
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
