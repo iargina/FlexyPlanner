@@ -4,22 +4,26 @@
     <p>Виберіть тип промокоду</p>
     <div class="discount__wrapper">
       <div class="form-check promocode__group">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="promocode"
-          value="personal"
-        />
-        <label class="form-check-label"> Персональний </label>
+        <label class="form-check-label">
+          Персональний
+          <input
+            class="form-check-input"
+            type="radio"
+            name="promocode"
+            value="personal"
+          />
+        </label>
       </div>
       <div class="form-check promocode__group">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="promocode"
-          value="common"
-        />
-        <label class="form-check-label"> Загальний </label>
+        <label class="form-check-label">
+          Загальний
+          <input
+            class="form-check-input"
+            type="radio"
+            name="promocode"
+            value="common"
+          />
+        </label>
       </div>
     </div>
     <div class="promocode__wrapper">
@@ -32,7 +36,7 @@
           class="form-control promocode__input"
         />
       </label>
-      <label for="amound" class="form-label label-amount-js"
+      <label for="amound" class="form-label"
         >Кількість
         <input
           type="number"
@@ -40,20 +44,20 @@
           id="amound"
           value="1"
           min="1"
-          class="form-control promocode__input"
+          class="form-control promocode__input input-amount-js"
         />
       </label>
     </div>
     <div class="date__wrapper">
-      <label for="start">Початкова дата:</label>
-      <input type="date" id="start" name="dateStart" />
-      <label for="to">До якого числа:</label>
-      <input type="date" id="to" name="dateTo" />
+      <label for="dateStart">Початкова дата:</label>
+      <input type="date" id="dateStart" name="dateStart" />
+      <label for="dateTo">До якого числа:</label>
+      <input type="date" id="dateTo" name="dateTo" />
     </div>
     <button class="btn btn-primary" type="submit">Підтвердити</button>
   </form>
-  <h3 class="promocode__title">Загальні промокоди</h3>
+  <h4 class="promocode__title">Загальні промокоди</h4>
   <ul class="common-promocode"></ul>
-  <h3 class="promocode__title">Персональні промокоди</h3>
+  <h4 class="promocode__title">Персональні промокоди</h4>
   <ul class="personal-promocode"></ul>
 </section>

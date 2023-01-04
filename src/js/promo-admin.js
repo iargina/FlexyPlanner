@@ -1,25 +1,38 @@
 const initForm = document.querySelector('.promocode__form');
-const labelAmount = document.querySelector('.label-amount-js');
+const inputAmount = document.querySelector('.input-amount-js');
 const dateGroup = document.querySelector('.date__wrapper');
 const commonList = document.querySelector('.common-promocode');
 const personalList = document.querySelector('.personal-promocode');
-
-initForm.addEventListener('change', onFormChange);
-initForm.addEventListener('submit', onFormSubmit);
+const startDate = document.querySelector('#dateStart');
+const stopDate = document.querySelector('#dateTo');
 
 const promocodeObj = {};
+
+startDate.value = todayDate();
+stopDate.value = todayDate();
+
+function todayDate() {
+  const date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  if (month < 10) month = '0' + month;
+  if (day < 10) day = '0' + day;
+  const today = year + '-' + month + '-' + day;
+  return today;
+}
 
 function onFormChange(e) {
   e.preventDefault();
   let promoType = e.currentTarget.elements.promocode.value;
   if (promoType === 'personal') {
-    if (labelAmount.classList.contains('visually-hidden'))
-      labelAmount.classList.remove('visually-hidden');
+    if (inputAmount.disabled) inputAmount.disabled = false;
     dateGroup.classList.add('visually-hidden');
   } else {
     if (dateGroup.classList.contains('visually-hidden'))
       dateGroup.classList.remove('visually-hidden');
-    labelAmount.classList.add('visually-hidden');
+    inputAmount.disabled = true;
   }
 }
 
@@ -36,11 +49,58 @@ function onFormSubmit(e) {
   } else {
     promocodeObj.type = promocode.value;
     promocodeObj.discount = discount.value;
-    promocodeObj.from = dateStart.value;
-    promocodeObj.to = dateTo.value;
+    promocodeObj.discount = amound.value;
+    promocodeObj.period = {
+      from: dateStart.value,
+      to: dateTo.value,
+    };
   }
   console.log(promocodeObj);
+  if (inputAmount.disabled) inputAmount.disabled = false;
+  if (dateGroup.classList.contains('visually-hidden'))
+    dateGroup.classList.remove('visually-hidden');
   form.reset();
+  startDate.value = todayDate();
+  stopDate.value = todayDate();
+}
+
+function onCommonList(e) {
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  const promoName = e.target.closest('li').dataset.name;
+  let isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
+  if (isDelete) {
+    console.log(`delete ${promoName}`);
+  } else {
+    console.log(`do not delete ${promoName}`);
+  }
+}
+
+function onPersonalList(e) {
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  const btnName = e.target.dataset.action;
+  const promoName = e.target.closest('li').dataset.name;
+
+  if (btnName === 'delete') {
+    const isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
+    if (isDelete) {
+      console.log(`delete ${promoName}`);
+    } else {
+      console.log(`do not delete ${promoName}`);
+    }
+  } else {
+    const isActivate = confirm(
+      `Дійсно активувати цей промокод: ${promoName} ?`
+    );
+    if (isActivate) {
+      console.log(`active ${promoName}`);
+    } else {
+      console.log(`do not active ${promoName}`);
+    }
+  }
 }
 
 const commonArray = [
@@ -78,29 +138,29 @@ const PersonalArray = [
 
 function createPromocodeMarkup(array) {
   return array
-    .map(promo => {
+    .map((promo, i) => {
       if (promo.type === 'common') {
         return `<li class="list__item" data-name='${promo.name}'>
-            <p>Discount ${promo.discount}</p>
-            <p>Date ${promo.date}</p>
+            <p>Знижка ${promo.discount}</p>
+            <p>Термін дії: ${promo.date}</p>
             <div class="common__wrapper">
-            <p>Промокод <b>${promo.name}</b></p>
-            <button class="btn btn-danger" type="button">Видалити</button>
+            <p>${i + 1}. Промокод <b>${promo.name}</b></p>
+            <button data-action="delete" class="btn btn-danger" type="button">Видалити</button>
             </div>
             </li>`;
       } else {
         return `<li class="list__item">
-            <p>Discount ${promo.discount}</p>            
+            <p>Знижка ${promo.discount}</p>            
             <ul>
             ${promo.name
               .map((p, i) => {
-                return `
-                <div class="personal__wrapper">
-                <li data-name='${p}'>${i + 1} Промокод <b>${p}</b></li>
+                return `               
+                <li class="personal__wrapper" data-name='${p}'>
+                <span>${i + 1}. Промокод <b>${p}</b></span>
                 <div class="btn-wrapper">
-                <button class="btn btn-success" type="button">Активувати</button>
-                 <button class="btn btn-danger" type="button">Видалити</button></div>
-                </div>
+                <button data-action="active" class="btn btn-success" type="button">Активувати</button>
+                 <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
+                </li>                 
                 `;
               })
               .join('')}
@@ -113,3 +173,8 @@ function createPromocodeMarkup(array) {
 
 commonList.innerHTML = createPromocodeMarkup(commonArray);
 personalList.innerHTML = createPromocodeMarkup(PersonalArray);
+
+initForm.addEventListener('change', onFormChange);
+initForm.addEventListener('submit', onFormSubmit);
+commonList.addEventListener('click', onCommonList);
+personalList.addEventListener('click', onPersonalList);

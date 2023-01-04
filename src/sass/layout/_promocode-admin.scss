@@ -1,11 +1,13 @@
 .promocode__title {
   padding-top: 20px;
   padding-bottom: 20px;
+  text-align: center;
 }
 .promocode__form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 20px;
 }
 .discount__wrapper,
 .promocode__wrapper,
@@ -30,11 +32,12 @@
   margin-top: 15px;
   width: 300px;
 }
-.btn-primary,
-.btn-success,
-.btn-danger {
+.btn.btn-primary,
+.btn.btn-success,
+.btn.btn-danger {
   width: 250px;
   height: 45px;
+  padding: 0;
 }
 .list__item {
   padding: 10px;
