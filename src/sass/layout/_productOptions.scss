@@ -1,0 +1,112 @@
+.orderProcessing__logo {
+  width: 97px;
+  margin-bottom: 40px;
+}
+
+.orderProcessing__title {
+  font-family: $font-family700;
+  // font-style: normal;
+  // font-weight: 700;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 50px;
+}
+
+.section__title {
+  font-family: $font-family400;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 24px;
+}
+
+.orderProcessing__plannerWrapper {
+  display: flex;
+}
+
+.orderProcessing__planner {
+  max-width: 73px;
+}
+
+.orderProcessing__textWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.orderProcessing__plannerDescr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+
+  width: 142px;
+  margin-left: 16px;
+}
+
+.orderProcessing__plannerTitle {
+  font-family: $font-family400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+}
+
+.orderProcessing__plannerParagraph {
+  font-family: $font-family400;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  color: $secondary-text-color;
+}
+
+.orderProcessing__priceDescr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.orderProcessing__price {
+  font-family: $font-family500;
+  // font-style: normal;
+  // font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: -0.02em;
+
+  color: $secondary-text-color;
+
+  margin-bottom: 8px;
+}
+
+.orderProcessing__priceCancelled {
+  font-family: $font-family400;
+  // font-style: normal;
+  // font-weight: 400;
+  font-size: 8px;
+  line-height: 1.4;
+  /* or 11px */
+
+  letter-spacing: -0.01em;
+  text-decoration-line: line-through;
+
+  color: $black-color;
+}
+
+.orderProcessing__priceCurrent {
+  font-family: $font-family600;
+  // font-style: normal;
+  // font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
+
+  color: $alert-color;
+}

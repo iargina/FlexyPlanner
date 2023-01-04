@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>    
-    <link rel="stylesheet" href="./sass/index.scss" />
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="./js/delivery.js"></script>
-    <script type="module" src="./js/order-module.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-   <include src="./partials/hero.html"></include>
-    <include src="./partials/personalCoatch.html"></include>
-    <include src="./partials/howitworks.html"></include>
-    <include src="./partials/order.html"></include>
-    <include src="./partials/authors.html"></include>
-    <include src="./partials/qa.html"></include>
-    <include src="./partials/orderPage/contacts.html"></include>
-    <include src="./partials/orderPage/deliveryInfo.html"></include>
-    <include src="./partials/orderPage/promocode.html"></include>
-    <include src="./partials/footer.html"></include>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page title</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script type="module" src="./index.js"></script>
+  <script type="module" src="./js/delivery.js"></script>
+  <script type="module" src="./js/order-module.js"></script>
+</head>
+
+<body>
+  <!-- ❗️❗️❗️ Add partials like so for every page -->
+  <include src="./partials/hero.html"></include>
+  <include src="./partials/personalCoatch.html"></include>
+  <include src="./partials/howitworks.html"></include>
+  <include src="./partials/order.html"></include>
+  <include src="./partials/authors.html"></include>
+  <include src="./partials/qa.html"></include>
+  <include src="./partials/orderPage/productOptions.html"></include>
+  <include src="./partials/orderPage/contacts.html"></include>
+  <include src="./partials/orderPage/deliveryInfo.html"></include>
+  <include src="./partials/orderPage/promocode.html"></include>
+  <include src="./partials/footer.html"></include>
+</body>
+
 </html>
