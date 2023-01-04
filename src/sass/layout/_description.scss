@@ -1,7 +1,10 @@
 .description__title {
+  margin: 0 auto;
   margin-bottom: 136px;
+  letter-spacing: -0.02em;
 
   @media screen and (min-width: $desktop-width) {
+    max-width: 1000px;
     margin-bottom: 230px;
   }
 }
@@ -24,7 +27,7 @@
 
 .description__item {
   position: absolute;
-  max-width: 64px;
+  width: 64px;
 
   &::before {
     content: '';
@@ -159,7 +162,7 @@
   }
 
   @media screen and (min-width: $desktop-width) {
-    max-width: 200px;
+    width: 190px;
 
     &::before {
       width: 140px;
@@ -168,8 +171,8 @@
     }
 
     &:nth-child(1) {
-      top: -60px;
-      right: -254px;
+      top: 214px;
+      left: -80px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_1.png') center /
@@ -185,8 +188,8 @@
     }
 
     &:nth-child(2) {
-      top: 216px;
-      right: -96px;
+      top: 214px;
+      right: -86px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_2.png') center /
@@ -202,8 +205,8 @@
     }
 
     &:nth-child(3) {
-      bottom: 152px;
-      right: -268px;
+      bottom: -92px;
+      right: -22px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_3.png') center /
@@ -220,7 +223,7 @@
 
     &:nth-child(4) {
       bottom: -120px;
-      right: -30px;
+      left: -16px;
       transform: translateX(0);
 
       &::before {
@@ -237,8 +240,8 @@
     }
 
     &:nth-child(5) {
-      bottom: -94px;
-      left: -20px;
+      bottom: 152px;
+      left: 796px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_5.png') center /
@@ -254,8 +257,8 @@
     }
 
     &:nth-child(6) {
-      top: 486px;
-      left: -256px;
+      top: -58px;
+      left: 782px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_6.png') center /
@@ -271,8 +274,8 @@
     }
 
     &:nth-child(7) {
-      top: 214px;
-      left: -80px;
+      top: -58px;
+      left: -242px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_7.png') center /
@@ -289,8 +292,8 @@
 
     &:nth-child(8) {
       display: block;
-      top: -58px;
-      left: -242px;
+      top: 486px;
+      left: -254px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_8.png') center /
@@ -308,6 +311,7 @@
 }
 
 .description__text {
+  width: 100%;
   font-size: 8px;
   font-family: $font-family700;
   line-height: calc(10 / 8);
