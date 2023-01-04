@@ -97,6 +97,8 @@ function onPersonalList(e) {
     );
     if (isActivate) {
       console.log(`active ${promoName}`);
+      e.target.disabled = true;
+      e.target.innerText = 'Активовано';
     } else {
       console.log(`do not active ${promoName}`);
     }
