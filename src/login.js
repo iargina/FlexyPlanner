@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: 'строка подключения к базе данных', // дописати адресу
   params: {
     headers: {
-      Authorization: getAuthorizationHeader(),
+      // Authorization: getAuthorizationHeader(),
     },
     body: new FormData(form),
   },
@@ -15,7 +15,7 @@ const login = async e => {
 
   try {
     const { data } = await instance.post('', {
-      params: { q: searchQuery, page },
+      params: {},
     });
     const token = data.token;
     localStorage.setItem('accessToken', token);

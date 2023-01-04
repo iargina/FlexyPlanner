@@ -1,16 +1,40 @@
+import axios from 'axios';
+
+// const obj = {
+//   markup: 'something',
+//   type: 'pre-order',
+//   data: {
+//     price: 1500,
+//     preOrderPrice: 999,
+//   },
+//   isActive: true,
+// };
+
+// const instance = axios.create({
+//   baseURL: 'строка подключения к базе данных', // дописати адресу
+//   params: {
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(obj),
+//   },
+// });
+
+// const start = async e => {
+//   try {
+//     const { data } = await instance.patch('');
+//   } catch (error) {}
+// };
+
+// start();
+
 // Test object from backend
 const orderModule = {
   type: 'pre-order',
   data: {
     price: 1499,
-    salePrice: 995,
+    preOrder: 995,
   },
-};
-
-//Хардкод об'єкта з цінами, які будуть приходити з адмінки.
-const objectWithPrices = {
-  price: 1499,
-  salePrice: 995,
 };
 
 loadModule(orderModule);
@@ -22,7 +46,8 @@ async function loadModule({ type, data }) {
       `../templates/pre-order.hbs`
     );
     template = getImportFile(data);
-  } else {
+  }
+  if (type === 'to-order') {
     const { default: getImportFile } = await import(
       `../templates/order-now.hbs`
     );
