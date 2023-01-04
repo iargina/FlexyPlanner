@@ -1,0 +1,36 @@
+.promocode__title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.promocode__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.discount__wrapper,
+.promocode__wrapper,
+.date__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  border-bottom: 1px solid gray;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.promocode__group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.form-check-input {
+  margin-top: 0;
+}
+.promocode__input {
+  margin-top: 15px;
+  width: 300px;
+}
+.btn-primary {
+  width: 350px;
+  height: 50px;
+}
