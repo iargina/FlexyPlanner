@@ -1,32 +1,28 @@
-<section class="modalFeedBack backdrop">
+<section class="modalFeedBack backdrop visually-hidden">
   <div class="modalFeedBack__modal">
-    <!-- <picture>
+    <picture>
         <source
           srcset="
-            ../assets/img/logo/mob_logo_1x.png 1x,
-            ../assets/img/logo/mob_logo_2x.png 2x
+            ../dist/mob_1x_planner_yellow.7c95744b.png,
+            ../dist/mob_2x_planner_yellow.c6749356.png
           "
           media="(max-width: 375px)"
         />
         <source
           srcset="
-            ../assets/img/logo/desk_logo_1x.png 1x,
-            ../assets/img/logo/desk_logo_2x.png 2x
+          ../dist/desk_1x_planner_yellow.189a158e.jpg,
+          ../dist/desk_2x_planner_yellow.be5832d8.jpg
           "
-          media="(min-width: 980px)"
+          media="(min-width: 376px)"
         />
         <img
-          src="../assets/img/logo/mob_logo_2x.png"
+          class="modalFeedBack__img"
+          src="../dist/desk_1x_planner_yellow.189a158e.jpg"
           alt="flexxy planner logo"
         />
-      </picture> -->
-    <img
-      src="../dist/desk_1x_planner_yellow.e3ab55c4.jpg"
-      alt="planner"
-      class="modalFeedBack__img"
-    />
+      </picture>
     <svg class="modalFeedBack__icon">
-      <use href="/assets/ico/sprite.svg#close_modal"></use>
+      <use href="./icons/sprite.svg#close_modal"></use>
     </svg>
     <div class="modalFeedBack__title--wrapper">
         <h2 class="modalFeedBack__title">Повідомити про наявність</h2>
