@@ -1,4 +1,4 @@
-import './js/promocode.js';
-import { toggleList } from "./js/toggleList";
+import { toggleList } from './js/toggleList.js';
 import './js/swipper.js';
-import './js/productOptions.js'
+import './js/order-module.js';
+import './js/toggleModal.js'
