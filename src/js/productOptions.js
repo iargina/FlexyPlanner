@@ -2,6 +2,7 @@ const listEl = document.querySelector('.orderProcessing__list');
 const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 const amountElArr = document.querySelectorAll('.orderProcessing__number');
 const titlesArr = document.querySelectorAll('.orderProcessing__itemTitle');
+const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 
 listEl.addEventListener('click', onElementClick);
 
@@ -42,20 +43,29 @@ function onElementClick(e) {
 
 function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
-  let elNumberValue = Number(numberEl.textContent);
+  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
+
+  // console.dir(amountCostEl.innerText);
+  let numberElValue = Number(numberEl.textContent);
+  let priceValue = Number(priceEl.innerText.slice(0, -4));
+  // console.log('numberElValue', numberElValue);
+  // console.log('amountCostValue', amountCostValue);
 
   if (operation === 'minus') {
-    if (elNumberValue === 1) {
+    if (numberElValue === 1) {
       numberEl.textContent = 0;
       resetAmount(listItem);
       return;
     }
-    elNumberValue -= 1;
+    numberElValue -= 1;
   }
   if (operation === 'plus') {
-    elNumberValue += 1;
+    numberElValue += 1;
   }
-  numberEl.textContent = elNumberValue;
+  numberEl.textContent = numberElValue;
+
+  let colorCost = numberElValue * priceValue;
+  amountCostEl.innerText = `${colorCost} грн`;
 
   recalcAmount();
 }
@@ -65,10 +75,13 @@ function resetAmount(listItem) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const inputWrapperEl = listItem.querySelector('.orderProcessing__inputWrapper');
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
+  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
   numberEl.textContent = 0;
   inputWrapperEl.classList.add('visually-hidden');
   addBtnEl.classList.remove('visually-hidden');
+
+  amountCostEl.innerText = `0 грн`;
 
   recalcAmount();
 }
@@ -78,10 +91,13 @@ function addItem(listItem) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const inputWrapperEl = listItem.querySelector('.orderProcessing__inputWrapper');
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
+  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
   numberEl.textContent = 1;
   inputWrapperEl.classList.remove('visually-hidden');
   addBtnEl.classList.add('visually-hidden');
+
+  amountCostEl.innerText = `995 грн`;
 
   recalcAmount();
 }
@@ -91,7 +107,8 @@ function recalcAmount() {
   titlesArr.forEach((el, idx) => {
     products.push({
       color: el.textContent,
-      amount: amountElArr[idx].textContent,
+      amount: Number(amountElArr[idx].textContent),
+      price: 995,
     });
   })
   console.log(products);
