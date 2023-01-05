@@ -1,7 +1,7 @@
 .container-order {
   margin-bottom: 72px;
   @media screen and (min-width: 1440px) {
-    max-width: 1022px;
+    // max-width: 1022px;
     margin-bottom: 172px;
   }
 }
@@ -86,6 +86,7 @@
     @media screen and (min-width: 1440px) {
       margin-bottom: 14px;
       padding: 15px 32px 13px;
+      width: 272px;
     }
   }
 

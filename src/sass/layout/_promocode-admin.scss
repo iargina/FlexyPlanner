@@ -1,0 +1,64 @@
+.promocode__title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.promocode__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.discount__wrapper,
+.promocode__wrapper,
+.date__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  border-bottom: 1px solid $background-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.promocode__group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.form-check-input {
+  margin-top: 0;
+}
+.promocode__input {
+  margin-top: 15px;
+  width: 300px;
+}
+.btn.btn-primary,
+.btn.btn-success,
+.btn.btn-danger {
+  width: 250px;
+  height: 45px;
+  padding: 0;
+}
+.list__item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $background-color;
+}
+.common__wrapper,
+.personal__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: $background-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+.personal-promocode {
+  margin-bottom: 70px;
+}

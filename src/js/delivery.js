@@ -32,7 +32,7 @@ async function selectCity(e) {
     citiesListRef.classList.add('show');
   } catch (error) {
     Notify.failure(
-      `Вибачте, щось пішло не так... Статут помилки: ${error.message}`
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
   }
 }
@@ -55,7 +55,7 @@ async function selectWarehouse(e) {
     warehousesListRef.classList.add('show');
   } catch (error) {
     Notify.failure(
-      `Вибачте, щось пішло не так... Статут помилки: ${error.message}`
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
   }
 }
