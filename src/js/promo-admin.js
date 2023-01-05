@@ -46,6 +46,7 @@ function onFormSubmit(e) {
     promocodeObj.type = promocode.value;
     promocodeObj.amound = amound.value;
     promocodeObj.discount = discount.value;
+    promocodeObj.period = null;
   } else {
     promocodeObj.type = promocode.value;
     promocodeObj.discount = discount.value;
@@ -109,19 +110,28 @@ const commonArray = [
   {
     type: 'common',
     discount: '30',
-    date: '2023-01-05 - 2023-02-05',
+    period: {
+      from: '2023-02-08',
+      to: '2023-05-08',
+    },
     name: 'hT143Sfv',
   },
   {
     type: 'common',
     discount: '10',
-    date: '2023-01-05 - 2023-02-05',
+    period: {
+      from: '2023-02-08',
+      to: '2023-05-08',
+    },
     name: 'ntj53ken',
   },
   {
     type: 'common',
     discount: '20',
-    date: '2023-01-05 - 2023-02-05',
+    period: {
+      from: '2023-02-08',
+      to: '2023-05-08',
+    },
     name: 'h198dSfv',
   },
 ];
@@ -143,22 +153,26 @@ function createPromocodeMarkup(array) {
     .map((promo, i) => {
       if (promo.type === 'common') {
         return `<li class="list__item" data-name='${promo.name}'>
-            <p>Знижка ${promo.discount}</p>
-            <p>Термін дії: ${promo.date}</p>
+            <p>Знижка ${promo.discount}%</p>
+            <p>Термін дії: ${promo.period.from} - ${promo.period.to}</p>
             <div class="common__wrapper">
-            <p>${i + 1}. Промокод <b>${promo.name}</b></p>
+            <p>${i + 1}. Промокод <span class="promo__name">${
+          promo.name
+        }</span></p>
             <button data-action="delete" class="btn btn-danger" type="button">Видалити</button>
             </div>
             </li>`;
       } else {
         return `<li class="list__item">
-            <p>Знижка ${promo.discount}</p>            
+            <p>Знижка ${promo.discount}%</p>            
             <ul>
             ${promo.name
               .map((p, i) => {
                 return `               
                 <li class="personal__wrapper" data-name='${p}'>
-                <span>${i + 1}. Промокод <b>${p}</b></span>
+                <span>${
+                  i + 1
+                }. Промокод <span class="promo__name">${p}</span></span>
                 <div class="btn-wrapper">
                 <button data-action="active" class="btn btn-success" type="button">Активувати</button>
                  <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
