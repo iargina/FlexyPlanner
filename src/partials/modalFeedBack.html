@@ -1,18 +1,18 @@
 <section class="modalFeedBack backdrop visually-hidden">
   <div class="modalFeedBack__modal">
     <picture>
-      <source
-        srcset="
-          ../dist/desk_1x_planner_yellow.189a158e.jpg,
-          ../dist/desk_2x_planner_yellow.be5832d8.jpg
-        "
-      />
-      <img
-        class="modalFeedBack__img"
-        src="../dist/desk_1x_planner_yellow.189a158e.jpg"
-        alt="flexxy planner logo"
-      />
-    </picture>
+        <source
+          srcset="
+          ./images/hero/desk_1x_planner_yellow.jpg,
+          ./images/hero/desk_2x_planner_yellow.jpg
+          "
+        />
+        <img
+          class="modalFeedBack__img"
+          src="./images/hero/desk_1x_planner_yellow.jpg"
+          alt="flexxy planner logo"
+        />
+      </picture>
     <svg class="modalFeedBack__icon">
       <use href="./icons/sprite.svg#close_modal"></use>
     </svg>
@@ -45,6 +45,7 @@
           class="modalFeedBack__input"
           required
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          title="Введіть Вашу електрону пошту"
         />
       </label>
 
@@ -54,10 +55,11 @@
           name="comment"
           id="comment"
           class="modalFeedBack__input modalFeedBack__input--comment"
+          title="Залиште коментар"
         ></textarea>
       </label>
 
-      <button type="submit" class="btn modalFeedBack__btn">Відправити</button>
+      <button type="submit" class="btn modalFeedBack__btn btn--primary">Відправити</button>
     </form>
   </div>
 </section>
