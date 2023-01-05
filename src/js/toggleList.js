@@ -3,32 +3,32 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
   const checkBoxList = document.querySelectorAll(listsToShow);
   const arrowIcons = document.querySelectorAll(icons);
 
-function onShowOrHideElems () {
+  function onShowOrHideElems() {
     if (window.innerWidth >= 1440) {
-        checkBoxList[0].classList.remove('visually-hidden');
-    
-        if (items[0].classList.contains('qa__btn')) {
-          items[0].classList.add('active-btn');
-        }
-    
-        if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-          arrowIcons[0].classList.add('rotate');
-        } else {
-          arrowIcons[0].classList.add('half-rotate');
-        }
-      } else {
-        checkBoxList[0].classList.add('visually-hidden');
-    
-        if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-          arrowIcons[0].classList.remove('rotate');
-        } else {
-          arrowIcons[0].classList.remove('half-rotate');
-        }
-        if (items[0].classList.contains('qa__btn')) {
-          items[0].classList.remove('active-btn');
-        }
+      checkBoxList[0].classList.remove('visually-hidden');
+
+      if (items[0].classList.contains('qa__btn')) {
+        items[0].classList.add('active-btn');
       }
-}
+
+      if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
+        arrowIcons[0].classList.add('rotate');
+      } else {
+        arrowIcons[0].classList.add('half-rotate');
+      }
+    } else {
+      checkBoxList[0].classList.add('visually-hidden');
+
+      if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
+        arrowIcons[0].classList.remove('rotate');
+      } else {
+        arrowIcons[0].classList.remove('half-rotate');
+      }
+      if (items[0].classList.contains('qa__btn')) {
+        items[0].classList.remove('active-btn');
+      }
+    }
+  }
 
   items.forEach((item, i) => {
     item.addEventListener('click', function () {
@@ -43,10 +43,9 @@ function onShowOrHideElems () {
       }
     });
   });
-  onShowOrHideElems()
-  window.addEventListener('resize', onShowOrHideElems)
+  onShowOrHideElems();
+  window.addEventListener('resize', onShowOrHideElems);
 };
-
 
 toggleList(
   '.howitworks__item',
