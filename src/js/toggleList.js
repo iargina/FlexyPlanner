@@ -5,7 +5,7 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
 
   function onShowOrHideElems() {
     if (window.innerWidth >= 1440) {
-      checkBoxList[0].classList.remove('visually-hidden');
+      checkBoxList[0].classList.remove('list-hidden');
 
       if (items[0].classList.contains('qa__btn')) {
         items[0].classList.add('active-btn');
@@ -17,7 +17,7 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
         arrowIcons[0].classList.add('half-rotate');
       }
     } else {
-      checkBoxList[0].classList.add('visually-hidden');
+      checkBoxList[0].classList.add('list-hidden');
 
       if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
         arrowIcons[0].classList.remove('rotate');
@@ -33,7 +33,7 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
   items.forEach((item, i) => {
     item.addEventListener('click', function () {
       if (this) {
-        checkBoxList[i].classList.toggle('visually-hidden');
+        checkBoxList[i].classList.toggle('list-hidden');
         this.classList.toggle('active-btn');
         if (arrowIcons[i].classList.contains('howitworks__arrow-icon')) {
           arrowIcons[i].classList.toggle('rotate');
