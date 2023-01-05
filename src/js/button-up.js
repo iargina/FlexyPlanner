@@ -1,6 +1,6 @@
 const btnToUp = document.querySelector('.button-up__wrapper');
 
-let scroll;
+let scrolled;
 window.onscroll = function () {
   scrolled = window.pageYOffset;
   btnToUp.classList.add('is-hidden');

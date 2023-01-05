@@ -1,17 +1,20 @@
 .authors {
   width: 100%;
-  margin-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 172px;
+    gap: 172px;
+    :nth-child(2) {
+      margin-bottom: 0;
+    }
   }
 }
 .authors__wrap {
   margin: 0 auto;
-  margin-bottom: 72px;
   max-width: 335px;
   @media screen and (min-width: $desktop-width) {
     max-width: 822px;
-    margin-bottom: 172px;
   }
 }
 .authors__text--list {
@@ -22,7 +25,7 @@
     margin-right: 20px;
   }
   :nth-child(3) {
-    margin-top: -30px;
+    margin-top: -40px;
   }
   @media screen and (min-width: $desktop-width) {
     flex-direction: column;

@@ -129,11 +129,11 @@ body {
 }
 
 .section {
-  padding: 72px 0;
+  padding-top: 72px;
 }
 @media screen and (min-width: 1440px) {
   .section {
-    padding: 172px 0;
+    padding-top: 172px;
   }
 }
 
@@ -337,23 +337,26 @@ body {
 
 .authors {
   width: 100%;
-  margin-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
 }
 @media screen and (min-width: 1440px) {
   .authors {
-    margin-bottom: 172px;
+    gap: 172px;
+  }
+  .authors :nth-child(2) {
+    margin-bottom: 0;
   }
 }
 
 .authors__wrap {
   margin: 0 auto;
-  margin-bottom: 72px;
   max-width: 335px;
 }
 @media screen and (min-width: 1440px) {
   .authors__wrap {
     max-width: 822px;
-    margin-bottom: 172px;
   }
 }
 
@@ -366,7 +369,7 @@ body {
   margin-right: 20px;
 }
 .authors__text--list :nth-child(3) {
-  margin-top: -30px;
+  margin-top: -40px;
 }
 @media screen and (min-width: 1440px) {
   .authors__text--list {
@@ -1297,6 +1300,7 @@ body {
 @media screen and (min-width: 1440px) {
   .hero {
     padding-top: 70px;
+    padding-bottom: 0;
   }
 }
 
@@ -2034,19 +2038,6 @@ input:invalid:required {
   }
 }
 
-.section.motivate {
-  padding: 0 0 72px 0;
-}
-
-.container-order {
-  margin-bottom: 72px;
-}
-@media screen and (min-width: 1440px) {
-  .container-order {
-    margin-bottom: 172px;
-  }
-}
-
 .order {
   font-size: 14px;
   font-family: "MacPawFixelDisplay400", sans-serif;
@@ -2417,13 +2408,13 @@ input:invalid:required {
 }
 
 .qa {
-  padding-bottom: 0;
-  padding-top: 0;
-  margin-bottom: 72px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
   .qa {
-    margin-bottom: 172px;
+    padding-bottom: 172px;
+    padding-top: 172px;
   }
 }
 .qa .qa__title {
