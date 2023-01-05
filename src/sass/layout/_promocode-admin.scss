@@ -1,3 +1,21 @@
+.promocode-container {
+  min-width: 320px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1280px;
+  }
+}
+
 .promocode__title {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -63,6 +81,8 @@
   margin-bottom: 70px;
 }
 .promo__name {
+  padding: 8px;
+  border-radius: 7px;
   margin-left: 20px;
   font-size: 34px;
   background-color: $secondary-text-color;
