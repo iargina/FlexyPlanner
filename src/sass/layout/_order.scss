@@ -85,7 +85,8 @@
 
     @media screen and (min-width: 1440px) {
       margin-bottom: 14px;
-      padding: 15px 32px 13px;
+      padding: 15px 31px 13px;
+      width: 272px;
     }
   }
 
@@ -99,7 +100,6 @@
       margin-bottom: 50px;
       font-size: 18px;
       line-height: calc(28 / 18);
-      // font-family: $font-family500;
     }
   }
 }
