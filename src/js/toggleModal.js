@@ -1,7 +1,9 @@
-export const toggleModal = (triggerBtn, closeBtn, backdrop) => {
+ function toggleModal (triggerBtn, closeBtn, backdrop) {
   const openModalBtn = document.querySelector(triggerBtn),
     closeModalBtn = document.querySelector(closeBtn),
     backdropSection = document.querySelector(backdrop);
+
+    console.log(openModalBtn)
 
   openModalBtn.addEventListener('click', () => {
     backdropSection.classList.toggle('visually-hidden');
@@ -11,11 +13,13 @@ export const toggleModal = (triggerBtn, closeBtn, backdrop) => {
     backdropSection.classList.toggle('visually-hidden');
   });
 
-  closeOnBackdrop.addEventListener('click', e => {
+  backdropSection.addEventListener('click', e => {
     if (e.target === backdropSection) {
       backdropSection.classList.toggle('visually-hidden');
     }
   });
 };
+setTimeout(() => {
+  toggleModal('.pre-order__btn--feedback', '.modalFeedBack__icon', '.modalFeedBack');
+},100)
 
-toggleModal('', '.modalFeedBack__icon', '.modalFeedBack');
