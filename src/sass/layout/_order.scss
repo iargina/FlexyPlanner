@@ -85,22 +85,34 @@
 
     @media screen and (min-width: 1440px) {
       margin-bottom: 14px;
-      padding: 15px 32px 13px;
+      padding: 15px 31px 13px;
       width: 272px;
     }
   }
 
-  &__link {
+  &__btn--feedback {
+    padding: 0;
+    border: none;
     font-family: $font-family500;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     text-decoration: underline;
     font-size: 14px;
+    background: none;
+    line-height: calc(18 / 14);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: $transition-timing-function;
 
     @media screen and (min-width: 1440px) {
       margin-bottom: 50px;
       font-size: 18px;
       line-height: calc(28 / 18);
-      // font-family: $font-family500;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $accent-color;
     }
   }
 }

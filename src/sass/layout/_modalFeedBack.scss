@@ -1,5 +1,7 @@
 .modalFeedBack {
 
+    overflow-y: none;
+
     .modalFeedBack__modal {
         min-width: 327px;
         max-width: 100%;
@@ -139,7 +141,6 @@
     }
 
     .modalFeedBack__btn {
-        background-color: $accent-color;
         font-size: 16px;
         font-family: $font-family600;
         line-height: calc(18 / 16);
