@@ -46,6 +46,7 @@ function onFormSubmit(e) {
     promocodeObj.type = promocode.value;
     promocodeObj.amound = amound.value;
     promocodeObj.discount = discount.value;
+    promocodeObj.period = null;
   } else {
     promocodeObj.type = promocode.value;
     promocodeObj.discount = discount.value;
@@ -105,77 +106,122 @@ function onPersonalList(e) {
   }
 }
 
-const commonArray = [
-  {
-    type: 'common',
-    discount: '30',
-    date: '2023-01-05 - 2023-02-05',
-    name: 'hT143Sfv',
-  },
-  {
-    type: 'common',
-    discount: '10',
-    date: '2023-01-05 - 2023-02-05',
-    name: 'ntj53ken',
-  },
-  {
-    type: 'common',
-    discount: '20',
-    date: '2023-01-05 - 2023-02-05',
-    name: 'h198dSfv',
-  },
-];
-const PersonalArray = [
-  {
-    type: 'personal',
-    discount: '30',
-    name: ['sdvsdv', 'dngsfgnv', 'DFBDFbz'],
-  },
-  {
-    type: 'personal',
-    discount: '20',
-    name: ['dfvzx', 'bfdbmmghm', 'fgncvb'],
-  },
-];
+const objFromBack = {
+  common: [
+    {
+      discount: 10,
+      isUsing: null,
+      promo: '48383627',
+      type: 'Common',
+      period: {
+        from: '2023-02-03T22:00:00.000Z',
+        to: '2023-04-18T21:00:00.000Z',
+      },
+    },
+    {
+      discount: 20,
+      isUsing: null,
+      promo: '38417820',
+      type: 'Common',
+      period: {
+        from: '2023-02-03T22:00:00.000Z',
+        to: '2023-04-18T21:00:00.000Z',
+      },
+    },
+  ],
+  personal: [
+    {
+      discount: 30,
+      isUsing: false,
+      type: 'personal',
+      promo: 'sdvsdv',
+      period: null,
+    },
+    {
+      discount: 30,
+      isUsing: false,
+      type: 'personal',
+      promo: '1dbfd45',
+      period: null,
+    },
+    {
+      discount: 10,
+      isUsing: false,
+      type: 'personal',
+      promo: 'v63sd1v2',
+      period: null,
+    },
+    {
+      discount: 30,
+      isUsing: false,
+      type: 'personal',
+      promo: 'sdv2fd1',
+      period: null,
+    },
+    {
+      discount: 20,
+      isUsing: false,
+      type: 'personal',
+      promo: 'dfvzx',
+      period: null,
+    },
+    {
+      discount: 20,
+      isUsing: false,
+      type: 'personal',
+      promo: '137dsv5df',
+      period: null,
+    },
+  ],
+};
 
-function createPromocodeMarkup(array) {
-  return array
-    .map((promo, i) => {
-      if (promo.type === 'common') {
-        return `<li class="list__item" data-name='${promo.name}'>
-            <p>Знижка ${promo.discount}</p>
-            <p>Термін дії: ${promo.date}</p>
+function createPromocodeMarkup({ common, personal }) {
+  const commonMarkup = common
+    .map(({ discount, promo, period }, i) => {
+      return `<li class="list__item" data-name='${promo}'>
+            <p>Знижка ${discount}%</p>
+            <p>Термін дії: ${period.from.slice(0, 10)} - ${period.to.slice(
+        0,
+        10
+      )}</p>
             <div class="common__wrapper">
-            <p>${i + 1}. Промокод <b>${promo.name}</b></p>
+            <p>${i + 1}. <span class="promo__name">${promo}</span></p>
             <button data-action="delete" class="btn btn-danger" type="button">Видалити</button>
             </div>
             </li>`;
-      } else {
-        return `<li class="list__item">
-            <p>Знижка ${promo.discount}</p>            
-            <ul>
-            ${promo.name
-              .map((p, i) => {
-                return `               
-                <li class="personal__wrapper" data-name='${p}'>
-                <span>${i + 1}. Промокод <b>${p}</b></span>
-                <div class="btn-wrapper">
-                <button data-action="active" class="btn btn-success" type="button">Активувати</button>
-                 <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
-                </li>                 
-                `;
-              })
-              .join('')}
-            </ul>
-            </li>`;
-      }
     })
     .join('');
+
+  const fixedPersonalPromocode = personal.reduce((acc, promocode) => {
+    acc[promocode.discount] = acc[promocode.discount] || [];
+    acc[promocode.discount].push(promocode);
+    return acc;
+  }, {});
+  const promocodeMarkUp = Object.entries(fixedPersonalPromocode)
+    .map(list => {
+      return `
+        <p>Знижка ${list[0]}%</p>
+        <ul class="list__item">
+          ${list[1]
+            .map((p, i) => {
+              return `
+                    <li class="personal__wrapper" data-name='${p.promo}'>
+                    <span>${i + 1}. 
+                      <span class="promo__name">${p.promo}</span>
+                    </span>
+                    <div class="btn-wrapper">
+                    <button data-action="active" class="btn btn-success" type="button">Активувати</button>
+                    <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
+                    </li>`;
+            })
+            .join('')}</ul>`;
+    })
+    .join('');
+  commonList.innerHTML = commonMarkup;
+  personalList.innerHTML = promocodeMarkUp;
 }
 
-commonList.innerHTML = createPromocodeMarkup(commonArray);
-personalList.innerHTML = createPromocodeMarkup(PersonalArray);
-
+createPromocodeMarkup(objFromBack);
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
 commonList.addEventListener('click', onCommonList);
