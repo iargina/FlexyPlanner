@@ -1,14 +1,14 @@
-.container {
+.container-order {
   margin-bottom: 72px;
   @media screen and (min-width: 1440px) {
-    max-width: 1022px;
+    // max-width: 1022px;
     margin-bottom: 172px;
   }
 }
 
 .order {
   font-size: 14px;
-  font-weight: $regular-text;
+  font-family: $font-family400;
   text-align: center;
   letter-spacing: -0.02em;
   color: $black-color;
@@ -45,7 +45,7 @@
 
   &__text {
     font-size: 18px;
-    font-weight: $medium-text;
+    font-family: $font-family500;
     margin-bottom: 16px;
 
     @media screen and (min-width: 1440px) {
@@ -63,11 +63,12 @@
     display: inline-block;
     margin-bottom: 24px;
     color: $secondary-text-color;
+    font-family: $font-family400;
 
     @media screen and (min-width: 1440px) {
       margin-bottom: 32px;
       font-size: 18px;
-      font-weight: $regular-text;
+      font-family: $font-family400;
       line-height: calc(24 / 18);
     }
   }
@@ -75,25 +76,43 @@
   &__btn {
     display: block;
     margin: 0 auto;
-    padding: 10px 64px;
+    padding: 12px 62px 8px;
     margin-bottom: 24px;
+    font-family: $font-family600;
+    letter-spacing: -0.02em;
+    font-size: 18px;
+    line-height: calc(22 / 18);
+
     @media screen and (min-width: 1440px) {
       margin-bottom: 14px;
-      padding: 14px 32px;
+      padding: 15px 31px 13px;
+      width: 272px;
     }
   }
 
-  &__link {
-    font-weight: $medium-text;
-    margin-bottom: 24px;
+  &__btn--feedback {
+    padding: 0;
+    border: none;
+    font-family: $font-family500;
+    margin-bottom: 32px;
     text-decoration: underline;
     font-size: 14px;
+    background: none;
+    line-height: calc(18 / 14);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: $transition-timing-function;
 
     @media screen and (min-width: 1440px) {
       margin-bottom: 50px;
       font-size: 18px;
       line-height: calc(28 / 18);
-      font-weight: $medium-text;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $accent-color;
     }
   }
 }
@@ -107,16 +126,17 @@
 
 .motivation-block {
   padding: 14px;
-  font-style: italic;
   background-color: $background-color;
   text-align: left;
+  font-family: $font-family400;
+  line-height: calc(22 / 14);
 
   @media screen and (min-width: 1440px) {
     padding: 62px 66px;
   }
 
   &__link {
-    font-weight: $bold-text;
+    font-family: $font-family700;
     font-style: normal;
   }
 

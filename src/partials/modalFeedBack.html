@@ -1,0 +1,65 @@
+<section class="modalFeedBack backdrop visually-hidden">
+  <div class="modalFeedBack__modal">
+    <picture>
+        <source
+          srcset="
+          ./images/hero/desk_1x_planner_yellow.jpg,
+          ./images/hero/desk_2x_planner_yellow.jpg
+          "
+        />
+        <img
+          class="modalFeedBack__img"
+          src="./images/hero/desk_1x_planner_yellow.jpg"
+          alt="flexxy planner logo"
+        />
+      </picture>
+    <svg class="modalFeedBack__icon">
+      <use href="./icons/sprite.svg#close_modal"></use>
+    </svg>
+    <div class="modalFeedBack__title--wrapper">
+      <h2 class="modalFeedBack__title">Повідомити про наявність</h2>
+    </div>
+    <form class="modalFeedBack__form">
+      <label for="username" class="modalFeedBack__label"
+        >Прізвище, ім’я
+        <input
+          type="text"
+          name="username"
+          placeholder="Рожило Андрій"
+          class="modalFeedBack__input"
+          id="username"
+          required
+          pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$"
+          title="Введіть Ім’я та
+            Прізвище"
+        />
+      </label>
+
+      <label for="email" class="modalFeedBack__label"
+        >Ваш email
+        <input
+          type="email"
+          name="email"
+          placeholder="email@gmail.com"
+          id="email"
+          class="modalFeedBack__input"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          title="Введіть Вашу електрону пошту"
+        />
+      </label>
+
+      <label for="comment" class="modalFeedBack__label"
+        >Повідомлення
+        <textarea
+          name="comment"
+          id="comment"
+          class="modalFeedBack__input modalFeedBack__input--comment"
+          title="Залиште коментар"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="btn modalFeedBack__btn btn--primary">Відправити</button>
+    </form>
+  </div>
+</section>
