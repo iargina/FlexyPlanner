@@ -3,32 +3,37 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
   const checkBoxList = document.querySelectorAll(listsToShow);
   const arrowIcons = document.querySelectorAll(icons);
 
-  if (window.innerWidth >= 1440) {
-    checkBoxList[0].classList.remove('list-hidden');
-
-    if (items[0].classList.contains('qa__btn')) {
-      items[0].classList.add('active-btn');
-    }
-
-    if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-      arrowIcons[0].classList.add('rotate');
-    } else {
-      arrowIcons[0].classList.add('half-rotate');
-    }
-  } else {
-    checkBoxList[0].classList.add('list-hidden');
-
-    if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-      arrowIcons[0].classList.remove('rotate');
-    } else {
-      arrowIcons[0].classList.remove('half-rotate');
-    }
-  }
+function onShowOrHideElems () {
+    if (window.innerWidth >= 1440) {
+        checkBoxList[0].classList.remove('visually-hidden');
+    
+        if (items[0].classList.contains('qa__btn')) {
+          items[0].classList.add('active-btn');
+        }
+    
+        if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
+          arrowIcons[0].classList.add('rotate');
+        } else {
+          arrowIcons[0].classList.add('half-rotate');
+        }
+      } else {
+        checkBoxList[0].classList.add('visually-hidden');
+    
+        if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
+          arrowIcons[0].classList.remove('rotate');
+        } else {
+          arrowIcons[0].classList.remove('half-rotate');
+        }
+        if (items[0].classList.contains('qa__btn')) {
+          items[0].classList.remove('active-btn');
+        }
+      }
+}
 
   items.forEach((item, i) => {
     item.addEventListener('click', function () {
       if (this) {
-        checkBoxList[i].classList.toggle('list-hidden');
+        checkBoxList[i].classList.toggle('visually-hidden');
         this.classList.toggle('active-btn');
         if (arrowIcons[i].classList.contains('howitworks__arrow-icon')) {
           arrowIcons[i].classList.toggle('rotate');
@@ -38,9 +43,11 @@ export const toggleList = (itemsTrigger, listsToShow, icons) => {
       }
     });
   });
+  onShowOrHideElems()
+  window.addEventListener('resize', onShowOrHideElems)
 };
 
-window.addEventListener('resize', toggleList);
+
 toggleList(
   '.howitworks__item',
   '.howitworks-checkbox__list',
