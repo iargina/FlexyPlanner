@@ -49,7 +49,7 @@ async function loadModule({ type, data }) {
   }
   if (type === 'to-order') {
     const { default: getImportFile } = await import(
-      `../templates/order-now.hbs`
+      `../templates/to-order.hbs`
     );
     template = getImportFile(data);
   }
