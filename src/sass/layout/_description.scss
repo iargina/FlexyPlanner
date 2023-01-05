@@ -90,8 +90,7 @@
 
   &:nth-child(4) {
     bottom: -62px;
-    right: 50%;
-    transform: translateX(50%);
+    right: 138px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_4.png') center /
@@ -224,7 +223,6 @@
     &:nth-child(4) {
       bottom: -120px;
       left: -16px;
-      transform: translateX(0);
 
       &::before {
         background: url('./../images/description/desk_1x_round_4.png') center /

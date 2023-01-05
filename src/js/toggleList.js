@@ -47,6 +47,7 @@ function onShowOrHideElems () {
   window.addEventListener('resize', onShowOrHideElems)
 };
 
+
 toggleList(
   '.howitworks__item',
   '.howitworks-checkbox__list',

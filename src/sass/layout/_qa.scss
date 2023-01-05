@@ -47,6 +47,20 @@
     margin-top: 14px;
     color: $secondary-text-color;
 
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: 0.8s;
+
+    &.list-hidden {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     @media screen and (min-width: $desktop-width) {
       font-size: 18px;
     }

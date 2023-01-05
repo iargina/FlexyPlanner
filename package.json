@@ -18,7 +18,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-    "axios": "^1.2.2",    
+    "aos": "^2.3.4",
+    "axios": "^1.2.2",
     "hbs": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
