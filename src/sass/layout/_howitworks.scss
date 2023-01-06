@@ -1,3 +1,15 @@
+@keyframes fade {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .howitworks {
   width: 100%;
   background-color: $accent-color;
@@ -25,6 +37,7 @@
   }
 
   .howitworks__item {
+    cursor: pointer;
     @media screen and (min-width: $desktop-width) {
       display: flex;
       justify-content: space-between;
@@ -84,9 +97,18 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    opacity: 0;
 
     @media screen and (min-width: $desktop-width) {
       gap: 18px;
+    }
+
+    &.active {
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-duration: 300ms;
+      animation-delay: 400ms;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -118,11 +140,11 @@
     max-height: 800px;
     overflow-y: auto;
     scrollbar-width: none;
-    transition: 0.8s;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
 
-    &.list-hidden {
-      max-height: 0;
-      overflow-y: hidden;
+    &.is-active {
+      opacity: 1;
     }
 
     &::-webkit-scrollbar {

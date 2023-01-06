@@ -1,55 +1,44 @@
-export const toggleList = (itemsTrigger, listsToShow, icons) => {
-  const items = document.querySelectorAll(itemsTrigger);
-  const checkBoxList = document.querySelectorAll(listsToShow);
-  const arrowIcons = document.querySelectorAll(icons);
+import HandyCollapse from 'handy-collapse';
 
-  function onShowOrHideElems() {
-    if (window.innerWidth >= 1440) {
-      checkBoxList[0].classList.remove('list-hidden');
+const featureAccordion = new HandyCollapse({
+  nameSpace: 'lc',
+  closeOthers: false,
+  animationSpeed: 300,
+  onSlideStart: (isOpen, contentID) => {
+    const iconEl = document.querySelector(
+      `[data-lc-control='${contentID}'] .howitworks__arrow-icon`
+    );
 
-      if (items[0].classList.contains('qa__btn')) {
-        items[0].classList.add('active-btn');
-      }
+    const listItems = document.querySelectorAll(
+      `[data-lc-control='${contentID}'] .howitworks-checkbox__list li`
+    );
 
-      if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-        arrowIcons[0].classList.add('rotate');
-      } else {
-        arrowIcons[0].classList.add('half-rotate');
-      }
+    if (!iconEl) return;
+
+    if (isOpen) {
+      iconEl.classList.add('rotate');
+      listItems.forEach((el, idx) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, 200 * idx);
+      });
     } else {
-      checkBoxList[0].classList.add('list-hidden');
-
-      if (arrowIcons[0].classList.contains('howitworks__arrow-icon')) {
-        arrowIcons[0].classList.remove('rotate');
-      } else {
-        arrowIcons[0].classList.remove('half-rotate');
-      }
-      if (items[0].classList.contains('qa__btn')) {
-        items[0].classList.remove('active-btn');
-      }
+      iconEl.classList.remove('rotate');
+      listItems.forEach(el => el.classList.remove('active'));
     }
-  }
+  },
+});
 
-  items.forEach((item, i) => {
-    item.addEventListener('click', function () {
-      if (this) {
-        checkBoxList[i].classList.toggle('list-hidden');
-        this.classList.toggle('active-btn');
-        if (arrowIcons[i].classList.contains('howitworks__arrow-icon')) {
-          arrowIcons[i].classList.toggle('rotate');
-        } else {
-          arrowIcons[i].classList.toggle('half-rotate');
-        }
-      }
-    });
-  });
-  onShowOrHideElems();
-  window.addEventListener('resize', onShowOrHideElems);
-};
-
-toggleList(
-  '.howitworks__item',
-  '.howitworks-checkbox__list',
-  '.howitworks__arrow-icon'
-);
-toggleList('.qa__btn', '.qa-item__text', '.qa__icon');
+const qaAccordion = new HandyCollapse({
+  nameSpace: 'hc',
+  closeOthers: false,
+  onSlideStart: (isOpen, contentID) => {
+    const btnEl = document.querySelector(`[data-hc-control='${contentID}']`);
+    if (!btnEl) return;
+    if (isOpen) {
+      btnEl.classList.add('half-rotate');
+    } else {
+      btnEl.classList.remove('half-rotate');
+    }
+  },
+});
