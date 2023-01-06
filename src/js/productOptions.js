@@ -13,8 +13,9 @@ for (let i = 1; i < listItemsArr.length; i += 1) {
 // =============================================
 
 function onElementClick(e) {
-  if (e.target.nodeName === 'svg') {
-    const btnName = e.target.dataset.action;
+
+  if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
+    const btnName = e.target.closest('svg').dataset.action;
     const listItem = e.target.closest('li');
 
     if (btnName === "minus") {

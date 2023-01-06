@@ -27,6 +27,7 @@
   margin-bottom: 72px;
 
   @media screen and (min-width: $desktop-width) {
+    margin-bottom: 150px;
     max-width: 756px;
   }
 }
@@ -68,11 +69,6 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
-
-  @media screen and (min-width: $desktop-width) {
-    align-items: normal;
-  }
 }
 
 .orderProcessing__plannerDescr {
@@ -108,7 +104,7 @@
 
   @media screen and (min-width: $desktop-width) {
     flex-direction: row;
-    width: 347px;
+    width: 330px;
     margin-left: 24px;
   }
 }
@@ -208,6 +204,11 @@
 .orderProcessing__ItemImg {
   max-width: 52px;
   transform: rotate(-10deg);
+
+  @media screen and (min-width: $desktop-width) {
+    transform: rotate(0deg);
+    max-width: 74px;
+  }
 }
 
 .orderProcessing__amountTitle {
@@ -218,7 +219,7 @@
   color: $secondary-text-color;
 
   @media screen and (min-width: $desktop-width) {
-    font-family: $font-family500;
+    font-family: $font-familyLight400;
     font-size: 18px;
     line-height: 1.33;
   }
@@ -231,6 +232,9 @@
 
 .orderProcessing__item {
   min-width: 335px;
+}
+
+.orderProcessing__item:not(:last-child) {
   margin-bottom: 20px;
 
   @media screen and (min-width: $desktop-width) {
@@ -244,6 +248,7 @@
 
   @media screen and (min-width: $desktop-width) {
     align-items: center;
+    height: 140px;
   }
 }
 
@@ -262,8 +267,6 @@
 
 .orderProcessing__itemTitle {
   font-family: $font-familyLight400;
-  font-style: normal;
-  // font-weight: 500;
   font-size: 12px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -271,19 +274,28 @@
   margin-bottom: 4px;
 
   color: $black-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 14px;
+    line-height: 1.29;
+    max-width: 180px;
+  }
 }
 
 .orderProcessing__itemParagraph {
   font-family: $font-family400;
-  // font-style: normal;
-  // font-weight: 400;
   font-size: 8px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-
   color: $secondary-text-color;
-
   margin-bottom: 14px;
+
+  @media screen and (min-width: $desktop-width) {
+    margin-bottom: 0px;
+
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 .orderProcessing__inputWrapper {
@@ -325,38 +337,39 @@
   border-radius: 2px;
 
   font-family: $font-family400;
-  // font-style: normal;
-  // font-weight: 400;
   font-size: 12px;
   line-height: 1;
 
-  color: #111111;
+  color: $black-color;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 41px;
+    height: 20px;
+
+    border: 0.8px solid rgba(17, 17, 17, 0.2);
+
+    font-size: 14px;
+    // line-height: 1.14;
+  }
 }
 
 .orderProcessing__cost {
-  font-family: $font-family400;
-  // font-style: normal;
-  // font-weight: 400;
+  font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
 
-  color: #111111;
+  color: $black-color;
 }
 
 .orderProcessing__addBtn {
   font-family: $font-family400;
-  // font-style: normal;
-  // font-weight: 400;
   font-size: 12px;
   line-height: 1;
-
   color: #111111;
-
   cursor: pointer;
 
   @media screen and (min-width: $desktop-width) {
     margin-left: 17px;
-
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.01em;
@@ -369,7 +382,7 @@
   @media screen and (min-width: $desktop-width) {
     content: '';
     display: block;
-    width: 50px;
+    width: 49px;
     height: 1px;
     background: $secondary-text-color;
     opacity: 0.5;
