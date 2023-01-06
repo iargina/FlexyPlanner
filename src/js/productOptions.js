@@ -1,4 +1,5 @@
 import { Order } from "./utils";
+import { makeMarkup } from "./finalSum";
 
 const listEl = document.querySelector('.orderProcessing__list');
 const listItemsArr = document.querySelectorAll('.orderProcessing__item');
@@ -9,7 +10,7 @@ const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 listEl.addEventListener('click', onElementClick);
 
 // Usage:
-let order = new Order("Planner");
+let order = new Order();
 let products = [];
 
 // ============== INITIAL STATE ================
@@ -119,7 +120,10 @@ function recalcAmount() {
   // console.log(products);
 
   order.orderedPlanners = products;
-  console.log("GetterResult: ", order.orderedPlanners);
-  return products;
+  makeMarkup();
+  // console.log('order: ', order)
+  // console.log("GetterResult: ", order.orderedPlanners);
+  console.log("Order: ", order.getWholeOrderData());
+  // return products;
 }
 
