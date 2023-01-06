@@ -1,9 +1,9 @@
 .qa {
-  padding-bottom: 0;
-  padding-top: 0;
-  margin-bottom: 72px;
+  padding-top: 72px;
+  padding-bottom: 72px;
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 172px;
+    padding-bottom: 172px;
+    padding-top: 172px;
   }
   .qa__title {
     font-size: 28px;
@@ -46,6 +46,20 @@
     font-family: $font-familyLight400;
     margin-top: 14px;
     color: $secondary-text-color;
+
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: 0.8s;
+
+    &.list-hidden {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media screen and (min-width: $desktop-width) {
       font-size: 18px;
