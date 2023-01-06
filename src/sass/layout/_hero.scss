@@ -134,9 +134,6 @@
 }
 .hero__swiper-slide.swiper-slide {
   margin: 0;
-  @media screen and (min-width: 960px) {
-    transform: rotate(15deg);
-  }
 }
 .swiper-slide__container > picture {
   object-fit: cover;
