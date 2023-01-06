@@ -1,10 +1,28 @@
 import HandyCollapse from 'handy-collapse';
 
+const observerRef = document.querySelector('#observer');
+
+const observer = new IntersectionObserver(onScrollToList, {
+  root: null,
+  rootMargin: '-100px',
+  threshold: 1.0,
+});
+
+observer.observe(observerRef);
+
+function onScrollToList([entry]) {
+  if (entry.isIntersecting) {
+    featureAccordion.open('feature-toggle-one');
+  }
+}
+
 const featureAccordion = new HandyCollapse({
   nameSpace: 'lc',
   closeOthers: false,
-  animationSpeed: 300,
+  animationSpeed: 400,
   onSlideStart: (isOpen, contentID) => {
+    observer.unobserve(observerRef);
+
     const iconEl = document.querySelector(
       `[data-lc-control='${contentID}'] .howitworks__arrow-icon`
     );
@@ -24,7 +42,9 @@ const featureAccordion = new HandyCollapse({
       });
     } else {
       iconEl.classList.remove('rotate');
-      listItems.forEach(el => el.classList.remove('active'));
+      setTimeout(() => {
+        listItems.forEach(el => el.classList.remove('active'));
+      }, 400);
     }
   },
 });
