@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const onPreOrderFormSubmit = () => {
-  JSON.parse(sessionStorage.getItem('feedback-form-state')) || {
+  JSON.parse(sessionStorage.getItem('user-info')) || {
     username: '',
     email: '',
     comment: '',
@@ -10,19 +10,13 @@ const onPreOrderFormSubmit = () => {
   const form = document.querySelector('.modalFeedBack__form');
   const inputs = document.querySelectorAll('.modalFeedBack__input')
 
-  function clearInputs () {
-    inputs.forEach(input => {
-        input.value = ''
-    })
-  }
-
   const {
     elements: { username, email, comment },
   } = form;
 
   form.addEventListener('input', () =>
     sessionStorage.setItem(
-      'feedback-form-state',
+      'user-info',
       JSON.stringify({
         username: username.value,
         email: email.value,
@@ -46,7 +40,13 @@ const onPreOrderFormSubmit = () => {
         clearInputs()
     }, 1000)
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
-    sessionStorage.removeItem('feedback-form-state');
+    sessionStorage.removeItem('user-info');
+  }
+
+  function clearInputs () {
+    inputs.forEach(input => {
+        input.value = ''
+    })
   }
 };
 
