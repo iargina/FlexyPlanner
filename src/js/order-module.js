@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import toggleModal from './toggleModal';
 // const obj = {
 //   markup: 'something',
 //   type: 'pre-order',
@@ -40,7 +40,8 @@ const orderModule = {
 loadModule(orderModule);
 
 async function loadModule({ type, data }) {
-  let template;
+  try {
+    let template;
   if (type === 'pre-order') {
     const { default: getImportFile } = await import(
       `../templates/pre-order.hbs`
@@ -54,6 +55,11 @@ async function loadModule({ type, data }) {
     template = getImportFile(data);
   }
   getOrderSection(template);
+  } catch (error) {
+    console.log(error)
+  } finally {
+    toggleModal('.pre-order__btn--feedback', '.modalFeedBack__icon', '.modalFeedBack');
+  }
 }
 
 function getOrderSection(template) {

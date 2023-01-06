@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./sass/index.scss" />
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/hero.html"></include>
-    <include src="./partials/personalCoatch.html"></include>
-    <include src="./partials/motivate.html"></include>
-    <include src="./partials/howitworks.html"></include>
-    <include src="./partials/description.html"></include>
-    <include src="./partials/order.html"></include>
-    <include src="./partials/authors.html"></include>
-    <include src="./partials/qa.html"></include>
-    <include src="./partials/modalFeedBack.html"></include>
-    <a href="./admin_main.html" class="btn btn--primary order-now__btn"
-      >ВРЕМЕННАЯ ССЫЛКА НА АДМИНКУ</a
-    >
-    <a href="./login.html" class="visually-hidden"></a>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modalSuccessOrder.html"></include>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Flexy Planner - твій персональний кишеньковий коуч">
+    <meta name="description" content=" Багатофункціональний адаптивний щоденник | Покрокова інструкція з самоорганізації
+  📒 Структурує думки 📒 Мотивує змінюватися 📒 Фокусує на головному 📒 Підвищує ефективність 📒 Дисциплінує"></meta>
+<!--  <meta name="robots" content="INDEX,FOLLOW">  -->
+    <title>Flexy Planner - твій кишеньковий коуч</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="icon" type="image/png" href="./images/fav.png" />
+
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+  <!-- ❗️❗️❗️ Add partials like so for every page -->
+  <include src="./partials/hero.html"></include>
+  <include src="./partials/personalCoatch.html"></include>
+  <include src="./partials/motivate.html"></include>
+  <include src="./partials/howitworks.html"></include>
+  <include src="./partials/description.html"></include>
+  <include src="./partials/order.html"></include>
+  <include src="./partials/authors.html"></include>
+  <include src="./partials/qa.html"></include>
+  <include src="./partials/button-up.html"></include>
+  <include src="./partials/modalFeedBack.html"></include>
+  <a href="./admin_main.html" class="btn btn--primary order-now__btn">ВРЕМЕННАЯ ССЫЛКА НА АДМИНКУ</a>
+  <a href="./login.html" class="visually-hidden"></a>
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modalSuccessOrder.html"></include>
+</body>
+
 </html>

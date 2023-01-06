@@ -115,6 +115,19 @@
     display: flex;
     flex-direction: column;
     gap: 18px;
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: 0.8s;
+
+    &.list-hidden {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media screen and (min-width: $desktop-width) {
       display: flex;
