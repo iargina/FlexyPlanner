@@ -1,3 +1,5 @@
+import { Order } from "./utils";
+
 const listEl = document.querySelector('.orderProcessing__list');
 const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 const amountElArr = document.querySelectorAll('.orderProcessing__number');
@@ -5,6 +7,10 @@ const titlesArr = document.querySelectorAll('.orderProcessing__itemTitle');
 const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 
 listEl.addEventListener('click', onElementClick);
+
+// Usage:
+let order = new Order("Planner");
+let products = [];
 
 // ============== INITIAL STATE ================
 for (let i = 1; i < listItemsArr.length; i += 1) {
@@ -46,11 +52,9 @@ function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
-  // console.dir(amountCostEl.innerText);
+
   let numberElValue = Number(numberEl.textContent);
   let priceValue = Number(priceEl.innerText.slice(0, -4));
-  // console.log('numberElValue', numberElValue);
-  // console.log('amountCostValue', amountCostValue);
 
   if (operation === 'minus') {
     if (numberElValue === 1) {
@@ -112,6 +116,10 @@ function recalcAmount() {
       price: 995,
     });
   })
-  console.log(products);
+  // console.log(products);
+
+  order.orderedPlanners = products;
+  console.log("GetterResult: ", order.orderedPlanners);
+  return products;
 }
 
