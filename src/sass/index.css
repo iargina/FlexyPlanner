@@ -552,14 +552,21 @@ body {
   }
 }
 
+.contacts__container {
+  padding-top: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .contacts__container {
+    padding-top: 100px;
+  }
+}
+
 .contacts__form {
   max-width: 335px;
-  margin-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
   .contacts__form {
     max-width: 420px;
-    margin-bottom: 100px;
   }
 }
 
@@ -629,6 +636,15 @@ body {
   padding: 10px 44px;
 }
 
+.delivery__container {
+  padding-top: 72px;
+}
+@media screen and (min-width: 1440px) {
+  .delivery__container {
+    padding-top: 100px;
+  }
+}
+
 .city-wrapper {
   max-width: 335px;
   position: relative;
@@ -689,12 +705,10 @@ body {
 .warehouse-wrapper {
   max-width: 335px;
   position: relative;
-  margin-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
   .warehouse-wrapper {
     max-width: 420px;
-    margin-bottom: 50px;
   }
 }
 
@@ -2197,6 +2211,390 @@ input:invalid:required {
   .motivation-block__text br {
     display: initial;
     padding-top: 20px;
+  }
+}
+
+.header {
+  margin-top: 20px;
+}
+
+.orderProcessing__logo {
+  width: 97px;
+  margin-bottom: 40px;
+}
+
+.orderProcessing__title {
+  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  margin-bottom: 50px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__title {
+    font-size: 64px;
+    line-height: 1.06;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .orderProcessing__productWrapper {
+    max-width: 756px;
+  }
+}
+
+.section__title {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 1440px) {
+  .section__title {
+    font-family: "MacPawFixelDisplay500", sans-serif;
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__plannerWrapper {
+  display: flex;
+}
+
+.orderProcessing__planner {
+  max-width: 73px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__planner {
+    max-width: 187px;
+  }
+}
+
+.orderProcessing__textPlannerWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.orderProcessing__textWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.orderProcessing__plannerDescr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  width: 142px;
+  margin-left: 16px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__plannerDescr {
+    width: 347px;
+    margin-left: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .orderProcessing__titleWrapper {
+    min-width: 200px;
+  }
+}
+
+.orderProcessing__itemDescr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 155px;
+  margin-left: 16px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__itemDescr {
+    flex-direction: row;
+    width: 330px;
+    margin-left: 24px;
+  }
+}
+
+.orderProcessing__plannerTitle {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__plannerTitle {
+    font-family: "MacPawFixelDisplay500", sans-serif;
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__plannerParagraph {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__plannerParagraph {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__priceDescr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.orderProcessing__price {
+  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #3c3b3b;
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__price {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__priceCancelled {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 8px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__priceCancelled {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+.orderProcessing__priceCurrent {
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #f7434b;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__priceCurrent {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__amount {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 28px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__amount {
+    max-width: 545px;
+    margin-left: 210px;
+    margin-top: -110px;
+  }
+}
+
+.orderProcessing__ItemImg {
+  max-width: 52px;
+  transform: rotate(-10deg);
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__ItemImg {
+    transform: rotate(0deg);
+    max-width: 74px;
+  }
+}
+
+.orderProcessing__amountTitle {
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #3c3b3b;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__amountTitle {
+    font-family: "MacPawFixelDisplayLight400", sans-serif;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.orderProcessing__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderProcessing__item {
+  min-width: 335px;
+}
+
+.orderProcessing__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__item:not(:last-child) {
+    margin-bottom: 0px;
+  }
+}
+
+.orderProcessing__itemWrapper {
+  display: flex;
+  height: 95px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__itemWrapper {
+    align-items: center;
+    height: 140px;
+  }
+}
+
+.orderProcessing__item:not(:last-child):after {
+  content: "";
+  display: block;
+  width: 335px;
+  height: 1px;
+  background: #111111;
+  opacity: 0.1;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__item:not(:last-child):after {
+    width: 545px;
+  }
+}
+
+.orderProcessing__itemTitle {
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__itemTitle {
+    font-size: 14px;
+    line-height: 1.29;
+    max-width: 180px;
+  }
+}
+
+.orderProcessing__itemParagraph {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #3c3b3b;
+  margin-bottom: 14px;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__itemParagraph {
+    margin-bottom: 0px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+.orderProcessing__inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__inputWrapper {
+    width: 77px;
+  }
+}
+
+.orderProcessing__minus, .orderProcessing__plus {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+
+.orderProcessing__close {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin-top: -2px;
+}
+
+.orderProcessing__number {
+  height: 16px;
+  min-width: 37px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 4px;
+  border: 0.5px solid rgba(17, 17, 17, 0.2);
+  border-radius: 2px;
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #111111;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__number {
+    width: 41px;
+    height: 20px;
+    border: 0.8px solid rgba(17, 17, 17, 0.2);
+    font-size: 14px;
+  }
+}
+
+.orderProcessing__cost {
+  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #111111;
+}
+
+.orderProcessing__addBtn {
+  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #111111;
+  cursor: pointer;
+}
+@media screen and (min-width: 1440px) {
+  .orderProcessing__addBtn {
+    margin-left: 17px;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+    color: #3c3b3b;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .orderProcessing__addBtn::after {
+    content: "";
+    display: block;
+    width: 49px;
+    height: 1px;
+    background: #3c3b3b;
+    opacity: 0.5;
   }
 }
 
