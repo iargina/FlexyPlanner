@@ -4,16 +4,16 @@
     backdropSection = document.querySelector(backdrop);
 
   openModalBtn.addEventListener('click', () => {
-    backdropSection.classList.toggle('visually-hidden');
+    backdropSection.classList.toggle('modal-is-hidden');
   });
 
   closeModalBtn.addEventListener('click', () => {
-    backdropSection.classList.toggle('visually-hidden');
+    backdropSection.classList.toggle('modal-is-hidden');
   });
 
   backdropSection.addEventListener('click', e => {
     if (e.target === backdropSection) {
-      backdropSection.classList.toggle('visually-hidden');
+      backdropSection.classList.toggle('modal-is-hidden');
     }
   });
 };
