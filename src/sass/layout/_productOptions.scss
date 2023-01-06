@@ -24,10 +24,7 @@
 }
 
 .orderProcessing__productWrapper {
-  margin-bottom: 72px;
-
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 150px;
     max-width: 756px;
   }
 }
