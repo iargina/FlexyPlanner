@@ -2,7 +2,7 @@ const orderAdmin = document.querySelector('.order-admin');
 const toOrderBtn = document.querySelector('[data-status="to-order"]');
 const preOrderBtn = document.querySelector('[data-status="pre-order"]');
 const formToOrder = document.querySelector('.form-to-order');
-const formPreOrder = document.querySelector('form-pre-order');
+const formPreOrder = document.querySelector('.form-pre-order');
 
 const toggleButtonsClass = (curr, next) => {
   curr.classList.remove('btn-danger');
