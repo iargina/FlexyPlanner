@@ -3385,4 +3385,26 @@ input:invalid:required {
     width: 25px;
     height: 14px;
   }
+}
+
+.order-admin {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.order-admin__text1 {
+  background-color: rgb(51, 51, 51);
+}
+
+.wrap {
+  padding: 30px;
+}
+
+.btn.btn-primary,
+.btn.btn-success,
+.btn.btn-danger {
+  width: 250px;
+  height: 45px;
+  padding: 0;
 }/*# sourceMappingURL=index.css.map */
