@@ -8,7 +8,7 @@ const onPreOrderFormSubmit = () => {
   };
 
   const form = document.querySelector('.modalFeedBack__form');
-  const inputs = document.querySelectorAll('.modalFeedBack__input')
+  const inputs = document.querySelectorAll('.modalFeedBack__input');
 
   const {
     elements: { username, email, comment },
@@ -36,17 +36,15 @@ const onPreOrderFormSubmit = () => {
     };
 
     console.log(state);
-    setTimeout(() => {
-        clearInputs()
-    }, 1000)
+    clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
     sessionStorage.removeItem('user-info');
   }
 
-  function clearInputs () {
+  function clearInputs() {
     inputs.forEach(input => {
-        input.value = ''
-    })
+      input.value = '';
+    });
   }
 };
 
