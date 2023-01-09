@@ -25,13 +25,13 @@ function calculateSumAmount() {
 }
 
 function createFinalOrderMarkup() {
+  calculateSumAmount();
   const wordAmount = correctProductWord(sumAmount, [
     'товар',
     'товари',
     'товарів',
   ]);
 
-  calculateSumAmount();
   return `
     <ul class="finalSum__list">
       <li class="finalSum__item">
@@ -56,7 +56,7 @@ function createFinalOrderMarkup() {
     `;
 }
 
-// POST;
+// POST запит;
 function postToAdd() {
   const total = order.total * 100;
   return {

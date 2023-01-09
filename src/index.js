@@ -4,4 +4,5 @@ import './js/animation.js';
 import './js/button-up.js';
 import './js/onPreOrderFormSubmit.js';
 import './js/preLoader.js';
+import './js/successPayment.js';
 import { toggleList } from './js/toggleList.js';
