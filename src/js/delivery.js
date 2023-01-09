@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
-import { Order } from './utils';
+import { order } from './utils';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -11,7 +11,7 @@ const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 
 const api = new PoshtaAPI();
-let order = new Order();
+// let order = new Order();
 
 async function selectCity(e) {
   warehouseInputRef.value = '';

@@ -1,76 +1,82 @@
-export class Order {
+class Order {
 
-  static #orderedPlanners = [];
-  static #price = 995;
-  static #contactInfo = {};
-  // static #cityName = '';
-  // static #warehouse = '';
-  static #delivery = {}
+  #orderedPlanners = [];
+  #price = 995;
+  #contactInfo = {};
+  #delivery = {};
+  #promocode = '';
+  #total = 0;
+
+  // Встановлює загальну вартість замовлення
+  setTotal() {
+    this.#total = this.#orderedPlanners.reduce(
+      (accumulator, el) => accumulator + el.amount * el.price,
+      0
+    );
+  }
+
+  get total() {
+    return this.#total;
+  }
+
+  // Щось має бути по знижці
+  useDiscount() { }
 
   // Array of ordered objects
   get orderedPlanners() {
-    return Order.#orderedPlanners;
+    return this.#orderedPlanners;
   }
 
   set orderedPlanners(objArr) {
-    Order.#orderedPlanners = objArr;
+    this.#orderedPlanners = objArr;
   }
 
   // Price
   get price() {
-    return Order.#price;
+    return this.#price;
   }
 
-  set price(priceVal) {
-    Order.#price = priceVal;
+  set price(data) {
+    this.#price = data;
   }
 
   // Contact Data
   get contactInfo() {
-    return Order.#contactInfo;
+    return this.#contactInfo;
   }
 
   set contactInfo(data) {
-    Order.#contactInfo = data;
+    this.#contactInfo = data;
   }
 
   // Delivery
   get delivery() {
-    return Order.#delivery;
+    return this.#delivery;
   }
 
   set delivery(data) {
-    const prevData = Order.#delivery;
-    Order.#delivery = { ...prevData, ...data };
+    const prevData = this.#delivery;
+    this.#delivery = { ...prevData, ...data };
   }
 
-  // get cityName() {
-  //   return Order.#cityName;
-  // }
+  // Delivery
+  get promocode() {
+    return this.#promocode;
+  }
 
-  // set cityName(newName) {
-  //   Order.#cityName = newName;
-  // }
-
-  // get warehouse() {
-  //   return Order.#warehouse;
-  // }
-
-  // set warehouse(newWarehouse) {
-  //   Order.#warehouse = newWarehouse;
-  // }
-
+  set promocode(pcode) {
+    this.#promocode = pcode;
+  }
 
   getWholeOrderData() {
     return {
-      orderedPlanners: Order.#orderedPlanners,
-      price: Order.#price,
-      contactInfo: Order.#contactInfo,
-      // delivery: {
-      //   city: Order.#cityName,
-      //   warehouse: Order.#warehouse
-      // }
-      delivery: Order.#delivery,
+      orderedPlanners: this.#orderedPlanners,
+      price: this.#price,
+      contactInfo: this.#contactInfo,
+      delivery: this.#delivery,
     }
   }
 }
+
+
+export const order = new Order();

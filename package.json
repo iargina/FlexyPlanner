@@ -23,6 +23,7 @@
     "hbs": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
+    "moment": "^2.29.4",
     "notiflix": "^3.2.5",
     "swiper": "^8.4.5"
   },
