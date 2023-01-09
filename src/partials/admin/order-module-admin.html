@@ -10,17 +10,18 @@
       </label>
       <label for="">
         <span>Pre-order price</span>
-        <input type="number" min="1" step="any" name="pre-order price" />
+        <input type="number" min="1" step="any" name="preOrderPrice" />
       </label>
       <button type="submit" class="btn btn-primary">Додати дані модуля</button>
       <button
         type="button"
         data-status="pre-order"
-        class="btn btn-secondary btn-order-js"
+        class="btn btn-danger btn-order-js"
       >
         Активувати
       </button>
     </form>
+    <p class="preorder-price-info"></p>
   </div>
 
   <div class="wrap">
@@ -34,10 +35,11 @@
       <button
         type="button"
         data-status="to-order"
-        class="btn btn-secondary btn-order-js"
+        class="btn btn-danger btn-order-js"
       >
         Активувати
       </button>
     </form>
+    <p class="price-info"></p>
   </div>
 </div>
