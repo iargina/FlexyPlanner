@@ -1,5 +1,5 @@
 import { order } from "./utils";
-import { makeMarkup } from "./finalSum";
+// import { makeMarkup } from "./finalSum";
 
 const listEl = document.querySelector('.orderProcessing__list');
 const listItemsArr = document.querySelectorAll('.orderProcessing__item');
@@ -119,7 +119,7 @@ function recalcAmount() {
 
   order.orderedPlanners = products;
   order.setTotal();
-  makeMarkup();
+  // makeMarkup();
   // console.log("Order: ", order.getWholeOrderData());
 }
 

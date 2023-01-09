@@ -59,7 +59,7 @@ class Order {
     this.#delivery = { ...prevData, ...data };
   }
 
-  // Delivery
+  // Promocode
   get promocode() {
     return this.#promocode;
   }
