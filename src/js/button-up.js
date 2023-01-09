@@ -1,10 +1,16 @@
-const btnToUp = document.querySelector('.button-up__wrapper');
+const btnToTop = document.querySelector('.button-up__wrapper');
+let lastScroll = 0;
 
-let scrolled;
-window.onscroll = function () {
-  scrolled = window.pageYOffset;
-  btnToUp.classList.add('is-hidden');
-  if (scrolled > 900) {
-    btnToUp.classList.remove('is-hidden');
+const scrollPosition = () =>
+  window.pageYOffset || document.documentElement.scrollTop;
+const containIsHidden = () => btnToTop.classList.contains('is-hidden');
+
+window.addEventListener('scroll', () => {
+  if (scrollPosition() > lastScroll && !containIsHidden()) {
+    btnToTop.classList.add('is-hidden');
+  } else if (scrollPosition() < lastScroll && containIsHidden()) {
+    btnToTop.classList.remove('is-hidden');
   }
-};
+
+  lastScroll = scrollPosition();
+});

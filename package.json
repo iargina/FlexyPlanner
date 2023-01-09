@@ -20,6 +20,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^1.2.2",
+    "handy-collapse": "^1.1.0",
     "hbs": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",

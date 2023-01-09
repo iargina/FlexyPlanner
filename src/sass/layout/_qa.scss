@@ -95,7 +95,7 @@
     align-items: center;
     border: 0.827586px solid rgba(17, 17, 17, 0.12);
 
-    transition-property: background-color, border;
+    transition-property: background-color, border, rotate;
     transition-duration: 250ms;
     transition-timing-function: $transition-timing-function;
 
@@ -117,10 +117,6 @@
     width: 24px;
     fill: none;
     stroke: black;
-
-    transition-property: rotate;
-    transition-duration: 250ms;
-    transition-timing-function: $transition-timing-function;
 
     @media screen and (min-width: $desktop-width) {
       height: 40px;
