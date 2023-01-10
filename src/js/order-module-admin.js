@@ -7,8 +7,6 @@ const formToOrder = document.querySelector('.form-to-order');
 const formPreOrder = document.querySelector('.form-pre-order');
 
 const showSettedPrice = data => {
-  console.log(data);
-
   if (data.type === 'pre-order') {
     document.querySelector(
       '.preorder-price-info'
@@ -68,7 +66,11 @@ const handleToOrderSubmit = async e => {
   //тут має бути відправка запиту на бекенд для додавання даних модуля
   // fetchGallery(obj);
   try {
-    await axios.put('https://flexyplanner.onrender.com/markup', obj);
+    const { data } = await axios.put(
+      'https://flexyplanner.onrender.com/markup',
+      obj
+    );
+    showSettedPrice(data);
   } catch (error) {
     console.log(error);
   }
@@ -86,10 +88,11 @@ const handlePreOrderSubmit = async e => {
   };
 
   try {
-    const res = await axios.put(
+    const { data } = await axios.put(
       'https://flexyplanner.onrender.com/markup',
       obj
     );
+    showSettedPrice(data);
   } catch (error) {
     console.log(error);
   }
