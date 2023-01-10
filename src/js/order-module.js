@@ -1,7 +1,7 @@
 import axios from 'axios';
 import toggleModal from './toggleModal';
 
-(async () => {
+const onOrderModule = async () => {
   try {
     const { data } = await axios.get(
       'https://flexyplanner.onrender.com/markup'
@@ -12,7 +12,7 @@ import toggleModal from './toggleModal';
   } catch (error) {
     console.log('something went wrong');
   }
-})();
+};
 
 const loadModule = async ({ type, data }) => {
   try {
@@ -44,3 +44,5 @@ const getOrderSection = template => {
   const orderSection = document.querySelector('#order');
   orderSection.innerHTML = template;
 };
+
+onOrderModule();
