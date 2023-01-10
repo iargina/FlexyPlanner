@@ -6,14 +6,33 @@ const preOrderBtn = document.querySelector('[data-status="pre-order"]');
 const formToOrder = document.querySelector('.form-to-order');
 const formPreOrder = document.querySelector('.form-pre-order');
 
-const setActiveBtn = elem => {
+const showSettedPrice = data => {
+  console.log(data);
+
+  if (data.type === 'pre-order') {
+    document.querySelector(
+      '.preorder-price-info'
+    ).innerHTML = `Встановлена ціна: ${data.data.price}, ціна зі знижкою:  ${data.data.preOrderPrice}`;
+  } else {
+    document.querySelector(
+      '.price-info'
+    ).innerHTML = `Встановлена ціна: ${data.data.price}`;
+  }
+};
+
+const setActiveBtn = async elem => {
   elem.classList.remove('btn-danger');
   elem.classList.add('btn-success');
   elem.innerText = 'Активовано';
   elem.disabled = true;
+
+  const { data } = await axios.get('https://flexyplanner.onrender.com/markup');
+
+  showSettedPrice(data);
 };
 
-const toggleButtonsClass = (curr, next) => {
+const toggleButtonsClass = async (curr, next) => {
+  await axios.patch('https://flexyplanner.onrender.com/markup');
   setActiveBtn(curr);
 
   next.classList.remove('btn-success');
@@ -36,32 +55,8 @@ const activateOrderModule = e => {
   }
 };
 
-// const instance = axios.create({
-//   baseURL: 'https://flexyplanner.onrender.com/markup',
-//   params: {
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     // body: JSON.stringify(obj),
-//   },
-// });
-
-// export const fetchGallery = async obj => {
-//   try {
-//     const { data } = await instance.put('', {
-//       params: { body: obj },
-//     });
-
-//     console.log(data);
-//   } catch (error) {
-//     return error.message;
-//   }
-// };
-
 const handleToOrderSubmit = async e => {
   e.preventDefault();
-
-  // console.log(e.target.elements.price.value);
 
   const obj = {
     type: 'to-order',
@@ -69,15 +64,17 @@ const handleToOrderSubmit = async e => {
       price: e.target.elements.price.value,
     },
   };
+
   //тут має бути відправка запиту на бекенд для додавання даних модуля
   // fetchGallery(obj);
-
-  //тимчасове рішення без хендлу помилки, зробити те саме через інстанс та у handlePreOrderSubmit
-  const res = await axios.put('https://flexyplanner.onrender.com/markup', obj);
-  console.log(res.data);
+  try {
+    await axios.put('https://flexyplanner.onrender.com/markup', obj);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const handlePreOrderSubmit = e => {
+const handlePreOrderSubmit = async e => {
   e.preventDefault();
 
   const obj = {
@@ -88,49 +85,28 @@ const handlePreOrderSubmit = e => {
     },
   };
 
-  //тут має бути відправка запиту на бекенд для додавання даних модуля
-  console.log(obj);
-
-  // console.log(e.target.elements.price.value);
-  // console.log(e.target.elements.preOrderPrice.value);
-
-  // fetch('https://flexyplanner.onrender.com/markup', {
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     type: 'pre-order',
-  //   }),
-  // })
-  //   .then(res => res.json())
-  //   .then(res => console.log(res));
-
-  //тут має бути відправка запиту на бекенд для додавання даних модуля попереднього замовлення
-};
-
-function showActiveModuleForAdmin({ type, data }) {
-  if (type === 'pre-order') {
-    setActiveBtn(preOrderBtn);
-    // document.querySelector(
-    //   '.preorder-price-info'
-    // ).innerHTML = `Встановлена ціна: ${data.price}, ціна зі знижкою:  ${data.preOrderPrice}`;
-  } else {
-    setActiveBtn(toOrderBtn);
-    // document.querySelector(
-    //   '.price-info'
-    // ).innerHTML = `Встановлена ціна: ${data.price}`;
+  try {
+    const res = await axios.put(
+      'https://flexyplanner.onrender.com/markup',
+      obj
+    );
+  } catch (error) {
+    console.log(error);
   }
-}
+};
 
 async function getActiveOrderModule() {
   try {
     const { data } = await axios.get(
       'https://flexyplanner.onrender.com/markup'
     ); //TODO: тут приходять дані по активному модулю
-    console.log(data);
+    // console.log(data);
 
-    showActiveModuleForAdmin(data);
+    if (data.type === 'pre-order') {
+      setActiveBtn(preOrderBtn);
+    } else {
+      setActiveBtn(toOrderBtn);
+    }
   } catch (error) {
     console.log('something went wrong');
   }
