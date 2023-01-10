@@ -13,6 +13,7 @@
   position: fixed;
   bottom: 25px;
   right: 20px;
+  transition: opacity 0.2s linear;
   @media screen and (min-width: $desktop-width) {
     width: 80px;
     height: 80px;

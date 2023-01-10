@@ -1,3 +1,6 @@
+import { order } from './utils';
+import { makeMarkup } from './finalSum';
+
 const listEl = document.querySelector('.orderProcessing__list');
 const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 const amountElArr = document.querySelectorAll('.orderProcessing__number');
@@ -6,6 +9,9 @@ const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 
 listEl.addEventListener('click', onElementClick);
 
+// Usage:
+let products = [];
+
 // ============== INITIAL STATE ================
 for (let i = 1; i < listItemsArr.length; i += 1) {
   resetAmount(listItemsArr[i]);
@@ -13,44 +19,42 @@ for (let i = 1; i < listItemsArr.length; i += 1) {
 // =============================================
 
 function onElementClick(e) {
-
   if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
     const btnName = e.target.closest('svg').dataset.action;
     const listItem = e.target.closest('li');
 
-    if (btnName === "minus") {
-      operationMaker(listItem, "minus");
+    if (btnName === 'minus') {
+      operationMaker(listItem, 'minus');
     }
 
-    if (btnName === "plus") {
-      operationMaker(listItem, "plus");
+    if (btnName === 'plus') {
+      operationMaker(listItem, 'plus');
     }
 
-    if (btnName === "reset") {
+    if (btnName === 'reset') {
       resetAmount(listItem);
     }
   }
 
-  if (e.target.nodeName === 'P' && e.target.className === "orderProcessing__addBtn") {
+  if (
+    e.target.nodeName === 'P' &&
+    e.target.className === 'orderProcessing__addBtn'
+  ) {
     const btnName = e.target.dataset.action;
     const listItem = e.target.closest('li');
 
-    if (btnName === "addAmount") {
+    if (btnName === 'addAmount') {
       addItem(listItem);
     }
   }
-
 }
 
 function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
-  // console.dir(amountCostEl.innerText);
   let numberElValue = Number(numberEl.textContent);
   let priceValue = Number(priceEl.innerText.slice(0, -4));
-  // console.log('numberElValue', numberElValue);
-  // console.log('amountCostValue', amountCostValue);
 
   if (operation === 'minus') {
     if (numberElValue === 1) {
@@ -72,9 +76,10 @@ function operationMaker(listItem, operation) {
 }
 
 function resetAmount(listItem) {
-
   const numberEl = listItem.querySelector('.orderProcessing__number');
-  const inputWrapperEl = listItem.querySelector('.orderProcessing__inputWrapper');
+  const inputWrapperEl = listItem.querySelector(
+    '.orderProcessing__inputWrapper'
+  );
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
@@ -88,9 +93,10 @@ function resetAmount(listItem) {
 }
 
 function addItem(listItem) {
-
   const numberEl = listItem.querySelector('.orderProcessing__number');
-  const inputWrapperEl = listItem.querySelector('.orderProcessing__inputWrapper');
+  const inputWrapperEl = listItem.querySelector(
+    '.orderProcessing__inputWrapper'
+  );
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
@@ -111,7 +117,10 @@ function recalcAmount() {
       amount: Number(amountElArr[idx].textContent),
       price: 995,
     });
-  })
-  console.log(products);
-}
+  });
 
+  order.orderedPlanners = products;
+  order.setTotal();
+  makeMarkup();
+  // console.log("Order: ", order.getWholeOrderData());
+}
