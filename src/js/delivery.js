@@ -1,6 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
+import { order } from './utils';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -10,6 +11,7 @@ const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 
 const api = new PoshtaAPI();
+// let order = new Order();
 
 async function selectCity(e) {
   warehouseInputRef.value = '';
@@ -69,6 +71,10 @@ function onCitiesListClick(e) {
     return;
   }
   cityInputRef.value = e.target.textContent;
+
+  // order.cityName = e.target.textContent;
+  order.delivery = { city: e.target.textContent };
+
   api.selectCity(e.target.dataset.ref);
   citiesListRef.innerHTML = '';
   citiesListRef.classList.remove('show');
@@ -79,6 +85,10 @@ function onWarehousesListClick(e) {
     return;
   }
   warehouseInputRef.value = e.target.textContent;
+
+  // order.warehouse = e.target.textContent;
+  order.delivery = { warehouse: e.target.textContent };
+
   warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');
 }
