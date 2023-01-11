@@ -1,3 +1,10 @@
+import {
+  getAllPromocodes,
+  postPromocodesCreate,
+  patchPromocodeStatus,
+  deletePromocode,
+} from './services/promoAPI';
+import { Notify } from 'notiflix';
 const initForm = document.querySelector('.promocode__form');
 const inputAmount = document.querySelector('.input-amount-js');
 const dateGroup = document.querySelector('.date__wrapper');
@@ -26,7 +33,7 @@ function todayDate() {
 function onFormChange(e) {
   e.preventDefault();
   let promoType = e.currentTarget.elements.promocode.value;
-  if (promoType === 'personal') {
+  if (promoType === 'Personal') {
     if (inputAmount.disabled) inputAmount.disabled = false;
     dateGroup.classList.add('visually-hidden');
   } else {
@@ -42,21 +49,22 @@ function onFormSubmit(e) {
   const {
     elements: { promocode, amound, discount, dateStart, dateTo },
   } = form;
-  if (promocode.value === 'personal') {
+  if (promocode.value === 'Personal') {
     promocodeObj.type = promocode.value;
-    promocodeObj.amound = amound.value;
-    promocodeObj.discount = discount.value;
-    promocodeObj.period = null;
+    promocodeObj.amound = Number(amound.value);
+    promocodeObj.discount = Number(discount.value);
   } else {
     promocodeObj.type = promocode.value;
-    promocodeObj.discount = discount.value;
-    promocodeObj.discount = amound.value;
-    promocodeObj.period = {
-      from: dateStart.value,
-      to: dateTo.value,
-    };
+    promocodeObj.discount = Number(discount.value);
+    promocodeObj.amound = Number(amound.value);
+    promocodeObj.from = new Date(dateStart.value).toISOString();
+    promocodeObj.to = new Date(dateTo.value).toISOString();
   }
-  console.log(promocodeObj);
+
+  const promodata = JSON.stringify(promocodeObj);
+  postPromocodesCreate(promodata)
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message));
   if (inputAmount.disabled) inputAmount.disabled = false;
   if (dateGroup.classList.contains('visually-hidden'))
     dateGroup.classList.remove('visually-hidden');
@@ -72,9 +80,14 @@ function onCommonList(e) {
   const promoName = e.target.closest('li').dataset.name;
   let isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
   if (isDelete) {
-    console.log(`delete ${promoName}`);
+    const detelePromo = JSON.stringify({
+      promocode: promoName,
+    });
+    deletePromocode(detelePromo)
+      .then(data => console.log(data))
+      .catch(error => console.log(error.message));
   } else {
-    console.log(`do not delete ${promoName}`);
+    Notify.info(`do not delete ${promoName}`);
   }
 }
 
@@ -84,96 +97,104 @@ function onPersonalList(e) {
   }
   const btnName = e.target.dataset.action;
   const promoName = e.target.closest('li').dataset.name;
-
+  const promo = JSON.stringify({
+    promocode: promoName,
+  });
   if (btnName === 'delete') {
     const isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
     if (isDelete) {
-      console.log(`delete ${promoName}`);
+      deletePromocode(promo)
+        .then(data => console.log(data))
+        .catch(error => console.log(error.message));
     } else {
-      console.log(`do not delete ${promoName}`);
+      Notify.info(`do not delete ${promoName}`);
     }
   } else {
     const isActivate = confirm(
       `Дійсно активувати цей промокод: ${promoName} ?`
     );
     if (isActivate) {
-      console.log(`active ${promoName}`);
+      patchPromocodeStatus(promo)
+        .then(data => console.log(data))
+        .catch(error => console.log(error.message));
       e.target.disabled = true;
       e.target.innerText = 'Активовано';
     } else {
-      console.log(`do not active ${promoName}`);
+        Notify.info(`do not active ${promoName}`);
     }
   }
 }
+getAllPromocodes().then(data => createPromocodeMarkup(data));
 
-const objFromBack = {
-  common: [
-    {
-      discount: 10,
-      isUsing: null,
-      promo: '48383627',
-      type: 'Common',
-      period: {
-        from: '2023-02-03T22:00:00.000Z',
-        to: '2023-04-18T21:00:00.000Z',
-      },
-    },
-    {
-      discount: 20,
-      isUsing: null,
-      promo: '38417820',
-      type: 'Common',
-      period: {
-        from: '2023-02-03T22:00:00.000Z',
-        to: '2023-04-18T21:00:00.000Z',
-      },
-    },
-  ],
-  personal: [
-    {
-      discount: 30,
-      isUsing: false,
-      type: 'personal',
-      promo: 'sdvsdv',
-      period: null,
-    },
-    {
-      discount: 30,
-      isUsing: false,
-      type: 'personal',
-      promo: '1dbfd45',
-      period: null,
-    },
-    {
-      discount: 10,
-      isUsing: false,
-      type: 'personal',
-      promo: 'v63sd1v2',
-      period: null,
-    },
-    {
-      discount: 30,
-      isUsing: false,
-      type: 'personal',
-      promo: 'sdv2fd1',
-      period: null,
-    },
-    {
-      discount: 20,
-      isUsing: false,
-      type: 'personal',
-      promo: 'dfvzx',
-      period: null,
-    },
-    {
-      discount: 20,
-      isUsing: false,
-      type: 'personal',
-      promo: '137dsv5df',
-      period: null,
-    },
-  ],
-};
+
+// const objFromBack = {
+//   common: [
+//     {
+//       discount: 10,
+//       isUsing: null,
+//       promo: '48383627',
+//       type: 'Common',
+//       period: {
+//         from: '2023-02-03T22:00:00.000Z',
+//         to: '2023-04-18T21:00:00.000Z',
+//       },
+//     },
+//     {
+//       discount: 20,
+//       isUsing: null,
+//       promo: '38417820',
+//       type: 'Common',
+//       period: {
+//         from: '2023-02-03T22:00:00.000Z',
+//         to: '2023-04-18T21:00:00.000Z',
+//       },
+//     },
+//   ],
+//   personal: [
+//     {
+//       discount: 30,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: 'sdvsdv',
+//       period: null,
+//     },
+//     {
+//       discount: 30,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: '1dbfd45',
+//       period: null,
+//     },
+//     {
+//       discount: 10,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: 'v63sd1v2',
+//       period: null,
+//     },
+//     {
+//       discount: 30,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: 'sdv2fd1',
+//       period: null,
+//     },
+//     {
+//       discount: 20,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: 'dfvzx',
+//       period: null,
+//     },
+//     {
+//       discount: 20,
+//       isUsing: false,
+//       type: 'personal',
+//       promo: '137dsv5df',
+//       period: null,
+//     },
+//   ],
+// };
 
 function createPromocodeMarkup({ common, personal }) {
   const commonMarkup = common
@@ -221,7 +242,7 @@ function createPromocodeMarkup({ common, personal }) {
   personalList.innerHTML = promocodeMarkUp;
 }
 
-createPromocodeMarkup(objFromBack);
+
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
 commonList.addEventListener('click', onCommonList);

@@ -1,12 +1,16 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'строка подключения к базе данных', // дописати адресу
+  baseURL: 'https://flexyplanner.onrender.com/',
   params: {
     headers: {
       // Authorization: getAuthorizationHeader(),
     },
     body: new FormData(form),
+    // body: {
+    //   email: 'user@example.com',
+    //   password: 'qwerty123',
+    // },
   },
 });
 
