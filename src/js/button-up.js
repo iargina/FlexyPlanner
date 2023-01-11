@@ -6,7 +6,10 @@ const scrollPosition = () =>
 const containIsHidden = () => btnToTop.classList.contains('is-hidden');
 
 window.addEventListener('scroll', () => {
-  if (scrollPosition() > lastScroll && !containIsHidden()) {
+  if (
+    (scrollPosition() > lastScroll && !containIsHidden()) ||
+    window.pageYOffset < 400
+  ) {
     btnToTop.classList.add('is-hidden');
   } else if (scrollPosition() < lastScroll && containIsHidden()) {
     btnToTop.classList.remove('is-hidden');
