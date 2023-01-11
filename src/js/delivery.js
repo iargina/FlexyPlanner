@@ -47,8 +47,9 @@ async function selectWarehouse(e) {
   try {
     const res = await api.getWarehouses();
     const warehouses = res.data;
+
     const warehousesList = warehouses.map(
-      warehouse => `<li>${warehouse.Description}</li>`
+      warehouse => `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`
     );
     warehousesListRef.innerHTML = warehousesList.join('');
     warehousesListRef.classList.add('show');
@@ -95,7 +96,7 @@ async function onCitiesListClick(e) {
     const res = await api.getWarehouses();
     const warehouses = res.data;
     const warehousesList = warehouses.map(
-      warehouse => `<li>${warehouse.Description}</li>`
+      warehouse => `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`
     );
     warehousesListRef.innerHTML = warehousesList.join('');
     warehousesListRef.classList.add('show');
@@ -115,6 +116,11 @@ function onWarehousesListClick(e) {
 
   // order.warehouse = e.target.textContent;
   // order.delivery = { warehouse: e.target.textContent };
+
+  const warehouseRef = e.target.dataset.ref;
+
+  // тут треба відправити цей реф у клас і потім в CRM
+  console.log(warehouseRef);
 
   warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');
