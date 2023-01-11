@@ -18,10 +18,10 @@ refs.promoForm.addEventListener('submit', onFormSubmit);
 
 function onBtnToggle(e) {
   if (refs.inputContainer.classList.contains('visually-hidden')) {
-    refs.promoForm.classList.add('complite-form');
+    refs.inputContainer.classList.remove('visually-hidden');    
     refs.btnToggle.innerText = 'Закрити';
-    refs.inputContainer.classList.remove('visually-hidden');
-  } else {
+    refs.promoForm.classList.add('complite-form');       
+  } else {        
     refs.promoForm.classList.remove('complite-form');
     refs.btnToggle.innerText = 'Відкрити';
     refs.inputContainer.classList.add('visually-hidden');
@@ -35,20 +35,23 @@ async function onFormSubmit(e) {
   const promoFromInput = e.target.elements.promo.value;
   const data = await checkPromocode(promoFromInput);
   
-  if (!data.length) {
-    refs.errorIcon.classList.remove('visually-hidden');
-    refs.successContainer.classList.add('visually-hidden');
+  if (!data.length) {    
+    changeVisibility(refs.errorIcon, refs.successContainer)
     Notify.failure('Промокод введений не вірно!');
     refs.promoForm.reset();
+    order.discountPercentage = 0;
   } else {
     const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
-    if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
-    refs.successContainer.classList.remove('visually-hidden');
-    const discount = data[0].discount;
-    console.log(discount);    
+    if (!isErrorShown) changeVisibility(refs.successContainer, refs.errorIcon );    
+    const discount = data[0].discount;       
     refs.discount.innerText = `${discount} %`;
     Notify.success('Промокод застосовано!');
     refs.promoForm.reset();
     order.discountPercentage = discount;    
   }
+}
+
+function changeVisibility(showEl, hideEl){
+ showEl.classList.remove('visually-hidden') 
+ hideEl.classList.add('visually-hidden') ;
 }
