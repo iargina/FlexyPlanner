@@ -35,66 +35,89 @@ img {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
-.motivate .title, .motivate__wrapper {
+.motivate .title,
+.motivate__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @font-face {
-  font-family: "MacPawFixelDisplay700";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplay700';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: bold;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplay800";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplay800';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplay400";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplay400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplay500";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplay500';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplay600";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplay600';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplayLight400";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplayLight400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: "MacPawFixelDisplayExtraLight400";
-  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: 'MacPawFixelDisplayExtraLight400';
+  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2')
+      format('woff2'),
+    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf')
+      format('opentype'); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -105,7 +128,7 @@ html {
 }
 
 body {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 24px;
   line-height: 1.3333333333;
   color: #111111;
@@ -140,7 +163,7 @@ body {
 .btn {
   display: inline-block;
   padding: 10px 56px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2222222222;
@@ -161,7 +184,8 @@ body {
   background-color: #f3bb4a;
   color: #111111;
 }
-.btn--primary:hover, .btn--primary:focus {
+.btn--primary:hover,
+.btn--primary:focus {
   background-color: #111111;
   color: #ffffff;
 }
@@ -173,7 +197,8 @@ body {
   background-color: #111111;
   color: #ffffff;
 }
-.btn--secondary:hover, .btn--secondary:focus {
+.btn--secondary:hover,
+.btn--secondary:focus {
   background-color: #f3bb4a;
   color: #111111;
 }
@@ -192,7 +217,8 @@ body {
   height: 100%;
   opacity: 1;
   background-color: rgba(17, 17, 17, 0.6);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
   z-index: 30;
 }
@@ -248,7 +274,7 @@ body {
 
 .title {
   font-size: 28px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   line-height: 1.1428571429;
   text-align: center;
   margin-bottom: 40px;
@@ -263,7 +289,7 @@ body {
 
 .subtitle {
   font-size: 16px;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   line-height: 1.125;
   margin-bottom: 18px;
 }
@@ -316,7 +342,7 @@ body {
 
 .quotes__descr {
   width: 267px;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 14px;
   line-height: 1.2857142857;
   letter-spacing: -0.02em;
@@ -332,7 +358,7 @@ body {
 
 .quotes__descr--accent {
   color: #f3bb4a;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
 }
 
 .preloader {
@@ -462,7 +488,7 @@ body {
 }
 
 .authors__text--item {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 14px;
   line-height: 1.43;
   max-width: 157px;
@@ -487,12 +513,12 @@ body {
 }
 
 .authors__text--item--accent--bold {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   margin-right: 0;
 }
 
 .authors__text--tem--accent {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   color: #f3bb4a;
   margin: 0;
 }
@@ -520,7 +546,7 @@ body {
 }
 
 .authors__info--subtitle {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -535,7 +561,7 @@ body {
 }
 
 .authors__info--subtitle--text {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
@@ -562,7 +588,7 @@ body {
 }
 
 .authors__info--jobTitle--item {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 12px;
   line-height: 1.5;
   color: #3c3b3b;
@@ -618,7 +644,7 @@ body {
 }
 
 .authors__speach--text {
-  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
+  font-family: 'MacPawFixelDisplayExtraLight400', sans-serif;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: -0.02em;
@@ -651,7 +677,7 @@ body {
 
 .contacts__label {
   display: block;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -682,15 +708,15 @@ body {
   margin-bottom: 0;
 }
 .contacts__input::-moz-placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input:-ms-input-placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input::placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input--textarea {
@@ -807,7 +833,7 @@ body {
   cursor: pointer;
 }
 .warehouse-btn::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   right: 12px;
@@ -815,7 +841,7 @@ body {
   display: block;
   width: 18px;
   height: 18px;
-  background-image: url("../icons/arrow_down.svg");
+  background-image: url('../icons/arrow_down.svg');
   background-size: 18px 18px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -940,7 +966,7 @@ body {
   width: 64px;
 }
 .description__item::before {
-  content: "";
+  content: '';
   display: block;
   width: 60px;
   height: 60px;
@@ -951,11 +977,16 @@ body {
   right: 56px;
 }
 .description__item:nth-child(1)::before {
-  background: url("./../images/description/mob_1x_round_1.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_1.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(1)::before {
-    background: url("./../images/description/mob_2x_round_1.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_1.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(2) {
@@ -963,11 +994,16 @@ body {
   right: 0;
 }
 .description__item:nth-child(2)::before {
-  background: url("./../images/description/mob_1x_round_2.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_2.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(2)::before {
-    background: url("./../images/description/mob_2x_round_2.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_2.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(3) {
@@ -975,11 +1011,16 @@ body {
   right: 0;
 }
 .description__item:nth-child(3)::before {
-  background: url("./../images/description/mob_1x_round_3.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_3.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(3)::before {
-    background: url("./../images/description/mob_2x_round_3.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_3.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(4) {
@@ -987,11 +1028,16 @@ body {
   right: 138px;
 }
 .description__item:nth-child(4)::before {
-  background: url("./../images/description/mob_1x_round_4.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_4.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(4)::before {
-    background: url("./../images/description/mob_2x_round_4.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_4.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(5) {
@@ -999,11 +1045,16 @@ body {
   left: 0;
 }
 .description__item:nth-child(5)::before {
-  background: url("./../images/description/mob_1x_round_5.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_5.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(5)::before {
-    background: url("./../images/description/mob_2x_round_5.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_5.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(6) {
@@ -1011,11 +1062,16 @@ body {
   left: 0;
 }
 .description__item:nth-child(6)::before {
-  background: url("./../images/description/mob_1x_round_6.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_6.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(6)::before {
-    background: url("./../images/description/mob_2x_round_6.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_6.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(7) {
@@ -1023,11 +1079,16 @@ body {
   left: 60px;
 }
 .description__item:nth-child(7)::before {
-  background: url("./../images/description/mob_1x_round_7.png") center/60px 60px no-repeat;
+  background: url('./../images/description/mob_1x_round_7.png') center/60px 60px
+    no-repeat;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .description__item:nth-child(7)::before {
-    background: url("./../images/description/mob_2x_round_7.png") center/60px 60px no-repeat;
+    background: url('./../images/description/mob_2x_round_7.png') center/60px
+      60px no-repeat;
   }
 }
 .description__item:nth-child(8) {
@@ -1047,12 +1108,17 @@ body {
     left: -80px;
   }
   .description__item:nth-child(1)::before {
-    background: url("./../images/description/desk_1x_round_1.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_1.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(1)::before {
-    background: url("./../images/description/desk_2x_round_1.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_1.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1061,12 +1127,17 @@ body {
     right: -86px;
   }
   .description__item:nth-child(2)::before {
-    background: url("./../images/description/desk_1x_round_2.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_2.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(2)::before {
-    background: url("./../images/description/desk_2x_round_2.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_2.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1075,12 +1146,17 @@ body {
     right: -22px;
   }
   .description__item:nth-child(3)::before {
-    background: url("./../images/description/desk_1x_round_3.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_3.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(3)::before {
-    background: url("./../images/description/desk_2x_round_3.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_3.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1089,12 +1165,17 @@ body {
     left: -16px;
   }
   .description__item:nth-child(4)::before {
-    background: url("./../images/description/desk_1x_round_4.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_4.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(4)::before {
-    background: url("./../images/description/desk_2x_round_4.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_4.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1103,12 +1184,17 @@ body {
     left: 796px;
   }
   .description__item:nth-child(5)::before {
-    background: url("./../images/description/desk_1x_round_5.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_5.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(5)::before {
-    background: url("./../images/description/desk_2x_round_5.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_5.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1117,12 +1203,17 @@ body {
     left: 782px;
   }
   .description__item:nth-child(6)::before {
-    background: url("./../images/description/desk_1x_round_6.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_6.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(6)::before {
-    background: url("./../images/description/desk_2x_round_6.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_6.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1131,12 +1222,17 @@ body {
     left: -242px;
   }
   .description__item:nth-child(7)::before {
-    background: url("./../images/description/desk_1x_round_7.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_7.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(7)::before {
-    background: url("./../images/description/desk_2x_round_7.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_7.png') center/140px
+      140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1146,19 +1242,24 @@ body {
     left: -254px;
   }
   .description__item:nth-child(8)::before {
-    background: url("./../images/description/desk_1x_round_8.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_1x_round_8.png') center/140px
+      140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(8)::before {
-    background: url("./../images/description/desk_2x_round_8.png") center/140px 140px no-repeat;
+    background: url('./../images/description/desk_2x_round_8.png') center/140px
+      140px no-repeat;
   }
 }
 
 .description__text {
   width: 100%;
   font-size: 8px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   line-height: 1.25;
   text-transform: uppercase;
 }
@@ -1191,7 +1292,7 @@ body {
   position: relative;
 }
 .benefits-list__item::before {
-  content: "";
+  content: '';
   position: absolute;
   display: inline-block;
   width: 2px;
@@ -1232,7 +1333,7 @@ body {
 }
 
 .finalSum__title {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   margin-bottom: 24px;
   font-size: 16px;
   line-height: 1.125;
@@ -1278,7 +1379,7 @@ body {
 }
 
 .finalSum__amount {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -1302,7 +1403,7 @@ body {
   justify-content: space-between;
 }
 .finalSum__total::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 16px;
   display: block;
@@ -1314,7 +1415,7 @@ body {
   opacity: 0.5;
 }
 .finalSum__total::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -30px;
   display: block;
@@ -1354,7 +1455,7 @@ body {
 }
 
 .finalSum__totalAmount {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.01em;
@@ -1368,7 +1469,7 @@ body {
 }
 
 .finalSum__btn {
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   padding: 12px 0;
   width: 100%;
   max-width: 311px;
@@ -1426,7 +1527,7 @@ body {
 }
 
 .hero__description {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-weight: 700;
   width: 295px;
   font-size: 18px;
@@ -1452,7 +1553,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 32px;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
@@ -1480,7 +1581,7 @@ body {
   background: #111111;
   color: #ffffff;
   border-radius: 4px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 18px;
   line-height: 122%;
   text-align: center;
@@ -1553,7 +1654,7 @@ body {
 
 .swiper-slide__container > picture {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 360px) {
@@ -1657,7 +1758,7 @@ body {
 }
 
 .footer__title {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -1671,12 +1772,12 @@ body {
 }
 
 .footer__text {
-  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
+  font-family: 'MacPawFixelDisplayExtraLight400', sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
   color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
@@ -1709,7 +1810,7 @@ body {
   width: 335px;
   margin: auto;
   padding: 10px 65px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -1791,7 +1892,7 @@ body {
 }
 .howitworks .howitworks__title {
   font-size: 28px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   line-height: 1.1428571429;
   text-align: center;
 }
@@ -1804,7 +1905,7 @@ body {
 .howitworks .howitworks__number {
   font-size: 64px;
   line-height: 1;
-  font-family: "MacPawFixelDisplay800", sans-serif;
+  font-family: 'MacPawFixelDisplay800', sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks__number {
@@ -1814,7 +1915,7 @@ body {
 .howitworks .howitworks__text {
   font-size: 18px;
   line-height: 1.2222222222;
-  font-family: "MacPawFixelDisplay800", sans-serif;
+  font-family: 'MacPawFixelDisplay800', sans-serif;
   text-transform: uppercase;
 }
 @media screen and (min-width: 1440px) {
@@ -1858,7 +1959,7 @@ body {
 }
 .howitworks .howitworks-checkbox__text {
   font-size: 14px;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks-checkbox__text {
@@ -1946,30 +2047,44 @@ body {
 .modal--success {
   max-width: 272px;
   padding: 193px 20px 40px;
-  background: url("./../images/order/mob_1x_modalbg.jpg") 0 25px/contain no-repeat, #ffffff;
+  background: url('./../images/order/mob_1x_modalbg.jpg') 0 25px / contain
+      no-repeat,
+    #ffffff;
   text-align: center;
 }
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .modal--success {
-    background: url("./../images/order/mob_2x_modalbg.jpg") 0 25px/contain no-repeat, #ffffff;
+    background: url('./../images/order/mob_2x_modalbg.jpg') 0 25px / contain
+        no-repeat,
+      #ffffff;
   }
 }
 @media screen and (min-width: 1440px) {
   .modal--success {
     max-width: 480px;
     padding: 277px 72px 52px;
-    background: url("./../images/order/desk_1x_modalbg.jpg") 0 24px/contain no-repeat, #ffffff;
+    background: url('./../images/order/desk_1x_modalbg.jpg') 0 24px / contain
+        no-repeat,
+      #ffffff;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .modal--success {
-    background: url("./../images/order/desk_2x_modalbg.jpg") 0 24px/contain no-repeat, #ffffff;
+    background: url('./../images/order/desk_2x_modalbg.jpg') 0 24px / contain
+        no-repeat,
+      #ffffff;
   }
 }
 
 .modal__title {
   font-size: 18px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   line-height: 1.3333333333;
   margin-bottom: 10px;
 }
@@ -1997,7 +2112,7 @@ body {
 .modal__btn {
   padding: 8px 28px;
   font-size: 14px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   line-height: 1.2857142857;
 }
 @media screen and (min-width: 1440px) {
@@ -2125,7 +2240,7 @@ input:invalid:required {
 }
 
 .motivate__paragraph {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 14px;
   line-height: 1.2857142857;
   font-weight: 500;
@@ -2141,13 +2256,13 @@ input:invalid:required {
 }
 
 .strong {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
 }
 
 .motivate .title {
   margin-bottom: 0px;
   width: 230px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -2165,7 +2280,7 @@ input:invalid:required {
 
 .order {
   font-size: 14px;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   text-align: center;
   letter-spacing: -0.02em;
   color: #111111;
@@ -2204,12 +2319,12 @@ input:invalid:required {
 .pre-order__text,
 .order-now__text {
   font-size: 18px;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__text,
-.order-now__text {
+  .order-now__text {
     font-size: 24px;
     line-height: 1.1666666667;
     margin-bottom: 14px;
@@ -2224,14 +2339,14 @@ input:invalid:required {
   display: inline-block;
   margin-bottom: 24px;
   color: #3c3b3b;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__delivery,
-.order-now__delivery {
+  .order-now__delivery {
     margin-bottom: 32px;
     font-size: 18px;
-    font-family: "MacPawFixelDisplay400", sans-serif;
+    font-family: 'MacPawFixelDisplay400', sans-serif;
     line-height: 1.3333333333;
   }
 }
@@ -2241,14 +2356,14 @@ input:invalid:required {
   margin: 0 auto;
   padding: 12px 62px 8px;
   margin-bottom: 24px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   letter-spacing: -0.02em;
   font-size: 18px;
   line-height: 1.2222222222;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn,
-.order-now__btn {
+  .order-now__btn {
     margin-bottom: 14px;
     padding: 15px 31px 13px;
     width: 272px;
@@ -2258,7 +2373,7 @@ input:invalid:required {
 .order-now__btn--feedback {
   padding: 0;
   border: none;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   margin-bottom: 32px;
   text-decoration: underline;
   font-size: 14px;
@@ -2270,7 +2385,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn--feedback,
-.order-now__btn--feedback {
+  .order-now__btn--feedback {
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 1.5555555556;
@@ -2295,7 +2410,7 @@ input:invalid:required {
   padding: 14px;
   background-color: #f3f3f3;
   text-align: left;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   line-height: 1.5714285714;
 }
 @media screen and (min-width: 1440px) {
@@ -2304,7 +2419,7 @@ input:invalid:required {
   }
 }
 .motivation-block__link {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-style: normal;
 }
 .motivation-block__text {
@@ -2335,7 +2450,7 @@ input:invalid:required {
 }
 
 .orderProcessing__title {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -2355,7 +2470,7 @@ input:invalid:required {
 }
 
 .section__title {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -2363,7 +2478,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .section__title {
-    font-family: "MacPawFixelDisplay500", sans-serif;
+    font-family: 'MacPawFixelDisplay500', sans-serif;
     font-size: 24px;
     line-height: 1.33;
   }
@@ -2433,21 +2548,21 @@ input:invalid:required {
 }
 
 .orderProcessing__plannerTitle {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
 }
 @media screen and (min-width: 1440px) {
   .orderProcessing__plannerTitle {
-    font-family: "MacPawFixelDisplay500", sans-serif;
+    font-family: 'MacPawFixelDisplay500', sans-serif;
     font-size: 24px;
     line-height: 1.33;
   }
 }
 
 .orderProcessing__plannerParagraph {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -2467,7 +2582,7 @@ input:invalid:required {
 }
 
 .orderProcessing__price {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2482,12 +2597,12 @@ input:invalid:required {
 }
 
 .orderProcessing__priceCancelled {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 8px;
   line-height: 1.1;
   letter-spacing: -0.01em;
   -webkit-text-decoration-line: line-through;
-          text-decoration-line: line-through;
+  text-decoration-line: line-through;
   color: #111111;
 }
 @media screen and (min-width: 1440px) {
@@ -2498,7 +2613,7 @@ input:invalid:required {
 }
 
 .orderProcessing__priceCurrent {
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.01em;
@@ -2538,7 +2653,7 @@ input:invalid:required {
 }
 
 .orderProcessing__amountTitle {
-  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  font-family: 'MacPawFixelDisplayLight400', sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2546,7 +2661,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .orderProcessing__amountTitle {
-    font-family: "MacPawFixelDisplayLight400", sans-serif;
+    font-family: 'MacPawFixelDisplayLight400', sans-serif;
     font-size: 18px;
     line-height: 1.33;
   }
@@ -2582,7 +2697,7 @@ input:invalid:required {
 }
 
 .orderProcessing__item:not(:last-child):after {
-  content: "";
+  content: '';
   display: block;
   width: 335px;
   height: 1px;
@@ -2596,7 +2711,7 @@ input:invalid:required {
 }
 
 .orderProcessing__itemTitle {
-  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  font-family: 'MacPawFixelDisplayLight400', sans-serif;
   font-size: 12px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -2612,7 +2727,7 @@ input:invalid:required {
 }
 
 .orderProcessing__itemParagraph {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 8px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2638,7 +2753,8 @@ input:invalid:required {
   }
 }
 
-.orderProcessing__minus, .orderProcessing__plus {
+.orderProcessing__minus,
+.orderProcessing__plus {
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -2660,7 +2776,7 @@ input:invalid:required {
   margin: 0 4px;
   border: 0.5px solid rgba(17, 17, 17, 0.2);
   border-radius: 2px;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
@@ -2675,14 +2791,14 @@ input:invalid:required {
 }
 
 .orderProcessing__cost {
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
 }
 
 .orderProcessing__addBtn {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
@@ -2700,7 +2816,7 @@ input:invalid:required {
 
 @media screen and (min-width: 1440px) {
   .orderProcessing__addBtn::after {
-    content: "";
+    content: '';
     display: block;
     width: 49px;
     height: 1px;
@@ -2747,7 +2863,7 @@ input:invalid:required {
 }
 
 .promo__label {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -2761,7 +2877,7 @@ input:invalid:required {
 }
 
 .promo__toggle {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -2810,7 +2926,7 @@ input:invalid:required {
   line-height: 117%;
   display: block;
   color: #111111;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .promo__input {
@@ -2842,7 +2958,7 @@ input:invalid:required {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-size: 16px;
   line-height: 112%;
   letter-spacing: -0.02em;
@@ -2868,7 +2984,7 @@ input:invalid:required {
 }
 
 .promo__success-text {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.01em;
@@ -2889,7 +3005,7 @@ input:invalid:required {
 }
 
 .promo__final {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -2903,7 +3019,7 @@ input:invalid:required {
 }
 
 .promo__discount {
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -2929,7 +3045,7 @@ input:invalid:required {
 .qa .qa__title {
   font-size: 28px;
   line-height: 1.1428571429;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   text-align: center;
 }
 @media screen and (min-width: 1440px) {
@@ -2964,7 +3080,7 @@ input:invalid:required {
 .qa .qa-item__text {
   font-size: 14px;
   line-height: 1.4285714286;
-  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  font-family: 'MacPawFixelDisplayLight400', sans-serif;
   margin-top: 14px;
   color: #3c3b3b;
   max-height: 800px;
@@ -2985,7 +3101,7 @@ input:invalid:required {
   }
 }
 .qa .qa-item__title {
-  font-family: "MacPawFixelDisplay500", sans-serif;
+  font-family: 'MacPawFixelDisplay500', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3333333333;
@@ -3132,7 +3248,7 @@ input:invalid:required {
 }
 
 .personal-coatch__descr {
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   font-size: 18px;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
@@ -3208,7 +3324,7 @@ input:invalid:required {
 .modalFeedBack .modalFeedBack__title {
   text-align: center;
   font-size: 18px;
-  font-family: "MacPawFixelDisplay700", sans-serif;
+  font-family: 'MacPawFixelDisplay700', sans-serif;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
 }
@@ -3237,7 +3353,7 @@ input:invalid:required {
   flex-direction: column;
   gap: 4px;
   font-size: 10px;
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: #3c3b3b;
 }
 @media screen and (min-width: 1440px) {
@@ -3266,15 +3382,19 @@ input:invalid:required {
   }
 }
 .modalFeedBack .modalFeedBack__input::-moz-placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .modalFeedBack .modalFeedBack__input:-ms-input-placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .modalFeedBack .modalFeedBack__input::placeholder {
-  font-family: "MacPawFixelDisplay400", sans-serif;
+  font-size: 12px;
+  font-family: 'MacPawFixelDisplay400', sans-serif;
+
   color: rgba(60, 59, 59, 0.3);
 }
 @media screen and (min-width: 1440px) {
@@ -3295,7 +3415,7 @@ input:invalid:required {
 }
 .modalFeedBack .modalFeedBack__btn {
   font-size: 16px;
-  font-family: "MacPawFixelDisplay600", sans-serif;
+  font-family: 'MacPawFixelDisplay600', sans-serif;
   line-height: 1.125;
   letter-spacing: -0.02em;
   display: flex;
@@ -3498,10 +3618,6 @@ input:invalid:required {
   padding-bottom: 40px;
 }
 
-.order-admin__text1 {
-  background-color: rgb(51, 51, 51);
-}
-
 .wrap {
   padding: 30px;
 }
@@ -3512,4 +3628,4 @@ input:invalid:required {
   width: 250px;
   height: 45px;
   padding: 0;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
