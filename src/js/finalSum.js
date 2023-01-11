@@ -16,7 +16,7 @@ export function makeMarkup() {
 }
 
 function calculateSumAmount() {
-  productArray = order.orderedPlanners;
+  const productArray = order.orderedPlanners;
   sumAmount = productArray.reduce(
     (accumulator, el) => accumulator + el.amount,
     amount

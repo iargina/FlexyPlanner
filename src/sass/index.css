@@ -361,6 +361,85 @@ body {
   font-family: 'MacPawFixelDisplay700', sans-serif;
 }
 
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preloader__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes ldio-xfhgtdu60bg {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ldio-xfhgtdu60bg {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.ldio-xfhgtdu60bg div {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 20px solid #f3bb4a;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.ldio-xfhgtdu60bg div {
+  -webkit-animation: ldio-xfhgtdu60bg 1s linear infinite;
+          animation: ldio-xfhgtdu60bg 1s linear infinite;
+  top: 100px;
+  left: 100px;
+}
+
+.loadingio-spinner-rolling-6ai8xsspx39 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0);
+}
+
+.ldio-xfhgtdu60bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+.ldio-xfhgtdu60bg div {
+  box-sizing: content-box;
+}
+
+.loader-is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .authors {
   width: 100%;
   display: flex;
@@ -1572,11 +1651,6 @@ body {
 .hero__swiper-slide.swiper-slide {
   margin: 0;
 }
-@media screen and (min-width: 960px) {
-  .hero__swiper-slide.swiper-slide {
-    transform: rotate(15deg);
-  }
-}
 
 .swiper-slide__container > picture {
   -o-object-fit: cover;
@@ -1753,6 +1827,27 @@ body {
   }
 }
 
+@-webkit-keyframes fade {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .howitworks {
   width: 100%;
   background-color: #f3bb4a;
@@ -1780,6 +1875,9 @@ body {
   .howitworks .howitworks__list :last-child {
     border: none;
   }
+}
+.howitworks .howitworks__item {
+  cursor: pointer;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks__item {
@@ -1840,11 +1938,24 @@ body {
   display: flex;
   gap: 16px;
   align-items: center;
+  opacity: 0;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks-checkbox__item {
     gap: 18px;
   }
+}
+.howitworks .howitworks-checkbox__item.active {
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 .howitworks .howitworks-checkbox__text {
   font-size: 14px;
@@ -1874,11 +1985,11 @@ body {
   max-height: 800px;
   overflow-y: auto;
   scrollbar-width: none;
-  transition: 0.8s;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 0;
 }
-.howitworks .howitworks-checkbox__list.list-hidden {
-  max-height: 0;
-  overflow-y: hidden;
+.howitworks .howitworks-checkbox__list.is-active {
+  opacity: 1;
 }
 .howitworks .howitworks-checkbox__list::-webkit-scrollbar {
   display: none;
@@ -3016,7 +3127,7 @@ input:invalid:required {
   justify-content: center;
   align-items: center;
   border: 0.827586px solid rgba(17, 17, 17, 0.12);
-  transition-property: background-color, border;
+  transition-property: background-color, border, rotate;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -3037,9 +3148,6 @@ input:invalid:required {
   width: 24px;
   fill: none;
   stroke: black;
-  transition-property: rotate;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 1440px) {
   .qa .qa__icon {
@@ -3154,7 +3262,7 @@ input:invalid:required {
 }
 
 .modalFeedBack {
-  overflow-y: none;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modalFeedBack .modalFeedBack__modal {
   min-width: 327px;
@@ -3261,11 +3369,16 @@ input:invalid:required {
   outline: none;
   border: 1px solid #f3f3f3;
   border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.1666666667;
+  font-family: "MacPawFixelDisplay400", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .modalFeedBack .modalFeedBack__input {
     padding: 16px 0;
     padding-left: 14px;
+    font-size: 18px;
+    line-height: 1.3333333333;
   }
 }
 .modalFeedBack .modalFeedBack__input::-moz-placeholder {
@@ -3281,18 +3394,8 @@ input:invalid:required {
 .modalFeedBack .modalFeedBack__input::placeholder {
   font-size: 12px;
   font-family: 'MacPawFixelDisplay400', sans-serif;
+
   color: rgba(60, 59, 59, 0.3);
-}
-@media screen and (min-width: 1440px) {
-  .modalFeedBack .modalFeedBack__input::-moz-placeholder {
-    font-size: 18px;
-  }
-  .modalFeedBack .modalFeedBack__input:-ms-input-placeholder {
-    font-size: 18px;
-  }
-  .modalFeedBack .modalFeedBack__input::placeholder {
-    font-size: 18px;
-  }
 }
 @media screen and (min-width: 1440px) {
   .modalFeedBack .modalFeedBack__input {
@@ -3335,6 +3438,11 @@ input:invalid:required {
   .modalFeedBack .modalFeedBack__title--wrapper {
     width: 420px;
   }
+}
+
+.modal-is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .promocode-container {
@@ -3459,6 +3567,7 @@ input:invalid:required {
   position: fixed;
   bottom: 25px;
   right: 20px;
+  transition: opacity 0.2s linear;
 }
 @media screen and (min-width: 1440px) {
   .button-up__wrapper {
