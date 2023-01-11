@@ -14,8 +14,14 @@ const onPreOrderFormSubmit = () => {
     const formData = new FormData(form);
     const nameData = formData.get('username');
     const emailData = formData.get('email');
+    const commentData = formData.get('comment');
     const data = {
-      contact: { full_name: nameData, email: emailData },
+      title: commentData,
+      /*       pipeline_id: 1, */
+      contact: {
+        full_name: nameData,
+        email: emailData,
+      },
     };
 
     options.body = JSON.stringify(data);
