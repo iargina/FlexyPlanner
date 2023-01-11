@@ -1,3 +1,7 @@
+import { checkPromocode } from './services/promoAPI';
+import { Notify } from 'notiflix';
+import { order } from './utils';
+
 const refs = {
   promoForm: document.querySelector('.promo__form'),
   btnToggle: document.querySelector('.promo__toggle'),
@@ -6,7 +10,7 @@ const refs = {
   submitBtn: document.querySelector('.promo__submit'),
   successContainer: document.querySelector('.promo__success'),
   discount: document.querySelector('.promo__discount'),
-  errorIcon: document.querySelector('.promocode__icon')
+  errorIcon: document.querySelector('.promocode__icon'),
 };
 
 refs.btnToggle.addEventListener('click', onBtnToggle);
@@ -14,39 +18,40 @@ refs.promoForm.addEventListener('submit', onFormSubmit);
 
 function onBtnToggle(e) {
   if (refs.inputContainer.classList.contains('visually-hidden')) {
-    refs.promoForm.classList.add('complite-form');
+    refs.inputContainer.classList.remove('visually-hidden');    
     refs.btnToggle.innerText = 'Закрити';
-    refs.inputContainer.classList.remove('visually-hidden');
-  } else {
+    refs.promoForm.classList.add('complite-form');       
+  } else {        
     refs.promoForm.classList.remove('complite-form');
     refs.btnToggle.innerText = 'Відкрити';
     refs.inputContainer.classList.add('visually-hidden');
   }
 }
-function onFormSubmit(e) {
+async function onFormSubmit(e) {
   e.preventDefault();
-  if(!e.target.elements.promo.value){
+  if (!e.target.elements.promo.value) {
     return;
   }
   const promoFromInput = e.target.elements.promo.value;
-  const randomRequest = random();  
-
-  if(randomRequest){
-    const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
-    if(!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
-    refs.successContainer.classList.remove('visually-hidden');
-    const discount = randomDiscount();
-    sessionStorage.setItem('discount', String(discount));
-    refs.discount.innerText = `${discount} грн`;
+  const data = await checkPromocode(promoFromInput);
+  
+  if (!data.length) {    
+    changeVisibility(refs.errorIcon, refs.successContainer)
+    Notify.failure('Промокод введений не вірно!');
     refs.promoForm.reset();
+    order.discountPercentage = 0;
   } else {
-    refs.errorIcon.classList.remove('visually-hidden');
-    refs.successContainer.classList.add('visually-hidden');
+    const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
+    if (!isErrorShown) changeVisibility(refs.successContainer, refs.errorIcon );    
+    const discount = data[0].discount;       
+    refs.discount.innerText = `${discount} %`;
+    Notify.success('Промокод застосовано!');
+    refs.promoForm.reset();
+    order.discountPercentage = discount;    
   }
 }
-function random(){  
-  return Math.random() < 0.5;
-}
-function randomDiscount() {
-  return Math.floor(Math.random() * (500 - 100) + 100);
+
+function changeVisibility(showEl, hideEl){
+ showEl.classList.remove('visually-hidden') 
+ hideEl.classList.add('visually-hidden') ;
 }
