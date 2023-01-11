@@ -1,3 +1,5 @@
+import { checkPromocode } from './services/promoAPI';
+
 const refs = {
   promoForm: document.querySelector('.promo__form'),
   btnToggle: document.querySelector('.promo__toggle'),
@@ -6,7 +8,7 @@ const refs = {
   submitBtn: document.querySelector('.promo__submit'),
   successContainer: document.querySelector('.promo__success'),
   discount: document.querySelector('.promo__discount'),
-  errorIcon: document.querySelector('.promocode__icon')
+  errorIcon: document.querySelector('.promocode__icon'),
 };
 
 refs.btnToggle.addEventListener('click', onBtnToggle);
@@ -25,28 +27,26 @@ function onBtnToggle(e) {
 }
 function onFormSubmit(e) {
   e.preventDefault();
-  if(!e.target.elements.promo.value){
+  if (!e.target.elements.promo.value) {
     return;
   }
-  const promoFromInput = e.target.elements.promo.value;
-  const randomRequest = random();  
-
-  if(randomRequest){
-    const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
-    if(!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
-    refs.successContainer.classList.remove('visually-hidden');
-    const discount = randomDiscount();
-    sessionStorage.setItem('discount', String(discount));
-    refs.discount.innerText = `${discount} грн`;
-    refs.promoForm.reset();
-  } else {
-    refs.errorIcon.classList.remove('visually-hidden');
-    refs.successContainer.classList.add('visually-hidden');
-  }
-}
-function random(){  
-  return Math.random() < 0.5;
-}
-function randomDiscount() {
-  return Math.floor(Math.random() * (500 - 100) + 100);
+  const promoFromInput = e.target.elements.promo.value; 
+  checkPromocode(promoFromInput)
+    .then(data => {
+      if (!data.length) {
+        refs.errorIcon.classList.remove('visually-hidden');
+        refs.successContainer.classList.add('visually-hidden');
+      } else {
+        const isErrorShown =
+          refs.errorIcon.classList.contains('visually-hidden');
+        if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
+        refs.successContainer.classList.remove('visually-hidden');
+        const discount  = data[0].discount;
+        console.log(discount);
+        // sessionStorage.setItem('discount', String(discount));
+        // refs.discount.innerText = `${discount} %`;
+        refs.promoForm.reset();
+      }
+    })
+    .catch(error => console.log(error)); 
 }
