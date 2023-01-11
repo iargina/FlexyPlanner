@@ -1,12 +1,15 @@
 import { order } from '../utils';
 import moment from 'moment';
+import { options } from './crm-lead';
+import { BASE_URL, crmLead } from './crm-lead';
+import qs from 'query-string';
 
 const contact = document.querySelector('.contacts__btn');
 const promo = document.querySelector('.promo__submit');
 contact.addEventListener('click', onContactClick);
 promo.addEventListener('click', onFinalSumBtnClick);
 
-const crmData = {
+export const orderCrmData = {
   source_id: 1,
   buyer_comment: '',
   /*   discount_percent: 0,
@@ -16,7 +19,7 @@ const crmData = {
     full_name: '',
     phone: '',
   },
-  shipping: { delivery_service_id: 1 },
+  shipping: {},
 
   products: [],
   payments: [
@@ -29,14 +32,15 @@ const crmData = {
   ],
 };
 
-function onContactClick() {
-  crmData.buyer_comment = order.contactInfo.comment;
-  crmData.buyer = {
+export function orderCrmDataForm() {
+  const products = order.orderedPlanners.filter(el => el.amount > 0);
+  orderCrmData.buyer_comment = order.contactInfo.comment;
+  orderCrmData.buyer = {
     full_name: order.contactInfo.username,
     phone: order.contactInfo.phone,
   };
-  const products = order.orderedPlanners.filter(el => el.amount > 0);
-  crmData.products = products.map(el => {
+
+  orderCrmData.products = products.map(el => {
     return {
       sku: el.color,
       price: el.price,
@@ -44,16 +48,46 @@ function onContactClick() {
       name: el.color,
     };
   });
-  console.log(order);
+  orderCrmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss');
+  /*   orderCrmData.shipping = order.delivery; */
+  orderCrmData.payments.amount = order.total;
+}
+function onContactClick() {
+  const productsArr = order.orderedPlanners.filter(el => el.amount > 0);
+  const leadCrmData = {
+    title: order.contactInfo.comment,
+    pipeline_id: 2,
+    contact: {
+      full_name: order.contactInfo.username,
+      phone: order.contactInfo.phone,
+    },
+    products: productsArr.map(el => {
+      return {
+        sku: el.color,
+        price: el.price,
+        quantity: el.amount,
+        name: el.color,
+      };
+    }),
+  };
+  /*   console.log(order); */
+  options.body = JSON.stringify(leadCrmData);
+  /*   crmLead(BASE_URL, { options }); */
+  console.log(options.body);
 }
 
-function onFinalSumBtnClick() {
-  crmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss');
-  crmData.shipping.city = order.delivery.city;
-  crmData.shipping.warehouse = order.delivery.warehouse;
-  crmData.payments.amount = order.total;
-  console.log(JSON.stringify(crmData));
-  return;
-}
+export const stringifyOrder = orderBody => {
+  const order = Object.entries(orderBody).reduce((acc, [key, value]) => {
+    acc[key] = JSON.stringify(value);
+    return acc;
+  }, {});
+  return qs.stringify(order);
+};
 
-export const data = JSON.stringify({ ...crmData });
+export const parseOrder = order => {
+  const parsedOrder = qs.parse(order);
+  return Object.entries(parsedOrder).reduce((acc, [key, value]) => {
+    acc[key] = JSON.parse(value);
+    return acc;
+  }, {});
+};

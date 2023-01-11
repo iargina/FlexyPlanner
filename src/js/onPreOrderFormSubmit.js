@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { options } from './services/crm-lead';
-/* import { BASE_URL, crmLear } from './services/crm-lead'; */
+/* import { BASE_URL, crmLead } from './services/crm-lead'; */
 
 const onPreOrderFormSubmit = () => {
   const form = document.querySelector('.modalFeedBack__form');
@@ -17,7 +17,7 @@ const onPreOrderFormSubmit = () => {
     const commentData = formData.get('comment');
     const data = {
       title: commentData,
-      /*       pipeline_id: 1, */
+      pipeline_id: 1,
       contact: {
         full_name: nameData,
         email: emailData,
@@ -25,8 +25,9 @@ const onPreOrderFormSubmit = () => {
     };
 
     options.body = JSON.stringify(data);
+
     console.log(options.body);
-    /*     crmLear(BASE_URL, { options }); */
+    /*     crmLead(BASE_URL, { options }); */
     clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
   }

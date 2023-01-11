@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
-// import { order } from './utils';
+import { order } from './utils';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -116,8 +116,19 @@ function onWarehousesListClick(e) {
 
   // order.warehouse = e.target.textContent;
   // order.delivery = { warehouse: e.target.textContent };
-
   const warehouseRef = e.target.dataset.ref;
+  (order.delivery = {
+    /*     shipping_address_city: 'Kyiv',
+    shipping_address_country: 'Ukraine',
+    shipping_address_region: 'Kyivska',
+    shipping_address_zip: '50000',
+    shipping_secondary_line: 'string',
+    shipping_receive_point: 'Склад #12',
+    recipient_full_name: 'Ann Doe',
+    recipient_phone: '+1 555-234-7777', */
+    warehouse_ref: e.target.dataset.ref,
+  }),
+    console.log(order);
 
   // тут треба відправити цей реф у клас і потім в CRM
   console.log(warehouseRef);
