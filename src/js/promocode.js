@@ -1,4 +1,6 @@
 import { checkPromocode } from './services/promoAPI';
+import { Notify } from 'notiflix';
+import { order } from './utils';
 
 const refs = {
   promoForm: document.querySelector('.promo__form'),
@@ -25,28 +27,28 @@ function onBtnToggle(e) {
     refs.inputContainer.classList.add('visually-hidden');
   }
 }
-function onFormSubmit(e) {
+async function onFormSubmit(e) {
   e.preventDefault();
   if (!e.target.elements.promo.value) {
     return;
   }
-  const promoFromInput = e.target.elements.promo.value; 
-  checkPromocode(promoFromInput)
-    .then(data => {
-      if (!data.length) {
-        refs.errorIcon.classList.remove('visually-hidden');
-        refs.successContainer.classList.add('visually-hidden');
-      } else {
-        const isErrorShown =
-          refs.errorIcon.classList.contains('visually-hidden');
-        if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
-        refs.successContainer.classList.remove('visually-hidden');
-        const discount  = data[0].discount;
-        console.log(discount);
-        // sessionStorage.setItem('discount', String(discount));
-        // refs.discount.innerText = `${discount} %`;
-        refs.promoForm.reset();
-      }
-    })
-    .catch(error => console.log(error)); 
+  const promoFromInput = e.target.elements.promo.value;
+  const data = await checkPromocode(promoFromInput);
+  
+  if (!data.length) {
+    refs.errorIcon.classList.remove('visually-hidden');
+    refs.successContainer.classList.add('visually-hidden');
+    Notify.failure('Промокод введений не вірно!');
+    refs.promoForm.reset();
+  } else {
+    const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
+    if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
+    refs.successContainer.classList.remove('visually-hidden');
+    const discount = data[0].discount;
+    console.log(discount);    
+    refs.discount.innerText = `${discount} %`;
+    Notify.success('Промокод застосовано!');
+    refs.promoForm.reset();
+    // order.discountPercentage(discount);    
+  }
 }
