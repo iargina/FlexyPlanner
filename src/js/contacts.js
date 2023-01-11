@@ -3,7 +3,7 @@ import { order } from './utils';
 const submitBtnEl = document.querySelector('.contacts__btn');
 const formEl = document.querySelector('form');
 
-submitBtnEl.addEventListener('click', (e) => {
+submitBtnEl.addEventListener('click', e => {
   e.preventDefault();
 
   const formData = new FormData(formEl);
