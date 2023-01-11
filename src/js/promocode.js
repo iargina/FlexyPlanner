@@ -49,6 +49,6 @@ async function onFormSubmit(e) {
     refs.discount.innerText = `${discount} %`;
     Notify.success('Промокод застосовано!');
     refs.promoForm.reset();
-    // order.discountPercentage(discount);    
+    order.discountPercentage = discount;    
   }
 }
