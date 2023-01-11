@@ -4,7 +4,7 @@ class Order {
   #price = 995;
   #contactInfo = {};
   #delivery = {};
-  #promocode = '';
+  #discountPercentage = null;
   #total = 0;
 
   // Встановлює загальну вартість замовлення
@@ -59,13 +59,13 @@ class Order {
     this.#delivery = { ...prevData, ...data };
   }
 
-  // Promocode
-  get promocode() {
-    return this.#promocode;
+  // Discount from Promocode
+  get discountPercentage() {
+    return this.#discountPercentage;
   }
 
-  set promocode(pcode) {
-    this.#promocode = pcode;
+  set discountPercentage(percentage) {
+    this.#discountPercentage = percentage;
   }
 
   getWholeOrderData() {
