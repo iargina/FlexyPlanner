@@ -107,7 +107,7 @@ function onPersonalList(e) {
         .then(data => console.log(data))
         .catch(error => console.log(error.message));
     } else {
-      Notify.info(`do not delete ${promoName}`);
+      Notify.info(`Do not delete ${promoName}`);
     }
   } else {
     const isActivate = confirm(
@@ -120,11 +120,11 @@ function onPersonalList(e) {
       e.target.disabled = true;
       e.target.innerText = 'Активовано';
     } else {
-        Notify.info(`do not active ${promoName}`);
+        Notify.info(`Do not active ${promoName}`);
     }
   }
 }
-getAllPromocodes().then(data => createPromocodeMarkup(data));
+setInterval(()=> {getAllPromocodes().then(data => createPromocodeMarkup(data))},300000)
 
 
 // const objFromBack = {
