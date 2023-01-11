@@ -1,0 +1,203 @@
+@keyframes fade {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.howitworks {
+  width: 100%;
+  background-color: $accent-color;
+  padding-top: 40px;
+  padding-bottom: 66px;
+  margin-bottom: 72px;
+  @media screen and (min-width: $desktop-width) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 172px;
+  }
+
+  .howitworks__list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 40px;
+
+    @media screen and (min-width: $desktop-width) {
+      margin-top: 100px;
+      :last-child {
+        border: none;
+      }
+    }
+  }
+
+  .howitworks__item {
+    cursor: pointer;
+    @media screen and (min-width: $desktop-width) {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $black-color;
+      padding-bottom: 57px;
+
+      :last-child {
+        border: none;
+      }
+    }
+  }
+  .howitworks__title {
+    font-size: 28px;
+    font-family: $font-family700;
+    line-height: calc(32 / 28);
+    text-align: center;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 64px;
+      line-height: calc(64 / 64);
+    }
+  }
+
+  .howitworks__number {
+    font-size: 64px;
+    line-height: calc(64 / 64);
+    font-family: $font-family800;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 128px;
+    }
+  }
+
+  .howitworks__text {
+    font-size: 18px;
+    line-height: calc(22 / 18);
+    font-family: $font-family800;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 32px;
+      line-height: calc(38 / 32);
+    }
+  }
+
+  .howitworks-item__wrapper {
+    border-bottom: 1px solid $black-color;
+    padding-bottom: 12px;
+
+    @media screen and (min-width: $desktop-width) {
+      border: none;
+      width: 429px;
+    }
+  }
+
+  .howitworks-checkbox__item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+
+    @media screen and (min-width: $desktop-width) {
+      gap: 18px;
+    }
+
+    &.active {
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-duration: 300ms;
+      animation-delay: 400ms;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .howitworks-checkbox__text {
+    font-size: 14px;
+    font-family: $font-family500;
+
+    @media screen and (min-width: $desktop-width) {
+      font-size: 24px;
+      line-height: calc(32 / 24);
+    }
+  }
+
+  .howitworks-checkbox__icon {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: $desktop-width) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .howitworks-checkbox__list {
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+      display: flex;
+      width: 442px;
+      gap: 32px;
+    }
+  }
+
+  .howitworks__arrow-icon {
+    width: 12px;
+    height: 6px;
+    stroke: $black-color;
+
+    transition-property: rotate;
+    transition-duration: 250ms;
+    transition-timing-function: $transition-timing-function;
+
+    @media screen and (min-width: $desktop-width) {
+      display: none;
+    }
+  }
+
+  .rotate {
+    rotate: 180deg;
+  }
+
+  .howitworks__icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: center;
+
+    @media screen and (min-width: $desktop-width) {
+      margin-top: 14px;
+    }
+  }
+
+  .howitworks-container {
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media screen and (min-width: $phone-width) {
+      max-width: $phone-width;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+      max-width: $desktop-width;
+      padding: 0 204px;
+    }
+  }
+}

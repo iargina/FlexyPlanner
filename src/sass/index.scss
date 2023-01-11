@@ -15,6 +15,7 @@
 @import './components//subtitle';
 @import './components/quotes';
 
+@import './layout/preLoader';
 @import './layout/authors';
 @import './layout/contacts';
 @import './layout/deliveryInfo';
@@ -22,7 +23,7 @@
 @import './layout/finalSumm';
 @import './layout/hero';
 @import './layout/footer';
-@import './layout/howitworks.';
+@import './layout/howitworks';
 @import './layout/modalSuccessOrder';
 @import './layout/motivate';
 @import './layout/order';
@@ -30,3 +31,7 @@
 @import './layout/promocode';
 @import './layout/qa';
 @import './layout/personalCoatch';
+@import './layout/modalFeedBack'; 
+@import './layout/button-up';
+
+@import './layout/order-module-admin';

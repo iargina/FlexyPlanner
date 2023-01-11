@@ -1,4 +1,4 @@
-<section class="authors">
+<section class="authors section">
   <div class="authors__wrap">
     <h2 class="title authors__title">Від авторів</h2>
     <ul class="authors__text--list">
@@ -33,29 +33,33 @@
 
   <div class="authors__wrap">
     <div class="author">
-      <picture class="authors__picture">
+      <picture
+        data-aos="fade-right"
+        data-aos-delay="200"
+        class="authors__picture"
+      >
         <source
           srcset="
-            ../assets/img/authors/desk_1x_author.jpg 1x,
-            ../assets/img/authors/desk_2x_author.jpg 2x
+            ./images/authors/desk_1x_author.jpg 1x,
+            ./images/authors/desk_2x_author.jpg 2x
           "
           media="(min-width: 1440px)"
         />
         <source
           srcset="
-            ../assets/img/authors/mob_1x_author.jpg 1x,
-            ../assets/img/authors/mob_2x_author.jpg 2x
+            ./images/authors/mob_1x_author.jpg 1x,
+            ./images/authors/mob_2x_author.jpg 2x
           "
           media="(min-width: 375px)"
         />
         <img
-          src="../assets/img/authors/desk_1x_author.jpg"
+          src="./images/authors/desk_1x_author.jpg"
           alt="Фото Андрія Рожило"
           class="authors__picture"
         />
       </picture>
 
-      <div class="authors__info">
+      <div data-aos="fade-left" data-aos-delay="200" class="authors__info">
         <h3 class="authors__info--subtitle">Андрій Рожило</h3>
         <p class="authors__info--subtitle--text">
           Автор і творець Flexy Planner
@@ -73,9 +77,9 @@
         </ul>
       </div>
     </div>
-    <div class="authors__speach--wrap">
+    <div data-aos="fade-up" data-aos-delay="400" class="authors__speach--wrap">
       <svg class="authors__speach--icon">
-        <use href="../assets/ico/sprite.svg#arrow_up_solid"></use>
+        <use href="./icons/sprite.svg#arrow_up_solid"></use>
       </svg>
       <ul class="authors__speach">
         <li class="authors__speach--text">

@@ -43,7 +43,6 @@ export default class PoshtaAPI {
         calledMethod: 'getWarehouses',
         methodProperties: {
           CityRef: this.city,
-          Limit: '3',
           FindByString: this.warehouse,
         },
       })

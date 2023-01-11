@@ -1,0 +1,373 @@
+.description__title {
+  margin: 0 auto;
+  margin-bottom: 136px;
+  letter-spacing: -0.02em;
+
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1000px;
+    margin-bottom: 230px;
+  }
+}
+
+.description__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description__images {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 134px;
+
+  @media screen and (min-width: $desktop-width) {
+    margin-bottom: 292px;
+  }
+}
+
+.description__item {
+  position: absolute;
+  width: 64px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 6px;
+  }
+
+  &:nth-child(1) {
+    top: -64px;
+    right: 56px;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_1.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_1.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    top: 98px;
+    right: 0;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_2.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_2.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    bottom: 5px;
+    right: 0;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_3.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_3.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    bottom: -62px;
+    right: 138px;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_4.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_4.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(5) {
+    bottom: 5px;
+    left: 0;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_5.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_5.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(6) {
+    top: 98px;
+    left: 0;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_6.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_6.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(7) {
+    top: -64px;
+    left: 60px;
+
+    &::before {
+      background: url('./../images/description/mob_1x_round_7.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/mob_2x_round_7.png') center /
+          60px 60px no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(8) {
+    display: none;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    width: 190px;
+
+    &::before {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 24px;
+    }
+
+    &:nth-child(1) {
+      top: 214px;
+      left: -80px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_1.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_1.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      top: 214px;
+      right: -86px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_2.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_2.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      bottom: -92px;
+      right: -22px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_3.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_3.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      bottom: -120px;
+      left: -16px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_4.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_4.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      bottom: 152px;
+      left: 796px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_5.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_5.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(6) {
+      top: -58px;
+      left: 782px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_6.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_6.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(7) {
+      top: -58px;
+      left: -242px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_7.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_7.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(8) {
+      display: block;
+      top: 486px;
+      left: -254px;
+
+      &::before {
+        background: url('./../images/description/desk_1x_round_8.png') center /
+          140px 140px no-repeat;
+
+        @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background: url('./../images/description/desk_2x_round_8.png') center /
+            140px 140px no-repeat;
+        }
+      }
+    }
+  }
+}
+
+.description__text {
+  width: 100%;
+  font-size: 8px;
+  font-family: $font-family700;
+  line-height: calc(10 / 8);
+  text-transform: uppercase;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    line-height: calc(28 / 24);
+  }
+}
+
+.description__benefits {
+  width: 100%;
+  max-width: 824px;
+  padding: 14px 14px 14px 24px;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  background-color: $background-color;
+  border-radius: 4px;
+
+  @media screen and (min-width: $desktop-width) {
+    padding: 48px 98px 48px 116px;
+    font-size: 24px;
+    line-height: calc(32 / 24);
+  }
+}
+
+.benefits-list__item {
+  padding-left: 12px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background-color: $black-color;
+    border-radius: 50%;
+    top: 8px;
+    left: 0;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    padding-left: 20px;
+
+    &::before {
+      width: 3px;
+      height: 3px;
+      top: 12px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.button-up__wrapper {
+  width: 64px;
+  height: 64px;
+  background: rgba(243, 187, 74, 0.2);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  transition: opacity 0.2s linear;
+  @media screen and (min-width: $desktop-width) {
+    width: 80px;
+    height: 80px;
+    right: 100px;
+  }
+}
+.button-up {
+  width: 56px;
+  height: 56px;
+  background: #f3bb4a;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s linear;
+}
+
+.button-up__icon {
+  rotate: 180deg;
+  width: 22px;
+  height: 12px;
+  @media screen and (min-width: $desktop-width) {
+    width: 25px;
+    height: 14px;
+  }
+}
