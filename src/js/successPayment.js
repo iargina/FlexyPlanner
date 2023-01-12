@@ -23,5 +23,23 @@ function successPayment() {
   }
   return;
 }
+const testSearchByOrder = search => {
+  return (
+    /(\bsource_id\b)+/.test(search) &&
+    /(\bsource_uuid\b)+/.test(search) &&
+    /(\bbuyer\b)+/.test(search) &&
+    /(\bshipping\b)+/.test(search) &&
+    /(\bproducts\b)+/.test(search) &&
+    /(\bpayments\b)+/.test(search)
+  );
+};
+
+window.onload = function () {
+  const { search } = location;
+  if (search !== '' && testSearchByOrder(search)) {
+    const order = parseOrder(search);
+    console.log(order);
+  }
+};
 
 successPayment();
