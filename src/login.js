@@ -1,76 +1,104 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
+
+// function getLocalAccessToken() {
+//   const accessToken = window.localStorage.getItem('accessToken');
+//   return accessToken;
+// }
+
+// function getLocalRefreshToken() {
+//   const refreshToken = window.localStorage.getItem('refreshToken');
+//   return refreshToken;
+// }
 
 const instance = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/',
-  params: {
-    headers: {
-      // Authorization: getAuthorizationHeader(),
-    },
-    body: new FormData(form),
-    // body: {
-    //   email: 'user@example.com',
-    //   password: 'qwerty123',
-    // },
+  baseURL: 'https://flexyplanner.onrender.com/auth/login',
+  headers: {
+    'Content-Type': 'application/json',
   },
 });
 
-const login = async e => {
+// instance.interceptors.request.use(
+//   config => {
+//     console.log(config);
+//     const token = window.localStorage.getItem('accessToken');
+//     if (token) {
+//       config.headers['x-access-token'] = token;
+//     }
+//     return config;
+//   },
+//   error => {
+//     return Promise.reject(error);
+//   }
+// );
+
+// function refreshToken() {
+//   return instance.post('https://flexyplanner.onrender.com/auth/refresh', {
+//     sid: getLocalRefreshToken(),
+//   });
+// }
+
+// instance.interceptors.response.use(
+//   res => {
+//     console.log(res);
+
+//     return res;
+//   },
+//   async err => {
+//     const originalConfig = err.config;
+
+//     if (err.response) {
+//       // Access Token was expired
+//       if (err.response.status === 401 && !originalConfig._retry) {
+//         originalConfig._retry = true;
+
+//         try {
+//           const rs = await refreshToken();
+//           const { accessToken } = rs.data;
+//           window.localStorage.setItem('accessToken', accessToken);
+//           instance.defaults.headers.common['x-access-token'] = accessToken;
+
+//           return instance(originalConfig);
+//         } catch (_error) {
+//           if (_error.response && _error.response.data) {
+//             return Promise.reject(_error.response.data);
+//           }
+
+//           return Promise.reject(_error);
+//         }
+//       }
+
+//       if (err.response.status === 403 && err.response.data) {
+//         return Promise.reject(err.response.data);
+//       }
+//     }
+
+//     return Promise.reject(err);
+//   }
+// );
+
+function signin() {
+  return instance.post('', {
+    email: form.elements.login.value,
+    password: form.elements.password.value,
+  });
+}
+
+async function login(e) {
   e.preventDefault();
-
   try {
-    const { data } = await instance.post('', {
-      params: {},
-    });
-    const token = data.token;
-    localStorage.setItem('accessToken', token);
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+    const res = await signin();
 
-    // window.location.href = './main.html';
-  } catch (error) {
-    console.log(error);
-    // return error.message;
+    const { accessToken, refreshToken } = res.data;
+    window.localStorage.setItem('accessToken', accessToken);
+    window.localStorage.setItem('refreshToken', refreshToken);
+
+    window.location.href = '/admin_main.html';
+  } catch (err) {
+    Notify.failure('Неправильний e-mail або пароль');
+    form.reset();
   }
-
-  instance.interceptors.request.use(
-    config => {
-      if (localStorage.getItem('token')) {
-        config.headers['Authorization'] = `Bearer ${token}`;
-        console.log('Get token from LS');
-      }
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    }
-  );
-
-  //  form.removeEventListener('submit', handleSubmit);
-};
+}
 
 const form = document.querySelector('#admin-form-js');
 form.addEventListener('submit', login);
-
-// // This code sets authorization headers for all requests:
-// axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
-//   'access_token'
-// )}`;
-
-// export const getToken = () =>
-//   localStorage.getItem('accessToken')
-//     ? JSON.parse(localStorage.getItem('accessToken'))
-//     : null;
-
-// export const getAuthorizationHeader = () => `Bearer ${getToken()}`;
-
-// export const fetchSomething = async () => {
-//   try {
-//     const response = await axiosInstance.get("/foo", {
-//       headers: { Authorization: getAuthorizationHeader() }
-//     });
-
-//     return response;
-
-//   } catch (error) {
-//     // error handling
-//   }
-// };
