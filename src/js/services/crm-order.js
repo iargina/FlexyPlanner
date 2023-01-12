@@ -5,9 +5,7 @@ import { BASE_URL, crmLead } from './crm-lead';
 import qs from 'query-string';
 
 const contact = document.querySelector('.contacts__btn');
-const promo = document.querySelector('.promo__submit');
 contact.addEventListener('click', onContactClick);
-promo.addEventListener('click', onFinalSumBtnClick);
 
 export const orderCrmData = {
   source_id: 1,
