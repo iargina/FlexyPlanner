@@ -1,4 +1,9 @@
 import axios from 'axios';
+import {
+  getMarkup,
+  toggleActiveOrderModule,
+  setCurrentPrice,
+} from './services/markupAPI';
 
 const orderAdmin = document.querySelector('.order-admin');
 const toOrderBtn = document.querySelector('[data-status="to-order"]');
@@ -24,19 +29,26 @@ const setActiveBtn = async elem => {
   elem.innerText = 'Активовано';
   elem.disabled = true;
 
-  const { data } = await axios.get('https://flexyplanner.onrender.com/markup');
-
-  showSettedPrice(data);
+  try {
+    const markupResponse = await getMarkup();
+    showSettedPrice(markupResponse);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const toggleButtonsClass = async (curr, next) => {
-  await axios.patch('https://flexyplanner.onrender.com/markup');
-  setActiveBtn(curr);
+  try {
+    await toggleActiveOrderModule();
+    setActiveBtn(curr);
 
-  next.classList.remove('btn-success');
-  next.classList.add('btn-danger');
-  next.innerText = 'Активувати';
-  next.disabled = false;
+    next.classList.remove('btn-success');
+    next.classList.add('btn-danger');
+    next.innerText = 'Активувати';
+    next.disabled = false;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const activateOrderModule = e => {
@@ -45,11 +57,8 @@ const activateOrderModule = e => {
   }
   if (e.target.dataset.status == 'pre-order') {
     toggleButtonsClass(e.target, toOrderBtn);
-
-    //тут має бути відправка запиту на бекенд для оновлення активного модуля
   } else {
     toggleButtonsClass(e.target, preOrderBtn);
-    //тут має бути відправка запиту на бекенд для оновлення активного модуля
   }
 };
 
@@ -63,13 +72,8 @@ const handleToOrderSubmit = async e => {
     },
   };
 
-  //тут має бути відправка запиту на бекенд для додавання даних модуля
-  // fetchGallery(obj);
   try {
-    const { data } = await axios.put(
-      'https://flexyplanner.onrender.com/markup',
-      obj
-    );
+    const data = await setCurrentPrice(obj);
     showSettedPrice(data);
   } catch (error) {
     console.log(error);
@@ -88,10 +92,7 @@ const handlePreOrderSubmit = async e => {
   };
 
   try {
-    const { data } = await axios.put(
-      'https://flexyplanner.onrender.com/markup',
-      obj
-    );
+    const data = await setCurrentPrice(obj);
     showSettedPrice(data);
   } catch (error) {
     console.log(error);
@@ -100,11 +101,8 @@ const handlePreOrderSubmit = async e => {
 
 async function getActiveOrderModule() {
   try {
-    const { data } = await axios.get(
-      'https://flexyplanner.onrender.com/markup'
-    ); //TODO: тут приходять дані по активному модулю
-    // console.log(data);
-
+    //TODO: тут приходять дані по активному модулю
+    const data = await getMarkup();
     if (data.type === 'pre-order') {
       setActiveBtn(preOrderBtn);
     } else {

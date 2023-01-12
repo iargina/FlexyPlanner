@@ -8,17 +8,17 @@ const instance = axios.create({
   },
 });
 
-function signin() {
+const signIn = () => {
   return instance.post('', {
     email: form.elements.login.value,
     password: form.elements.password.value,
   });
-}
+};
 
-async function login(e) {
+const login = async e => {
   e.preventDefault();
   try {
-    const res = await signin();
+    const res = await signIn();
 
     const { accessToken } = res.data;
     window.sessionStorage.setItem('accessToken', accessToken);
@@ -27,7 +27,7 @@ async function login(e) {
     Notify.failure('Неправильний e-mail або пароль');
     form.reset();
   }
-}
+};
 
 const form = document.querySelector('#admin-form-js');
 form.addEventListener('submit', login);
