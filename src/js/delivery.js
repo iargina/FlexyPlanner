@@ -10,8 +10,16 @@ const warehousesListRef = document.querySelector('.warehouses');
 const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 
+const userNameRef = document.querySelector('#username');
+const userPhoneRef = document.querySelector('#phone');
+const receiverNameRef = document.querySelector('#receiverName');
+const receiverPhoneRef = document.querySelector('#receiverPhone');
+const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
+
 const api = new PoshtaAPI();
 // let order = new Order();
+
+const delivery = {};
 
 async function selectCity(e) {
   warehouseInputRef.value = '';
@@ -84,6 +92,7 @@ async function onCitiesListClick(e) {
   }
 
   cityInputRef.value = e.target.textContent;
+  delivery.city = e.target.textContent;
 
   // order.cityName = e.target.textContent;
   // order.delivery = { city: e.target.textContent };
@@ -95,9 +104,10 @@ async function onCitiesListClick(e) {
   try {
     const res = await api.getWarehouses();
     const warehouses = res.data;
-    const warehousesList = warehouses.map(
-      warehouse => `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`
-    );
+    const warehousesList = warehouses.map(warehouse => {
+      // console.log(warehouse);
+      return `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`;
+    });
     warehousesListRef.innerHTML = warehousesList.join('');
     warehousesListRef.classList.add('show');
   } catch (error) {
@@ -113,9 +123,11 @@ function onWarehousesListClick(e) {
   }
 
   warehouseInputRef.value = e.target.textContent;
+  delivery.warehouse = e.target.textContent;
 
   // order.warehouse = e.target.textContent;
   // order.delivery = { warehouse: e.target.textContent };
+
   const warehouseRef = e.target.dataset.ref;
   (order.delivery = {
     /*     shipping_address_city: 'Kyiv',
@@ -128,12 +140,12 @@ function onWarehousesListClick(e) {
     recipient_phone: '+1 555-234-7777', */
     warehouse_ref: e.target.dataset.ref,
   }),
-    console.log(order);
+    // console.log(order);
 
-  // тут треба відправити цей реф у клас і потім в CRM
-  console.log(warehouseRef);
+    // тут треба відправити цей реф у клас і потім в CRM
+    // console.log(warehouseRef);
 
-  warehousesListRef.innerHTML = '';
+    (warehousesListRef.innerHTML = '');
   warehousesListRef.classList.remove('show');
 }
 
@@ -148,6 +160,33 @@ function onInputBlur(e) {
   }, 100);
 }
 
+function onCheckboxChange(e) {
+  if (e.target.checked) {
+    receiverNameRef.value = userNameRef.value;
+    receiverNameRef.disabled = true;
+
+    receiverPhoneRef.value = userPhoneRef.value;
+    receiverPhoneRef.disabled = true;
+  } else {
+    receiverNameRef.value = '';
+    receiverNameRef.disabled = false;
+
+    receiverPhoneRef.value = '';
+    receiverPhoneRef.disabled = false;
+  }
+}
+
+// function onReceiverInfoChange(e) {
+//   if (e.target.name === 'receiverName') {
+//     delivery.receiverName = e.target.value;
+//     console.log(delivery);
+//   }
+//   if (e.target.name === 'receiverPhone') {
+//     delivery.receiverPhone = e.target.value;
+//     console.log(delivery);
+//   }
+// }
+
 cityInputRef.addEventListener('input', debounce(selectCity, 300));
 cityInputRef.addEventListener('blur', onInputBlur);
 
@@ -157,3 +196,7 @@ warehouseInputRef.addEventListener('blur', onInputBlur);
 citiesListRef.addEventListener('click', onCitiesListClick);
 warehousesListRef.addEventListener('click', onWarehousesListClick);
 warehouseBtnRef.addEventListener('click', toggleWarehouseSearch);
+
+receiverCheckboxRef.addEventListener('change', onCheckboxChange);
+// receiverNameRef.addEventListener('change', onReceiverInfoChange);
+// receiverPhoneRef.addEventListener('change', onReceiverInfoChange);
