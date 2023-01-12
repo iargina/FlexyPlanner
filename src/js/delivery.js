@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
-import { order } from './utils';
+// import { order } from './utils';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -19,7 +19,7 @@ const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
 const api = new PoshtaAPI();
 // let order = new Order();
 
-const delivery = {};
+let warehousesArr = [];
 
 async function selectCity(e) {
   warehouseInputRef.value = '';
@@ -92,10 +92,6 @@ async function onCitiesListClick(e) {
   }
 
   cityInputRef.value = e.target.textContent;
-  delivery.city = e.target.textContent;
-
-  // order.cityName = e.target.textContent;
-  // order.delivery = { city: e.target.textContent };
 
   api.selectCity(e.target.dataset.ref);
   citiesListRef.innerHTML = '';
@@ -104,8 +100,8 @@ async function onCitiesListClick(e) {
   try {
     const res = await api.getWarehouses();
     const warehouses = res.data;
+    warehousesArr = warehouses;
     const warehousesList = warehouses.map(warehouse => {
-      // console.log(warehouse);
       return `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`;
     });
     warehousesListRef.innerHTML = warehousesList.join('');
@@ -123,29 +119,45 @@ function onWarehousesListClick(e) {
   }
 
   warehouseInputRef.value = e.target.textContent;
-  delivery.warehouse = e.target.textContent;
 
-  // order.warehouse = e.target.textContent;
-  // order.delivery = { warehouse: e.target.textContent };
+  const warehouseObj = warehousesArr.find(
+    warehouse => warehouse.Ref === e.target.dataset.ref
+  );
 
-  const warehouseRef = e.target.dataset.ref;
-  (order.delivery = {
-    /*     shipping_address_city: 'Kyiv',
-    shipping_address_country: 'Ukraine',
-    shipping_address_region: 'Kyivska',
-    shipping_address_zip: '50000',
-    shipping_secondary_line: 'string',
-    shipping_receive_point: 'Склад #12',
-    recipient_full_name: 'Ann Doe',
-    recipient_phone: '+1 555-234-7777', */
-    warehouse_ref: e.target.dataset.ref,
-  }),
-    // console.log(order);
+  const order = {
+    // місто
+    shipping_address_city: warehouseObj.CityDescription,
 
-    // тут треба відправити цей реф у клас і потім в CRM
-    // console.log(warehouseRef);
+    // область
+    shipping_address_region: warehouseObj.SettlementAreaDescription,
 
-    (warehousesListRef.innerHTML = '');
+    // номер відділення
+    shipping_receive_point: warehouseObj.Number,
+
+    // description
+    shipping_description: warehouseObj.Description,
+
+    // postal code
+    shipping_postal_code: warehouseObj.PostalCodeUA,
+
+    // ref
+    shipping_ref: warehouseObj.Ref,
+
+    // short address
+    shipping_short_address: warehouseObj.ShortAddress,
+
+    // receiver name
+    recipient_full_name: receiverNameRef.value,
+
+    // receiver phone
+    recipient_phone: receiverPhoneRef.value,
+  };
+
+  console.log(order);
+
+  // тут треба цей ордер відправити у клас
+
+  warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');
 }
 
@@ -176,17 +188,6 @@ function onCheckboxChange(e) {
   }
 }
 
-// function onReceiverInfoChange(e) {
-//   if (e.target.name === 'receiverName') {
-//     delivery.receiverName = e.target.value;
-//     console.log(delivery);
-//   }
-//   if (e.target.name === 'receiverPhone') {
-//     delivery.receiverPhone = e.target.value;
-//     console.log(delivery);
-//   }
-// }
-
 cityInputRef.addEventListener('input', debounce(selectCity, 300));
 cityInputRef.addEventListener('blur', onInputBlur);
 
@@ -198,5 +199,3 @@ warehousesListRef.addEventListener('click', onWarehousesListClick);
 warehouseBtnRef.addEventListener('click', toggleWarehouseSearch);
 
 receiverCheckboxRef.addEventListener('change', onCheckboxChange);
-// receiverNameRef.addEventListener('change', onReceiverInfoChange);
-// receiverPhoneRef.addEventListener('change', onReceiverInfoChange);
