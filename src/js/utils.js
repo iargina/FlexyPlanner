@@ -1,11 +1,11 @@
 class Order {
-
   #orderedPlanners = [];
   #price = {};
   #contactInfo = {};
   #delivery = {};
   #discountPercentage = null;
   #total = 0;
+  #promocode = '';
 
   // Встановлює загальну вартість замовлення
   setTotal() {
@@ -18,6 +18,9 @@ class Order {
   get total() {
     return this.#total;
   }
+
+  // Щось має бути по знижці
+  useDiscount() { }
 
   // Array of ordered objects
   get orderedPlanners() {
@@ -64,6 +67,14 @@ class Order {
   set discountPercentage(percentage) {
     this.#discountPercentage = percentage;
   }
+  // Promocode
+  get promocode() {
+    return this.#promocode;
+  }
+
+  set promocode(promoName) {
+    this.#promocode = promoName;
+  }
 
   getWholeOrderData() {
     return {
@@ -71,10 +82,8 @@ class Order {
       price: this.#price,
       contactInfo: this.#contactInfo,
       delivery: this.#delivery,
-      totalCost: this.#total,
-    }
+    };
   }
-
 }
 
 export const order = new Order();
