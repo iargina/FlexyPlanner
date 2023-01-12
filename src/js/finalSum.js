@@ -68,7 +68,8 @@ function postToAdd() {
       reference: `${reference}`,
       destination: 'Flexy Planner',
     },
-    redirectUrl: 'http://localhost:1234/?status=success&' + queryData,
+    // redirectUrl: 'http://localhost:1234/?status=success&' + queryData,
+    redirectUrl: 'https://flexyplanner.com/?status=success&' + queryData,
     validity: 3600,
   };
 }
