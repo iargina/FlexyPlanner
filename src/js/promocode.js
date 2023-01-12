@@ -51,6 +51,7 @@ async function onFormSubmit(e) {
       Notify.success('Промокод застосовано!');
       refs.promoForm.reset();
       order.discountPercentage = discount;
+      order.promocode = promoFromInput;
     }
   } catch (error) {
     console.log(error.message);
