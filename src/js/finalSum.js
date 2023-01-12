@@ -1,10 +1,7 @@
 import moment from 'moment';
 import { order } from './utils';
-import {
-  orderCrmData,
-  orderCrmDataForm,
-  stringifyOrder,
-} from './services/crm-order';
+import { orderCrmData, orderCrmDataForm } from './services/crm-order';
+import { stringifyOrder } from './services/query-methods';
 import qs from 'query-string';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
