@@ -1,7 +1,7 @@
 class Order {
 
   #orderedPlanners = [];
-  #price = 995;
+  #price = {};
   #contactInfo = {};
   #delivery = {};
   #discountPercentage = null;
@@ -18,9 +18,6 @@ class Order {
   get total() {
     return this.#total;
   }
-
-  // Щось має бути по знижці
-  useDiscount() { }
 
   // Array of ordered objects
   get orderedPlanners() {
