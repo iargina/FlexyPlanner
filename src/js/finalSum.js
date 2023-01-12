@@ -1,5 +1,11 @@
 import moment from 'moment';
 import { order } from './utils';
+import {
+  orderCrmData,
+  orderCrmDataForm,
+  stringifyOrder,
+} from './services/crm-order';
+import qs from 'query-string';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
@@ -66,12 +72,15 @@ function postToAdd() {
       reference: `${reference}`,
       destination: 'Flexy Planner',
     },
-    redirectUrl: 'http://localhost:1234/?status=success',
+    redirectUrl: 'http://localhost:1234/?status=success&' + queryData,
     validity: 3600,
   };
 }
 
+let queryData;
 function onFinalSumBtnClick(e) {
+  orderCrmDataForm();
+  queryData = stringifyOrder(orderCrmData);
   api();
 }
 

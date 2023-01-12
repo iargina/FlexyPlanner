@@ -26,6 +26,7 @@
     "modern-normalize": "^1.1.0",
     "moment": "^2.29.4",
     "notiflix": "^3.2.5",
+    "query-string": "^8.1.0",
     "swiper": "^8.4.5"
   },
   "devDependencies": {

@@ -4,6 +4,10 @@
   margin-bottom: 72px;
   padding: 18px 12px 24px 12px;
   @media screen and (min-width: $desktop-width) {
+    position: absolute;
+    top: 262px;
+    left: 64vw;
+    width: 420px;
     max-width: 420px;
     padding: 20px 20px 32px 20px;
   }

@@ -73,7 +73,6 @@ class Order {
       delivery: this.#delivery,
     }
   }
-}
 
 
-export const order = new Order();
+  export const order = new Order();

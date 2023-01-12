@@ -59,6 +59,7 @@
 
   @media screen and (min-width: $desktop-width) {
     max-width: 420px;
+    margin-bottom: 40px;
   }
 }
 
@@ -90,6 +91,14 @@
     background-size: 18px 18px;
     background-repeat: no-repeat;
     background-position: center center;
+
+    transition: transform $transition-duration $transition-timing-function;
+  }
+
+  &.active {
+    &::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
   }
 
   @media screen and (min-width: $desktop-width) {
