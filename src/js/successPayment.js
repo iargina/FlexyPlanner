@@ -1,3 +1,4 @@
+import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
 const urlParams = new URLSearchParams(window.location.search);
@@ -15,14 +16,6 @@ backdropSection.addEventListener('click', e => {
     backdropSection.classList.toggle('is-hidden');
   }
 });
-
-function successPayment() {
-  if (successParam === 'success') {
-    openSuccessModal();
-    console.log(params);
-  }
-  return;
-}
 const testSearchByOrder = search => {
   return (
     /(\bsource_id\b)+/.test(search) &&
@@ -36,10 +29,19 @@ const testSearchByOrder = search => {
 
 window.onload = function () {
   const { search } = location;
+  console.log(search);
   if (search !== '' && testSearchByOrder(search)) {
     const order = parseOrder(search);
     console.log(order);
   }
 };
+
+function successPayment() {
+  if (successParam === 'success') {
+    openSuccessModal();
+    console.log(params);
+  }
+  return;
+}
 
 successPayment();

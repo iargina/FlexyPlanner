@@ -2,13 +2,13 @@ import { order } from '../utils';
 import moment from 'moment';
 import { options } from './crm-lead';
 import { BASE_URL, crmLead } from './crm-lead';
-import qs from 'query-string';
 
 const contact = document.querySelector('.contacts__btn');
 contact.addEventListener('click', onContactClick);
 
 export const orderCrmData = {
   source_id: 1,
+  source_uuid: moment().format('MMMM Doh YYYYmmss'),
   buyer_comment: '',
   /*   discount_percent: 0,
   discount_amount: 0, */
@@ -73,19 +73,3 @@ function onContactClick() {
   /*   crmLead(BASE_URL, { options }); */
   console.log(options.body);
 }
-
-export const stringifyOrder = orderBody => {
-  const order = Object.entries(orderBody).reduce((acc, [key, value]) => {
-    acc[key] = JSON.stringify(value);
-    return acc;
-  }, {});
-  return qs.stringify(order);
-};
-
-export const parseOrder = order => {
-  const parsedOrder = qs.parse(order);
-  return Object.entries(parsedOrder).reduce((acc, [key, value]) => {
-    acc[key] = JSON.parse(value);
-    return acc;
-  }, {});
-};
