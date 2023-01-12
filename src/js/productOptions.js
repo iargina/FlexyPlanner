@@ -3,14 +3,14 @@ import { makeMarkup } from './finalSum';
 import sprite from '../icons/sprite.svg';
 import planner from '../images/hero/mob_1x_planner_yellow.png';
 import { Notify } from 'notiflix';
+// import axios from 'axios';
 
 const listEl = document.querySelector('.orderProcessing__list');
 const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 const priceCancelEl = document.querySelector('.orderProcessing__priceCancelled');
+// let orderProcessingEl = document.querySelector('.orderProcessing');
 
 listEl.addEventListener('click', onElementClick);
-
-let titlesArr = [];
 
 // Usage:
 let products = [];
@@ -19,6 +19,71 @@ let products = [];
 // for (let i = 1; i < listItemsArr.length; i += 1) {
 //   resetAmount(listItemsArr[i]);
 // }
+
+// ========== OrderModule Checking ============================
+// async function primaryRequest() {
+//   const instanceMarkup = axios.create({
+//     baseURL: 'https://flexyplanner.onrender.com/markup',
+//   });
+
+//   const { data } = await instanceMarkup.get('');
+//   console.log(data);
+//   return data;
+// };
+
+// primaryRequest();
+
+// ---------------------
+const fetchOrderModule = async () => {
+  try {
+
+    const response = await fetch("https://flexyplanner.onrender.com/markup");
+    const dataObj = await response.json();
+    console.log(dataObj);
+
+    // Присвоюю об'єкт ціни в екземпляр класу
+    if (dataObj.type === 'to-order') {
+      order.price = { price: dataObj.data.price }
+    }
+    if (dataObj.type === 'pre-order') {
+
+      if (dataObj.data.preOrderPrice < dataObj.data.price) {
+        order.price = dataObj.data;
+        // return;
+      }
+
+      // if (dataObj.data.preOrderPrice === 0) {
+      //   order.price = { price: dataObj.data.price }
+      //   console.log("Нульова ціна");
+      //   // return;
+      // }
+
+      if (dataObj.data.preOrderPrice > dataObj.data.price) {
+        order.price = { price: dataObj.data.price }
+        // return;
+      }
+    }
+
+    console.log("Order after first fetch: ", order.getWholeOrderData());
+
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+
+    // Прибераю спінер
+    document.querySelector('.preloader').classList.add('loader-is-hidden');
+
+    // Виводжу ціну наверху в секції
+    priceMarkupRender();
+
+    // Рендерю список планерів
+    listMarkupRender();
+
+  }
+};
+
+fetchOrderModule();
+
 // =============================================
 
 
@@ -33,7 +98,7 @@ const res = {
       "barcode": null,
       "price": 1499,
       "purchased_price": 700,
-      "quantity": 3,
+      "quantity": 12,
       "weight": 200,
       "length": 25,
       "height": 2,
@@ -56,7 +121,7 @@ const res = {
       "barcode": null,
       "price": 1499,
       "purchased_price": 700,
-      "quantity": 2,
+      "quantity": 3,
       "weight": 200,
       "length": 25,
       "height": 2,
@@ -87,84 +152,44 @@ const res = {
 
 // ========================================================
 
-// =================== EXPERIMENTS WITH PRICE =============
-
-const orderModule = {
-  type: 'pre-order',
-  data: {
-    price: 1499,
-    preOrderPrice: 995,
-  },
-  isActive: false,
-};
-
-// const orderModule = {
-//   type: 'to-order',
-//   data: {
-//     price: 1499
-//   },
-//   isActive: true,
-// };
-
-// -------------------------------------------------------
-
-function priceAssign(orderModule) {
-  order.price = orderModule.data;
-  // console.log("I've set price");
-}
-function priceGetter() {
-  // console.log(order.price);
-  return order.price;
-}
-
-setTimeout(priceGetter, 1500);
-setTimeout(() => priceAssign(orderModule), 2000);
-setTimeout(priceGetter, 2500);
-
-// =======================================================
-
 // ========== Section price view =========================
-priceAssign(orderModule);
-let priceObj = order.price;
-if (Object.keys(priceObj).length === 1) {
-  priceEl.innerHTML = `${priceObj.price} грн`;
-} else {
-  priceEl.innerHTML = `${priceObj.preOrderPrice} грн`;
-  priceCancelEl.innerHTML = `${priceObj.price} грн`;
+function priceMarkupRender() {
+  // Витягую ціну та ціну для попереднього замовлення,
+  // якщо така є
+  let priceObj = order.price;
+  if (Object.keys(priceObj).length === 1) {
+    priceEl.innerHTML = `${priceObj.price} грн`;
+  } else {
+    priceEl.innerHTML = `${priceObj.preOrderPrice} грн`;
+    priceCancelEl.innerHTML = `${priceObj.price} грн`;
+  }
 }
 // ======================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ==== PLANNERS REQUEST ON CRM / EMULATION ===========
 
-const plannersArr = res.data;
-let planerCost = priceObj.preOrderPrice ? priceObj.preOrderPrice : priceObj.price;
-// console.log(plannersArr);
-const markup = plannersArr.map(({ id, properties, sku, quantity }) => {
-  // console.log(properties[0].value);
-  return `<li class="orderProcessing__item" data-idx="#2378560">
+function priceGetter() {
+  let price = 0;
+  if (Object.keys(order.price).length > 1) {
+    price = order.price.preOrderPrice;
+  } else {
+    price = order.price.price;
+  }
+  return price;
+}
+
+function listMarkupRender() {
+  const plannersArr = res.data;
+
+  let plannerPrice = priceGetter();
+
+  const markup = plannersArr.map(({ id, properties, sku, quantity }) => {
+    let lastItemsMarkup = '';
+    if (quantity < 10) {
+      lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
+    }
+    // ${ lastItemsMarkup }
+    return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
               <picture>
                 <source srcset="
@@ -200,41 +225,22 @@ const markup = plannersArr.map(({ id, properties, sku, quantity }) => {
                   <p class="orderProcessing__addBtn visually-hidden" data-action="addAmount">
                     Додати
                   </p>
+                  
                 </div>
-                <p class="orderProcessing__cost">${planerCost} грн</p>
+                <div class="orderProcessing__costBlock">
+                  <p class="orderProcessing__cost">${plannerPrice} грн</p>
+                  ${lastItemsMarkup}
+                </div>
                 <svg class="orderProcessing__close" data-action="reset">
                   <use href="${sprite}#reset_order"></use>
                 </svg >
               </div >
             </div >
           </li > `
-}).join('');
-listEl.innerHTML = markup;
-
-titlesArr = document.querySelectorAll('.orderProcessing__itemTitle');
-// console.log(titlesArr);
-
-// =====================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }).join('');
+  listEl.innerHTML = markup;
+}
+// ========================================================================
 
 
 
@@ -275,7 +281,6 @@ function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
   const quantity = Number(listItem.querySelector('.orderProcessing__plus').dataset.quantity);
-  // console.log("Closest SVG with quantity: ", quantity);
 
   let numberElValue = Number(numberEl.textContent);
   let priceValue = Number(priceEl.innerText.slice(0, -4));
@@ -322,6 +327,9 @@ function resetAmount(listItem) {
 }
 
 function addItem(listItem) {
+
+  let plannerPrice = priceGetter();
+
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const inputWrapperEl = listItem.querySelector(
     '.orderProcessing__inputWrapper'
@@ -333,24 +341,25 @@ function addItem(listItem) {
   inputWrapperEl.classList.remove('visually-hidden');
   addBtnEl.classList.add('visually-hidden');
 
-  amountCostEl.innerText = `995 грн`;
+  amountCostEl.innerText = `${plannerPrice} грн`;
 
   recalcAmount();
 }
 
-const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-
 function recalcAmount() {
+
+  const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 
   products = [];
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
+
     if (Number(plAmount) !== 0) {
       products.push({
         color: plTitle,
-        amount: plAmount,
-        // price: 995,
+        amount: Number(plAmount),
+        price: priceGetter(),
       });
     }
 
@@ -361,5 +370,3 @@ function recalcAmount() {
   makeMarkup();
   console.log("Order: ", order.getWholeOrderData());
 }
-
-

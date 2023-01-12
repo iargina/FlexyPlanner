@@ -350,7 +350,10 @@
   }
 }
 
-.orderProcessing__cost {
+.orderProcessing__costBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
@@ -376,12 +379,28 @@
 }
 
 .orderProcessing__addBtn::after {
+  content: '';
+  display: block;
+  width: 43px;
+  height: 1px;
+  background: $secondary-text-color;
+  opacity: 0.5;
+
   @media screen and (min-width: $desktop-width) {
-    content: '';
-    display: block;
     width: 49px;
-    height: 1px;
-    background: $secondary-text-color;
-    opacity: 0.5;
   }
+}
+
+.orderProcessing__lastItemsLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: $bold-text;
+  color: $secondary-text-color;
+  height: 20px;
+  background-color: $accent-color;
+  border-radius: 10px;
+  width: 90px;
 }

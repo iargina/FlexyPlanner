@@ -71,8 +71,10 @@ class Order {
       price: this.#price,
       contactInfo: this.#contactInfo,
       delivery: this.#delivery,
+      totalCost: this.#total,
     }
   }
 
+}
 
-  export const order = new Order();
+export const order = new Order();
