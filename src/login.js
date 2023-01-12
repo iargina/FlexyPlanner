@@ -23,7 +23,7 @@ const login = async e => {
 
     const { accessToken } = res.data;
     window.sessionStorage.setItem('accessToken', accessToken);
-    window.location.href = '/admin_main.html';
+    window.location.href = '/admin/admin.html';
   } catch (err) {
     Notify.failure('Неправильний e-mail або пароль');
     form.reset();
