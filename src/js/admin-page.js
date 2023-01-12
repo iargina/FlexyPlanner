@@ -1,32 +1,29 @@
 import axios from 'axios';
 
-// const logoutButton = document.querySelector('#logoutButton');
-// logoutButton.addEventListener('click', logout);
+const logoutButton = document.querySelector('#logoutButton');
+const spinnerLoader = document.querySelector('.spinner-border');
 
-// async function logout() {
-//   const logout = await axios.post(
-//     'https://flexyplanner.onrender.com/auth/logout',
-//     { accessToken: window.localStorage.getItem('accessToken') }
-//   );
-//   console.log(logout);
-// }
+const instanceLogout = axios.create({
+  baseURL: 'https://flexyplanner.onrender.com/auth/logout',
+  headers: {
+    Authorization: `Bearer ${window.sessionStorage.getItem('accessToken')}`,
+  },
+});
 
-// function refreshToken() {
-//   return axios.post('https://flexyplanner.onrender.com/auth/refresh', {
-//     sid: window.localStorage.getItem('sid'),
-//   });
-// }
+const logout = async () => {
+  spinnerLoader.style.display = 'inline-block';
+  try {
+    await instanceLogout.post('', {});
+    window.location.href = '/login.html';
+    window.sessionStorage.removeItem('accessToken');
+  } catch (error) {
+    if (error.response.status === 401) {
+      window.location.href = '/login.html';
+      window.sessionStorage.removeItem('accessToken');
+    }
+  } finally {
+    spinnerLoader.style.display = 'none';
+  }
+};
 
-// function getLocalRefreshToken() {
-//   const refreshToken = window.localStorage.getItem('refreshToken');
-//   console.log(refreshToken);
-//   return refreshToken;
-// }
-
-// const btnTest = document.querySelector('#btnTest');
-
-// btnTest.addEventListener('click', refreshToken);
-
-// console.log(window.localStorage.getItem('accessToken'));
-// console.log(window.localStorage.getItem('refreshToken'));
-// console.log(window.localStorage.getItem('sid'));
+logoutButton.addEventListener('click', logout);

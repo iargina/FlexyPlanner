@@ -33,7 +33,7 @@ const setActiveBtn = async elem => {
     const markupResponse = await getMarkup();
     showSettedPrice(markupResponse);
   } catch (error) {
-    console.log(error);
+    Notify.failure(error.message);
   }
 };
 
@@ -47,7 +47,7 @@ const toggleButtonsClass = async (curr, next) => {
     next.innerText = 'Активувати';
     next.disabled = false;
   } catch (error) {
-    console.log(error);
+    Notify.failure(error.message);
   }
 };
 
@@ -76,7 +76,7 @@ const handleToOrderSubmit = async e => {
     const data = await setCurrentPrice(obj);
     showSettedPrice(data);
   } catch (error) {
-    console.log(error);
+    Notify.failure(error.message);
   }
 };
 
@@ -95,7 +95,7 @@ const handlePreOrderSubmit = async e => {
     const data = await setCurrentPrice(obj);
     showSettedPrice(data);
   } catch (error) {
-    console.log(error);
+    Notify.failure(error.message);
   }
 };
 
@@ -103,13 +103,14 @@ async function getActiveOrderModule() {
   try {
     //TODO: тут приходять дані по активному модулю
     const data = await getMarkup();
+
     if (data.type === 'pre-order') {
       setActiveBtn(preOrderBtn);
     } else {
       setActiveBtn(toOrderBtn);
     }
   } catch (error) {
-    console.log('something went wrong');
+    Notify.failure(error.message);
   }
 }
 

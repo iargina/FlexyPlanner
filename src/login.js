@@ -17,6 +17,7 @@ const signIn = () => {
 
 const login = async e => {
   e.preventDefault();
+  spinnerLoader.style.display = 'inline-block';
   try {
     const res = await signIn();
 
@@ -26,8 +27,10 @@ const login = async e => {
   } catch (err) {
     Notify.failure('Неправильний e-mail або пароль');
     form.reset();
+  } finally {
+    spinnerLoader.style.display = 'none';
   }
 };
-
+const spinnerLoader = document.querySelector('.spinner-border');
 const form = document.querySelector('#admin-form-js');
 form.addEventListener('submit', login);
