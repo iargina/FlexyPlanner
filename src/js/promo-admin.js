@@ -63,7 +63,13 @@ function onFormSubmit(e) {
   console.log(promocodeObj);
   postPromocodesCreate(promocodeObj)
     .then(data => console.log(data))
-    .catch(error => console.log(error.message));
+    .catch(error => {
+      if (error.response.request.status === 401) {
+        alert(`Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`);
+        window.location.href = '/login.html';
+      }
+    });
+
   if (inputAmount.disabled) inputAmount.disabled = false;
   if (dateGroup.classList.contains('visually-hidden'))
     dateGroup.classList.remove('visually-hidden');
@@ -88,11 +94,15 @@ function onCommonList(e) {
       .then(data => {
         if (data.ok == 1) {
           Notify.failure(`${promoName} is delete now.`);
-          console.log(promoEl);
           promoEl.remove();
         }
       })
-      .catch(error => console.log(error.message));
+      .catch(error => {
+        if (error.response.request.status === 401) {
+          alert(`Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`);
+          window.location.href = '/login.html';
+        }
+      });
   } else {
     Notify.info(`do not delete ${promoName}`);
   }
@@ -116,11 +126,17 @@ function onPersonalList(e) {
         .then(data => {
           if (data.ok == 1) {
             Notify.failure(`${promoName} is delete now.`);
-            console.log(promoEl);
             promoEl.remove();
           }
         })
-        .catch(error => console.log(error.message));
+        .catch(error => {
+          if (error.response.request.status === 401) {
+            alert(
+              `Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`
+            );
+            window.location.href = '/login.html';
+          }
+        });
     } else {
       Notify.info(`Do not delete ${promoName}`);
     }
@@ -139,19 +155,30 @@ function onPersonalList(e) {
             Notify.success(`${promoName} is active.`);
           }
         })
-        .catch(error => console.log(error.message));
+        .catch(error => {
+          if (error.response.request.status === 401) {
+            alert(
+              `Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`
+            );
+            window.location.href = '/login.html';
+          }
+        });
     } else {
       Notify.info(`Do not active ${promoName}.`);
     }
   }
 }
-getAllPromocodes().then(data => {
-  console.log(data);
-  return createPromocodeMarkup(data);
-});
+getAllPromocodes()
+  .then(data => {
+    return createPromocodeMarkup(data);
+  })
+  .catch(error => console.log(error.message));
+
 setInterval(() => {
-  getAllPromocodes().then(data => createPromocodeMarkup(data));
-}, 300000);
+  getAllPromocodes()
+    .then(data => createPromocodeMarkup(data))
+    .catch(error => console.log(error.message));
+}, 1000 * 60 * 60);
 
 function createPromocodeMarkup({ common, personal }) {
   const commonMarkup = common
@@ -189,10 +216,9 @@ function createPromocodeMarkup({ common, personal }) {
                     </span>
                     <div class="btn-wrapper">
                     ${
-                      p.isUsing ? (
-                        '<button data-action="active" disabled class="btn btn-success" type="button">Активовано</button>'
-                      ) : ('<button data-action="active" class="btn btn-success" type="button">Активувати</button>'
-                      )
+                      p.isUsing
+                        ? '<button data-action="active" disabled class="btn btn-success" type="button">Активовано</button>'
+                        : '<button data-action="active" class="btn btn-success" type="button">Активувати</button>'
                     }
                     <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
                     </li>`;
