@@ -47,22 +47,21 @@ function onFormSubmit(e) {
   e.preventDefault();
   const form = e.currentTarget;
   const {
-    elements: { promocode, amound, discount, dateStart, dateTo },
+    elements: { promocode, amount, discount, dateStart, dateTo },
   } = form;
   if (promocode.value === 'Personal') {
     promocodeObj.type = promocode.value;
-    promocodeObj.amound = Number(amound.value);
+    promocodeObj.amount = Number(amount.value);
     promocodeObj.discount = Number(discount.value);
   } else {
     promocodeObj.type = promocode.value;
     promocodeObj.discount = Number(discount.value);
-    promocodeObj.amound = Number(amound.value);
+    promocodeObj.amount = Number(amount.value);
     promocodeObj.from = new Date(dateStart.value).toISOString();
     promocodeObj.to = new Date(dateTo.value).toISOString();
   }
-
-  const promodata = JSON.stringify(promocodeObj);
-  postPromocodesCreate(promodata)
+  console.log(promocodeObj);
+  postPromocodesCreate(promocodeObj)
     .then(data => console.log(data))
     .catch(error => console.log(error.message));
   if (inputAmount.disabled) inputAmount.disabled = false;
@@ -77,14 +76,22 @@ function onCommonList(e) {
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
-  const promoName = e.target.closest('li').dataset.name;
+  const promoEl = e.target.closest('li');
+  const promoName = promoEl.dataset.name;
   let isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
   if (isDelete) {
-    const detelePromo = JSON.stringify({
-      promocode: promoName,
-    });
-    deletePromocode(detelePromo)
-      .then(data => console.log(data))
+    deletePromocode({
+      data: {
+        promocode: promoName,
+      },
+    })
+      .then(data => {
+        if (data.ok == 1) {
+          Notify.failure(`${promoName} is delete now.`);
+          console.log(promoEl);
+          promoEl.remove();
+        }
+      })
       .catch(error => console.log(error.message));
   } else {
     Notify.info(`do not delete ${promoName}`);
@@ -96,15 +103,23 @@ function onPersonalList(e) {
     return;
   }
   const btnName = e.target.dataset.action;
-  const promoName = e.target.closest('li').dataset.name;
-  const promo = JSON.stringify({
-    promocode: promoName,
-  });
+  const promoEl = e.target.closest('li');
+  const promoName = promoEl.dataset.name;
   if (btnName === 'delete') {
     const isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
     if (isDelete) {
-      deletePromocode(promo)
-        .then(data => console.log(data))
+      deletePromocode({
+        data: {
+          promocode: promoName,
+        },
+      })
+        .then(data => {
+          if (data.ok == 1) {
+            Notify.failure(`${promoName} is delete now.`);
+            console.log(promoEl);
+            promoEl.remove();
+          }
+        })
         .catch(error => console.log(error.message));
     } else {
       Notify.info(`Do not delete ${promoName}`);
@@ -114,87 +129,29 @@ function onPersonalList(e) {
       `Дійсно активувати цей промокод: ${promoName} ?`
     );
     if (isActivate) {
-      patchPromocodeStatus(promo)
-        .then(data => console.log(data))
+      patchPromocodeStatus({
+        promocode: promoName,
+      })
+        .then(data => {
+          if (data === 'switchPromoStatus') {
+            e.target.disabled = true;
+            e.target.innerText = 'Активовано';
+            Notify.success(`${promoName} is active.`);
+          }
+        })
         .catch(error => console.log(error.message));
-      e.target.disabled = true;
-      e.target.innerText = 'Активовано';
     } else {
-        Notify.info(`Do not active ${promoName}`);
+      Notify.info(`Do not active ${promoName}.`);
     }
   }
 }
-setInterval(()=> {getAllPromocodes().then(data => createPromocodeMarkup(data))},300000)
-
-
-// const objFromBack = {
-//   common: [
-//     {
-//       discount: 10,
-//       isUsing: null,
-//       promo: '48383627',
-//       type: 'Common',
-//       period: {
-//         from: '2023-02-03T22:00:00.000Z',
-//         to: '2023-04-18T21:00:00.000Z',
-//       },
-//     },
-//     {
-//       discount: 20,
-//       isUsing: null,
-//       promo: '38417820',
-//       type: 'Common',
-//       period: {
-//         from: '2023-02-03T22:00:00.000Z',
-//         to: '2023-04-18T21:00:00.000Z',
-//       },
-//     },
-//   ],
-//   personal: [
-//     {
-//       discount: 30,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: 'sdvsdv',
-//       period: null,
-//     },
-//     {
-//       discount: 30,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: '1dbfd45',
-//       period: null,
-//     },
-//     {
-//       discount: 10,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: 'v63sd1v2',
-//       period: null,
-//     },
-//     {
-//       discount: 30,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: 'sdv2fd1',
-//       period: null,
-//     },
-//     {
-//       discount: 20,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: 'dfvzx',
-//       period: null,
-//     },
-//     {
-//       discount: 20,
-//       isUsing: false,
-//       type: 'personal',
-//       promo: '137dsv5df',
-//       period: null,
-//     },
-//   ],
-// };
+getAllPromocodes().then(data => {
+  console.log(data);
+  return createPromocodeMarkup(data);
+});
+setInterval(() => {
+  getAllPromocodes().then(data => createPromocodeMarkup(data));
+}, 300000);
 
 function createPromocodeMarkup({ common, personal }) {
   const commonMarkup = common
@@ -231,7 +188,12 @@ function createPromocodeMarkup({ common, personal }) {
                       <span class="promo__name">${p.promo}</span>
                     </span>
                     <div class="btn-wrapper">
-                    <button data-action="active" class="btn btn-success" type="button">Активувати</button>
+                    ${
+                      p.isUsing ? (
+                        '<button data-action="active" disabled class="btn btn-success" type="button">Активовано</button>'
+                      ) : ('<button data-action="active" class="btn btn-success" type="button">Активувати</button>'
+                      )
+                    }
                     <button data-action="delete" class="btn btn-danger" type="button">Видалити</button></div>
                     </li>`;
             })
@@ -241,7 +203,6 @@ function createPromocodeMarkup({ common, personal }) {
   commonList.innerHTML = commonMarkup;
   personalList.innerHTML = promocodeMarkUp;
 }
-
 
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
