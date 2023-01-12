@@ -43,39 +43,41 @@ function onFormChange(e) {
   }
 }
 
-function onFormSubmit(e) {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const {
-    elements: { promocode, amount, discount, dateStart, dateTo },
-  } = form;
-  if (promocode.value === 'Personal') {
-    promocodeObj.type = promocode.value;
-    promocodeObj.amount = Number(amount.value);
-    promocodeObj.discount = Number(discount.value);
-  } else {
-    promocodeObj.type = promocode.value;
-    promocodeObj.discount = Number(discount.value);
-    promocodeObj.amount = Number(amount.value);
-    promocodeObj.from = new Date(dateStart.value).toISOString();
-    promocodeObj.to = new Date(dateTo.value).toISOString();
-  }
-  console.log(promocodeObj);
-  postPromocodesCreate(promocodeObj)
-    .then(data => console.log(data))
-    .catch(error => {
-      if (error.response.request.status === 401) {
-        alert(`Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`);
-        window.location.href = '/login.html';
-      }
-    });
+async function onFormSubmit(e) {
+  try {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const {
+      elements: { promocode, amount, discount, dateStart, dateTo },
+    } = form;
+    if (promocode.value === 'Personal') {
+      promocodeObj.type = promocode.value;
+      promocodeObj.amount = Number(amount.value);
+      promocodeObj.discount = Number(discount.value);
+    } else {
+      promocodeObj.type = promocode.value;
+      promocodeObj.discount = Number(discount.value);
+      promocodeObj.amount = Number(amount.value);
+      promocodeObj.from = new Date(dateStart.value).toISOString();
+      promocodeObj.to = new Date(dateTo.value).toISOString();
+    }
 
-  if (inputAmount.disabled) inputAmount.disabled = false;
-  if (dateGroup.classList.contains('visually-hidden'))
-    dateGroup.classList.remove('visually-hidden');
-  form.reset();
-  startDate.value = todayDate();
-  stopDate.value = todayDate();
+    const response = await postPromocodesCreate(promocodeObj);
+    if (response.length) {
+      const promo = await getAllPromocodes();
+      createPromocodeMarkup(promo);
+      Notify.success(`Список промокодів успішно оновлено!`);
+    }
+
+    if (inputAmount.disabled) inputAmount.disabled = false;
+    if (dateGroup.classList.contains('visually-hidden'))
+      dateGroup.classList.remove('visually-hidden');
+    form.reset();
+    startDate.value = todayDate();
+    stopDate.value = todayDate();
+  } catch (error) {
+    logout(error);
+  }
 }
 
 function onCommonList(e) {
@@ -93,18 +95,13 @@ function onCommonList(e) {
     })
       .then(data => {
         if (data.ok == 1) {
-          Notify.failure(`${promoName} is delete now.`);
+          Notify.failure(`${promoName} успішно видалено!`);
           promoEl.remove();
         }
       })
-      .catch(error => {
-        if (error.response.request.status === 401) {
-          alert(`Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`);
-          window.location.href = '/login.html';
-        }
-      });
+      .catch(error => logout(error));
   } else {
-    Notify.info(`do not delete ${promoName}`);
+    Notify.info(`Видалення ${promoName} відмінено`);
   }
 }
 
@@ -125,20 +122,13 @@ function onPersonalList(e) {
       })
         .then(data => {
           if (data.ok == 1) {
-            Notify.failure(`${promoName} is delete now.`);
+            Notify.failure(`${promoName} успішно видалено!`);
             promoEl.remove();
           }
         })
-        .catch(error => {
-          if (error.response.request.status === 401) {
-            alert(
-              `Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`
-            );
-            window.location.href = '/login.html';
-          }
-        });
+        .catch(error => logout(error));
     } else {
-      Notify.info(`Do not delete ${promoName}`);
+      Notify.info(`Видалення ${promoName} відмінено.`);
     }
   } else {
     const isActivate = confirm(
@@ -152,19 +142,12 @@ function onPersonalList(e) {
           if (data === 'switchPromoStatus') {
             e.target.disabled = true;
             e.target.innerText = 'Активовано';
-            Notify.success(`${promoName} is active.`);
+            Notify.success(`${promoName} успішно активовано.`);
           }
         })
-        .catch(error => {
-          if (error.response.request.status === 401) {
-            alert(
-              `Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`
-            );
-            window.location.href = '/login.html';
-          }
-        });
+        .catch(error => logout(error));
     } else {
-      Notify.info(`Do not active ${promoName}.`);
+      Notify.info(`Активацію ${promoName} відмінено.`);
     }
   }
 }
@@ -228,6 +211,13 @@ function createPromocodeMarkup({ common, personal }) {
     .join('');
   commonList.innerHTML = commonMarkup;
   personalList.innerHTML = promocodeMarkUp;
+}
+
+function logout(error) {
+  if (error.response.request.status === 401) {
+    alert(`Час сесії минув. Будь ласка, пройдіть повторну авторизацію!`);
+    window.location.href = '/login.html';
+  }
 }
 
 initForm.addEventListener('change', onFormChange);
