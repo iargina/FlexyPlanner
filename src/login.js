@@ -1,76 +1,36 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 const instance = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/',
-  params: {
-    headers: {
-      // Authorization: getAuthorizationHeader(),
-    },
-    body: new FormData(form),
-    // body: {
-    //   email: 'user@example.com',
-    //   password: 'qwerty123',
-    // },
+  baseURL: 'https://flexyplanner.onrender.com/auth/login',
+  headers: {
+    'Content-Type': 'application/json',
   },
 });
 
-const login = async e => {
-  e.preventDefault();
-
-  try {
-    const { data } = await instance.post('', {
-      params: {},
-    });
-    const token = data.token;
-    localStorage.setItem('accessToken', token);
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
-
-    // window.location.href = './main.html';
-  } catch (error) {
-    console.log(error);
-    // return error.message;
-  }
-
-  instance.interceptors.request.use(
-    config => {
-      if (localStorage.getItem('token')) {
-        config.headers['Authorization'] = `Bearer ${token}`;
-        console.log('Get token from LS');
-      }
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    }
-  );
-
-  //  form.removeEventListener('submit', handleSubmit);
+const signIn = () => {
+  return instance.post('', {
+    email: form.elements.login.value,
+    password: form.elements.password.value,
+  });
 };
 
+const login = async e => {
+  e.preventDefault();
+  spinnerLoader.style.display = 'inline-block';
+  try {
+    const res = await signIn();
+
+    const { accessToken } = res.data;
+    window.sessionStorage.setItem('accessToken', accessToken);
+    window.location.href = '/admin_main.html';
+  } catch (err) {
+    Notify.failure('Неправильний e-mail або пароль');
+    form.reset();
+  } finally {
+    spinnerLoader.style.display = 'none';
+  }
+};
+const spinnerLoader = document.querySelector('.spinner-border');
 const form = document.querySelector('#admin-form-js');
 form.addEventListener('submit', login);
-
-// // This code sets authorization headers for all requests:
-// axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
-//   'access_token'
-// )}`;
-
-// export const getToken = () =>
-//   localStorage.getItem('accessToken')
-//     ? JSON.parse(localStorage.getItem('accessToken'))
-//     : null;
-
-// export const getAuthorizationHeader = () => `Bearer ${getToken()}`;
-
-// export const fetchSomething = async () => {
-//   try {
-//     const response = await axiosInstance.get("/foo", {
-//       headers: { Authorization: getAuthorizationHeader() }
-//     });
-
-//     return response;
-
-//   } catch (error) {
-//     // error handling
-//   }
-// };
