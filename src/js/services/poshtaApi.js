@@ -18,35 +18,49 @@ export default class PoshtaAPI {
   }
 
   async getSettlements() {
-    const response = await axios.post(
-      '/',
-      JSON.stringify({
-        apiKey: API_KEY,
-        modelName: 'Address',
-        calledMethod: 'searchSettlements',
-        methodProperties: {
-          CityName: this.city,
-          Limit: '3',
-          Page: '1',
-        },
-      })
-    );
-    return response.data;
+    try {
+      const response = await axios.post(
+        '/',
+        JSON.stringify({
+          apiKey: API_KEY,
+          modelName: 'Address',
+          calledMethod: 'searchSettlements',
+          methodProperties: {
+            CityName: this.city,
+            Limit: '3',
+            Page: '1',
+          },
+        })
+      );
+      if (response.data.errors.length > 0) {
+        throw { message: response.data.errors[0] };
+      }
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getWarehouses() {
-    const response = await axios.post(
-      '/',
-      JSON.stringify({
-        apiKey: API_KEY,
-        modelName: 'Address',
-        calledMethod: 'getWarehouses',
-        methodProperties: {
-          CityRef: this.city,
-          FindByString: this.warehouse,
-        },
-      })
-    );
-    return response.data;
+    try {
+      const response = await axios.post(
+        '/',
+        JSON.stringify({
+          apiKey: API_KEY,
+          modelName: 'Address',
+          calledMethod: 'getWarehouses',
+          methodProperties: {
+            CityRef: this.city,
+            FindByString: this.warehouse,
+          },
+        })
+      );
+      if (response.data.errors.length > 0) {
+        throw { message: response.data.errors[0] };
+      }
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 }

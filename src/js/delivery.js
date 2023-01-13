@@ -138,6 +138,11 @@ function onWarehousesListClick(e) {
 }
 
 function onInputBlur(e) {
+  if (
+    e.currentTarget === citiesListRef ||
+    e.currentTarget === warehousesListRef
+  )
+    return;
   setTimeout(() => {
     if (e.target.name === 'city') {
       citiesListRef.classList.remove('show');
@@ -149,11 +154,13 @@ function onInputBlur(e) {
 }
 
 cityInputRef.addEventListener('input', debounce(selectCity, 300));
-cityInputRef.addEventListener('blur', onInputBlur);
+// cityInputRef.addEventListener('blur', onInputBlur);
 
 warehouseInputRef.addEventListener('input', debounce(selectWarehouse, 300));
-warehouseInputRef.addEventListener('blur', onInputBlur);
+// warehouseInputRef.addEventListener('blur', onInputBlur);
 
 citiesListRef.addEventListener('click', onCitiesListClick);
 warehousesListRef.addEventListener('click', onWarehousesListClick);
 warehouseBtnRef.addEventListener('click', toggleWarehouseSearch);
+
+document.body.addEventListener('click', onInputBlur);
