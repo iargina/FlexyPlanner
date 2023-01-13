@@ -4,7 +4,7 @@ const instancePromocode = axios.create({
   baseURL: 'https://flexyplanner.onrender.com',
   headers: {
     Authorization: `Bearer ${window.sessionStorage.getItem('accessToken')}`,
-    // Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2I4NWJjNDdmMDBlYTAwMzRjNGQ1ZGUiLCJzaWQiOiI2M2MwNzQzMTI4NGU0NjAwMzQ0OWEyYzgiLCJpYXQiOjE2NzM1NTcwNDEsImV4cCI6MTY3MzU2MDY0MX0.JBv3xh9qmLCUAzY9X9WWOJq87kzXDG8yqf4JGOO5ScU`,
+    // Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2I4NWJjNDdmMDBlYTAwMzRjNGQ1ZGUiLCJzaWQiOiI2M2MxYTcwNzUyN2U4MDAwMzUzZDFkZDQiLCJpYXQiOjE2NzM2MzU1OTEsImV4cCI6MTY3MzYzOTE5MX0.ywcIngjxREx_yyN7GFjN3eUiPwbCRTeOFJNxFeRykSg`,
   },
 });
 

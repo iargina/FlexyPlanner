@@ -168,10 +168,15 @@ function createPromocodeMarkup({ common, personal }) {
     .map(({ discount, promo, period }, i) => {
       return `<li class="list__item" data-name='${promo}'>
             <p>Знижка ${discount}%</p>
-            <p>Термін дії: ${period.from.slice(0, 10)} - ${period.to.slice(
-        0,
-        10
-      )}</p>
+            <p>Термін дії: ${period.from
+              .slice(0, 10)
+              .split('-')
+              .reverse()
+              .join('-')} - ${period.to
+        .slice(0, 10)
+        .split('-')
+        .reverse()
+        .join('-')}</p>
             <div class="common__wrapper">
             <p>${i + 1}. <span class="promo__name">${promo}</span></p>
             <button data-action="delete" class="btn btn-danger" type="button">Видалити</button>
