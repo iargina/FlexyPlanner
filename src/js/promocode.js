@@ -1,6 +1,7 @@
 import { checkPromocode } from './services/promoAPI';
 import { Notify } from 'notiflix';
 import { order } from './utils';
+import { makeMarkup } from './finalSum';
 
 const refs = {
   promoForm: document.querySelector('.promo__form'),
@@ -46,10 +47,11 @@ async function onFormSubmit(e) {
     refs.successContainer.classList.remove('visually-hidden');
     const discount = data[0].discount;
     console.log(discount);
-    refs.discount.innerText = `${discount} %`;
     Notify.success('Промокод застосовано!');
     refs.promoForm.reset();
     order.discountPercentage = discount;
+    refs.discount.innerText = `${order.discountPercentage} грн `;
+    makeMarkup();
   }
 }
 

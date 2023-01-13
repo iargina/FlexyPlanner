@@ -10,9 +10,8 @@ import qs from 'query-string';
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
-
+console.log(order.sumWithDiscount);
 let amount = 0;
-const discount = 0;
 let sumAmount = 0;
 
 finalSumBtn.addEventListener('click', onFinalSumBtnClick);
@@ -38,6 +37,8 @@ function createFinalOrderMarkup() {
     'товарів',
   ]);
 
+  console.log(order.discountPercentage);
+
   return `
     <ul class="finalSum__list">
       <li class="finalSum__item">
@@ -52,19 +53,21 @@ function createFinalOrderMarkup() {
       </li>
       <li class="finalSum__item">
         <p class="finalSum__descr">Знижка за промокодом</p>
-        <p class="finalSum__amount">${discount} грн</p>
+        <p class="finalSum__amount">${order.discountPercentage} грн</p>
       </li>
     </ul>
     <div class="finalSum__total">
       <p class="finalSum__totalDescr">До сплати</p>
-      <p class="finalSum__totalAmount">${order.total - discount} грн</p>
+      <p class="finalSum__totalAmount">${
+        order.total - order.discountPercentage
+      } грн</p>
     </div>
     `;
 }
 
 // POST запит;
 function postToAdd() {
-  const total = order.total * 100;
+  const total = (order.total - order.discountPercentage) * 100;
   return {
     amount: total,
     ccy: 980,
