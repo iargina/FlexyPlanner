@@ -200,11 +200,13 @@
 
 .orderProcessing__ItemImg {
   max-width: 52px;
+  max-height: 68px;
   transform: rotate(-10deg);
 
   @media screen and (min-width: $desktop-width) {
     transform: rotate(0deg);
     max-width: 74px;
+    max-height: 96px;
   }
 }
 

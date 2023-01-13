@@ -1,14 +1,14 @@
 import { order } from './utils';
 import { makeMarkup } from './finalSum';
 import sprite from '../icons/sprite.svg';
-import planner from '../images/hero/mob_1x_planner_yellow.png';
+import planner from '../images/hero/mob_1x_planner_yellow.jpg';
 import { Notify } from 'notiflix';
-// import axios from 'axios';
+import response_1 from './response_1.json';
+import response_2 from './response_2.json';
 
 const listEl = document.querySelector('.orderProcessing__list');
 const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 const priceCancelEl = document.querySelector('.orderProcessing__priceCancelled');
-// let orderProcessingEl = document.querySelector('.orderProcessing');
 
 listEl.addEventListener('click', onElementClick);
 
@@ -35,6 +35,9 @@ let products = [];
 
 // ---------------------
 const fetchOrderModule = async () => {
+
+  let middleDataObj = {};
+
   try {
 
     const response = await fetch("https://flexyplanner.onrender.com/markup");
@@ -64,7 +67,7 @@ const fetchOrderModule = async () => {
       }
     }
 
-    console.log("Order after first fetch: ", order.getWholeOrderData());
+    middleDataObj = dataObj;
 
   } catch (error) {
     console.log(error.message);
@@ -77,7 +80,8 @@ const fetchOrderModule = async () => {
     priceMarkupRender();
 
     // Рендерю список планерів
-    listMarkupRender();
+    listMarkupRender(middleDataObj);
+    console.log("Order after first fetch: ", order.getWholeOrderData());
 
   }
 };
@@ -86,69 +90,25 @@ fetchOrderModule();
 
 // =============================================
 
+// const fetchPlannersData = async () => {
+//   fetch('https://openapi.keycrm.app/v1/offers', {
+//     method: 'GET',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Bearer': 'MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA'
+//     },
+//   })
+//     .then(response => response.text())
+//     .then(text => console.log(text))
+// }
+
+// fetchPlannersData();
+
+
+
 
 // ======= RESPONSE EXAMPLE FROM CRM ====================
-const res = {
-  "current_page": 1,
-  "data": [
-    {
-      "id": 1,
-      "product_id": 1,
-      "sku": "FPYELLOW",
-      "barcode": null,
-      "price": 1499,
-      "purchased_price": 700,
-      "quantity": 12,
-      "weight": 200,
-      "length": 25,
-      "height": 2,
-      "width": 17,
-      "properties": [
-        {
-          "name": "Колір",
-          "value": "Жовтий"
-        }
-      ],
-      "is_default": false,
-      "is_archived": false,
-      "created_at": "2023-01-09T22:00:33.000000Z",
-      "updated_at": "2023-01-09T22:00:50.000000Z"
-    },
-    {
-      "id": 2,
-      "product_id": 1,
-      "sku": "FPBLACK",
-      "barcode": null,
-      "price": 1499,
-      "purchased_price": 700,
-      "quantity": 3,
-      "weight": 200,
-      "length": 25,
-      "height": 2,
-      "width": 17,
-      "properties": [
-        {
-          "name": "колір",
-          "value": "Чорний"
-        }
-      ],
-      "is_default": false,
-      "is_archived": false,
-      "created_at": "2023-01-09T22:00:33.000000Z",
-      "updated_at": "2023-01-09T22:00:50.000000Z"
-    }
-  ],
-  "first_page_url": "https://openapi.keycrm.app/v1/offers?limit=15&sort=id&filter%5Bid%5D=1%2C2&page=1",
-  "from": 1,
-  "last_page": 1,
-  "last_page_url": "https://openapi.keycrm.app/v1/offers?limit=15&sort=id&filter%5Bid%5D=1%2C2&page=1",
-  "next_page_url": null,
-  "path": "https://openapi.keycrm.app/v1/offers",
-  "per_page": 15,
-  "prev_page_url": null,
-  "to": 2,
-  "total": 2
-}
+const res = response_2;
 
 // ========================================================
 
@@ -178,36 +138,38 @@ function priceGetter() {
   return price;
 }
 
-function listMarkupRender() {
+function listMarkupRender(dataObj) {
+
+
   const plannersArr = res.data;
+  console.log(plannersArr);
+  let filteredPlannersArr = [];
+
+
+  if (dataObj.type === 'to-order') {
+    filteredPlannersArr = plannersArr.filter(el => {
+      filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('FP') && el.quantity > 0);
+    })
+  }
+  if (dataObj.type === 'pre-order') {
+    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
+  }
 
   let plannerPrice = priceGetter();
 
-  const markup = plannersArr.map(({ id, properties, sku, quantity }) => {
+  const markup = filteredPlannersArr.map(({ id, product, sku, quantity }) => {
     let lastItemsMarkup = '';
     if (quantity < 10) {
       lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
     }
-    // ${ lastItemsMarkup }
     return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
-              <picture>
-                <source srcset="
-                    ./images/hero/mob_1x_planner_yellow.png 1x,
-                    ./images/hero/mob_2x_planner_yellow.png 2x
-                  " media="(max-width: 375px)" />
-                <source srcset="
-                    ./images/hero/desk_1x_planner_yellow.jpg 1x,
-                    ./images/hero/desk_2x_planner_yellow.jpg 2x
-                  " media="(min-width: 1440px)" />
-                <img src="${planner}" alt="Flexxy Planner Folder"
-                  class="orderProcessing__ItemImg" />
-              </picture>
+              <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
               <div class="orderProcessing__textWrapper">
                 <div class="orderProcessing__itemDescr">
                   <div class="orderProcessing__titleWrapper">
                     <h4 class="orderProcessing__itemTitle">
-                      ${properties[0].value} Flexy Planner
+                      ${product.name} Flexy Planner
                     </h4>
                     <p class="orderProcessing__itemParagraph">#${sku}</p>
                   </div>
@@ -239,6 +201,7 @@ function listMarkupRender() {
           </li > `
   }).join('');
   listEl.innerHTML = markup;
+  recalcAmount();
 }
 // ========================================================================
 
