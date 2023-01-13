@@ -198,16 +198,24 @@
   }
 }
 
-.orderProcessing__ItemImg {
-  max-width: 52px;
-  max-height: 68px;
-  transform: rotate(-10deg);
+.orderProcessing__ItemImgWrapper {
+  position: relative;
+  // max-width: 52px;
+  // max-height: 68px;
+  min-width: 52px;
+  min-height: 68px;
 
   @media screen and (min-width: $desktop-width) {
-    transform: rotate(0deg);
-    max-width: 74px;
-    max-height: 96px;
+    min-width: 74px;
+    min-height: 96px;
   }
+}
+
+.orderProcessing__ItemImg {
+  position: absolute;
+  top: 18px;
+  scale: 3;
+  z-index: -2;
 }
 
 .orderProcessing__amountTitle {

@@ -1,10 +1,11 @@
 import { order } from './utils';
 import { makeMarkup } from './finalSum';
 import sprite from '../icons/sprite.svg';
-import planner from '../images/hero/mob_1x_planner_yellow.jpg';
+// import planner from '../images/hero/mob_1x_planner_yellow.jpg';
 import { Notify } from 'notiflix';
-import response_1 from './response_1.json';
+// import response_1 from './response_1.json';
 import response_2 from './response_2.json';
+import axios from 'axios';
 
 const listEl = document.querySelector('.orderProcessing__list');
 const priceEl = document.querySelector('.orderProcessing__priceCurrent');
@@ -12,28 +13,19 @@ const priceCancelEl = document.querySelector('.orderProcessing__priceCancelled')
 
 listEl.addEventListener('click', onElementClick);
 
-// Usage:
 let products = [];
 
 // ============== INITIAL STATE ================
-// for (let i = 1; i < listItemsArr.length; i += 1) {
-//   resetAmount(listItemsArr[i]);
-// }
+function initialState() {
+  const listItemsArr = document.querySelectorAll('.orderProcessing__item');
+  for (let i = 1; i < listItemsArr.length; i += 1) {
+    resetAmount(listItemsArr[i]);
+  }
+}
+
+
 
 // ========== OrderModule Checking ============================
-// async function primaryRequest() {
-//   const instanceMarkup = axios.create({
-//     baseURL: 'https://flexyplanner.onrender.com/markup',
-//   });
-
-//   const { data } = await instanceMarkup.get('');
-//   console.log(data);
-//   return data;
-// };
-
-// primaryRequest();
-
-// ---------------------
 const fetchOrderModule = async () => {
 
   let middleDataObj = {};
@@ -42,30 +34,32 @@ const fetchOrderModule = async () => {
 
     const response = await fetch("https://flexyplanner.onrender.com/markup");
     const dataObj = await response.json();
-    console.log(dataObj);
+    // console.log(dataObj);
 
     // Присвоюю об'єкт ціни в екземпляр класу
-    if (dataObj.type === 'to-order') {
-      order.price = { price: dataObj.data.price }
-    }
-    if (dataObj.type === 'pre-order') {
+    // Можна без перевірки, якщо не треба валідації
+    order.price = dataObj.data;
+    // if (dataObj.type === 'to-order') {
+    //   order.price = { price: dataObj.data.price }
+    // }
+    // if (dataObj.type === 'pre-order') {
 
-      if (dataObj.data.preOrderPrice < dataObj.data.price) {
-        order.price = dataObj.data;
-        // return;
-      }
+    //   if (dataObj.data.preOrderPrice < dataObj.data.price) {
+    //     order.price = dataObj.data;
+    //     // return;
+    //   }
 
-      // if (dataObj.data.preOrderPrice === 0) {
-      //   order.price = { price: dataObj.data.price }
-      //   console.log("Нульова ціна");
-      //   // return;
-      // }
+    //   // if (dataObj.data.preOrderPrice === 0) {
+    //   //   order.price = { price: dataObj.data.price }
+    //   //   console.log("Нульова ціна");
+    //   //   // return;
+    //   // }
 
-      if (dataObj.data.preOrderPrice > dataObj.data.price) {
-        order.price = { price: dataObj.data.price }
-        // return;
-      }
-    }
+    //   if (dataObj.data.preOrderPrice > dataObj.data.price) {
+    //     order.price = { price: dataObj.data.price }
+    //     // return;
+    //   }
+    // }
 
     middleDataObj = dataObj;
 
@@ -83,24 +77,30 @@ const fetchOrderModule = async () => {
     listMarkupRender(middleDataObj);
     console.log("Order after first fetch: ", order.getWholeOrderData());
 
+    // Застосовую початковий стан до планерів:
+    initialState();
+
   }
 };
 
 fetchOrderModule();
 
-// =============================================
+// =====================================================
 
-// const fetchPlannersData = async () => {
-//   fetch('https://openapi.keycrm.app/v1/offers', {
-//     method: 'GET',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Bearer': 'MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA'
-//     },
-//   })
-//     .then(response => response.text())
-//     .then(text => console.log(text))
-// }
+
+// ========== Fetching Planners Data from CRM ==========
+
+const fetchPlannersData = async () => {
+  const response = await axios.get('https://openapi.keycrm.app/v1/offers', {
+    headers: {
+      Authorization: 'Bearer MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA'
+    },
+    params: {
+      'include': 'product'
+    }
+  })
+  return response;
+}
 
 // fetchPlannersData();
 
@@ -126,8 +126,6 @@ function priceMarkupRender() {
 }
 // ======================================================
 
-// ==== PLANNERS REQUEST ON CRM / EMULATION ===========
-
 function priceGetter() {
   let price = 0;
   if (Object.keys(order.price).length > 1) {
@@ -138,39 +136,44 @@ function priceGetter() {
   return price;
 }
 
-function listMarkupRender(dataObj) {
+async function listMarkupRender(dataObj) {
 
 
-  const plannersArr = res.data;
-  console.log(plannersArr);
+  // USING FAKE JSON DATA
+  // const plannersArr = res.data;
+  // console.log(plannersArr);
+
+  // USING REAL REQUEST
+  const data = await fetchPlannersData()
+  const plannersArr = data.data;
   let filteredPlannersArr = [];
 
 
   if (dataObj.type === 'to-order') {
-    filteredPlannersArr = plannersArr.filter(el => {
-      filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('FP') && el.quantity > 0);
-    })
+    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('FP') && el.quantity > 0);
   }
   if (dataObj.type === 'pre-order') {
-    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
+    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO'));
   }
 
   let plannerPrice = priceGetter();
 
   const markup = filteredPlannersArr.map(({ id, product, sku, quantity }) => {
+
     let lastItemsMarkup = '';
-    if (quantity < 10) {
+    if (dataObj.type === 'to-order' && quantity < 10) {
       lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
     }
+
     return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
-              <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
+              <div class="orderProcessing__ItemImgWrapper" >
+                <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
+              </div>
               <div class="orderProcessing__textWrapper">
                 <div class="orderProcessing__itemDescr">
                   <div class="orderProcessing__titleWrapper">
-                    <h4 class="orderProcessing__itemTitle">
-                      ${product.name} Flexy Planner
-                    </h4>
+                    <h4 class="orderProcessing__itemTitle">${product.name}</h4>
                     <p class="orderProcessing__itemParagraph">#${sku}</p>
                   </div>
 
@@ -200,6 +203,7 @@ function listMarkupRender(dataObj) {
             </div >
           </li > `
   }).join('');
+
   listEl.innerHTML = markup;
   recalcAmount();
 }
