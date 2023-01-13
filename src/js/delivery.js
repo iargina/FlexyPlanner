@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
-// import { order } from './utils';
+import { order } from './utils';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -17,7 +17,6 @@ const receiverPhoneRef = document.querySelector('#receiverPhone');
 const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
 
 const api = new PoshtaAPI();
-// let order = new Order();
 
 let warehousesArr = [];
 
@@ -124,7 +123,7 @@ function onWarehousesListClick(e) {
     warehouse => warehouse.Ref === e.target.dataset.ref
   );
 
-  const order = {
+  const deliveryInfo = {
     // місто
     shipping_address_city: warehouseObj.CityDescription,
 
@@ -132,10 +131,11 @@ function onWarehousesListClick(e) {
     shipping_address_region: warehouseObj.SettlementAreaDescription,
 
     // номер відділення
-    shipping_receive_point: warehouseObj.Number,
+    shipping_receive_point:
+      'Відділення/поштомат/склад №  ' + warehouseObj.Number,
 
     // description
-    shipping_description: warehouseObj.Description,
+    shipping_secondary_line: warehouseObj.Description,
 
     // postal code
     shipping_postal_code: warehouseObj.PostalCodeUA,
@@ -155,7 +155,8 @@ function onWarehousesListClick(e) {
 
   console.log(order);
 
-  // тут треба цей ордер відправити у клас
+  order.delivery = deliveryInfo;
+  console.log(order);
 
   warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');

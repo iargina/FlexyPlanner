@@ -6,5 +6,5 @@ import './js/button-up.js';
 import './js/onPreOrderFormSubmit.js';
 import './js/preLoader.js';
 import './js/successPayment.js';
-import './js/services/crm-lead.js';
+import './js/services/crm-lead-post.js';
 import { toggleList } from './js/toggleList.js';
