@@ -188,3 +188,10 @@
 .warehouse-search.show {
   display: block;
 }
+
+.contacts__label--checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
