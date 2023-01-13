@@ -1,7 +1,16 @@
 .delivery__container {
   padding-top: 72px;
+  max-height: 100%;
+  transition-property: opacity;
+    transition-duration: 500ms;
+    transition-timing-function: $transition-timing-function;
+
   @media screen and (min-width: $desktop-width) {
     padding-top: 100px;
+  }
+  &.container-ishidden {
+    max-height: 0;
+    opacity: 0;
   }
 }
 .city-wrapper {

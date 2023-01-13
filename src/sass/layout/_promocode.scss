@@ -5,6 +5,11 @@
     padding-top: 50px;
     padding-bottom: 150px;
   }
+  
+  &.promo-ishidden {
+    max-height: 0;
+    opacity: 0;
+  }
 }
 .complite-form {
   background: $background-color;
