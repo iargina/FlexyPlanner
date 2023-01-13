@@ -32,9 +32,7 @@ function createFinalOrderMarkup() {
     'товари',
     'товарів',
   ]);
-
-  console.log(order.discountPercentage);
-
+  order.setDiscount();
   return `
     <ul class="finalSum__list">
       <li class="finalSum__item">
@@ -49,13 +47,13 @@ function createFinalOrderMarkup() {
       </li>
       <li class="finalSum__item">
         <p class="finalSum__descr">Знижка за промокодом</p>
-        <p class="finalSum__amount">${order.discountPercentage} грн</p>
+        <p class="finalSum__amount">${order.discountValueSum} грн</p>
       </li>
     </ul>
     <div class="finalSum__total">
       <p class="finalSum__totalDescr">До сплати</p>
       <p class="finalSum__totalAmount">${
-        order.total - order.discountPercentage
+        order.total - order.discountValueSum
       } грн</p>
     </div>
     `;
@@ -63,7 +61,7 @@ function createFinalOrderMarkup() {
 
 // POST запит;
 function postToAdd() {
-  const total = (order.total - order.discountPercentage) * 100;
+  const total = Number(order.total - order.discountValueSum) * 100;
   return {
     amount: total,
     ccy: 980,

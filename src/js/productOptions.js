@@ -121,6 +121,7 @@ function recalcAmount() {
 
   order.orderedPlanners = products;
   order.setTotal();
+  order.setDiscount();
   makeMarkup();
   // console.log("Order: ", order.getWholeOrderData());
 }
