@@ -12,6 +12,7 @@ const commonList = document.querySelector('.common-promocode');
 const personalList = document.querySelector('.personal-promocode');
 const startDate = document.querySelector('#dateStart');
 const stopDate = document.querySelector('#dateTo');
+const spinnerLoaderPromo = document.querySelector('.promo-spinner-js');
 
 const promocodeObj = {};
 
@@ -44,6 +45,7 @@ function onFormChange(e) {
 }
 
 async function onFormSubmit(e) {
+  spinnerLoaderPromo.style.display = 'inline-block';
   try {
     e.preventDefault();
     const form = e.currentTarget;
@@ -77,6 +79,8 @@ async function onFormSubmit(e) {
     stopDate.value = todayDate();
   } catch (error) {
     logout(error);
+  } finally {
+    spinnerLoaderPromo.style.display = 'none';
   }
 }
 
@@ -88,6 +92,7 @@ function onCommonList(e) {
   const promoName = promoEl.dataset.name;
   let isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
   if (isDelete) {
+    spinnerLoaderPromo.style.display = 'inline-block';
     deletePromocode({
       data: {
         promocode: promoName,
@@ -99,7 +104,8 @@ function onCommonList(e) {
           promoEl.remove();
         }
       })
-      .catch(error => logout(error));
+      .catch(error => logout(error))
+      .finally(() => (spinnerLoaderPromo.style.display = 'none'));
   } else {
     Notify.info(`Видалення ${promoName} відмінено`);
   }
@@ -115,6 +121,7 @@ function onPersonalList(e) {
   if (btnName === 'delete') {
     const isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
     if (isDelete) {
+      spinnerLoaderPromo.style.display = 'inline-block';
       deletePromocode({
         data: {
           promocode: promoName,
@@ -126,7 +133,8 @@ function onPersonalList(e) {
             promoEl.remove();
           }
         })
-        .catch(error => logout(error));
+        .catch(error => logout(error))
+        .finally(() => (spinnerLoaderPromo.style.display = 'none'));
     } else {
       Notify.info(`Видалення ${promoName} відмінено.`);
     }
@@ -135,6 +143,7 @@ function onPersonalList(e) {
       `Дійсно активувати цей промокод: ${promoName} ?`
     );
     if (isActivate) {
+      spinnerLoaderPromo.style.display = 'inline-block';
       patchPromocodeStatus({
         promocode: promoName,
       })
@@ -145,17 +154,13 @@ function onPersonalList(e) {
             Notify.success(`${promoName} успішно активовано.`);
           }
         })
-        .catch(error => logout(error));
+        .catch(error => logout(error))
+        .finally(() => (spinnerLoaderPromo.style.display = 'none'));
     } else {
       Notify.info(`Активацію ${promoName} відмінено.`);
     }
   }
 }
-getAllPromocodes()
-  .then(data => {
-    return createPromocodeMarkup(data);
-  })
-  .catch(error => console.log(error.message));
 
 setInterval(() => {
   getAllPromocodes()
@@ -224,6 +229,16 @@ function logout(error) {
     window.location.href = '/login.html';
   }
 }
+
+(() => {
+  spinnerLoaderPromo.style.display = 'inline-block';
+  getAllPromocodes()
+    .then(data => {
+      return createPromocodeMarkup(data);
+    })
+    .catch(error => console.log(error.message))
+    .finally(() => (spinnerLoaderPromo.style.display = 'none'));
+})();
 
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
