@@ -15,11 +15,18 @@
     width: 1280px;
   }
 }
+li {
+  max-width: 1200px;
+}
 
 .promocode__title {
+  text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
 }
 .promocode__form {
   display: flex;
