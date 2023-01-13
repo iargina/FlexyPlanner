@@ -1,7 +1,9 @@
 .contacts__container {
   padding-top: 72px;
+  padding-bottom: 36px;
   @media screen and (min-width: $desktop-width) {
     padding-top: 100px;
+    padding-bottom: 50px;
   }
 }
 .contacts__form {
