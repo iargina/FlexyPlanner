@@ -77,7 +77,7 @@
   margin: 0 auto;
   width: 199px;
   height: 42px;
-  background: $black-color;
+  background-color: $black-color;
   color: $white-color;
   border-radius: 4px;
   font-family: $font-family600;
@@ -85,6 +85,15 @@
   line-height: 122%;
   text-align: center;
   letter-spacing: -0.02em;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: $transition-timing-function;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: $transition-timing-function;
+
   @media screen and (min-width: 1440px) {
     margin-left: 0;
     width: 227px;
@@ -92,6 +101,11 @@
     padding: 14px 56px;
     font-size: 24px;
     line-height: 117%;
+  }
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $black-color;
   }
 }
 
@@ -138,6 +152,10 @@
 }
 .swiper-slide__container > picture {
   object-fit: cover;
+  width: 200px;
+  @media screen and (min-width: $desktop-width) {
+    width: 514px;
+  }
 }
 
 .swiper-wrapper .hero__swiper-slide.swiper-slide-next {

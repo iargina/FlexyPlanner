@@ -1,4 +1,5 @@
 import './js/swipper.js';
+import './js/swiperDetailedPlanner.js'
 import './js/order-module.js';
 import './js/animation.js';
 import './js/button-up.js';

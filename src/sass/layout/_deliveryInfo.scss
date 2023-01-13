@@ -1,7 +1,19 @@
+@import '../utils/mixins';
+
 .delivery__container {
-  padding-top: 72px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  max-height: 100%;
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-timing-function: $transition-timing-function;
+
   @media screen and (min-width: $desktop-width) {
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &.delivery__ishidden {
+    @include visually-hidden;
   }
 }
 .city-wrapper {

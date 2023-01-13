@@ -31,8 +31,8 @@ const testSearchByOrder = search => {
 window.onload = function () {
   const { search } = location;
   if (search !== '' && testSearchByOrder(search)) {
-    const order = parseOrder(search);
-    return order;
+    let orderBody = parseOrder(search);
+    return orderBody;
   }
 };
 

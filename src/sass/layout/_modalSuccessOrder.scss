@@ -1,6 +1,6 @@
 .modal--success {
   max-width: 272px;
-  padding: 193px 20px 40px;
+  padding: 179px 21px 20px;
   background: url('./../images/order/mob_1x_modalbg.jpg') 0 25px / contain
       no-repeat,
     $white-color;
@@ -16,7 +16,7 @@
 
   @media screen and (min-width: $desktop-width) {
     max-width: 480px;
-    padding: 277px 72px 52px;
+    padding: 263px 72px 25px;
     background: url('./../images/order/desk_1x_modalbg.jpg') 0 24px / contain
         no-repeat,
       $white-color;
@@ -35,27 +35,44 @@
   font-size: 18px;
   font-family: $font-family700;
   line-height: calc(24 / 18);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 28px;
     line-height: calc(32 / 28);
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
 }
 
 .modal__text {
+  font-family: $font-familyLight400;
   font-size: 12px;
   line-height: calc(14 / 12);
   color: $secondary-text-color;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 14px;
     line-height: calc(18 / 14);
+    margin-bottom: 38px;
   }
 }
+.modal__text-additional {
+  font-family: $font-familyLight400;
+  margin: 0 auto;
+  max-width: 130px;
+  font-size: 8px;
+  line-height: calc(10 / 8);
+  color: #3c3b3b66;
+  margin-bottom: 10px;
 
+  @media screen and (min-width: $desktop-width) {
+    max-width: 229px;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    margin-bottom: 15px;
+  }
+}
 .modal__btn {
   padding: 8px 28px;
   font-size: 14px;
@@ -66,5 +83,25 @@
     padding: 12px 34px;
     font-size: 18px;
     line-height: calc(24 / 18);
+  }
+}
+.modal__success--icons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: $desktop-width) {
+    gap: 14px;
+  }
+}
+.success__icon {
+  fill: $black-color;
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 28px;
+    height: 28px;
   }
 }
