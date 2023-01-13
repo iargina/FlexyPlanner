@@ -20,7 +20,7 @@ class Order {
   }
 
   // Щось має бути по знижці
-  useDiscount() {}
+  useDiscount() { }
 
   // Array of ordered objects
   get orderedPlanners() {
