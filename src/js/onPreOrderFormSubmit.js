@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { options } from './services/crm-lead';
+import { options } from './services/crm-lead-post';
 /* import { BASE_URL, crmLead } from './services/crm-lead'; */
 
 const onPreOrderFormSubmit = () => {
@@ -27,7 +27,7 @@ const onPreOrderFormSubmit = () => {
     options.body = JSON.stringify(data);
 
     console.log(options.body);
-    /*     crmLead(BASE_URL, { options }); */
+    /*     crmLead(options); */
     clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
   }

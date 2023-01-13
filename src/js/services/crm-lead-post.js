@@ -11,8 +11,8 @@ export const options = {
   },
 };
 
-export const crmLead = (url, option) => {
-  fetch(url, option)
+export const crmLead = option => {
+  fetch(BASE_URL, option)
     .then(response => response.json())
     .then(post => console.log(post))
     .catch(error => console.log(error));

@@ -1,9 +1,8 @@
 const BASE_URL = 'https://openapi.keycrm.app/v1/order';
-import { data } from './crm-order';
 
 export const options = {
   method: 'POST',
-  body: data,
+  body: '',
   headers: {
     'Content-Type': 'application/json',
     Authorization:
@@ -12,8 +11,8 @@ export const options = {
   },
 };
 
-const crmPost = () => {
-  fetch(BASE_URL, { options })
+export const crmPost = options => {
+  fetch(BASE_URL, options)
     .then(response => response.json())
     .then(post => console.log(post))
     .catch(error => console.log(error));
