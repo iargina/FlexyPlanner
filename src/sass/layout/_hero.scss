@@ -152,6 +152,10 @@
 }
 .swiper-slide__container > picture {
   object-fit: cover;
+  width: 200px;
+  @media screen and (min-width: $desktop-width) {
+    width: 514px;
+  }
 }
 
 .swiper-wrapper .hero__swiper-slide.swiper-slide-next {
