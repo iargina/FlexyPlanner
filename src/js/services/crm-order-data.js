@@ -45,7 +45,7 @@ export function orderCrmDataForm() {
   };
 
   orderCrmData.promocode = order.promocode;
-  orderCrmData.discount_percent = order.discountPercentage;
+  orderCrmData.discount_percent = order.discountValue;
 
   const products = order.orderedPlanners.filter(el => el.amount > 0);
   orderCrmData.products = products.map(el => {
