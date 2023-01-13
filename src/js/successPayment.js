@@ -1,9 +1,10 @@
+import { crmPost, options } from './services/crm-order-post';
 import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
 const urlParams = new URLSearchParams(window.location.search);
-const successParam = urlParams.get('status');
-const params = urlParams.toString();
+
+/* npm start */
 
 function openSuccessModal() {
   backdropSection.classList.toggle('is-hidden');
@@ -29,17 +30,27 @@ const testSearchByOrder = search => {
 
 window.onload = function () {
   const { search } = location;
-  console.log(search);
   if (search !== '' && testSearchByOrder(search)) {
-    const order = parseOrder(search);
-    console.log(order);
+    order = parseOrder(search);
+    return order;
   }
 };
 
-function successPayment() {
-  if (successParam === 'success') {
+async function successPayment() {
+  const order = await window.onload();
+
+  if (order) {
+    options.body = order;
+    console.log(options.body);
+    console.log(JSON.stringify(options.body));
+    //отправка запроса на crm
+    /*  try {
+      crmPost(options);
+    } catch (error) {
+      console.log(error);
+    } */
+
     openSuccessModal();
-    console.log(params);
   }
   return;
 }
