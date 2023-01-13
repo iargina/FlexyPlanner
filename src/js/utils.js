@@ -3,9 +3,9 @@ class Order {
   #price = {};
   #contactInfo = {};
   #delivery = {};
-  #discountPercentage = null;
+  #discountValue = 0;
+  #discountValueSum = 0;
   #total = 0;
-  #promocode = '';
 
   // Встановлює загальну вартість замовлення
   setTotal() {
@@ -18,6 +18,7 @@ class Order {
   get total() {
     return this.#total;
   }
+
 
   // Щось має бути по знижці
   useDiscount() { }
@@ -60,20 +61,21 @@ class Order {
   }
 
   // Discount from Promocode
-  get discountPercentage() {
-    return this.#discountPercentage;
+  get discountValue() {
+    return this.#discountValue;
   }
 
-  set discountPercentage(percentage) {
-    this.#discountPercentage = percentage;
-  }
-  // Promocode
-  get promocode() {
-    return this.#promocode;
+  set discountValue(percentage) {
+    this.#discountValue = percentage;
   }
 
-  set promocode(promoName) {
-    this.#promocode = promoName;
+  //Sum of Discount
+  setDiscount() {
+    this.#discountValueSum = this.#total * (this.#discountValue / 100);
+  }
+
+  get discountValueSum() {
+    return this.#discountValueSum.toFixed(0);
   }
 
   getWholeOrderData() {
