@@ -1,8 +1,8 @@
-import Swiper, { Autoplay, Scrollbar} from 'swiper';
+import SwiperDetailed, { Autoplay, Scrollbar} from 'swiper';
 
-Swiper.use([Autoplay, Scrollbar])
+SwiperDetailed.use([Autoplay, Scrollbar])
 
-const swiper = new Swiper('.swiper-detailed__swiper', {
+const swiperDetailed = new SwiperDetailed('.swiper-detailed__swiper', {
     direction: 'horizontal',
     spaceBetween: 10,
     autoplay: {
