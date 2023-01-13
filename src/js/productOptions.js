@@ -75,7 +75,7 @@ const fetchOrderModule = async () => {
 
     // Рендерю список планерів
     listMarkupRender(middleDataObj);
-    console.log("Order after first fetch: ", order.getWholeOrderData());
+    // console.log("Order after first fetch: ", order.getWholeOrderData());
 
     // Застосовую початковий стан до планерів:
     initialState();
@@ -140,12 +140,11 @@ async function listMarkupRender(dataObj) {
 
 
   // USING FAKE JSON DATA
-  // const plannersArr = res.data;
-  // console.log(plannersArr);
+  const plannersArr = res.data;
 
   // USING REAL REQUEST
-  const data = await fetchPlannersData()
-  const plannersArr = data.data;
+  // const data = await fetchPlannersData()
+  // const plannersArr = data.data;
   let filteredPlannersArr = [];
 
 
@@ -335,5 +334,5 @@ function recalcAmount() {
   order.orderedPlanners = products;
   order.setTotal();
   makeMarkup();
-  console.log("Order: ", order.getWholeOrderData());
+  // console.log("Order: ", order.getWholeOrderData());
 }
