@@ -1,6 +1,7 @@
 import { checkPromocode } from './services/promoAPI';
 import { Notify } from 'notiflix';
 import { order } from './utils';
+import { makeMarkup } from './finalSum';
 
 export const refs = {
   promoForm: document.querySelector('.promo__form'),
@@ -41,7 +42,7 @@ async function onFormSubmit(e) {
       refs.successContainer.classList.add('visually-hidden');
       Notify.failure('Промокод введений не вірно!');
       refs.promoForm.reset();
-      order.discountPercentage = 0;
+      order.discountValue = 0;
     } else {
       const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
       if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
@@ -50,8 +51,9 @@ async function onFormSubmit(e) {
       refs.discount.innerText = `${discount} %`;
       Notify.success('Промокод застосовано!');
       refs.promoForm.reset();
-      order.discountPercentage = discount;
+      order.discountValue = discount;
       order.promocode = promoFromInput;
+      makeMarkup();
     }
   } catch (error) {
     console.log(error.message);
