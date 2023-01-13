@@ -10,8 +10,15 @@ const warehousesListRef = document.querySelector('.warehouses');
 const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 
+const userNameRef = document.querySelector('#username');
+const userPhoneRef = document.querySelector('#phone');
+const receiverNameRef = document.querySelector('#receiverName');
+const receiverPhoneRef = document.querySelector('#receiverPhone');
+const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
+
 const api = new PoshtaAPI();
-// let order = new Order();
+
+let warehousesArr = [];
 
 async function selectCity(e) {
   warehouseInputRef.value = '';
@@ -85,9 +92,6 @@ async function onCitiesListClick(e) {
 
   cityInputRef.value = e.target.textContent;
 
-  // order.cityName = e.target.textContent;
-  // order.delivery = { city: e.target.textContent };
-
   api.selectCity(e.target.dataset.ref);
   citiesListRef.innerHTML = '';
   citiesListRef.classList.remove('show');
@@ -95,9 +99,10 @@ async function onCitiesListClick(e) {
   try {
     const res = await api.getWarehouses();
     const warehouses = res.data;
-    const warehousesList = warehouses.map(
-      warehouse => `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`
-    );
+    warehousesArr = warehouses;
+    const warehousesList = warehouses.map(warehouse => {
+      return `<li data-ref=${warehouse.Ref}>${warehouse.Description}</li>`;
+    });
     warehousesListRef.innerHTML = warehousesList.join('');
     warehousesListRef.classList.add('show');
   } catch (error) {
@@ -114,24 +119,44 @@ function onWarehousesListClick(e) {
 
   warehouseInputRef.value = e.target.textContent;
 
-  // order.warehouse = e.target.textContent;
-  // order.delivery = { warehouse: e.target.textContent };
-  const warehouseRef = e.target.dataset.ref;
-  (order.delivery = {
-    /*     shipping_address_city: 'Kyiv',
-    shipping_address_country: 'Ukraine',
-    shipping_address_region: 'Kyivska',
-    shipping_address_zip: '50000',
-    shipping_secondary_line: 'string',
-    shipping_receive_point: 'Склад #12',
-    recipient_full_name: 'Ann Doe',
-    recipient_phone: '+1 555-234-7777', */
-    warehouse_ref: e.target.dataset.ref,
-  }),
-    console.log(order);
+  const warehouseObj = warehousesArr.find(
+    warehouse => warehouse.Ref === e.target.dataset.ref
+  );
 
-  // тут треба відправити цей реф у клас і потім в CRM
-  console.log(warehouseRef);
+  const deliveryInfo = {
+    // місто
+    shipping_address_city: warehouseObj.CityDescription,
+
+    // область
+    shipping_address_region: warehouseObj.SettlementAreaDescription,
+
+    // номер відділення
+    shipping_receive_point:
+      'Відділення/поштомат/склад №  ' + warehouseObj.Number,
+
+    // description
+    shipping_secondary_line: warehouseObj.Description,
+
+    // postal code
+    shipping_postal_code: warehouseObj.PostalCodeUA,
+
+    // ref
+    shipping_ref: warehouseObj.Ref,
+
+    // short address
+    shipping_short_address: warehouseObj.ShortAddress,
+
+    // receiver name
+    recipient_full_name: receiverNameRef.value,
+
+    // receiver phone
+    recipient_phone: receiverPhoneRef.value,
+  };
+
+  console.log(order);
+
+  order.delivery = deliveryInfo;
+  console.log(order);
 
   warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');
@@ -148,6 +173,22 @@ function onInputBlur(e) {
   }, 100);
 }
 
+function onCheckboxChange(e) {
+  if (e.target.checked) {
+    receiverNameRef.value = userNameRef.value;
+    receiverNameRef.disabled = true;
+
+    receiverPhoneRef.value = userPhoneRef.value;
+    receiverPhoneRef.disabled = true;
+  } else {
+    receiverNameRef.value = '';
+    receiverNameRef.disabled = false;
+
+    receiverPhoneRef.value = '';
+    receiverPhoneRef.disabled = false;
+  }
+}
+
 cityInputRef.addEventListener('input', debounce(selectCity, 300));
 cityInputRef.addEventListener('blur', onInputBlur);
 
@@ -157,3 +198,5 @@ warehouseInputRef.addEventListener('blur', onInputBlur);
 citiesListRef.addEventListener('click', onCitiesListClick);
 warehousesListRef.addEventListener('click', onWarehousesListClick);
 warehouseBtnRef.addEventListener('click', toggleWarehouseSearch);
+
+receiverCheckboxRef.addEventListener('change', onCheckboxChange);
