@@ -269,7 +269,7 @@ function operationMaker(listItem, operation) {
   }
   numberEl.textContent = numberElValue;
 
-  planerCost = numberElValue * priceValue;
+  let planerCost = numberElValue * priceValue;
   amountCostEl.innerText = `${planerCost} грн`;
 
   recalcAmount();
