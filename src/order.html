@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexy Planner - твій кишеньковий коуч</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="icon" type="image/png" href="./images/fav.png" />
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script type="module" src="./order.js"></script>
-  </head>
 
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/orderPage/productOptions.html"></include>
-    <include src="./partials/orderPage/contacts.html"></include>
-    <include src="./partials/orderPage/deliveryInfo.html"></include>
-    <include src="./partials/orderPage/promocode.html"></include>
-    <include src="./partials/orderPage/finalSumm.html"></include>
-    <include src="./partials/orderPage/order-footer.html"></include>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexy Planner - твій кишеньковий коуч</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="icon" type="image/png" href="./images/fav.png" />
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script type="module" src="./order.js"></script>
+</head>
+
+<body>
+  <!-- ❗️❗️❗️ Add partials like so for every page -->
+  <include src="./partials/preLoader.html"></include>
+  <include src="./partials/orderPage/productOptions.html"></include>
+  <include src="./partials/orderPage/contacts.html"></include>
+  <include src="./partials/orderPage/deliveryInfo.html"></include>
+  <include src="./partials/orderPage/promocode.html"></include>
+  <include src="./partials/orderPage/finalSumm.html"></include>
+  <include src="./partials/orderPage/order-footer.html"></include>
+</body>
+
 </html>

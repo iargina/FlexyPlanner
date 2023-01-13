@@ -1,0 +1,62 @@
+.swiper-detailed {
+    width: 100%;
+    
+    .swiper-detailed__swiper {
+        width: 100%;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .swiper-wrapper {
+        height: 100%;
+    }
+
+    .swiper-slide > picture {
+        object-fit: cover;
+        width: 347px;
+
+        @media screen and (min-width: $desktop-width) {
+            width: 1240px;
+          }
+      }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide__img {
+        margin: 0;
+    }
+
+    .swiper-scrollbar-wrapper {
+        height: 20px;
+        width: 100%;
+        padding: 0 85px;
+    }
+
+    .swiper-scrollbar {
+        position: static;
+        width: 204px;
+        height: 10px;
+        margin: 0 auto;
+        margin-top: 32px;
+
+        @media screen and (min-width: $desktop-width) {
+            width: 480px;
+            height: 18px;
+            margin-top: 40px;
+          }
+    }
+
+    .swiper-scrollbar-drag {
+        background-color: $accent-color;
+
+        @media screen and (min-width: $desktop-width) {
+            width: 80px;
+            height: 18px;
+          }
+    }
+}

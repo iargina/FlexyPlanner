@@ -19,6 +19,10 @@ class Order {
     return this.#total;
   }
 
+
+  // Щось має бути по знижці
+  useDiscount() { }
+
   // Array of ordered objects
   get orderedPlanners() {
     return this.#orderedPlanners;
