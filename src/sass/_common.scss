@@ -91,3 +91,11 @@ body {
   color: $black-color;
   background-color: $white-color;
 }
+
+section {
+  overflow: hidden;
+
+  @media screen and (min-width: $desktop-width) {
+    overflow: auto;
+  }
+}
