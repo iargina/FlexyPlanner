@@ -2,21 +2,38 @@ import { crmPost, options } from './services/crm-order-post';
 import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
+const linkContainerRef = document.querySelector('.js-modal-success');
 const urlParams = new URLSearchParams(window.location.search);
 
 /* npm start */
 
 function openSuccessModal() {
   backdropSection.classList.toggle('is-hidden');
+  linkContainerRef.addEventListener('click', closeModalByLinkClick);
+}
+function clearSearchParams() {
+  const url = new URL(location.href);
+  const urlWithoutSearch = url.href.split('?')[0];
+  history.pushState(null, '', urlWithoutSearch);
+}
+function closeModal() {
+  backdropSection.classList.toggle('is-hidden');
+  clearSearchParams();
+  linkContainerRef.removeEventListener('click', closeModalByLinkClick);
+}
+function closeModalByLinkClick(e) {
+  if (e.target.nodeName !== 'A') return;
+  closeModal();
 }
 closeModalBtn.addEventListener('click', () => {
-  backdropSection.classList.toggle('is-hidden');
+  closeModal();
 });
 backdropSection.addEventListener('click', e => {
   if (e.target === backdropSection) {
-    backdropSection.classList.toggle('is-hidden');
+    closeModal();
   }
 });
+
 const testSearchByOrder = search => {
   return (
     /(\bsource_id\b)+/.test(search) &&

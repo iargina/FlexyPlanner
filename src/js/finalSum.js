@@ -71,6 +71,7 @@ function postToAdd() {
     },
     redirectUrl: 'https://flexyplanner.com/?' + queryData,
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
+    // redirectUrl: 'http://localhost:1234/?' + queryData,
 
     validity: 3600,
   };
