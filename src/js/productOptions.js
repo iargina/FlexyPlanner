@@ -93,7 +93,8 @@ fetchOrderModule();
 const fetchPlannersData = async () => {
   const response = await axios.get('https://openapi.keycrm.app/v1/offers', {
     headers: {
-      Authorization: 'Bearer MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA'
+      Authorization: 'Bearer MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA',
+      'Access-Control-Allow-Origin': '*'
     },
     params: {
       'include': 'product'
