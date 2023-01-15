@@ -1,4 +1,5 @@
 import HandyCollapse from 'handy-collapse';
+import Aos from 'aos';
 
 const observerRef = document.querySelector('#observer');
 
@@ -13,6 +14,7 @@ observer.observe(observerRef);
 function onScrollToList([entry]) {
   if (entry.isIntersecting) {
     featureAccordion.open('feature-toggle-one');
+    Aos.refresh();
   }
 }
 
