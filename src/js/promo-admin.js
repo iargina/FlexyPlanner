@@ -13,6 +13,8 @@ const personalList = document.querySelector('.personal-promocode');
 const startDate = document.querySelector('#dateStart');
 const stopDate = document.querySelector('#dateTo');
 const spinnerLoaderPromo = document.querySelector('.promo-spinner-js');
+const commonShowBtn = document.querySelector('.btn-show-common-js');
+const personalShowBtn = document.querySelector('.btn-show-personal-js');
 
 const promocodeObj = {};
 
@@ -240,7 +242,23 @@ function logout(error) {
     .finally(() => (spinnerLoaderPromo.style.display = 'none'));
 })();
 
+function onCommonShowBtn(){
+    
+    commonList.classList.toggle('visually-hidden');
+    commonShowBtn.textContent = 'Сховати';
+    if(commonList.classList.contains('visually-hidden')) commonShowBtn.textContent = 'Показати';
+}
+
+function onPersonalShowBtn() {
+    
+    personalList.classList.toggle('visually-hidden');
+    personalShowBtn.textContent = 'Сховати';
+    if(personalList.classList.contains('visually-hidden')) personalShowBtn.textContent = 'Показати';
+}
+
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
 commonList.addEventListener('click', onCommonList);
 personalList.addEventListener('click', onPersonalList);
+commonShowBtn.addEventListener('click', onCommonShowBtn);
+personalShowBtn.addEventListener('click', onPersonalShowBtn);

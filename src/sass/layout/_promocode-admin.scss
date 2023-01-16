@@ -1,15 +1,19 @@
 .promocode-container {
   min-width: 320px;
   margin: 0 auto;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 20px;
   @media screen and (min-width: 480px) {
     width: 480px;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
+    padding-top: 32px;
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 32px;
   }
   @media screen and (min-width: 1200px) {
     width: 1280px;
@@ -21,12 +25,8 @@ li {
 
 .promocode__title {
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 .promocode__form {
   display: flex;
@@ -104,4 +104,13 @@ li {
   font-size: 34px;
   background-color: $secondary-text-color;
   color: $white-color;
+}
+.btn-outline-primary {
+  outline: 1px solid #0d6efd;
+}
+.title-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
