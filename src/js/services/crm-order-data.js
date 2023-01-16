@@ -6,8 +6,7 @@ export const orderCrmData = {
   source_uuid: moment().format('YYMM DDhhmm ssSSS'),
   promocode: '',
   buyer_comment: '',
-  discount_percent: 0,
-  /*   discount_amount: 0, */
+  discount_amount: 0,
   ordered_at: '',
   buyer: {
     full_name: '',
@@ -45,7 +44,7 @@ export function orderCrmDataForm() {
   };
 
   orderCrmData.promocode = order.promocode;
-  orderCrmData.discount_percent = order.discountValue;
+  orderCrmData.discount_amount = order.discountValueSum;
 
   const products = order.orderedPlanners.filter(el => el.amount > 0);
   orderCrmData.products = products.map(el => {
