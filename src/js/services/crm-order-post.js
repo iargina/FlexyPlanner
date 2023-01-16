@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 const BASE_URL = 'https://openapi.keycrm.app/v1/order';
 
 export const options = {
@@ -12,8 +13,11 @@ export const options = {
 };
 
 export const crmPost = options => {
-  fetch(BASE_URL, options)
-    .then(response => response.json())
-    .then(post => console.log(post))
-    .catch(error => console.log(error));
+  try {
+    fetch(BASE_URL, options).then(response => response.json());
+  } catch (error) {
+    Notify.failure(
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
+    );
+  }
 };
