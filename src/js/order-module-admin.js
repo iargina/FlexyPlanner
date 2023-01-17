@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   getMarkup,
   toggleActiveOrderModule,
@@ -8,20 +7,20 @@ import {
 const orderAdmin = document.querySelector('.order-admin');
 const toOrderBtn = document.querySelector('[data-status="to-order"]');
 const preOrderBtn = document.querySelector('[data-status="pre-order"]');
-const formToOrder = document.querySelector('.form-to-order');
-const formPreOrder = document.querySelector('.form-pre-order');
+// const formToOrder = document.querySelector('.form-to-order');
+// const formPreOrder = document.querySelector('.form-pre-order');
 
-const showSettedPrice = data => {
-  if (data.type === 'pre-order') {
-    document.querySelector(
-      '.preorder-price-info'
-    ).innerHTML = `Встановлена ціна: ${data.data.price}, ціна зі знижкою:  ${data.data.preOrderPrice}`;
-  } else {
-    document.querySelector(
-      '.price-info'
-    ).innerHTML = `Встановлена ціна: ${data.data.price}`;
-  }
-};
+// const showSettedPrice = data => {
+//   if (data.type === 'pre-order') {
+//     document.querySelector(
+//       '.preorder-price-info'
+//     ).innerHTML = `Встановлена ціна: ${data.data.price}, ціна зі знижкою:  ${data.data.preOrderPrice}`;
+//   } else {
+//     document.querySelector(
+//       '.price-info'
+//     ).innerHTML = `Встановлена ціна: ${data.data.price}`;
+//   }
+// };
 
 const setActiveBtn = async elem => {
   elem.classList.remove('btn-danger');
@@ -29,12 +28,12 @@ const setActiveBtn = async elem => {
   elem.innerText = 'Активовано';
   elem.disabled = true;
 
-  try {
-    const markupResponse = await getMarkup();
-    showSettedPrice(markupResponse);
-  } catch (error) {
-    Notify.failure(error.message);
-  }
+  // try {
+  //   const markupResponse = await getMarkup();
+  //   showSettedPrice(markupResponse);
+  // } catch (error) {
+  //   Notify.failure(error.message);
+  // }
 };
 
 const toggleButtonsClass = async (curr, next) => {
@@ -62,47 +61,48 @@ const activateOrderModule = e => {
   }
 };
 
-const handleToOrderSubmit = async e => {
-  e.preventDefault();
+// const handleToOrderSubmit = async e => {
+//   e.preventDefault();
 
-  const obj = {
-    type: 'to-order',
-    data: {
-      price: e.target.elements.price.value,
-    },
-  };
+//   const obj = {
+//     type: 'to-order',
+//     data: {
+//       price: e.target.elements.price.value,
+//     },
+//   };
 
-  try {
-    const data = await setCurrentPrice(obj);
-    showSettedPrice(data);
-  } catch (error) {
-    Notify.failure(error.message);
-  }
-};
+//   try {
+//     const data = await setCurrentPrice(obj);
+//     showSettedPrice(data);
+//   } catch (error) {
+//     Notify.failure(error.message);
+//   }
+// };
 
-const handlePreOrderSubmit = async e => {
-  e.preventDefault();
+// const handlePreOrderSubmit = async e => {
+//   e.preventDefault();
 
-  const obj = {
-    type: 'pre-order',
-    data: {
-      price: e.target.elements.price.value,
-      preOrderPrice: e.target.elements.preOrderPrice.value,
-    },
-  };
+//   const obj = {
+//     type: 'pre-order',
+//     data: {
+//       price: e.target.elements.price.value,
+//       preOrderPrice: e.target.elements.preOrderPrice.value,
+//     },
+//   };
 
-  try {
-    const data = await setCurrentPrice(obj);
-    showSettedPrice(data);
-  } catch (error) {
-    Notify.failure(error.message);
-  }
-};
+//   try {
+//     const data = await setCurrentPrice(obj);
+//     showSettedPrice(data);
+//   } catch (error) {
+//     Notify.failure(error.message);
+//   }
+// };
 
 async function getActiveOrderModule() {
   try {
     //TODO: тут приходять дані по активному модулю
     const data = await getMarkup();
+    console.log(data);
 
     if (data.type === 'pre-order') {
       setActiveBtn(preOrderBtn);
@@ -115,6 +115,6 @@ async function getActiveOrderModule() {
 }
 
 orderAdmin.addEventListener('click', activateOrderModule);
-formToOrder.addEventListener('submit', handleToOrderSubmit);
-formPreOrder.addEventListener('submit', handlePreOrderSubmit);
+// formToOrder.addEventListener('submit', handleToOrderSubmit);
+// formPreOrder.addEventListener('submit', handlePreOrderSubmit);
 getActiveOrderModule();
