@@ -17,13 +17,6 @@ listEl.addEventListener('click', onElementClick);
 
 let products = [];
 
-// ============== INITIAL STATE ================
-function initialState() {
-  const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-  for (let i = 1; i < listItemsArr.length; i += 1) {
-    resetAmount(listItemsArr[i]);
-  }
-}
 
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
@@ -32,49 +25,14 @@ const fetchOrderModule = async () => {
   try {
     const response = await fetch('https://flexyplanner.onrender.com/markup');
     const dataObj = await response.json();
-    // console.log(dataObj);
-
-    // Присвоюю об'єкт ціни в екземпляр класу
-    // Можна без перевірки, якщо не треба валідації
-    order.price = dataObj.data;
-    // if (dataObj.type === 'to-order') {
-    //   order.price = { price: dataObj.data.price }
-    // }
-    // if (dataObj.type === 'pre-order') {
-
-    //   if (dataObj.data.preOrderPrice < dataObj.data.price) {
-    //     order.price = dataObj.data;
-    //     // return;
-    //   }
-
-    //   // if (dataObj.data.preOrderPrice === 0) {
-    //   //   order.price = { price: dataObj.data.price }
-    //   //   console.log("Нульова ціна");
-    //   //   // return;
-    //   // }
-
-    //   if (dataObj.data.preOrderPrice > dataObj.data.price) {
-    //     order.price = { price: dataObj.data.price }
-    //     // return;
-    //   }
-    // }
-
     middleDataObj = dataObj;
   } catch (error) {
     console.log(error.message);
   } finally {
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
-
-    // Виводжу ціну наверху в секції
-    priceMarkupRender();
-
     // Рендерю список планерів
     listMarkupRender(middleDataObj);
-    // console.log("Order after first fetch: ", order.getWholeOrderData());
-
-    // Застосовую початковий стан до планерів:
-    initialState();
   }
 };
 
@@ -82,58 +40,115 @@ fetchOrderModule();
 
 // =====================================================
 
-// ========== Fetching Planners Data from CRM ==========
 
-const fetchPlannersData = async () => {
-  const response = await axios.get(
-    'https://flexyplanner.onrender.com/crm/offers'
-  );
-  const data = response.data;
-  return data;
+
+// ========== Fetching Planners Data ===================
+
+const fetchPlannersData = async (dataObj) => {
+  try {
+    const response = await axios.get(
+      'https://flexyplanner.onrender.com/crm/offers'
+    );
+    const productArr = response.data.data;
+    // console.log(productArr);
+
+    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO'));
+    // console.log('filteredPreOrderPrice', filteredPreOrderPrice)
+    // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
+    const filteredOrderPrice = productArr.filter(el => el.sku.startsWith('FP') && el.price !== 0);
+    // console.log('filteredOrderPrice', filteredOrderPrice);
+
+    function priceSumCounter(filteredArray) {
+      let counterOrder = 0;
+      const priceSum = filteredArray.reduce((acc, val) => {
+        counterOrder += 1;
+        return acc + val.price
+      },
+        0
+      );
+      return {
+        priceSum, counterOrder
+      };
+    }
+
+    const pricePreOrderSum = priceSumCounter(filteredPreOrderPrice).priceSum;
+    const priceOrderSum = priceSumCounter(filteredOrderPrice).priceSum;
+    const counterPreOrder = priceSumCounter(filteredPreOrderPrice).counterOrder;
+    const counterOrder = priceSumCounter(filteredOrderPrice).counterOrder;
+
+
+    if (pricePreOrderSum / counterPreOrder === filteredPreOrderPrice[0].price) {
+      // console.log("З ціною все ок, вона", filteredPreOrderPrice[0].price);
+      // Формую об'єкт із ціною:
+      priceSetter();
+    } else {
+      // console.log("З ціною щось не те");
+      // Вивести на сторінку щось
+    }
+
+    if (priceOrderSum / counterOrder === filteredOrderPrice[0].price) {
+      // console.log("З ціною все ок, вона", filteredOrderPrice[0].price);
+      // Формую об'єкт із ціною:
+      priceSetter();
+
+    } else {
+      // console.log("З ціною щось не те");
+      // Вивести на сторінку щось
+    }
+
+
+
+    function priceSetter() {
+      // console.log(dataObj);
+      if (dataObj.type === 'pre-order') {
+        console.log("Active module: Pre-Order!");
+        // Формую об'єкт із ціною:
+        order.price = { orderPrice: filteredOrderPrice[0].price, preOrderPrice: filteredPreOrderPrice[0].price }
+      }
+
+      if (dataObj.type === 'to-order') {
+        console.log("Active module: Order!");
+        // Формую об'єкт із ціною:
+        order.price = { orderPrice: filteredOrderPrice[0].price }
+        // А може так?:
+        // order.price = { orderPrice: filteredOrderPrice[0].price, preOrderPrice: null }
+      }
+    }
+
+    return productArr;
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+
+    // Виводжу ціну наверху в секції
+    priceMarkupRender();
+
+
+  }
 };
 
 // ======= RESPONSE EXAMPLE FROM CRM ====================
 const res = response_2;
-
 // ========================================================
 
-// ========== Section price view =========================
-function priceMarkupRender() {
-  // Витягую ціну та ціну для попереднього замовлення,
-  // якщо така є
-  let priceObj = order.price;
-  if (Object.keys(priceObj).length === 1) {
-    priceEl.innerHTML = `${priceObj.price} грн`;
-  } else {
-    priceEl.innerHTML = `${priceObj.preOrderPrice} грн`;
-    priceCancelEl.innerHTML = `${priceObj.price} грн`;
-  }
-}
-// ======================================================
 
-function priceGetter() {
-  let price = 0;
-  if (Object.keys(order.price).length > 1) {
-    price = order.price.preOrderPrice;
-  } else {
-    price = order.price.price;
-  }
-  return price;
-}
+
+
 
 async function listMarkupRender(dataObj) {
   // USING FAKE JSON DATA
   /*   const plannersArr = res.data; */
 
   // USING REAL REQUEST
-  const data = await fetchPlannersData();
-  const plannersArr = data.data;
-  console.log(plannersArr);
+  const data = await fetchPlannersData(dataObj);
+  const plannersArr = data;
+  // console.log(plannersArr);
   let filteredPlannersArr = [];
 
   if (dataObj.type === 'to-order') {
     filteredPlannersArr = plannersArr.filter(
-      el => el.sku.startsWith('FP') && el.quantity > 0
+      // el => el.sku.startsWith('FP') && el.quantity > 0
+      el => el.sku.startsWith('FP') && el.price > 0
     );
   }
   if (dataObj.type === 'pre-order') {
@@ -191,8 +206,43 @@ async function listMarkupRender(dataObj) {
 
   listEl.innerHTML = markup;
   recalcAmount();
+
+  // Застосовую початковий стан до планерів:
+  console.log(dataObj);
+  initialState(dataObj);
 }
 // ========================================================================
+
+
+
+
+// ========================================================================
+// ========================================================================
+// ========== Section price view =========================================
+function priceMarkupRender() {
+  // Витягую ціну та ціну для попереднього замовлення,
+  // якщо така є для верхньої секції
+  let priceObj = order.price;
+  if (Object.keys(priceObj).length === 1) {
+    priceEl.innerHTML = `${priceObj.orderPrice} грн`;
+  } else {
+    priceEl.innerHTML = `${priceObj.preOrderPrice} грн`;
+    priceCancelEl.innerHTML = `${priceObj.orderPrice} грн`;
+  }
+}
+
+async function initialState() {
+  try {
+    const listItemsArr = document.querySelectorAll('.orderProcessing__item');
+    console.log('listItemsArr', listItemsArr)
+    for (let i = 1; i < listItemsArr.length; i += 1) {
+      resetAmount(listItemsArr[i]);
+    }
+  } catch (error) {
+    console.log(message.error);
+  }
+
+}
 
 function onElementClick(e) {
   if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
@@ -295,6 +345,16 @@ function addItem(listItem) {
   recalcAmount();
 }
 
+function priceGetter() {
+  let price = 0;
+  if (Object.keys(order.price).length > 1) {
+    price = order.price.preOrderPrice;
+  } else {
+    price = order.price.orderPrice;
+  }
+  return price;
+}
+
 function recalcAmount() {
   const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 
@@ -316,5 +376,5 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-  // console.log("Order: ", order.getWholeOrderData());
+  console.log("Order: ", order.getWholeOrderData());
 }
