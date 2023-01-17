@@ -9,7 +9,9 @@ import axios from 'axios';
 
 const listEl = document.querySelector('.orderProcessing__list');
 const priceEl = document.querySelector('.orderProcessing__priceCurrent');
-const priceCancelEl = document.querySelector('.orderProcessing__priceCancelled');
+const priceCancelEl = document.querySelector(
+  '.orderProcessing__priceCancelled'
+);
 
 listEl.addEventListener('click', onElementClick);
 
@@ -23,16 +25,12 @@ function initialState() {
   }
 }
 
-
-
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
-
   let middleDataObj = {};
 
   try {
-
-    const response = await fetch("https://flexyplanner.onrender.com/markup");
+    const response = await fetch('https://flexyplanner.onrender.com/markup');
     const dataObj = await response.json();
     // console.log(dataObj);
 
@@ -62,11 +60,9 @@ const fetchOrderModule = async () => {
     // }
 
     middleDataObj = dataObj;
-
   } catch (error) {
     console.log(error.message);
   } finally {
-
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
 
@@ -79,7 +75,6 @@ const fetchOrderModule = async () => {
 
     // Застосовую початковий стан до планерів:
     initialState();
-
   }
 };
 
@@ -87,25 +82,15 @@ fetchOrderModule();
 
 // =====================================================
 
-
 // ========== Fetching Planners Data from CRM ==========
 
 const fetchPlannersData = async () => {
-  const response = await axios.get('https://openapi.keycrm.app/v1/offers', {
-    headers: {
-      Authorization: 'Bearer MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA'
-    },
-    params: {
-      'include': 'product'
-    }
-  })
-  return response;
-}
-
-// fetchPlannersData();
-
-
-
+  const response = await axios.get(
+    'https://flexyplanner.onrender.com/crm/offers'
+  );
+  const data = response.data;
+  return data;
+};
 
 // ======= RESPONSE EXAMPLE FROM CRM ====================
 const res = response_2;
@@ -137,19 +122,19 @@ function priceGetter() {
 }
 
 async function listMarkupRender(dataObj) {
-
-
   // USING FAKE JSON DATA
-  const plannersArr = res.data;
+  /*   const plannersArr = res.data; */
 
   // USING REAL REQUEST
-  // const data = await fetchPlannersData()
-  // const plannersArr = data.data;
+  const data = await fetchPlannersData();
+  const plannersArr = data.data;
+  console.log(plannersArr);
   let filteredPlannersArr = [];
 
-
   if (dataObj.type === 'to-order') {
-    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('FP') && el.quantity > 0);
+    filteredPlannersArr = plannersArr.filter(
+      el => el.sku.startsWith('FP') && el.quantity > 0
+    );
   }
   if (dataObj.type === 'pre-order') {
     filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO'));
@@ -157,14 +142,14 @@ async function listMarkupRender(dataObj) {
 
   let plannerPrice = priceGetter();
 
-  const markup = filteredPlannersArr.map(({ id, product, sku, quantity }) => {
+  const markup = filteredPlannersArr
+    .map(({ id, product, sku, quantity }) => {
+      let lastItemsMarkup = '';
+      if (dataObj.type === 'to-order' && quantity < 10) {
+        lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
+      }
 
-    let lastItemsMarkup = '';
-    if (dataObj.type === 'to-order' && quantity < 10) {
-      lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
-    }
-
-    return `<li class="orderProcessing__item" data-idx="#2378560">
+      return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
               <div class="orderProcessing__ItemImgWrapper" >
                 <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
@@ -200,17 +185,14 @@ async function listMarkupRender(dataObj) {
                 </svg >
               </div >
             </div >
-          </li > `
-  }).join('');
+          </li > `;
+    })
+    .join('');
 
   listEl.innerHTML = markup;
   recalcAmount();
 }
 // ========================================================================
-
-
-
-
 
 function onElementClick(e) {
   if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
@@ -246,7 +228,9 @@ function onElementClick(e) {
 function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
-  const quantity = Number(listItem.querySelector('.orderProcessing__plus').dataset.quantity);
+  const quantity = Number(
+    listItem.querySelector('.orderProcessing__plus').dataset.quantity
+  );
 
   let numberElValue = Number(numberEl.textContent);
   let priceValue = Number(priceEl.innerText.slice(0, -4));
@@ -293,7 +277,6 @@ function resetAmount(listItem) {
 }
 
 function addItem(listItem) {
-
   let plannerPrice = priceGetter();
 
   const numberEl = listItem.querySelector('.orderProcessing__number');
@@ -313,7 +296,6 @@ function addItem(listItem) {
 }
 
 function recalcAmount() {
-
   const listItemsArr = document.querySelectorAll('.orderProcessing__item');
 
   products = [];
@@ -328,7 +310,6 @@ function recalcAmount() {
         price: priceGetter(),
       });
     }
-
   });
 
   order.orderedPlanners = products;
