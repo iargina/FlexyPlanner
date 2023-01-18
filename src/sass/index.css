@@ -35,89 +35,66 @@ img {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
-.motivate .title,
-.motivate__wrapper {
+.motivate .title, .motivate__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @font-face {
-  font-family: 'MacPawFixelDisplay700';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplay700";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Bold.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: bold;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplay800';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplay800";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraBold.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplay400';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplay400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Regular.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplay500';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplay500";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Medium.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplay600';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplay600";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-SemiBold.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplayLight400';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplayLight400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-Light.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 @font-face {
-  font-family: 'MacPawFixelDisplayExtraLight400';
-  src: url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2')
-      format('woff2'),
-    url('../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf')
-      format('opentype'); /* Safari, Android, iOS */
+  font-family: "MacPawFixelDisplayExtraLight400";
+  src: url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.woff2") format("woff2"), url("../../assets/fonts/MacPawFixelDisplay/MacPawFixelDisplay-ExtraLight.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -128,11 +105,20 @@ html {
 }
 
 body {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 24px;
   line-height: 1.3333333333;
   color: #111111;
   background-color: #ffffff;
+}
+
+section {
+  overflow: hidden;
+}
+@media screen and (min-width: 1440px) {
+  section {
+    overflow: auto;
+  }
 }
 
 .container {
@@ -163,7 +149,7 @@ body {
 .btn {
   display: inline-block;
   padding: 10px 56px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2222222222;
@@ -184,8 +170,7 @@ body {
   background-color: #f3bb4a;
   color: #111111;
 }
-.btn--primary:hover,
-.btn--primary:focus {
+.btn--primary:hover, .btn--primary:focus {
   background-color: #111111;
   color: #ffffff;
 }
@@ -197,8 +182,7 @@ body {
   background-color: #111111;
   color: #ffffff;
 }
-.btn--secondary:hover,
-.btn--secondary:focus {
+.btn--secondary:hover, .btn--secondary:focus {
   background-color: #f3bb4a;
   color: #111111;
 }
@@ -217,8 +201,7 @@ body {
   height: 100%;
   opacity: 1;
   background-color: rgba(17, 17, 17, 0.6);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
   z-index: 30;
 }
@@ -274,7 +257,7 @@ body {
 
 .title {
   font-size: 28px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.1428571429;
   text-align: center;
   margin-bottom: 40px;
@@ -289,7 +272,7 @@ body {
 
 .subtitle {
   font-size: 16px;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   line-height: 1.125;
   margin-bottom: 18px;
 }
@@ -342,7 +325,7 @@ body {
 
 .quotes__descr {
   width: 267px;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 1.2857142857;
   letter-spacing: -0.02em;
@@ -358,7 +341,7 @@ body {
 
 .quotes__descr--accent {
   color: #f3bb4a;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
 }
 
 .preloader {
@@ -445,6 +428,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 72px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media screen and (min-width: 1440px) {
   .authors {
@@ -456,7 +442,7 @@ body {
 }
 
 .authors__wrap {
-  margin: 0 auto;
+  margin: 0;
   max-width: 335px;
 }
 @media screen and (min-width: 1440px) {
@@ -476,6 +462,19 @@ body {
 .authors__text--list :nth-child(3) {
   margin-top: -40px;
 }
+@media screen and (max-width: 374px) {
+  .authors__text--list {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+  }
+  .authors__text--list :nth-child(odd) {
+    margin-right: 0;
+  }
+  .authors__text--list :nth-child(3) {
+    margin-top: 0px;
+  }
+}
 @media screen and (min-width: 1440px) {
   .authors__text--list {
     flex-direction: column;
@@ -485,10 +484,13 @@ body {
   .authors__text--list :nth-child(odd) {
     margin-right: 0;
   }
+  .authors__text--list :nth-child(3) {
+    margin-top: 0px;
+  }
 }
 
 .authors__text--item {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 14px;
   line-height: 1.43;
   max-width: 157px;
@@ -506,19 +508,25 @@ body {
     font-size: 24px;
     line-height: 1.33;
     max-width: 822px;
+    margin: 0;
   }
-  .authors__text--item :last-child {
-    margin-bottom: 0;
+}
+@media screen and (max-width: 374px) {
+  .authors__text--item {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+    margin: 0;
   }
 }
 
 .authors__text--item--accent--bold {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   margin-right: 0;
 }
 
 .authors__text--tem--accent {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   color: #f3bb4a;
   margin: 0;
 }
@@ -546,7 +554,7 @@ body {
 }
 
 .authors__info--subtitle {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -561,7 +569,7 @@ body {
 }
 
 .authors__info--subtitle--text {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
@@ -588,7 +596,7 @@ body {
 }
 
 .authors__info--jobTitle--item {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 12px;
   line-height: 1.5;
   color: #3c3b3b;
@@ -618,15 +626,15 @@ body {
 .authors__speach--icon {
   position: absolute;
   left: 30px;
-  top: -20px;
+  top: -19px;
   fill: #111111;
   width: 32px;
   height: 22px;
 }
 @media screen and (min-width: 1440px) {
   .authors__speach--icon {
-    left: 135px;
-    top: -36px;
+    left: 184px;
+    top: -35px;
     width: 46px;
     height: 40px;
   }
@@ -644,7 +652,7 @@ body {
 }
 
 .authors__speach--text {
-  font-family: 'MacPawFixelDisplayExtraLight400', sans-serif;
+  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: -0.02em;
@@ -659,10 +667,12 @@ body {
 
 .contacts__container {
   padding-top: 72px;
+  padding-bottom: 36px;
 }
 @media screen and (min-width: 1440px) {
   .contacts__container {
     padding-top: 100px;
+    padding-bottom: 50px;
   }
 }
 
@@ -677,7 +687,7 @@ body {
 
 .contacts__label {
   display: block;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -708,15 +718,15 @@ body {
   margin-bottom: 0;
 }
 .contacts__input::-moz-placeholder {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input:-ms-input-placeholder {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input::placeholder {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .contacts__input--textarea {
@@ -742,12 +752,31 @@ body {
 }
 
 .delivery__container {
-  padding-top: 72px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  max-height: 100%;
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 1440px) {
   .delivery__container {
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
+}
+.delivery__container.delivery__ishidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .city-wrapper {
@@ -814,6 +843,7 @@ body {
 @media screen and (min-width: 1440px) {
   .warehouse-wrapper {
     max-width: 420px;
+    margin-bottom: 40px;
   }
 }
 
@@ -833,7 +863,7 @@ body {
   cursor: pointer;
 }
 .warehouse-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 12px;
@@ -841,10 +871,14 @@ body {
   display: block;
   width: 18px;
   height: 18px;
-  background-image: url('../icons/arrow_down.svg');
+  background-image: url("../icons/arrow_down.svg");
   background-size: 18px 18px;
   background-repeat: no-repeat;
   background-position: center center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.warehouse-btn.active::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 @media screen and (min-width: 1440px) {
   .warehouse-btn {
@@ -932,6 +966,13 @@ body {
   display: block;
 }
 
+.contacts__label--checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .description__title {
   margin: 0 auto;
   margin-bottom: 136px;
@@ -966,7 +1007,7 @@ body {
   width: 64px;
 }
 .description__item::before {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 60px;
@@ -977,16 +1018,11 @@ body {
   right: 56px;
 }
 .description__item:nth-child(1)::before {
-  background: url('./../images/description/mob_1x_round_1.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_1.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(1)::before {
-    background: url('./../images/description/mob_2x_round_1.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_1.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(2) {
@@ -994,16 +1030,11 @@ body {
   right: 0;
 }
 .description__item:nth-child(2)::before {
-  background: url('./../images/description/mob_1x_round_2.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_2.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(2)::before {
-    background: url('./../images/description/mob_2x_round_2.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_2.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(3) {
@@ -1011,16 +1042,11 @@ body {
   right: 0;
 }
 .description__item:nth-child(3)::before {
-  background: url('./../images/description/mob_1x_round_3.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_3.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(3)::before {
-    background: url('./../images/description/mob_2x_round_3.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_3.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(4) {
@@ -1028,16 +1054,11 @@ body {
   right: 138px;
 }
 .description__item:nth-child(4)::before {
-  background: url('./../images/description/mob_1x_round_4.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_4.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(4)::before {
-    background: url('./../images/description/mob_2x_round_4.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_4.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(5) {
@@ -1045,16 +1066,11 @@ body {
   left: 0;
 }
 .description__item:nth-child(5)::before {
-  background: url('./../images/description/mob_1x_round_5.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_5.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(5)::before {
-    background: url('./../images/description/mob_2x_round_5.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_5.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(6) {
@@ -1062,16 +1078,11 @@ body {
   left: 0;
 }
 .description__item:nth-child(6)::before {
-  background: url('./../images/description/mob_1x_round_6.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_6.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(6)::before {
-    background: url('./../images/description/mob_2x_round_6.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_6.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(7) {
@@ -1079,16 +1090,11 @@ body {
   left: 60px;
 }
 .description__item:nth-child(7)::before {
-  background: url('./../images/description/mob_1x_round_7.png') center/60px 60px
-    no-repeat;
+  background: url("./../images/description/mob_1x_round_7.png") center/60px 60px no-repeat;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .description__item:nth-child(7)::before {
-    background: url('./../images/description/mob_2x_round_7.png') center/60px
-      60px no-repeat;
+    background: url("./../images/description/mob_2x_round_7.png") center/60px 60px no-repeat;
   }
 }
 .description__item:nth-child(8) {
@@ -1108,17 +1114,12 @@ body {
     left: -80px;
   }
   .description__item:nth-child(1)::before {
-    background: url('./../images/description/desk_1x_round_1.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_1.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(1)::before {
-    background: url('./../images/description/desk_2x_round_1.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_1.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1127,17 +1128,12 @@ body {
     right: -86px;
   }
   .description__item:nth-child(2)::before {
-    background: url('./../images/description/desk_1x_round_2.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_2.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(2)::before {
-    background: url('./../images/description/desk_2x_round_2.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_2.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1146,17 +1142,12 @@ body {
     right: -22px;
   }
   .description__item:nth-child(3)::before {
-    background: url('./../images/description/desk_1x_round_3.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_3.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(3)::before {
-    background: url('./../images/description/desk_2x_round_3.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_3.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1165,17 +1156,12 @@ body {
     left: -16px;
   }
   .description__item:nth-child(4)::before {
-    background: url('./../images/description/desk_1x_round_4.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_4.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(4)::before {
-    background: url('./../images/description/desk_2x_round_4.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_4.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1184,17 +1170,12 @@ body {
     left: 796px;
   }
   .description__item:nth-child(5)::before {
-    background: url('./../images/description/desk_1x_round_5.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_5.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(5)::before {
-    background: url('./../images/description/desk_2x_round_5.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_5.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1203,17 +1184,12 @@ body {
     left: 782px;
   }
   .description__item:nth-child(6)::before {
-    background: url('./../images/description/desk_1x_round_6.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_6.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(6)::before {
-    background: url('./../images/description/desk_2x_round_6.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_6.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1222,17 +1198,12 @@ body {
     left: -242px;
   }
   .description__item:nth-child(7)::before {
-    background: url('./../images/description/desk_1x_round_7.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_7.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(7)::before {
-    background: url('./../images/description/desk_2x_round_7.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_7.png") center/140px 140px no-repeat;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1242,24 +1213,19 @@ body {
     left: -254px;
   }
   .description__item:nth-child(8)::before {
-    background: url('./../images/description/desk_1x_round_8.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_1x_round_8.png") center/140px 140px no-repeat;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .description__item:nth-child(8)::before {
-    background: url('./../images/description/desk_2x_round_8.png') center/140px
-      140px no-repeat;
+    background: url("./../images/description/desk_2x_round_8.png") center/140px 140px no-repeat;
   }
 }
 
 .description__text {
   width: 100%;
   font-size: 8px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.25;
   text-transform: uppercase;
 }
@@ -1292,7 +1258,7 @@ body {
   position: relative;
 }
 .benefits-list__item::before {
-  content: '';
+  content: "";
   position: absolute;
   display: inline-block;
   width: 2px;
@@ -1319,6 +1285,16 @@ body {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .finalSum__container {
+    position: absolute;
+    top: 262px;
+    left: 64vw;
+    height: 100%;
+    padding: 0;
+  }
+}
+
 .finalSum {
   background-color: #f3f3f3;
   max-width: 335px;
@@ -1327,13 +1303,18 @@ body {
 }
 @media screen and (min-width: 1440px) {
   .finalSum {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    left: 64vw;
+    width: 420px;
     max-width: 420px;
     padding: 20px 20px 32px 20px;
   }
 }
 
 .finalSum__title {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   margin-bottom: 24px;
   font-size: 16px;
   line-height: 1.125;
@@ -1379,7 +1360,7 @@ body {
 }
 
 .finalSum__amount {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -1403,7 +1384,7 @@ body {
   justify-content: space-between;
 }
 .finalSum__total::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 16px;
   display: block;
@@ -1415,7 +1396,7 @@ body {
   opacity: 0.5;
 }
 .finalSum__total::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -30px;
   display: block;
@@ -1455,7 +1436,7 @@ body {
 }
 
 .finalSum__totalAmount {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.01em;
@@ -1469,7 +1450,7 @@ body {
 }
 
 .finalSum__btn {
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   padding: 12px 0;
   width: 100%;
   max-width: 311px;
@@ -1489,12 +1470,10 @@ body {
 
 .hero {
   padding-top: 40px;
-  padding-bottom: 72px;
 }
 @media screen and (min-width: 1440px) {
   .hero {
     padding-top: 70px;
-    padding-bottom: 0;
   }
 }
 
@@ -1510,13 +1489,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-@media screen and (min-width: 648px) {
-  .hero__title {
-    flex-direction: column-reverse;
-  }
-}
 @media screen and (min-width: 1440px) {
   .hero__title {
+    flex-direction: column-reverse;
     gap: 94px;
   }
 }
@@ -1527,14 +1502,14 @@ body {
 }
 
 .hero__description {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-weight: 700;
   width: 295px;
   font-size: 18px;
   line-height: 122%;
   letter-spacing: -0.02em;
   color: #111111;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
 }
 @media screen and (min-width: 1440px) {
   .hero__description {
@@ -1553,7 +1528,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 32px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
@@ -1578,14 +1553,20 @@ body {
   margin: 0 auto;
   width: 199px;
   height: 42px;
-  background: #111111;
+  background-color: #111111;
   color: #ffffff;
   border-radius: 4px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 18px;
   line-height: 122%;
   text-align: center;
   letter-spacing: -0.02em;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 1440px) {
   .hero__btn {
@@ -1596,6 +1577,10 @@ body {
     font-size: 24px;
     line-height: 117%;
   }
+}
+.hero__btn:hover, .hero__btn:focus {
+  background-color: #f3bb4a;
+  color: #111111;
 }
 
 .hero__swiper {
@@ -1614,14 +1599,6 @@ body {
   }
 }
 
-.swiper-wrapper {
-  height: 300px;
-}
-@media screen and (min-width: 960px) {
-  .swiper-wrapper {
-    height: auto;
-  }
-}
 @media screen and (min-width: 1440px) {
   .swiper-wrapper {
     height: 652px;
@@ -1654,7 +1631,13 @@ body {
 
 .swiper-slide__container > picture {
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
+  width: 200px;
+}
+@media screen and (min-width: 1440px) {
+  .swiper-slide__container > picture {
+    width: 514px;
+  }
 }
 
 @media screen and (min-width: 360px) {
@@ -1690,7 +1673,7 @@ body {
   gap: 10px;
   display: flex;
   position: relative;
-  margin-top: 15px;
+  margin-top: 60px;
   width: 100%;
   left: 0;
   z-index: 50;
@@ -1758,7 +1741,7 @@ body {
 }
 
 .footer__title {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -1772,12 +1755,12 @@ body {
 }
 
 .footer__text {
-  font-family: 'MacPawFixelDisplayExtraLight400', sans-serif;
+  font-family: "MacPawFixelDisplayExtraLight400", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
+          text-decoration-line: underline;
   color: #ffffff;
 }
 @media screen and (min-width: 1440px) {
@@ -1794,6 +1777,7 @@ body {
 }
 
 .footer__icon {
+  fill: #ffffff;
   width: 28px;
   height: 28px;
 }
@@ -1809,8 +1793,8 @@ body {
   text-align: center;
   width: 335px;
   margin: auto;
-  padding: 10px 65px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  padding: 10px 64px;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
@@ -1818,12 +1802,24 @@ body {
 @media screen and (min-width: 591px) {
   .footer__button {
     width: 268px;
-    padding: 16px 32px;
+    padding: 16px 31px;
     position: absolute;
     top: 50px;
     left: 50%;
     transform: translate(-50%, 0%);
     line-height: 1.33;
+  }
+}
+
+.footer__button:hover,
+.footer__button:focus {
+  padding: 9px 64px;
+  border: 1px solid #f3bb4a;
+}
+@media screen and (min-width: 591px) {
+  .footer__button:hover,
+.footer__button:focus {
+    padding: 15px 31px;
   }
 }
 
@@ -1892,7 +1888,7 @@ body {
 }
 .howitworks .howitworks__title {
   font-size: 28px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.1428571429;
   text-align: center;
 }
@@ -1905,7 +1901,7 @@ body {
 .howitworks .howitworks__number {
   font-size: 64px;
   line-height: 1;
-  font-family: 'MacPawFixelDisplay800', sans-serif;
+  font-family: "MacPawFixelDisplay800", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks__number {
@@ -1915,7 +1911,7 @@ body {
 .howitworks .howitworks__text {
   font-size: 18px;
   line-height: 1.2222222222;
-  font-family: 'MacPawFixelDisplay800', sans-serif;
+  font-family: "MacPawFixelDisplay800", sans-serif;
   text-transform: uppercase;
 }
 @media screen and (min-width: 1440px) {
@@ -1959,7 +1955,7 @@ body {
 }
 .howitworks .howitworks-checkbox__text {
   font-size: 14px;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .howitworks .howitworks-checkbox__text {
@@ -2046,73 +2042,79 @@ body {
 
 .modal--success {
   max-width: 272px;
-  padding: 193px 20px 40px;
-  background: url('./../images/order/mob_1x_modalbg.jpg') 0 25px / contain
-      no-repeat,
-    #ffffff;
+  padding: 179px 21px 20px;
+  background: url("./../images/order/mob_1x_modalbg.jpg") 0 25px/contain no-repeat, #ffffff;
   text-align: center;
 }
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .modal--success {
-    background: url('./../images/order/mob_2x_modalbg.jpg') 0 25px / contain
-        no-repeat,
-      #ffffff;
+    background: url("./../images/order/mob_2x_modalbg.jpg") 0 25px/contain no-repeat, #ffffff;
   }
 }
 @media screen and (min-width: 1440px) {
   .modal--success {
     max-width: 480px;
-    padding: 277px 72px 52px;
-    background: url('./../images/order/desk_1x_modalbg.jpg') 0 24px / contain
-        no-repeat,
-      #ffffff;
+    padding: 263px 72px 25px;
+    background: url("./../images/order/desk_1x_modalbg.jpg") 0 24px/contain no-repeat, #ffffff;
   }
 }
-@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .modal--success {
-    background: url('./../images/order/desk_2x_modalbg.jpg') 0 24px / contain
-        no-repeat,
-      #ffffff;
+    background: url("./../images/order/desk_2x_modalbg.jpg") 0 24px/contain no-repeat, #ffffff;
   }
 }
 
 .modal__title {
   font-size: 18px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.3333333333;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 @media screen and (min-width: 1440px) {
   .modal__title {
     font-size: 28px;
     line-height: 1.1428571429;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
 }
 
 .modal__text {
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
   font-size: 12px;
   line-height: 1.1666666667;
   color: #3c3b3b;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 @media screen and (min-width: 1440px) {
   .modal__text {
     font-size: 14px;
     line-height: 1.2857142857;
+    margin-bottom: 38px;
+  }
+}
+
+.modal__text-additional {
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
+  margin: 0 auto;
+  max-width: 130px;
+  font-size: 8px;
+  line-height: 1.25;
+  color: rgba(60, 59, 59, 0.4);
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 1440px) {
+  .modal__text-additional {
+    max-width: 229px;
+    font-size: 12px;
+    line-height: 1.1666666667;
+    margin-bottom: 15px;
   }
 }
 
 .modal__btn {
   padding: 8px 28px;
   font-size: 14px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   line-height: 1.2857142857;
 }
 @media screen and (min-width: 1440px) {
@@ -2123,60 +2125,31 @@ body {
   }
 }
 
-.admin-form-wrapper {
-  height: 100vh;
+.modal__success--icons {
   display: flex;
+  flex-direction: row;
+  gap: 10px;
   align-items: center;
   justify-content: center;
 }
-
-.admin-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+@media screen and (min-width: 1440px) {
+  .modal__success--icons {
+    gap: 14px;
+  }
 }
 
-.admin-form__input-field {
-  width: 300px;
-  height: 50px;
-  background: #ecf0f3;
-  border: 1px solid transparent;
-  outline: none;
-  border-radius: 50px;
-  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-  text-indent: 20px;
+.success__icon {
+  fill: #111111;
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .success__icon {
+    width: 28px;
+    height: 28px;
+  }
 }
 
-.admin-form__input-field:valid {
-  border: 1px solid rgb(3, 94, 26);
-}
-
-.admin-form__button {
-  height: 50px;
-  width: 300px;
-  background: #ecf0f3;
-  border: 1px solid transparent;
-  outline: none;
-  border-radius: 50px;
-  color: black;
-  cursor: pointer;
-  box-shadow: 6px 6px 6px #cbced1, -2px -2px 18px white;
-  padding: 0 20px;
-  transition: all 250ms ease-in-out;
-}
-
-.admin-form__button:hover {
-  box-shadow: none;
-  color: white;
-  background: #4e6141;
-}
-
-/* input:invalid {
-  border: 1px dashed red;
-}
-input:invalid:required {
-  background-image: linear-gradient(to right, pink, lightgreen);
-} */
 .motivate__wrapper {
   flex-direction: column;
   gap: 40px;
@@ -2240,7 +2213,7 @@ input:invalid:required {
 }
 
 .motivate__paragraph {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 1.2857142857;
   font-weight: 500;
@@ -2256,13 +2229,13 @@ input:invalid:required {
 }
 
 .strong {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
 }
 
 .motivate .title {
   margin-bottom: 0px;
   width: 230px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -2280,7 +2253,7 @@ input:invalid:required {
 
 .order {
   font-size: 14px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   text-align: center;
   letter-spacing: -0.02em;
   color: #111111;
@@ -2319,12 +2292,12 @@ input:invalid:required {
 .pre-order__text,
 .order-now__text {
   font-size: 18px;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__text,
-  .order-now__text {
+.order-now__text {
     font-size: 24px;
     line-height: 1.1666666667;
     margin-bottom: 14px;
@@ -2339,14 +2312,14 @@ input:invalid:required {
   display: inline-block;
   margin-bottom: 24px;
   color: #3c3b3b;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__delivery,
-  .order-now__delivery {
+.order-now__delivery {
     margin-bottom: 32px;
     font-size: 18px;
-    font-family: 'MacPawFixelDisplay400', sans-serif;
+    font-family: "MacPawFixelDisplay400", sans-serif;
     line-height: 1.3333333333;
   }
 }
@@ -2356,14 +2329,14 @@ input:invalid:required {
   margin: 0 auto;
   padding: 12px 62px 8px;
   margin-bottom: 24px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   letter-spacing: -0.02em;
   font-size: 18px;
   line-height: 1.2222222222;
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn,
-  .order-now__btn {
+.order-now__btn {
     margin-bottom: 14px;
     padding: 15px 31px 13px;
     width: 272px;
@@ -2373,7 +2346,7 @@ input:invalid:required {
 .order-now__btn--feedback {
   padding: 0;
   border: none;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   margin-bottom: 32px;
   text-decoration: underline;
   font-size: 14px;
@@ -2385,7 +2358,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .pre-order__btn--feedback,
-  .order-now__btn--feedback {
+.order-now__btn--feedback {
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 1.5555555556;
@@ -2410,7 +2383,7 @@ input:invalid:required {
   padding: 14px;
   background-color: #f3f3f3;
   text-align: left;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   line-height: 1.5714285714;
 }
 @media screen and (min-width: 1440px) {
@@ -2419,7 +2392,7 @@ input:invalid:required {
   }
 }
 .motivation-block__link {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-style: normal;
 }
 .motivation-block__text {
@@ -2450,7 +2423,7 @@ input:invalid:required {
 }
 
 .orderProcessing__title {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -2470,7 +2443,7 @@ input:invalid:required {
 }
 
 .section__title {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -2478,7 +2451,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .section__title {
-    font-family: 'MacPawFixelDisplay500', sans-serif;
+    font-family: "MacPawFixelDisplay500", sans-serif;
     font-size: 24px;
     line-height: 1.33;
   }
@@ -2548,21 +2521,21 @@ input:invalid:required {
 }
 
 .orderProcessing__plannerTitle {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
 }
 @media screen and (min-width: 1440px) {
   .orderProcessing__plannerTitle {
-    font-family: 'MacPawFixelDisplay500', sans-serif;
+    font-family: "MacPawFixelDisplay500", sans-serif;
     font-size: 24px;
     line-height: 1.33;
   }
 }
 
 .orderProcessing__plannerParagraph {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -2582,7 +2555,7 @@ input:invalid:required {
 }
 
 .orderProcessing__price {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2597,12 +2570,12 @@ input:invalid:required {
 }
 
 .orderProcessing__priceCancelled {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 8px;
   line-height: 1.1;
   letter-spacing: -0.01em;
   -webkit-text-decoration-line: line-through;
-  text-decoration-line: line-through;
+          text-decoration-line: line-through;
   color: #111111;
 }
 @media screen and (min-width: 1440px) {
@@ -2613,7 +2586,7 @@ input:invalid:required {
 }
 
 .orderProcessing__priceCurrent {
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.01em;
@@ -2641,19 +2614,27 @@ input:invalid:required {
   }
 }
 
-.orderProcessing__ItemImg {
-  max-width: 52px;
-  transform: rotate(-10deg);
+.orderProcessing__ItemImgWrapper {
+  position: relative;
+  min-width: 52px;
+  min-height: 68px;
 }
 @media screen and (min-width: 1440px) {
-  .orderProcessing__ItemImg {
-    transform: rotate(0deg);
-    max-width: 74px;
+  .orderProcessing__ItemImgWrapper {
+    min-width: 74px;
+    min-height: 96px;
   }
 }
 
+.orderProcessing__ItemImg {
+  position: absolute;
+  top: 18px;
+  scale: 3;
+  z-index: -2;
+}
+
 .orderProcessing__amountTitle {
-  font-family: 'MacPawFixelDisplayLight400', sans-serif;
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2661,7 +2642,7 @@ input:invalid:required {
 }
 @media screen and (min-width: 1440px) {
   .orderProcessing__amountTitle {
-    font-family: 'MacPawFixelDisplayLight400', sans-serif;
+    font-family: "MacPawFixelDisplayLight400", sans-serif;
     font-size: 18px;
     line-height: 1.33;
   }
@@ -2697,7 +2678,7 @@ input:invalid:required {
 }
 
 .orderProcessing__item:not(:last-child):after {
-  content: '';
+  content: "";
   display: block;
   width: 335px;
   height: 1px;
@@ -2711,7 +2692,7 @@ input:invalid:required {
 }
 
 .orderProcessing__itemTitle {
-  font-family: 'MacPawFixelDisplayLight400', sans-serif;
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
   font-size: 12px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -2727,7 +2708,7 @@ input:invalid:required {
 }
 
 .orderProcessing__itemParagraph {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 8px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -2753,8 +2734,7 @@ input:invalid:required {
   }
 }
 
-.orderProcessing__minus,
-.orderProcessing__plus {
+.orderProcessing__minus, .orderProcessing__plus {
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -2776,7 +2756,7 @@ input:invalid:required {
   margin: 0 4px;
   border: 0.5px solid rgba(17, 17, 17, 0.2);
   border-radius: 2px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
@@ -2790,15 +2770,18 @@ input:invalid:required {
   }
 }
 
-.orderProcessing__cost {
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+.orderProcessing__costBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
 }
 
 .orderProcessing__addBtn {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #111111;
@@ -2814,19 +2797,36 @@ input:invalid:required {
   }
 }
 
+.orderProcessing__addBtn::after {
+  content: "";
+  display: block;
+  width: 43px;
+  height: 1px;
+  background: #3c3b3b;
+  opacity: 0.5;
+}
 @media screen and (min-width: 1440px) {
   .orderProcessing__addBtn::after {
-    content: '';
-    display: block;
     width: 49px;
-    height: 1px;
-    background: #3c3b3b;
-    opacity: 0.5;
   }
 }
 
+.orderProcessing__lastItemsLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3c3b3b;
+  height: 20px;
+  background-color: #f3bb4a;
+  border-radius: 10px;
+  width: 90px;
+}
+
 .promo__container {
-  padding-top: 72px;
+  padding-top: 36px;
   padding-bottom: 28px;
 }
 @media screen and (min-width: 1440px) {
@@ -2834,6 +2834,19 @@ input:invalid:required {
     padding-top: 50px;
     padding-bottom: 150px;
   }
+}
+.promo__container.promo__ishidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .complite-form {
@@ -2863,7 +2876,7 @@ input:invalid:required {
 }
 
 .promo__label {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -2877,7 +2890,7 @@ input:invalid:required {
 }
 
 .promo__toggle {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -2926,7 +2939,7 @@ input:invalid:required {
   line-height: 117%;
   display: block;
   color: #111111;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
 }
 @media screen and (min-width: 1440px) {
   .promo__input {
@@ -2958,7 +2971,7 @@ input:invalid:required {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-size: 16px;
   line-height: 112%;
   letter-spacing: -0.02em;
@@ -2984,7 +2997,7 @@ input:invalid:required {
 }
 
 .promo__success-text {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.01em;
@@ -3005,7 +3018,7 @@ input:invalid:required {
 }
 
 .promo__final {
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -3019,7 +3032,7 @@ input:invalid:required {
 }
 
 .promo__discount {
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
@@ -3045,7 +3058,7 @@ input:invalid:required {
 .qa .qa__title {
   font-size: 28px;
   line-height: 1.1428571429;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   text-align: center;
 }
 @media screen and (min-width: 1440px) {
@@ -3069,6 +3082,7 @@ input:invalid:required {
 .qa .qa__item {
   padding: 16px 14px;
   background-color: #f3f3f3;
+  cursor: pointer;
 }
 @media screen and (min-width: 1440px) {
   .qa .qa__item {
@@ -3080,7 +3094,7 @@ input:invalid:required {
 .qa .qa-item__text {
   font-size: 14px;
   line-height: 1.4285714286;
-  font-family: 'MacPawFixelDisplayLight400', sans-serif;
+  font-family: "MacPawFixelDisplayLight400", sans-serif;
   margin-top: 14px;
   color: #3c3b3b;
   max-height: 800px;
@@ -3101,7 +3115,7 @@ input:invalid:required {
   }
 }
 .qa .qa-item__title {
-  font-family: 'MacPawFixelDisplay500', sans-serif;
+  font-family: "MacPawFixelDisplay500", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3333333333;
@@ -3126,16 +3140,20 @@ input:invalid:required {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.827586px solid rgba(17, 17, 17, 0.12);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  cursor: pointer;
   transition-property: background-color, border, rotate;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .qa .qa__btn:hover {
-  border: 0.827586px solid #f3bb4a;
-  cursor: pointer;
+  border: 1px solid #f3bb4a;
   background-color: #f3bb4a;
-  border-radius: 50%;
+}
+.qa .qa__btn.opened {
+  border: 1px solid #f3bb4a;
+  background-color: #f3bb4a;
+  rotate: 45deg;
 }
 @media screen and (min-width: 1440px) {
   .qa .qa__btn {
@@ -3154,15 +3172,6 @@ input:invalid:required {
     height: 40px;
     width: 40px;
   }
-}
-.qa .half-rotate {
-  rotate: 45deg;
-}
-.qa .active-btn {
-  border: 0.827586px solid #f3bb4a;
-  cursor: pointer;
-  background-color: #f3bb4a;
-  border-radius: 50%;
 }
 
 .personal-coatch {
@@ -3248,7 +3257,7 @@ input:invalid:required {
 }
 
 .personal-coatch__descr {
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   font-size: 18px;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
@@ -3324,7 +3333,7 @@ input:invalid:required {
 .modalFeedBack .modalFeedBack__title {
   text-align: center;
   font-size: 18px;
-  font-family: 'MacPawFixelDisplay700', sans-serif;
+  font-family: "MacPawFixelDisplay700", sans-serif;
   line-height: 1.2222222222;
   letter-spacing: -0.02em;
 }
@@ -3353,7 +3362,7 @@ input:invalid:required {
   flex-direction: column;
   gap: 4px;
   font-size: 10px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: #3c3b3b;
 }
 @media screen and (min-width: 1440px) {
@@ -3382,19 +3391,15 @@ input:invalid:required {
   }
 }
 .modalFeedBack .modalFeedBack__input::-moz-placeholder {
-  font-size: 12px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .modalFeedBack .modalFeedBack__input:-ms-input-placeholder {
-  font-size: 12px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 .modalFeedBack .modalFeedBack__input::placeholder {
-  font-size: 12px;
-  font-family: 'MacPawFixelDisplay400', sans-serif;
-
+  font-family: "MacPawFixelDisplay400", sans-serif;
   color: rgba(60, 59, 59, 0.3);
 }
 @media screen and (min-width: 1440px) {
@@ -3415,7 +3420,7 @@ input:invalid:required {
 }
 .modalFeedBack .modalFeedBack__btn {
   font-size: 16px;
-  font-family: 'MacPawFixelDisplay600', sans-serif;
+  font-family: "MacPawFixelDisplay600", sans-serif;
   line-height: 1.125;
   letter-spacing: -0.02em;
   display: flex;
@@ -3443,113 +3448,6 @@ input:invalid:required {
 .modal-is-hidden {
   opacity: 0;
   pointer-events: none;
-}
-
-.promocode-container {
-  min-width: 320px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media screen and (min-width: 480px) {
-  .promocode-container {
-    width: 480px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .promocode-container {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .promocode-container {
-    width: 1280px;
-  }
-}
-
-.promocode__title {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-.promocode__form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.discount__wrapper,
-.promocode__wrapper,
-.date__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  border-bottom: 1px solid #f3f3f3;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.promocode__group {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 15px;
-}
-
-.form-check-input {
-  margin-top: 0;
-}
-
-.promocode__input {
-  margin-top: 15px;
-  width: 300px;
-}
-
-.btn.btn-primary,
-.btn.btn-success,
-.btn.btn-danger {
-  width: 250px;
-  height: 45px;
-  padding: 0;
-}
-
-.list__item {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #f3f3f3;
-}
-
-.common__wrapper,
-.personal__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5px;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  background-color: #f3f3f3;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.personal-promocode {
-  margin-bottom: 70px;
-}
-
-.promo__name {
-  padding: 8px;
-  border-radius: 7px;
-  margin-left: 20px;
-  font-size: 34px;
-  background-color: #3c3b3b;
-  color: #ffffff;
 }
 
 .button-up__wrapper {
@@ -3612,10 +3510,73 @@ input:invalid:required {
   }
 }
 
+.swiper-detailed {
+  width: 100%;
+}
+.swiper-detailed .swiper-detailed__swiper {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-detailed .swiper-wrapper {
+  height: 100%;
+}
+.swiper-detailed .swiper-slide > picture {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 347px;
+}
+@media screen and (min-width: 1440px) {
+  .swiper-detailed .swiper-slide > picture {
+    width: 1240px;
+  }
+}
+.swiper-detailed .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-detailed .swiper-slide__img {
+  margin: 0;
+}
+.swiper-detailed .swiper-scrollbar-wrapper {
+  height: 20px;
+  width: 100%;
+  padding: 0 85px;
+}
+.swiper-detailed .swiper-scrollbar {
+  position: static;
+  width: 204px;
+  height: 10px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+@media screen and (min-width: 1440px) {
+  .swiper-detailed .swiper-scrollbar {
+    width: 480px;
+    height: 18px;
+    margin-top: 40px;
+  }
+}
+.swiper-detailed .swiper-scrollbar-drag {
+  background-color: #f3bb4a;
+}
+@media screen and (min-width: 1440px) {
+  .swiper-detailed .swiper-scrollbar-drag {
+    width: 80px;
+    height: 18px;
+  }
+}
+
 .order-admin {
   margin: 0 auto;
   text-align: center;
   padding-bottom: 40px;
+}
+
+.order-admin__text1 {
+  background-color: rgb(51, 51, 51);
 }
 
 .wrap {
@@ -3628,4 +3589,4 @@ input:invalid:required {
   width: 250px;
   height: 45px;
   padding: 0;
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
