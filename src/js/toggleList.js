@@ -33,20 +33,34 @@ const featureAccordion = new HandyCollapse({
       `[data-lc-control='${contentID}'] .howitworks-checkbox__list li`
     );
 
+    const icons = document.querySelectorAll(
+      `[data-lc-control='${contentID}'] .howitworks-checkbox__list .howitworks-checkbox__icon`
+    );
+
+    const label = document.querySelector(
+      `[data-lc-control='${contentID}'] .howitworks-item__wrapper`
+    );
+
     if (!iconEl) return;
 
     if (isOpen) {
+      label.classList.add('active');
       iconEl.classList.add('rotate');
       listItems.forEach((el, idx) => {
         setTimeout(() => {
           el.classList.add('active');
         }, 200 * idx);
       });
+      icons.forEach((el, idx) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, 200 * idx);
+      });
     } else {
+      label.classList.remove('active');
       iconEl.classList.remove('rotate');
-      setTimeout(() => {
-        listItems.forEach(el => el.classList.remove('active'));
-      }, 400);
+      listItems.forEach(el => el.classList.remove('active'));
+      icons.forEach(el => el.classList.remove('active'));
     }
   },
 });
