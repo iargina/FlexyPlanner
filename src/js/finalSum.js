@@ -5,10 +5,20 @@ import { stringifyOrder } from './services/query-methods';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
+const finalWrapper = document.querySelector('.final__wrapper ');
+
+finalSumBtn.disabled = true;
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
-console.log(order.sumWithDiscount);
 let amount = 0;
 let sumAmount = 0;
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.add('final__wrapper-scroll');
+  } else if (window.pageYOffset < 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.remove('final__wrapper-scroll');
+  }
+});
 
 finalSumBtn.addEventListener('click', onFinalSumBtnClick);
 
