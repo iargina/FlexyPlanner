@@ -1,62 +1,103 @@
 .swiper-detailed {
+  width: 100%;
+  padding-bottom: 72px;
+
+  @media screen and (min-width: $desktop-width) {
+    padding-bottom: 172px;
+  }
+
+  .swiper-detailed__swiper {
     width: 100%;
+    max-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .swiper-slide > picture {
+    object-fit: fill;
+    max-width: 600px;
     
-    .swiper-detailed__swiper {
-        width: 100%;
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
+
+    @media screen and (min-width: $desktop-width) {
+      width: 1240px;
+      position: static;
+      max-width: 800px;
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+    left: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 500px;
+
+    &:nth-child(3) {
+        left: -50px;
+    }
+    &:nth-child(4) {
+        left: -50px;
+    }
+    &:nth-child(6) {
+        left: -50px;
     }
 
-    .swiper-wrapper {
-        height: 100%;
+    @media screen and (min-width: $desktop-width) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-height: 100%;
     }
+  }
 
-    .swiper-slide > picture {
-        object-fit: cover;
-        width: 347px;
+  .swiper-slide__img {
+    margin: 0;
+  }
 
-        @media screen and (min-width: $desktop-width) {
-            width: 1240px;
-          }
-      }
+  .swiper-wrapper {
+    height: 100%;
+  }
 
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .swiper-detailed__pagination {
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+    position: relative;
+    margin-top: 32px;
+    width: 100%;
+    left: 0;
+    z-index: 50;
+
+    @media screen and (min-width: 1440px) {
+      margin-top: 40px;
     }
-
-    .swiper-slide__img {
-        margin: 0;
+    span {
+      width: 14px;
+      height: 14px;
+      border: 2px solid $background-color;
+      border-radius: 50%;
+      background-color: $accent-color;
     }
-
-    .swiper-scrollbar-wrapper {
+    @media screen and (min-width: 1440px) {
+      span {
+        width: 20px;
         height: 20px;
-        width: 100%;
-        padding: 0 85px;
+      }
     }
+  }
+  .swiper-pagination-bullet {
+    opacity: 1;
+    transition: scale 300ms $transition-timing-function;
 
-    .swiper-scrollbar {
-        position: static;
-        width: 204px;
-        height: 10px;
-        margin: 0 auto;
-        margin-top: 32px;
-
-        @media screen and (min-width: $desktop-width) {
-            width: 480px;
-            height: 18px;
-            margin-top: 40px;
-          }
+    &:hover {
+      scale: 1.2;
     }
-
-    .swiper-scrollbar-drag {
-        background-color: $accent-color;
-
-        @media screen and (min-width: $desktop-width) {
-            width: 80px;
-            height: 18px;
-          }
-    }
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    border: 2px solid #e8e8e8;
+    scale: 1.2;
+  }
 }
