@@ -3,7 +3,7 @@ import 'aos/dist/aos.css';
 
 Aos.init({
   duration: 600,
-  once: true,
+  once: false,
   debounceDelay: 200,
   throttleDelay: 100,
 });
