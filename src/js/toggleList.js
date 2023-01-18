@@ -55,12 +55,15 @@ const qaAccordion = new HandyCollapse({
   nameSpace: 'hc',
   closeOthers: false,
   onSlideStart: (isOpen, contentID) => {
-    const btnEl = document.querySelector(`[data-hc-control='${contentID}']`);
+    const btnEl = document.querySelector(
+      `[data-hc-control='${contentID}'] .qa__btn`
+    );
+    console.log(btnEl);
     if (!btnEl) return;
     if (isOpen) {
-      btnEl.classList.add('half-rotate');
+      btnEl.classList.add('opened');
     } else {
-      btnEl.classList.remove('half-rotate');
+      btnEl.classList.remove('opened');
     }
   },
 });
