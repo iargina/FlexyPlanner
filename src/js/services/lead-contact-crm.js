@@ -1,9 +1,23 @@
 import { order } from '../utils';
-import { crmLead, options } from './crm-lead-post';
+import axios from 'axios';
+import { Notify } from 'notiflix';
 
 const contact = document.querySelector('.contacts__btn');
 contact.addEventListener('click', onContactClick);
 
+const crmPost = leadData => {
+  try {
+    axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/crm/leads',
+      data: leadData,
+    });
+  } catch (error) {
+    Notify.failure(
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
+    );
+  }
+};
 function onContactClick() {
   const productsArr = order.orderedPlanners.filter(el => el.amount > 0);
 
@@ -23,7 +37,5 @@ function onContactClick() {
       };
     }),
   };
-  options.body = JSON.stringify(leadCrmData);
-  /*   crmLead(options); */
-  console.log(options.body);
+  crmPost(leadCrmData);
 }

@@ -32,6 +32,7 @@
   .qa__item {
     padding: 16px 14px;
     background-color: $background-color;
+    cursor: pointer;
 
     @media screen and (min-width: $desktop-width) {
       padding-left: 32px;
@@ -93,17 +94,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.827586px solid rgba(17, 17, 17, 0.12);
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    cursor: pointer;
 
     transition-property: background-color, border, rotate;
     transition-duration: 250ms;
     transition-timing-function: $transition-timing-function;
 
     &:hover {
-      border: 0.827586px solid $accent-color;
-      cursor: pointer;
+      border: 1px solid $accent-color;
       background-color: $accent-color;
-      border-radius: 50%;
+    }
+
+    &.opened {
+      border: 1px solid $accent-color;
+      background-color: $accent-color;
+      rotate: 45deg;
     }
 
     @media screen and (min-width: $desktop-width) {
@@ -122,16 +128,5 @@
       height: 40px;
       width: 40px;
     }
-  }
-
-  .half-rotate {
-    rotate: 45deg;
-  }
-
-  .active-btn {
-    border: 0.827586px solid $accent-color;
-    cursor: pointer;
-    background-color: $accent-color;
-    border-radius: 50%;
   }
 }

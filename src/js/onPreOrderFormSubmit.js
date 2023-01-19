@@ -1,6 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { options } from './services/crm-lead-post';
-/* import { BASE_URL, crmLead } from './services/crm-lead'; */
+import axios from 'axios';
 
 const onPreOrderFormSubmit = () => {
   const form = document.querySelector('.modalFeedBack__form');
@@ -15,7 +14,7 @@ const onPreOrderFormSubmit = () => {
     const nameData = formData.get('username');
     const emailData = formData.get('email');
     const commentData = formData.get('comment');
-    const data = {
+    const leadData = {
       title: commentData,
       pipeline_id: 1,
       contact: {
@@ -24,10 +23,11 @@ const onPreOrderFormSubmit = () => {
       },
     };
 
-    options.body = JSON.stringify(data);
-
-    console.log(options.body);
-    /*     crmLead(options); */
+    axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/crm/leads',
+      data: leadData,
+    });
     clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
   }

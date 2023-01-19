@@ -1,10 +1,10 @@
-import { crmPost, options } from './services/crm-order-post';
 import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
 const linkContainerRef = document.querySelector('.js-modal-success');
 const urlParams = new URLSearchParams(window.location.search);
-
+import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 /* npm start */
 
 function openSuccessModal() {
@@ -53,20 +53,25 @@ window.onload = function () {
   }
 };
 
+const crmPostOrder = orderData => {
+  try {
+    axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/crm/order',
+      data: orderData,
+    });
+  } catch (error) {
+    Notify.failure(
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
+    );
+  }
+};
+
 async function successPayment() {
   const order = await window.onload();
 
   if (order) {
-    options.body = order;
-    console.log(options.body);
-    console.log(JSON.stringify(options.body));
-    //отправка запроса на crm
-    /*  try {
-      crmPost(options);
-    } catch (error) {
-      console.log(error);
-    } */
-
+    crmPostOrder(order);
     openSuccessModal();
   }
   return;
