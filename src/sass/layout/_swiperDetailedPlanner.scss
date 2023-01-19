@@ -1,23 +1,20 @@
 .swiper-detailed {
   width: 100%;
-  padding-bottom: 72px;
+  padding-bottom: 50px;
 
   @media screen and (min-width: $desktop-width) {
-    padding-bottom: 172px;
+    padding-bottom: 72px;
   }
 
   .swiper-detailed__swiper {
-    width: 100%;
-    max-height: 100vh;
     margin: 0;
     overflow: hidden;
+    width: 100%;
   }
 
   .swiper-slide > picture {
     object-fit: fill;
-    max-width: 600px;
     
-
     @media screen and (min-width: $desktop-width) {
       width: 1240px;
       position: static;
@@ -26,13 +23,14 @@
   }
 
   .swiper-slide {
+    width: 600px;
     position: relative;
     left: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-height: 500px;
+    
+    gap: 30px;
 
     &:nth-child(3) {
         left: -50px;
@@ -44,7 +42,18 @@
         left: -50px;
     }
 
+    .swiper-detailed__slide {
+      width: 500px;
+      height: 400px;
+
+      @media screen and (min-width: $desktop-width) {
+width: 100%;
+height: 100%;
+      }
+    }
+
     @media screen and (min-width: $desktop-width) {
+      position: static;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -55,10 +64,21 @@
 
   .swiper-slide__img {
     margin: 0;
+    width: 400px;
+    height: 350px;
+    @media screen and (min-width: $desktop-width) {
+      width: 100%;
+      height: 100%;
+    }
   }
 
+
   .swiper-wrapper {
-    height: 100%;
+    height: 600px;
+
+    @media screen and (min-width: $desktop-width) {
+      height: auto;
+    }
   }
 
   .swiper-detailed__pagination {

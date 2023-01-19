@@ -1,16 +1,18 @@
-import SwiperDetailed, { Autoplay, Pagination } from 'swiper';
+import SwiperDetailed, { /* Autoplay, */ Pagination } from 'swiper';
 
-SwiperDetailed.use([Autoplay, Pagination])
+SwiperDetailed.use([/* Autoplay, */ Pagination])
 
 const swiperDetailed = new SwiperDetailed('.swiper-detailed__swiper', {
     direction: 'horizontal',
-    spaceBetween: 80,
-    autoplay: {
+    spaceBetween: 120,
+    autoHeight: true,
+    setWrapperSize: true,
+    /* autoplay: {
       delay: 4000,
       disableOnInteraction: false,
       followFinger: false,
-    },
-    speed: 1000,
+    }, */
+   /*  speed: 1000, */
     grabCursor: true,
       pagination: {
         el: '.swiper-pagination',
@@ -18,3 +20,10 @@ const swiperDetailed = new SwiperDetailed('.swiper-detailed__swiper', {
         type: 'bullets',
       },
   });
+
+  const slides = document.querySelectorAll('.swiper-detailed__slide');
+
+ /*  slides.forEach(slide => {
+    slide.style.width = '600px'
+  }) */
+  console.log(slides)
