@@ -329,8 +329,11 @@ function recalcAmount() {
   makeMarkup();
   console.log("Order: ", order.getWholeOrderData());
 
+  let TotalPlannerAmounts = order.orderedPlanners.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0
+  );
+
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
-  <div class="orderProcessing__firstCostValue">${order.orderedPlanners.length * order.price} грн</div>
+  <div class="orderProcessing__firstCostValue">${TotalPlannerAmounts * order.price} грн</div>
   `;
 }
