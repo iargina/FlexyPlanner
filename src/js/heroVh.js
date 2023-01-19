@@ -131,7 +131,7 @@ heroWrapper.innerHTML = heroMarkup;
 //     hero.style.paddingBottom = `${padding / 2}px`;
 //   }
 // }
-// Доробив функцію для обчислення падінгів
+// Доробив функцію для обчислення падінгів AndriyKyrylenko
 function calcP() {
   const containerH = document.querySelector('.hero-container').clientHeight;
   const screenH = window.screen.height;
