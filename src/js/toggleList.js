@@ -80,7 +80,7 @@ for (let i = 1; i <= 5; i += 1) {
   const observer = new IntersectionObserver(onScrollToList, {
     root: null,
     rootMargin: '-100px',
-    threshold: 1.0,
+    threshold: 0.3,
   });
 
   observer.observe(observerRef);
