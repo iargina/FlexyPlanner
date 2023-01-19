@@ -10,7 +10,7 @@
 
   @media screen and (min-width: $desktop-width) {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 200px;
   }
   &.delivery__ishidden {
     @include visually-hidden;

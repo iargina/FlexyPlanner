@@ -1,12 +1,47 @@
-@keyframes fade {
+@keyframes zoom-in {
   0% {
-    transform: translateX(50px);
     opacity: 0;
+    transform: translate(20%, -70%) scale(3) rotate(-30deg);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.7) rotate(0);
   }
 
   100% {
-    transform: translateX(0);
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+  }
+}
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
   }
 }
 
@@ -79,6 +114,7 @@
       }
     }
   }
+
   .howitworks__title {
     font-size: 28px;
     font-family: $font-family700;
@@ -117,6 +153,13 @@
     border-bottom: 1px solid $black-color;
     padding-bottom: 12px;
 
+    &.active {
+      animation-name: bounce;
+      animation-delay: 800ms;
+      animation-duration: 1000ms;
+      animation-fill-mode: forwards;
+    }
+
     @media screen and (min-width: $desktop-width) {
       border: none;
       width: 429px;
@@ -128,17 +171,14 @@
     gap: 16px;
     align-items: center;
     opacity: 0;
+    transition: opacity $transition-duration $transition-timing-function;
 
     @media screen and (min-width: $desktop-width) {
       gap: 18px;
     }
 
     &.active {
-      animation-name: fade;
-      animation-timing-function: ease-in-out;
-      animation-duration: 300ms;
-      animation-delay: 400ms;
-      animation-fill-mode: forwards;
+      opacity: 1;
     }
   }
 
@@ -152,9 +192,37 @@
     }
   }
 
+  .checkbox-wrapper {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $black-color;
+    border-radius: 6px;
+
+    @media screen and (min-width: $desktop-width) {
+      border: 3px solid $black-color;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
   .howitworks-checkbox__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 20px;
     height: 20px;
+
+    opacity: 0;
+
+    &.active {
+      animation-name: zoom-in;
+      animation-timing-function: ease-in-out;
+      animation-duration: 300ms;
+      animation-delay: 1600ms;
+      animation-fill-mode: forwards;
+    }
 
     @media screen and (min-width: $desktop-width) {
       width: 32px;

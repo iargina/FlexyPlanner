@@ -8,6 +8,7 @@
   justify-content: space-between;
   @media screen and (min-width: $desktop-width) {
     padding: 50px 100px 100px;
+    z-index: 0;
   }
 }
 .footer__contacts {

@@ -2,13 +2,25 @@ import moment from 'moment';
 import { order } from './utils';
 import { orderCrmData, orderCrmDataForm } from './services/crm-order-data';
 import { stringifyOrder } from './services/query-methods';
+import axios from 'axios';
+import { Notify } from 'notiflix';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
+const finalWrapper = document.querySelector('.final__wrapper ');
+
+finalSumBtn.disabled = true;
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
-console.log(order.sumWithDiscount);
 let amount = 0;
 let sumAmount = 0;
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.add('final__wrapper-scroll');
+  } else if (window.pageYOffset < 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.remove('final__wrapper-scroll');
+  }
+});
 
 finalSumBtn.addEventListener('click', onFinalSumBtnClick);
 
@@ -76,29 +88,31 @@ function postToAdd() {
   };
 }
 
+const monoPost = async paymentData => {
+  try {
+    const response = await axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/mono',
+      data: paymentData,
+    });
+    console.log(response);
+    const page = response.data.pageUrl;
+    window.location.href = `${page}`;
+  } catch (error) {
+    Notify.failure(
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
+    );
+  }
+};
+
 let queryData;
 function onFinalSumBtnClick(e) {
   orderCrmDataForm();
   queryData = stringifyOrder(orderCrmData);
-  api();
-}
-
-function api() {
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(postToAdd()),
-    headers: {
-      'X-Token': 'ugAI3yR-ILBoA2FEZ_C0fZ1l_sERRYPCaL7enjvjHHE8',
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  };
-  fetch('https://api.monobank.ua/api/merchant/invoice/create', options)
-    .then(response => response.json())
-    .then(post => {
-      const page = post.pageUrl;
-      window.location.href = `${page}`;
-    })
-    .catch(error => console.log(error));
+  /*   api(); */
+  const paymentData = postToAdd();
+  console.log(paymentData);
+  monoPost(paymentData);
 }
 
 // Правильна форма слова "продукт"
