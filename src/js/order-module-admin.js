@@ -110,7 +110,9 @@ const handlePreOrderSubmit = async e => {
     // console.log(data);
     // showSettedPrice(data);
   } catch (error) {
-    Notify.failure(error.message);
+    Notify.failure(
+      'Не вдалось встановити декоративну ціну для модуля попереднього замовлення. Спробуйте пізніше'
+    );
   } finally {
     formPreOrder.reset();
   }
