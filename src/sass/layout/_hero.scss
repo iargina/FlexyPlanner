@@ -1,19 +1,17 @@
 // .hero {
-//   padding-top: 40px;
+// //   padding-top: 40px;
 //   @media screen and (min-width: 1440px) {
-//     padding-top: 70px;
-//     height: 100vh;
+//     // padding-top: 70px;
+//     // height: 100vh;
 //   }
 // }
 .hero {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media screen and (min-width: 1440px) {
-    padding-top: 70px;
-  }
+  display: grid;
+  place-items: center;
+//   @media screen and (min-width: 1440px) {
+//     // padding-top: 70px;
+//   }
 }
 .hero-container {
   padding: 0;
