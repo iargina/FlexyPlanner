@@ -6,25 +6,28 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
+  freeMode: true,
+
   loopedSlides: 3,
   centeredSlides: true,
   autoplayDisableOnInteraction: false,
-  speed: 300,
+  speed: 4000,
   slidesPerView: 1,
   initialSlide: 0,
-  spaceBetween: 10,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
     type: 'bullets',
   },
   autoplay: {
-    delay: 2000,
+    delay: 3000,
     disableOnInteraction: false,
   },
   breakpoints: {
     1440: {
+      slidesPerView: 1,
       direction: 'vertical',
+      spaceBetween: 0,
     },
   },
   ally: {

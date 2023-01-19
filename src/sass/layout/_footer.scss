@@ -65,18 +65,26 @@
   text-align: center;
   width: 335px;
   margin: auto;
-  padding: 10px 65px;
+  padding: 10px 64px;
   font-family: $font-family600;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
   @media screen and (min-width: 591px) {
     width: 268px;
-    padding: 16px 32px;
+    padding: 16px 31px;
     position: absolute;
     top: 50px;
     left: 50%;
     transform: translate(-50%, 0%);
     line-height: 1.33;
+  }
+}
+.footer__button:hover,
+.footer__button:focus {
+  padding: 9px 64px;
+  border: 1px solid $accent-color;
+  @media screen and (min-width: 591px) {
+    padding: 15px 31px;
   }
 }
