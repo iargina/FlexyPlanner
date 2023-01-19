@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getCurrentPriceFromCrm } from './services/order-moduleApi';
 import toggleModal from './toggleModal';
 
 const onOrderModule = async () => {
@@ -14,15 +15,41 @@ const onOrderModule = async () => {
   }
 };
 
+const getPriceFromCrm = async () => {
+  try {
+    const orderPriceArray = await getCurrentPriceFromCrm();
+    return orderPriceArray;
+  } catch (error) {
+    Notify.failure(error.message);
+  }
+};
+
+const getPriceForRenderModuleFromCrm = async typeOfModule => {
+  try {
+    const orderPriceArray = await getPriceFromCrm();
+    const priceArr = orderPriceArray.filter(item =>
+      item.sku.startsWith(typeOfModule)
+    );
+    return Math.max(...priceArr.map(item => item.price));
+  } catch (error) {
+    Notify.failure(error.message);
+  }
+};
+
 const loadModule = async ({ type, data }) => {
   try {
     let template;
     if (type === 'pre-order') {
+      data.preOrderPrice = await getPriceForRenderModuleFromCrm('PO');
+
       const { default: getImportFile } = await import(
         `../templates/pre-order.hbs`
       );
       template = getImportFile(data);
     } else {
+      data.price = await getPriceForRenderModuleFromCrm('FP');
+      // console.log(data);
+
       const { default: getImportFile } = await import(
         `../templates/to-order.hbs`
       );

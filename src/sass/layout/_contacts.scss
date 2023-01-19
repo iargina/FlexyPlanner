@@ -12,6 +12,7 @@
     max-width: 420px;
   }
 }
+
 .contacts__label {
   display: block;
   font-family: $font-family400;
@@ -62,4 +63,7 @@
 }
 .contacts__btn {
   padding: 10px 44px;
+  &:disabled {
+    background: grey;
+  }
 }
