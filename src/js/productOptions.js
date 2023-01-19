@@ -17,7 +17,6 @@ listEl.addEventListener('click', onElementClick);
 
 let products = [];
 
-
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
   let middleDataObj = {};
@@ -40,11 +39,9 @@ fetchOrderModule();
 
 // =====================================================
 
-
-
 // ========== Fetching Planners Data ===================
 
-const fetchPlannersData = async (dataObj) => {
+const fetchPlannersData = async dataObj => {
   try {
     const response = await axios.get(
       'https://flexyplanner.onrender.com/crm/offers'
@@ -52,22 +49,25 @@ const fetchPlannersData = async (dataObj) => {
     const productArr = response.data.data;
     // console.log(productArr);
 
-    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO'));
+    const filteredPreOrderPrice = productArr.filter(el =>
+      el.sku.startsWith('PO')
+    );
     // console.log('filteredPreOrderPrice', filteredPreOrderPrice)
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-    const filteredOrderPrice = productArr.filter(el => el.sku.startsWith('FP') && el.price !== 0);
+    const filteredOrderPrice = productArr.filter(
+      el => el.sku.startsWith('FP') && el.price !== 0
+    );
     // console.log('filteredOrderPrice', filteredOrderPrice);
 
     function priceSumCounter(filteredArray) {
       let counterOrder = 0;
       const priceSum = filteredArray.reduce((acc, val) => {
         counterOrder += 1;
-        return acc + val.price
-      },
-        0
-      );
+        return acc + val.price;
+      }, 0);
       return {
-        priceSum, counterOrder
+        priceSum,
+        counterOrder,
       };
     }
 
@@ -75,7 +75,6 @@ const fetchPlannersData = async (dataObj) => {
     const priceOrderSum = priceSumCounter(filteredOrderPrice).priceSum;
     const counterPreOrder = priceSumCounter(filteredPreOrderPrice).counterOrder;
     const counterOrder = priceSumCounter(filteredOrderPrice).counterOrder;
-
 
     if (pricePreOrderSum / counterPreOrder === filteredPreOrderPrice[0].price) {
       // console.log("З ціною все ок, вона", filteredPreOrderPrice[0].price);
@@ -90,26 +89,26 @@ const fetchPlannersData = async (dataObj) => {
       // console.log("З ціною все ок, вона", filteredOrderPrice[0].price);
       // Формую об'єкт із ціною:
       priceSetter();
-
     } else {
       // console.log("З ціною щось не те");
       // Вивести на сторінку щось
     }
 
-
-
     function priceSetter() {
       // console.log(dataObj);
       if (dataObj.type === 'pre-order') {
-        console.log("Active module: Pre-Order!");
+        console.log('Active module: Pre-Order!');
         // Формую об'єкт із ціною:
-        order.price = { orderPrice: filteredOrderPrice[0].price, preOrderPrice: filteredPreOrderPrice[0].price }
+        order.price = {
+          orderPrice: filteredOrderPrice[0].price,
+          preOrderPrice: filteredPreOrderPrice[0].price,
+        };
       }
 
       if (dataObj.type === 'to-order') {
-        console.log("Active module: Order!");
+        console.log('Active module: Order!');
         // Формую об'єкт із ціною:
-        order.price = { orderPrice: filteredOrderPrice[0].price }
+        order.price = { orderPrice: filteredOrderPrice[0].price };
         // А може так?:
         // order.price = { orderPrice: filteredOrderPrice[0].price, preOrderPrice: null }
       }
@@ -119,21 +118,14 @@ const fetchPlannersData = async (dataObj) => {
   } catch (error) {
     console.log(error.message);
   } finally {
-
     // Виводжу ціну наверху в секції
     priceMarkupRender();
-
-
   }
 };
 
 // ======= RESPONSE EXAMPLE FROM CRM ====================
 const res = response_2;
 // ========================================================
-
-
-
-
 
 async function listMarkupRender(dataObj) {
   // USING FAKE JSON DATA
@@ -208,13 +200,10 @@ async function listMarkupRender(dataObj) {
   recalcAmount();
 
   // Застосовую початковий стан до планерів:
-  console.log(dataObj);
+  // console.log(dataObj);
   initialState(dataObj);
 }
 // ========================================================================
-
-
-
 
 // ========================================================================
 // ========================================================================
@@ -234,14 +223,13 @@ function priceMarkupRender() {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    console.log('listItemsArr', listItemsArr)
+    //console.log('listItemsArr', listItemsArr)
     for (let i = 1; i < listItemsArr.length; i += 1) {
       resetAmount(listItemsArr[i]);
     }
   } catch (error) {
     console.log(message.error);
   }
-
 }
 
 function onElementClick(e) {
@@ -376,5 +364,5 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-  console.log("Order: ", order.getWholeOrderData());
+  // console.log("Order: ", order.getWholeOrderData());
 }
