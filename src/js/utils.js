@@ -1,6 +1,6 @@
 class Order {
   #orderedPlanners = [];
-  #price = {};
+  #price = null;
   #contactInfo = {};
   #delivery = {};
   #discountValue = 0;
