@@ -1,14 +1,13 @@
-// const heroSec = document.querySelector('.hero');
-// const heroWrapper = document.createElement('div');
+const heroSec = document.querySelector('.hero');
 
-// function appendHero() {
-//   let userwidth = window.screen.height;
-//   const padding = userwidth - heroSec.offsetHeight;
-//   console.log(padding);
-//   if (padding > 0) {
-//     heroSec.style.paddingTop = `${padding / 2}px`;
-//     heroSec.style.paddingBottom = `${padding / 2}px`;
-//   }
-// }
-
-// appendHero();
+function centeredHero() {
+  let userwidth = window.screen.height;
+  const padding = userwidth - heroSec.offsetHeight;
+  console.log(padding);
+  if (padding > 0) {
+    heroSec.style.paddingTop = `${padding / 2}px`;
+    heroSec.style.paddingBottom = `${padding / 2}px`;
+  }
+}
+centeredHero();
+// window.addEventListener('resize', appendHero, true);
