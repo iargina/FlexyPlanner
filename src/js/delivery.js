@@ -153,10 +153,10 @@ function onWarehousesListClick(e) {
     recipient_phone: receiverPhoneRef.value,
   };
 
-  console.log(order);
+  /*   console.log(order); */
 
   order.delivery = deliveryInfo;
-  console.log(order);
+  /*   console.log(order); */
 
   warehousesListRef.innerHTML = '';
   warehousesListRef.classList.remove('show');
