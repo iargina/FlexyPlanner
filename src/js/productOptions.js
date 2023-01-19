@@ -46,26 +46,11 @@ const fetchPlannersData = async dataObj => {
     );
     const productArr = response.data.data;
 
-<<<<<<< HEAD
-const fetchPlannersData = async () => {
-  const response = await axios.get('https://openapi.keycrm.app/v1/offers', {
-    headers: {
-      Authorization: 'Bearer MjA3NDhmMzYyY2M3YjlkNDlhZTZiZDAyYzcyMWY2YWUxOGIxNTY2OA',
-      'Access-Control-Allow-Origin': '*'
-    },
-    params: {
-      'include': 'product'
-    }
-  })
-  return response;
-}
-=======
     const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO'));
     // 
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
     // 
     const filteredOrderPrice = productArr.filter(el => el.sku.startsWith('FP') && el.price !== 0);
->>>>>>> dev
 
 
     function priceSetter() {
