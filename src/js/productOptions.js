@@ -15,7 +15,6 @@ listEl.addEventListener('click', onElementClick);
 
 let products = [];
 
-
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
   let middleDataObj = {};
@@ -38,11 +37,9 @@ fetchOrderModule();
 
 // =====================================================
 
-
-
 // ========== Fetching Planners Data ===================
 
-const fetchPlannersData = async (dataObj) => {
+const fetchPlannersData = async dataObj => {
   try {
     const response = await axios.get(
       'https://flexyplanner.onrender.com/crm/offers'
@@ -55,17 +52,22 @@ const fetchPlannersData = async (dataObj) => {
     // 
     const filteredOrderPrice = productArr.filter(el => el.sku.startsWith('FP') && el.price !== 0);
 
+
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-        console.log("Active module: Pre-Order!");
+        console.log('Active module: Pre-Order!');
         // Формую об'єкт із ціною:
+
         order.price = filteredPreOrderPrice[0].price;
+
       }
 
       if (dataObj.type === 'to-order') {
-        console.log("Active module: Order!");
+        console.log('Active module: Order!');
         // Формую об'єкт із ціною:
+
         order.price = filteredOrderPrice[0].price;
+
       }
     }
     priceSetter();
@@ -74,13 +76,14 @@ const fetchPlannersData = async (dataObj) => {
   } catch (error) {
     console.log(error.message);
   } finally {
-
     // Виводжу ціну наверху в секції
+
     priceMarkupRender(dataObj);
 
 
   }
 };
+
 
 
 
@@ -159,13 +162,12 @@ async function listMarkupRender(dataObj) {
   recalcAmount();
 
   // Застосовую початковий стан до планерів:
+
   console.log(dataObj);
   initialState();
+
 }
 // ========================================================================
-
-
-
 
 // ========================================================================
 // ========================================================================
@@ -184,14 +186,13 @@ function priceMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    console.log('listItemsArr', listItemsArr)
+    //console.log('listItemsArr', listItemsArr)
     for (let i = 1; i < listItemsArr.length; i += 1) {
       resetAmount(listItemsArr[i]);
     }
   } catch (error) {
     console.log(message.error);
   }
-
 }
 
 function onElementClick(e) {
@@ -327,6 +328,7 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
+
   console.log("Order: ", order.getWholeOrderData());
 
   let TotalPlannerAmounts = order.orderedPlanners.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0
@@ -337,3 +339,4 @@ function recalcAmount() {
   <div class="orderProcessing__firstCostValue">${TotalPlannerAmounts * order.price} грн</div>
   `;
 }
+
