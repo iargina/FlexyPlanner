@@ -259,7 +259,8 @@
   }
 }
 
-.orderProcessing__item:not(:last-child):after {
+// .orderProcessing__item:not(:last-child):after {
+.orderProcessing__item:after {
   content: '';
   display: block;
   width: 335px;
@@ -413,4 +414,27 @@
   background-color: $accent-color;
   border-radius: 10px;
   width: 90px;
+}
+
+.orderProcessing__firstCostWrapper {
+  display: flex;
+  font-size: 14px;
+  font-weight: $bold-text;
+  justify-content: space-between;
+  // color: $alert-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+  }
+}
+
+.orderProcessing__firstCostTitle {
+  margin-left: 68px;
+  @media screen and (min-width: $desktop-width) {
+    margin-left: 98px;
+  }
+}
+
+.orderProcessing__firstCostValue {
+  color: $alert-color;
 }
