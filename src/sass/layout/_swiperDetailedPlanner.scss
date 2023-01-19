@@ -14,7 +14,7 @@
 
   .swiper-slide > picture {
     object-fit: fill;
-    
+
     @media screen and (min-width: $desktop-width) {
       width: 1240px;
       position: static;
@@ -29,27 +29,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
     gap: 30px;
 
     &:nth-child(3) {
-        left: -50px;
+      left: -50px;
     }
     &:nth-child(4) {
-        left: -50px;
+      left: -50px;
     }
     &:nth-child(6) {
-        left: -50px;
+      left: -50px;
     }
 
-    .swiper-detailed__slide {
-      width: 500px;
-      height: 400px;
-
-      @media screen and (min-width: $desktop-width) {
-width: 100%;
-height: 100%;
-      }
+    @media screen and (min-width: 768px) {
+      position: static;
     }
 
     @media screen and (min-width: $desktop-width) {
@@ -66,12 +59,17 @@ height: 100%;
     margin: 0;
     width: 400px;
     height: 350px;
+
+    @media screen and (min-width: 768px) {
+      width: 650px;
+      height: 100%;
+    }
+
     @media screen and (min-width: $desktop-width) {
       width: 100%;
       height: 100%;
     }
   }
-
 
   .swiper-wrapper {
     height: 600px;
