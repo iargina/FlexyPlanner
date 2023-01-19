@@ -105,24 +105,6 @@ function onFinalSumBtnClick(e) {
   monoPost(paymentData);
 }
 
-/* function api() {
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(postToAdd()),
-    headers: {
-      'X-Token': 'ugAI3yR-ILBoA2FEZ_C0fZ1l_sERRYPCaL7enjvjHHE8',
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  };
-  fetch('https://api.monobank.ua/api/merchant/invoice/create', options)
-    .then(response => response.json())
-    .then(post => {
-      const page = post.pageUrl;
-      window.location.href = `${page}`;
-    })
-    .catch(error => console.log(error));
-} */
-
 // Правильна форма слова "продукт"
 function correctProductWord(number, words) {
   return words[
