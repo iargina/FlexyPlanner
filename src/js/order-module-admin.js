@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 import {
   getMarkup,
   toggleActiveOrderModule,
@@ -101,20 +102,19 @@ const handlePreOrderSubmit = async e => {
   };
 
   try {
-    const preOrderPriceArray = await getPriceFromCrm();
-    console.log(preOrderPriceArray);
-    const preOrderPrice = preOrderPriceArray.find(item =>
-      item.sku.startsWith('PO')
+    await setCurrentPrice(obj);
+    // const data = await setCurrentPrice(obj);
+    Notify.success(
+      'Декоративна ціна для модуля попереднього замовлення встановлена'
     );
-    // console.log(preOrderPrice.price);
-    obj.data.preOrderPrice = Number(preOrderPrice.price);
-
-    console.log(obj);
-    const data = await setCurrentPrice(obj);
     // console.log(data);
-    showSettedPrice(data);
+    // showSettedPrice(data);
   } catch (error) {
-    Notify.failure(error.message);
+    Notify.failure(
+      'Не вдалось встановити декоративну ціну для модуля попереднього замовлення. Спробуйте пізніше'
+    );
+  } finally {
+    formPreOrder.reset();
   }
 };
 
@@ -122,7 +122,7 @@ async function getActiveOrderModule() {
   try {
     //TODO: тут приходять дані по активному модулю
     const data = await getMarkup();
-    console.log(data);
+    // console.log(data);
 
     if (data.type === 'pre-order') {
       setActiveBtn(preOrderBtn);
