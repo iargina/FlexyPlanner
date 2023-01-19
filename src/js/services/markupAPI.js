@@ -1,20 +1,25 @@
 import axios from 'axios';
 
-const instanceMarkup = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/markup',
+const instance = axios.create({
+  baseURL: 'https://flexyplanner.onrender.com',
 });
 
 export const getMarkup = async () => {
-  const { data } = await instanceMarkup.get('');
+  const { data } = await instance.get('/markup');
   return data;
 };
 
 export const toggleActiveOrderModule = async () => {
-  const { data } = await instanceMarkup.patch('');
+  const { data } = await instance.patch('/markup');
   return data;
 };
 
 export const setCurrentPrice = async obj => {
-  const { data } = await instanceMarkup.put('', obj);
+  const { data } = await instance.put('/markup', obj);
   return data;
+};
+
+export const getCurrentPriceFromCrm = async () => {
+  const { data } = await instance.get('/crm/offers');
+  return data.data;
 };
