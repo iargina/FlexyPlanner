@@ -2,13 +2,14 @@ import {
   getMarkup,
   toggleActiveOrderModule,
   setCurrentPrice,
+  getCurrentPriceFromCrm,
 } from './services/markupAPI';
 
 const orderAdmin = document.querySelector('.order-admin');
 const toOrderBtn = document.querySelector('[data-status="to-order"]');
 const preOrderBtn = document.querySelector('[data-status="pre-order"]');
 // const formToOrder = document.querySelector('.form-to-order');
-// const formPreOrder = document.querySelector('.form-pre-order');
+const formPreOrder = document.querySelector('.form-pre-order');
 
 // const showSettedPrice = data => {
 //   if (data.type === 'pre-order') {
@@ -79,24 +80,43 @@ const activateOrderModule = e => {
 //   }
 // };
 
-// const handlePreOrderSubmit = async e => {
-//   e.preventDefault();
+const getPriceFromCrm = async () => {
+  try {
+    const preOrderPriceArray = await getCurrentPriceFromCrm();
+    return preOrderPriceArray;
+  } catch (error) {
+    Notify.failure(error.message);
+  }
+};
 
-//   const obj = {
-//     type: 'pre-order',
-//     data: {
-//       price: e.target.elements.price.value,
-//       preOrderPrice: e.target.elements.preOrderPrice.value,
-//     },
-//   };
+const handlePreOrderSubmit = async e => {
+  e.preventDefault();
 
-//   try {
-//     const data = await setCurrentPrice(obj);
-//     showSettedPrice(data);
-//   } catch (error) {
-//     Notify.failure(error.message);
-//   }
-// };
+  const obj = {
+    type: 'pre-order',
+    data: {
+      price: e.target.elements.price.value,
+      // preOrderPrice: e.target.elements.preOrderPrice.value,
+    },
+  };
+
+  try {
+    const preOrderPriceArray = await getPriceFromCrm();
+    console.log(preOrderPriceArray);
+    const preOrderPrice = preOrderPriceArray.find(item =>
+      item.sku.startsWith('PO')
+    );
+    // console.log(preOrderPrice.price);
+    obj.data.preOrderPrice = Number(preOrderPrice.price);
+
+    console.log(obj);
+    const data = await setCurrentPrice(obj);
+    // console.log(data);
+    showSettedPrice(data);
+  } catch (error) {
+    Notify.failure(error.message);
+  }
+};
 
 async function getActiveOrderModule() {
   try {
@@ -116,5 +136,5 @@ async function getActiveOrderModule() {
 
 orderAdmin.addEventListener('click', activateOrderModule);
 // formToOrder.addEventListener('submit', handleToOrderSubmit);
-// formPreOrder.addEventListener('submit', handlePreOrderSubmit);
+formPreOrder.addEventListener('submit', handlePreOrderSubmit);
 getActiveOrderModule();
