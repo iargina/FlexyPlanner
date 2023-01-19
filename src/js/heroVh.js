@@ -131,6 +131,19 @@ heroWrapper.innerHTML = heroMarkup;
 //     hero.style.paddingBottom = `${padding / 2}px`;
 //   }
 // }
+// Доробив функцію для обчислення падінгів
+function calcP() {
+  const containerH = document.querySelector('.hero-container').clientHeight;
+  const screenH = window.screen.height;
+  const viewPortH = window.innerHeight;
+  const pannelH = screenH - viewPortH;
+  const p = (screenH - containerH) / 2;
+
+  return {
+    pT: p - pannelH/2,
+    pB: p + pannelH/2,
+  };
+}
 function centeredHero() {
   const hero = document.querySelector('.hero');
   const heroHeight = hero.offsetHeight;
@@ -144,18 +157,3 @@ function centeredHero() {
   }
 }
 centeredHero();
-
-console.log(window.screen.height - window.innerHeight);
-
-function calcP() {
-  const containerH = document.querySelector('.hero-container').clientHeight;
-  const screenH = window.screen.height;
-  const viewPortH = window.innerHeight;
-  const pannelH = screenH - viewPortH;
-  const p = (screenH - containerH) / 2;
-
-  return {
-    pT: p - pannelH/2,
-    pB: p + pannelH/2,
-  };
-}
