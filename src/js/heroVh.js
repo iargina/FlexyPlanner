@@ -155,7 +155,7 @@ function calcP() {
   const p = (screenH - containerH) / 2;
 
   return {
-    pT: p - pannelH,
-    pB: p + pannelH,
+    pT: p - pannelH/2,
+    pB: p + pannelH/2,
   };
 }
