@@ -12,8 +12,8 @@ const swiper = new Swiper('.swiper', {
   centeredSlides: true,
   autoplayDisableOnInteraction: false,
   speed: 4000,
-  slidesPerView: 1.5,  
-  initialSlide: 1,  
+  slidesPerView: 1,  
+  initialSlide: 0,  
   pagination: {
     el: '.swiper-pagination',
     clickable: true,

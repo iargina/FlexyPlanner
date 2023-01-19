@@ -1,8 +1,18 @@
+// .hero {
+//   padding-top: 40px;
+//   @media screen and (min-width: 1440px) {
+//     padding-top: 70px;
+//     height: 100vh;
+//   }
+// }
 .hero {
-  padding-top: 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   @media screen and (min-width: 1440px) {
     padding-top: 70px;
-    height: 100vh;
   }
 }
 .hero-container {
@@ -57,7 +67,7 @@
   line-height: 122%;
   letter-spacing: -0.02em;
   color: $black-color;
-  margin-bottom: 35px;
+  margin-bottom: 14px;
   @media screen and (min-width: 1440px) {
     width: 420px;
     font-size: 32px;
@@ -176,29 +186,6 @@
   }
 }
 
-// .swiper-wrapper .swiper-slide-next,
-// .hero__swiper-slide .swiper-slide .swiper-slide-duplicate-next {
-//   @media screen and (min-width: 360px) {
-//     top: 5px;
-//     transform: rotate(4deg);
-//   }
-//   @media screen and (min-width: 1440px) {
-//     right: 0;
-//     top: 0;
-//   }
-// }
-
-// .swiper-wrapper .swiper-slide-prev,
-// .hero__swiper-slide .swiper-slide .swiper-slide-duplicate-prev {
-//   @media screen and (min-width: 360px) {
-//     top: 10px;
-//     transform: rotate(356deg);
-//   }
-//   @media screen and (min-width: 1440px) {
-//     left: 0;
-//     top: 0;
-//   }
-// }
 .swiper-wrapper {
   transition-timing-function: linear;
 }
@@ -208,7 +195,7 @@
   gap: 10px;
   display: flex;
   position: relative;
-  margin-top: 40px;
+  margin-top: 18px;
   width: 100%;
   left: 0;
   z-index: 50;
@@ -241,6 +228,6 @@
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   border: 2px solid #e8e8e8;
-    // border: 2px solid $black-color;
+  // border: 2px solid $black-color;
   transform: scale(1.1);
 }
