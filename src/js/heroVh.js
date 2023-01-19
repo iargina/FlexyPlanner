@@ -1,3 +1,20 @@
+import logo from '../icons/logo.svg';
+import mobBlack1 from '../images/hero/mob_1x_planner_black.jpg';
+import mobRed1 from '../images/hero/mob_1x_planner_red.jpg';
+import mobYellow1 from '../images/hero/mob_1x_planner_yellow.jpg';
+
+import mobBlack2 from '../images/hero/mob_2x_planner_black.jpg';
+import mobRed2 from '../images/hero/mob_2x_planner_red.jpg';
+import mobYellow2 from '../images/hero/mob_2x_planner_yellow.jpg';
+
+import deskBlack1 from '../images/hero/desk_1x_planner_black.jpg';
+import deskRed1 from '../images/hero/desk_1x_planner_red.jpg';
+import deskYellow1 from '../images/hero/desk_1x_planner_yellow.jpg';
+
+import deskBlack2 from '../images/hero/desk_2x_planner_black.jpg';
+import deskRed2 from '../images/hero/desk_2x_planner_red.jpg';
+import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
+
 const heroWrapper = document.querySelector('.hero-wrapper');
 const heroWrapperHeight = heroWrapper.offsetHeight;
 const heroMarkup = `<section class="hero" id="hero__up">
@@ -9,7 +26,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
     <div class="hero__main">
       <div class="hero__title">
         <a href="" class="logo-link" aria-label="link to flexxy planner">
-            <img src="./icons/logo.svg" alt="flexxy planner" class="hero__logo">          
+            <img src=${logo} alt="flexxy planner" class="hero__logo">          
         </a>
         <div class="hero__description">
           <p>
@@ -28,23 +45,17 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="
-                  ./images/hero/desk_1x_planner_red.jpg 1x,
-                  ./images/hero/desk_2x_planner_red.jpg 2x
-                "
+                srcset="${deskRed1} 1x, ${deskRed2} 2x"
                 media="(min-width: 1440px)"
                 type="image/jpg"
               />
               <source
-                srcset="
-                  ./images/hero/mob_1x_planner_red.jpg 1x,
-                  ./images/hero/mob_2x_planner_red.jpg 2x
-                "
+                srcset="${mobRed1} 1x, ${mobRed2} 2x"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="./images/hero/mob_2x_planner_red.jpg"
+                src="${mobRed2}"
                 alt="flexxy planner red"
               />
             </picture>
@@ -52,23 +63,17 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="
-                  ./images/hero/desk_1x_planner_yellow.jpg 1x,
-                  ./images/hero/desk_2x_planner_yellow.jpg 2x
-                "
+                srcset="${deskYellow1} 1x, ${deskYellow2} 2x"
                 media="(min-width: 1440px)"
                 type="image/jpg"
               />
               <source
-                srcset="
-                  ./images/hero/mob_1x_planner_yellow.jpg 1x,
-                  ./images/hero/mob_2x_planner_yellow.jpg 2x
-                "
+                srcset="${mobYellow1} 1x, ${mobYellow2} 2x"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="./images/hero/mob_2x_planner_yellow.jpg"
+                src="${mobYellow2}"
                 alt="flexxy planner yellow"
               />
             </picture>
@@ -76,23 +81,17 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="
-                  ./images/hero/desk_1x_planner_black.jpg 1x,
-                  ./images/hero/desk_2x_planner_black.jpg 2x
-                "
+                srcset="${deskBlack1} 1x, ${deskBlack2} 2x"
                 media="(min-width: 1440px)"
                 type="image/jpg"
               />
               <source
-                srcset="
-                  ./images/hero/mob_1x_planner_black.jpg 1x,
-                  ./images/hero/mob_2x_planner_black.jpg 2x
-                "
+                srcset="${mobBlack1} 1x, ${mobBlack2} 2x"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="./images/hero/mob_2x_planner_black.jpg"
+                src="${mobBlack2}"
                 alt="flexxy planner yellow"
               />
             </picture>
