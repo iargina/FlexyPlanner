@@ -10,7 +10,7 @@ const swiper = new Swiper('.swiper', {
   loopedSlides: 3,
   centeredSlides: true,
   autoplayDisableOnInteraction: false,
-  speed: 2000,
+  speed: 1000,
   slidesPerView: 1,
   initialSlide: 0,
   pagination: {
@@ -19,7 +19,7 @@ const swiper = new Swiper('.swiper', {
     type: 'bullets',
   },
   autoplay: {
-    delay: 2000,
+    delay: 2500,
     disableOnInteraction: false,
   },
   breakpoints: {

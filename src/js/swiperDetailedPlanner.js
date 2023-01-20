@@ -4,7 +4,7 @@ SwiperDetailed.use([Autoplay, Pagination])
 
 const swiperDetailed = new SwiperDetailed('.swiper-detailed__swiper', {
     direction: 'horizontal',
-    spaceBetween: 120,
+    spaceBetween: 280,
     autoHeight: true,
     setWrapperSize: true,
     autoplay: {

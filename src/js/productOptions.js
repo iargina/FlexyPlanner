@@ -9,7 +9,9 @@ const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 const priceCancelEl = document.querySelector(
   '.orderProcessing__priceCancelled'
 );
-const firstCostEl = document.querySelector('.orderProcessing__firstCostWrapper');
+const firstCostEl = document.querySelector(
+  '.orderProcessing__firstCostWrapper'
+);
 
 listEl.addEventListener('click', onElementClick);
 
@@ -46,20 +48,22 @@ const fetchPlannersData = async dataObj => {
     );
     const productArr = response.data.data;
 
-    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO'));
-    // 
+    const filteredPreOrderPrice = productArr.filter(el =>
+      el.sku.startsWith('PO')
+    );
+    //
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-    // 
-    const filteredOrderPrice = productArr.filter(el => el.sku.startsWith('FP') && el.price !== 0);
-
+    //
+    const filteredOrderPrice = productArr.filter(
+      el => el.sku.startsWith('FP') && el.price !== 0
+    );
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-        console.log('Active module: Pre-Order!');
+        //console.log('Active module: Pre-Order!');
         // Формую об'єкт із ціною:
 
         order.price = filteredPreOrderPrice[0].price;
-
       }
 
       if (dataObj.type === 'to-order') {
@@ -67,7 +71,6 @@ const fetchPlannersData = async dataObj => {
         // Формую об'єкт із ціною:
 
         order.price = filteredOrderPrice[0].price;
-
       }
     }
     priceSetter();
@@ -79,13 +82,8 @@ const fetchPlannersData = async dataObj => {
     // Виводжу ціну наверху в секції
 
     priceMarkupRender(dataObj);
-
-
   }
 };
-
-
-
 
 async function listMarkupRender(dataObj) {
   // USING FAKE JSON DATA
@@ -101,7 +99,7 @@ async function listMarkupRender(dataObj) {
     filteredPlannersArr = plannersArr.filter(
       //
       // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-      // 
+      //
       el => el.sku.startsWith('FP') && el.price > 0
     );
   }
@@ -165,7 +163,6 @@ async function listMarkupRender(dataObj) {
 
   console.log(dataObj);
   initialState();
-
 }
 // ========================================================================
 
@@ -329,14 +326,17 @@ function recalcAmount() {
   order.setDiscount();
   makeMarkup();
 
-  console.log("Order: ", order.getWholeOrderData());
+  //console.log('Order: ', order.getWholeOrderData());
 
-  let TotalPlannerAmounts = order.orderedPlanners.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0
+  let TotalPlannerAmounts = order.orderedPlanners.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.amount,
+    0
   );
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
-  <div class="orderProcessing__firstCostValue">${TotalPlannerAmounts * order.price} грн</div>
+  <div class="orderProcessing__firstCostValue">${
+    TotalPlannerAmounts * order.price
+  } грн</div>
   `;
 }
-

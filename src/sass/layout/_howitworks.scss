@@ -15,66 +15,6 @@
   }
 }
 
-@keyframes bounce {
-  from,
-  20%,
-  53%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,
-  43% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
-  }
-
-  70% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-
-  80% {
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-
-  90% {
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-
-@keyframes bounce {
-  from,
-  20%,
-  53%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,
-  43% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
-  }
-
-  70% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-
-  80% {
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-
-  90% {
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-
 .howitworks {
   width: 100%;
   background-color: $accent-color;
@@ -153,13 +93,6 @@
     border-bottom: 1px solid $black-color;
     padding-bottom: 12px;
 
-    &.active {
-      animation-name: bounce;
-      animation-delay: 800ms;
-      animation-duration: 1000ms;
-      animation-fill-mode: forwards;
-    }
-
     @media screen and (min-width: $desktop-width) {
       border: none;
       width: 429px;
@@ -220,7 +153,7 @@
       animation-name: zoom-in;
       animation-timing-function: ease-in-out;
       animation-duration: 300ms;
-      animation-delay: 1600ms;
+      animation-delay: 900ms;
       animation-fill-mode: forwards;
     }
 
