@@ -2,6 +2,9 @@ import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
 const urlParams = new URLSearchParams(window.location.search);
+const invoiceIDtoCheck = urlParams.get('invoice');
+import { order } from './utils';
+
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 /* npm start */
@@ -49,6 +52,31 @@ const crmPostOrder = orderData => {
     );
   }
 };
+
+/* const checkInvoice = async invoiceID => {
+  const urlToInvoice =
+    'https://api.monobank.ua/api/merchant/invoice/status?invoiceId=' +
+    invoiceID;
+
+  const getStatus = await axios({
+    method: 'get',
+    url: urlToInvoice,
+    data: {
+      headers: {
+        'X-Token': 'ugAI3yR-ILBoA2FEZ_C0fZ1l_sERRYPCaL7enjvjHHE8',
+      },
+    },
+  });
+  const status = getStatus.status;
+  if (status !== 'success') {
+    return;
+  }
+  axios({
+    method: 'post',
+    url: 'https://flexyplanner.onrender.com/crm/order',
+    data: orderData,
+  });
+}; */
 
 async function successPayment() {
   const order = await window.onload();

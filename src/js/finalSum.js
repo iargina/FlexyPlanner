@@ -83,7 +83,6 @@ function postToAdd() {
     },
 
     redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
-
     validity: 3600,
   };
 }
@@ -95,28 +94,11 @@ const monoPost = async paymentData => {
       url: 'https://flexyplanner.onrender.com/mono',
       data: paymentData,
     });
+
     console.log(response);
     const page = response.data.pageUrl;
-    const invoice = response.data.invoiceId;
-    const urlToInvoice =
-      'https://api.monobank.ua/api/merchant/invoice/status?invoiceId=' +
-      invoice;
-
-    const getStatus = await axios({
-      method: 'get',
-      url: urlToInvoice,
-      data: {
-        headers: {
-          'X-Token': 'ugAI3yR-ILBoA2FEZ_C0fZ1l_sERRYPCaL7enjvjHHE8',
-        },
-      },
-    });
-    const status = getStatus.status;
-    if (status !== 'success') {
-      window.location.href = 'https://flexyplanner.com';
-      return;
-    }
-
+    /*     const invoice = response.data.invoiceID;
+    console.log(invoice); */
     window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
@@ -129,7 +111,6 @@ let queryData;
 function onFinalSumBtnClick(e) {
   queryData = stringifyOrder(orderCrmData);
   const paymentData = postToAdd();
-  console.log(paymentData);
   monoPost(paymentData);
 }
 

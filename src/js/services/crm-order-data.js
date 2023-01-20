@@ -56,6 +56,5 @@ export function orderCrmDataForm() {
     };
   });
   orderCrmData.shipping = { delivery_service_id: 1, ...order.delivery };
-  /*   orderCrmData.shipping = order.delivery; */
   orderCrmData.payments.amount = order.total;
 }
