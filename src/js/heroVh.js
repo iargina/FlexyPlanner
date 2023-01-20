@@ -120,14 +120,14 @@ const heroMarkup = `<section class="hero" id="hero__up">
 heroWrapper.innerHTML = heroMarkup;
 
 function calcP() {
-  const containerH = document.querySelector('.hero-container').clientHeight; 
-  const screenH = window.screen.height;  
-  const viewPortH = window.innerHeight;  
-  const pannelH = screenH - viewPortH;  
+  const containerH = document.querySelector('.hero-container').clientHeight;
+  const screenH = window.screen.height;
+  const viewPortH = window.innerHeight;
+  const pannelH = screenH - viewPortH;
   const p = (screenH - containerH) / 2;
   return {
-    pT: p - pannelH/2,
-    pB: p + pannelH/2,
+    pT: p - pannelH / 2,
+    pB: p + pannelH / 2,
   };
 }
 
@@ -136,7 +136,7 @@ function centeredHero() {
   const heroHeight = hero.offsetHeight;
 
   const padding = heroWrapperHeight - heroHeight;
-  
+
   if (padding > 0) {
     const { pB, pT } = calcP();
     hero.style.paddingTop = `${pT}px`;
