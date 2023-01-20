@@ -30,7 +30,6 @@ export const orderCrmData = {
       payment_method: 'Monobank',
       amount: 0,
       description: 'Оплата замовлення',
-      status: 'paid',
     },
   ],
 };
