@@ -98,9 +98,10 @@ const monoPost = async paymentData => {
     console.log(response);
     const page = response.data.pageUrl;
     const invoice = response.data.invoiceId;
-    if (invoice) {
-      window.location.href = `${page}`;
+    if (!invoice) {
+      window.location.href = 'https://flexyplanner.com';
     }
+    window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
