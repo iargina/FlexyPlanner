@@ -165,15 +165,7 @@ function onWarehousesListClick(e) {
   warehousesListRef.classList.remove('show');
 }
 
-function onInputBlur(e) {
-  console.log(e.currentTarget);
-  if (
-    e.currentTarget === citiesListRef ||
-    e.currentTarget === warehousesListRef
-  ) {
-    return;
-  }
-
+function onInputBlur() {
   if (citiesListRef.classList.contains('show')) {
     citiesListRef.classList.remove('show');
     return;
@@ -181,7 +173,6 @@ function onInputBlur(e) {
 
   if (warehousesListRef.classList.contains('show')) {
     warehousesListRef.classList.remove('show');
-    return;
   }
 }
 
@@ -202,10 +193,7 @@ function onCheckboxChange(e) {
 }
 
 cityInputRef.addEventListener('input', debounce(selectCity, 300));
-// cityInputRef.addEventListener('blur', onInputBlur);
-
 warehouseInputRef.addEventListener('input', debounce(selectWarehouse, 300));
-// warehouseInputRef.addEventListener('blur', onInputBlur);
 
 citiesListRef.addEventListener('click', onCitiesListClick);
 warehousesListRef.addEventListener('click', onWarehousesListClick);
