@@ -36,7 +36,6 @@ const heroMarkup = `<section class="hero" id="hero__up">
           </p>
         </div>
       </div>
-
       <!-- Slider main container -->
       <div class="hero__swiper swiper">
         <!-- Additional required wrapper -->
@@ -111,7 +110,6 @@ const heroMarkup = `<section class="hero" id="hero__up">
         </ul>
       </div>
     </div>
-
     <div class="hero__slider-text">
       Багатофункціональний адаптивний щоденник
     </div>
@@ -120,15 +118,29 @@ const heroMarkup = `<section class="hero" id="hero__up">
 </section>
 `;
 heroWrapper.innerHTML = heroMarkup;
+
+function calcP() {
+  const containerH = document.querySelector('.hero-container').clientHeight; 
+  const screenH = window.screen.height;  
+  const viewPortH = window.innerHeight;  
+  const pannelH = screenH - viewPortH;  
+  const p = (screenH - containerH) / 2;
+  return {
+    pT: p - pannelH/2,
+    pB: p + pannelH/2,
+  };
+}
+
 function centeredHero() {
   const hero = document.querySelector('.hero');
   const heroHeight = hero.offsetHeight;
 
   const padding = heroWrapperHeight - heroHeight;
-  console.log(padding);
+  
   if (padding > 0) {
-    hero.style.paddingTop = `${padding / 2}px`;
-    hero.style.paddingBottom = `${padding / 2}px`;
+    const { pB, pT } = calcP();
+    hero.style.paddingTop = `${pT}px`;
+    hero.style.paddingBottom = `${pB}px`;
   }
 }
 centeredHero();
