@@ -1,10 +1,6 @@
 import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
-const urlParams = new URLSearchParams(window.location.search);
-const invoiceIDtoCheck = urlParams.get('invoice');
-import { order } from './utils';
-
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 /* npm start */
