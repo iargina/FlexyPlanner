@@ -1,3 +1,6 @@
+.hero-wrapper {
+  min-height: 100vh;
+}
 // .hero {
 // //   padding-top: 40px;
 //   @media screen and (min-width: 1440px) {
@@ -5,14 +8,14 @@
 //     // height: 100vh;
 //   }
 // }
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
+// .hero {
+//   min-height: 100vh;
+//   display: grid;
+//   place-items: center;
 //   @media screen and (min-width: 1440px) {
 //     // padding-top: 70px;
 //   }
-}
+// }
 .hero-container {
   padding: 0;
   @media screen and (min-width: 1440px) {
@@ -225,6 +228,6 @@
   opacity: 1;
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  border: 2px solid #e8e8e8;  
+  border: 2px solid #e8e8e8;
   transform: scale(1.1);
 }

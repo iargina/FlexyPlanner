@@ -7,10 +7,20 @@ import { Notify } from 'notiflix';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
+const finalWrapper = document.querySelector('.final__wrapper ');
+
+finalSumBtn.disabled = true;
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
-console.log(order.sumWithDiscount);
 let amount = 0;
 let sumAmount = 0;
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.add('final__wrapper-scroll');
+  } else if (window.pageYOffset < 240 && window.innerWidth >= 1440) {
+    finalWrapper.classList.remove('final__wrapper-scroll');
+  }
+});
 
 finalSumBtn.addEventListener('click', onFinalSumBtnClick);
 
@@ -71,7 +81,7 @@ function postToAdd() {
       reference: `${reference}`,
       destination: 'Flexy Planner',
     },
-    // redirectUrl: 'https://flexyplanner.com/?' + queryData,
+
     redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
 
     validity: 3600,
@@ -87,6 +97,26 @@ const monoPost = async paymentData => {
     });
     console.log(response);
     const page = response.data.pageUrl;
+    const invoice = response.data.invoiceId;
+    const urlToInvoice =
+      'https://api.monobank.ua/api/merchant/invoice/status?invoiceId=' +
+      invoice;
+
+    const getStatus = await axios({
+      method: 'get',
+      url: urlToInvoice,
+      data: {
+        headers: {
+          'X-Token': 'ugAI3yR-ILBoA2FEZ_C0fZ1l_sERRYPCaL7enjvjHHE8',
+        },
+      },
+    });
+    const status = getStatus.status;
+    if (status !== 'success') {
+      window.location.href = 'https://flexyplanner.com';
+      return;
+    }
+
     window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
@@ -97,9 +127,7 @@ const monoPost = async paymentData => {
 
 let queryData;
 function onFinalSumBtnClick(e) {
-  orderCrmDataForm();
   queryData = stringifyOrder(orderCrmData);
-  /*   api(); */
   const paymentData = postToAdd();
   console.log(paymentData);
   monoPost(paymentData);

@@ -1,6 +1,7 @@
 .container-order {
   @media screen and (min-width: 1440px) {
-    // max-width: 1022px;
+    max-width: 822px;
+    padding: 0;
   }
 }
 
@@ -124,12 +125,14 @@
 
 .motivation-block {
   padding: 14px;
+  width: 100%;
   background-color: $background-color;
   text-align: left;
   font-family: $font-family400;
   line-height: calc(22 / 14);
 
   @media screen and (min-width: 1440px) {
+    margin: 0 auto;
     padding: 62px 66px;
   }
 
