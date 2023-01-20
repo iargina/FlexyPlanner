@@ -67,11 +67,14 @@ async function selectWarehouse(e) {
   }
 }
 
-function toggleWarehouseSearch() {
+function toggleWarehouseSearch(e) {
   if (!cityInputRef.value) {
     Notify.info(`Спочатку вкажіть ваш населений пункт`);
     return;
   }
+
+  warehousesListRef.classList.add('show');
+  e.stopPropagation();
 
   warehouseSearchRef.classList.toggle('show');
   warehouseBtnRef.classList.toggle('active');
@@ -163,19 +166,23 @@ function onWarehousesListClick(e) {
 }
 
 function onInputBlur(e) {
+  console.log(e.currentTarget);
   if (
     e.currentTarget === citiesListRef ||
     e.currentTarget === warehousesListRef
-  )
+  ) {
     return;
-  setTimeout(() => {
-    if (e.target.name === 'city') {
-      citiesListRef.classList.remove('show');
-    }
-    if (e.target.name === 'warehouse') {
-      warehousesListRef.classList.remove('show');
-    }
-  }, 100);
+  }
+
+  if (citiesListRef.classList.contains('show')) {
+    citiesListRef.classList.remove('show');
+    return;
+  }
+
+  if (warehousesListRef.classList.contains('show')) {
+    warehousesListRef.classList.remove('show');
+    return;
+  }
 }
 
 function onCheckboxChange(e) {
