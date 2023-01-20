@@ -71,6 +71,21 @@ function createFinalOrderMarkup() {
     `;
 }
 
+const crmPostOrder = orderData => {
+  try {
+    console.log(orderData);
+    axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/crm/order',
+      data: orderData,
+    });
+  } catch (error) {
+    Notify.failure(
+      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
+    );
+  }
+};
+
 // POST запит;
 function postToAdd() {
   const total = Number(order.total - order.discountValueSum) * 100;
@@ -111,6 +126,7 @@ const monoPost = async paymentData => {
 let queryData;
 function onFinalSumBtnClick(e) {
   orderCrmDataForm();
+  crmPostOrder(orderCrmData);
   queryData = stringifyOrder(orderCrmData);
   const paymentData = postToAdd();
   monoPost(paymentData);

@@ -35,21 +35,6 @@ window.onload = function () {
   }
 };
 
-const crmPostOrder = orderData => {
-  try {
-    console.log(orderData);
-    axios({
-      method: 'post',
-      url: 'https://flexyplanner.onrender.com/crm/order',
-      data: orderData,
-    });
-  } catch (error) {
-    Notify.failure(
-      `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
-    );
-  }
-};
-
 /* const checkInvoice = async invoiceID => {
   const urlToInvoice =
     'https://api.monobank.ua/api/merchant/invoice/status?invoiceId=' +
@@ -77,9 +62,7 @@ const crmPostOrder = orderData => {
 
 async function successPayment() {
   const order = await window.onload();
-
   if (order) {
-    crmPostOrder(order);
     openSuccessModal();
   }
   return;
