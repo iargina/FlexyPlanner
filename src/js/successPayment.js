@@ -37,6 +37,7 @@ window.onload = function () {
 
 const crmPostOrder = orderData => {
   try {
+    console.log(orderData);
     axios({
       method: 'post',
       url: 'https://flexyplanner.onrender.com/crm/order',

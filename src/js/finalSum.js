@@ -89,6 +89,7 @@ function postToAdd() {
 
 const monoPost = async paymentData => {
   try {
+    console.log(orderCrmData);
     const response = await axios({
       method: 'post',
       url: 'https://flexyplanner.onrender.com/mono',
@@ -109,6 +110,7 @@ const monoPost = async paymentData => {
 
 let queryData;
 function onFinalSumBtnClick(e) {
+  orderCrmDataForm();
   queryData = stringifyOrder(orderCrmData);
   const paymentData = postToAdd();
   monoPost(paymentData);
