@@ -18,6 +18,19 @@
     <script type="module" src="./admin.js"></script>
   </head>
   <body>
+    <script>
+      const token = sessionStorage.getItem('token');
+      const url = new URL(location.href);
+
+      if (url.pathname === '/admin.html' && !token) {
+        //   history.replaceState(null, null, 'http://localhost:1234');
+        console.log(url.origin + '/admin');
+        window.open(url.origin, '_parent');
+      }
+      if(url.pathname === '/admin.html' && token) {
+        
+      }
+    </script>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <button class="btn btn-primary" id="logoutButton" type="button">
       <span>Log out</span>
