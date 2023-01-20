@@ -12,6 +12,9 @@ const commonList = document.querySelector('.common-promocode');
 const personalList = document.querySelector('.personal-promocode');
 const startDate = document.querySelector('#dateStart');
 const stopDate = document.querySelector('#dateTo');
+const spinnerLoaderPromo = document.querySelector('.promo-spinner-js');
+const commonShowBtn = document.querySelector('.btn-show-common-js');
+const personalShowBtn = document.querySelector('.btn-show-personal-js');
 
 const promocodeObj = {};
 
@@ -44,6 +47,7 @@ function onFormChange(e) {
 }
 
 async function onFormSubmit(e) {
+  spinnerLoaderPromo.style.display = 'inline-block';
   try {
     e.preventDefault();
     const form = e.currentTarget;
@@ -77,6 +81,8 @@ async function onFormSubmit(e) {
     stopDate.value = todayDate();
   } catch (error) {
     logout(error);
+  } finally {
+    spinnerLoaderPromo.style.display = 'none';
   }
 }
 
@@ -88,6 +94,7 @@ function onCommonList(e) {
   const promoName = promoEl.dataset.name;
   let isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
   if (isDelete) {
+    spinnerLoaderPromo.style.display = 'inline-block';
     deletePromocode({
       data: {
         promocode: promoName,
@@ -99,7 +106,8 @@ function onCommonList(e) {
           promoEl.remove();
         }
       })
-      .catch(error => logout(error));
+      .catch(error => logout(error))
+      .finally(() => (spinnerLoaderPromo.style.display = 'none'));
   } else {
     Notify.info(`Видалення ${promoName} відмінено`);
   }
@@ -115,6 +123,7 @@ function onPersonalList(e) {
   if (btnName === 'delete') {
     const isDelete = confirm(`Дійсно видалити цей промокод: ${promoName} ?`);
     if (isDelete) {
+      spinnerLoaderPromo.style.display = 'inline-block';
       deletePromocode({
         data: {
           promocode: promoName,
@@ -126,7 +135,8 @@ function onPersonalList(e) {
             promoEl.remove();
           }
         })
-        .catch(error => logout(error));
+        .catch(error => logout(error))
+        .finally(() => (spinnerLoaderPromo.style.display = 'none'));
     } else {
       Notify.info(`Видалення ${promoName} відмінено.`);
     }
@@ -135,6 +145,7 @@ function onPersonalList(e) {
       `Дійсно активувати цей промокод: ${promoName} ?`
     );
     if (isActivate) {
+      spinnerLoaderPromo.style.display = 'inline-block';
       patchPromocodeStatus({
         promocode: promoName,
       })
@@ -145,17 +156,13 @@ function onPersonalList(e) {
             Notify.success(`${promoName} успішно активовано.`);
           }
         })
-        .catch(error => logout(error));
+        .catch(error => logout(error))
+        .finally(() => (spinnerLoaderPromo.style.display = 'none'));
     } else {
       Notify.info(`Активацію ${promoName} відмінено.`);
     }
   }
 }
-getAllPromocodes()
-  .then(data => {
-    return createPromocodeMarkup(data);
-  })
-  .catch(error => console.log(error.message));
 
 setInterval(() => {
   getAllPromocodes()
@@ -168,10 +175,15 @@ function createPromocodeMarkup({ common, personal }) {
     .map(({ discount, promo, period }, i) => {
       return `<li class="list__item" data-name='${promo}'>
             <p>Знижка ${discount}%</p>
-            <p>Термін дії: ${period.from.slice(0, 10)} - ${period.to.slice(
-        0,
-        10
-      )}</p>
+            <p>Термін дії: ${period.from
+              .slice(0, 10)
+              .split('-')
+              .reverse()
+              .join('-')} - ${period.to
+        .slice(0, 10)
+        .split('-')
+        .reverse()
+        .join('-')}</p>
             <div class="common__wrapper">
             <p>${i + 1}. <span class="promo__name">${promo}</span></p>
             <button data-action="delete" class="btn btn-danger" type="button">Видалити</button>
@@ -220,7 +232,33 @@ function logout(error) {
   }
 }
 
+(() => {
+  spinnerLoaderPromo.style.display = 'inline-block';
+  getAllPromocodes()
+    .then(data => {
+      return createPromocodeMarkup(data);
+    })
+    .catch(error => console.log(error.message))
+    .finally(() => (spinnerLoaderPromo.style.display = 'none'));
+})();
+
+function onCommonShowBtn(){
+    
+    commonList.classList.toggle('visually-hidden');
+    commonShowBtn.textContent = 'Сховати';
+    if(commonList.classList.contains('visually-hidden')) commonShowBtn.textContent = 'Показати';
+}
+
+function onPersonalShowBtn() {
+    
+    personalList.classList.toggle('visually-hidden');
+    personalShowBtn.textContent = 'Сховати';
+    if(personalList.classList.contains('visually-hidden')) personalShowBtn.textContent = 'Показати';
+}
+
 initForm.addEventListener('change', onFormChange);
 initForm.addEventListener('submit', onFormSubmit);
 commonList.addEventListener('click', onCommonList);
 personalList.addEventListener('click', onPersonalList);
+commonShowBtn.addEventListener('click', onCommonShowBtn);
+personalShowBtn.addEventListener('click', onPersonalShowBtn);
