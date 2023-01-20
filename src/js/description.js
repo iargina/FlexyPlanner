@@ -42,7 +42,7 @@ function onBtnClick() {
         btnTextRef.textContent = 'Ми вже на фініші!';
         break;
       case 7:
-        btnTextRef.textContent = 'Добиваємо!';
+        btnTextRef.textContent = 'Залишився останній!';
         break;
       default:
         return;

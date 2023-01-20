@@ -54,11 +54,11 @@
 }
 
 .description {
-  padding-bottom: 172px;
-}
+  padding-bottom: 134px;
 
-.description__container {
-  max-height: 100vh;
+  @media screen and (min-width: $desktop-width) {
+    padding-bottom: 172px;
+  }
 }
 
 .description__title {
@@ -272,7 +272,7 @@
 
   &:nth-child(6) {
     bottom: 80px;
-    left: -20px;
+    left: -15px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_6.png') center /
@@ -289,7 +289,7 @@
 
   &:nth-child(7) {
     top: 60px;
-    left: -20px;
+    left: -15px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_7.png') center /

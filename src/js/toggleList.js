@@ -10,10 +10,6 @@ const featureAccordion = new HandyCollapse({
       `[data-lc-control='${contentID}'] .howitworks__arrow-icon`
     );
 
-    const labelEl = document.querySelector(
-      `[data-lc-control='${contentID}'] .howitworks-item__wrapper`
-    );
-
     const listItems = document.querySelectorAll(
       `[data-lc-control='${contentID}'] .howitworks-checkbox__list li`
     );
@@ -25,7 +21,6 @@ const featureAccordion = new HandyCollapse({
     if (!iconEl) return;
 
     if (isOpen) {
-      labelEl.classList.add('active');
       iconEl.classList.add('rotate');
       listItems.forEach((el, idx) => {
         setTimeout(() => {
@@ -34,7 +29,6 @@ const featureAccordion = new HandyCollapse({
         }, 200 * idx);
       });
     } else {
-      labelEl.classList.remove('active');
       iconEl.classList.remove('rotate');
       listItems.forEach(el => el.classList.remove('active'));
       icons.forEach(el => el.classList.remove('active'));

@@ -1,3 +1,4 @@
+import './js/notifixInit.js';
 import './js/heroVh.js';
 import './js/swiper.js';
 import './js/swiperDetailedPlanner.js';
