@@ -21,13 +21,7 @@ if (window.innerWidth >= 1440) {
   document.querySelector('.promo__container').classList.add('promo__ishidden');
 }
 
-formEl.addEventListener('change', e => {
-  if (conatctName.validity.patternMismatch) {
-    Notify.info(`Введіть Прізвище та Ім'я`);
-  }
-  if (conatctPhone.validity.patternMismatch) {
-    Notify.info(`Введіть номер телефону у форматі +380999999999`);
-  }
+formEl.addEventListener('input', e => {
   if (
     !conatctName.validity.patternMismatch &&
     !conatctPhone.validity.patternMismatch &&
@@ -35,6 +29,17 @@ formEl.addEventListener('change', e => {
     conatctPhone.value.length > 0
   ) {
     submitBtnEl.disabled = false;
+  } else {
+    submitBtnEl.disabled = true;
+  }
+});
+
+formEl.addEventListener('change', e => {
+  if (conatctName.validity.patternMismatch) {
+    Notify.info(`Введіть Прізвище та Ім'я`);
+  }
+  if (conatctPhone.validity.patternMismatch) {
+    Notify.info(`Введіть номер телефону у форматі +380999999999`);
   }
 });
 
