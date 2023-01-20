@@ -97,7 +97,10 @@ const monoPost = async paymentData => {
     });
     console.log(response);
     const page = response.data.pageUrl;
-    window.location.href = `${page}`;
+    const invoice = response.data.invoiceId;
+    if (invoice) {
+      window.location.href = `${page}`;
+    }
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
@@ -107,9 +110,7 @@ const monoPost = async paymentData => {
 
 let queryData;
 function onFinalSumBtnClick(e) {
-  orderCrmDataForm();
   queryData = stringifyOrder(orderCrmData);
-  /*   api(); */
   const paymentData = postToAdd();
   console.log(paymentData);
   monoPost(paymentData);
