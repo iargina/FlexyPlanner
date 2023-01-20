@@ -97,7 +97,6 @@ async function onCitiesListClick(e) {
 
   api.selectCity(e.target.dataset.ref);
   citiesListRef.innerHTML = '';
-  citiesListRef.classList.remove('show');
 
   try {
     const res = await api.getWarehouses();
@@ -162,7 +161,6 @@ function onWarehousesListClick(e) {
   /*   console.log(order); */
 
   warehousesListRef.innerHTML = '';
-  warehousesListRef.classList.remove('show');
 }
 
 function onInputBlur() {
