@@ -3,39 +3,18 @@ import {
   getMarkup,
   toggleActiveOrderModule,
   setCurrentPrice,
-  getCurrentPriceFromCrm,
 } from './services/markupAPI';
 
 const orderAdmin = document.querySelector('.order-admin');
 const toOrderBtn = document.querySelector('[data-status="to-order"]');
 const preOrderBtn = document.querySelector('[data-status="pre-order"]');
-// const formToOrder = document.querySelector('.form-to-order');
 const formPreOrder = document.querySelector('.form-pre-order');
-
-// const showSettedPrice = data => {
-//   if (data.type === 'pre-order') {
-//     document.querySelector(
-//       '.preorder-price-info'
-//     ).innerHTML = `Встановлена ціна: ${data.data.price}, ціна зі знижкою:  ${data.data.preOrderPrice}`;
-//   } else {
-//     document.querySelector(
-//       '.price-info'
-//     ).innerHTML = `Встановлена ціна: ${data.data.price}`;
-//   }
-// };
 
 const setActiveBtn = async elem => {
   elem.classList.remove('btn-danger');
   elem.classList.add('btn-success');
   elem.innerText = 'Активовано';
   elem.disabled = true;
-
-  // try {
-  //   const markupResponse = await getMarkup();
-  //   showSettedPrice(markupResponse);
-  // } catch (error) {
-  //   Notify.failure(error.message);
-  // }
 };
 
 const toggleButtonsClass = async (curr, next) => {
@@ -63,52 +42,22 @@ const activateOrderModule = e => {
   }
 };
 
-// const handleToOrderSubmit = async e => {
-//   e.preventDefault();
-
-//   const obj = {
-//     type: 'to-order',
-//     data: {
-//       price: e.target.elements.price.value,
-//     },
-//   };
-
-//   try {
-//     const data = await setCurrentPrice(obj);
-//     showSettedPrice(data);
-//   } catch (error) {
-//     Notify.failure(error.message);
-//   }
-// };
-
-const getPriceFromCrm = async () => {
-  try {
-    const preOrderPriceArray = await getCurrentPriceFromCrm();
-    return preOrderPriceArray;
-  } catch (error) {
-    Notify.failure(error.message);
-  }
-};
-
 const handlePreOrderSubmit = async e => {
+  //Встановлення декоративної ціни для модуля pre-order.
   e.preventDefault();
 
   const obj = {
     type: 'pre-order',
     data: {
       price: e.target.elements.price.value,
-      // preOrderPrice: e.target.elements.preOrderPrice.value,
     },
   };
 
   try {
     await setCurrentPrice(obj);
-    // const data = await setCurrentPrice(obj);
     Notify.success(
       'Декоративна ціна для модуля попереднього замовлення встановлена'
     );
-    // console.log(data);
-    // showSettedPrice(data);
   } catch (error) {
     Notify.failure(
       'Не вдалось встановити декоративну ціну для модуля попереднього замовлення. Спробуйте пізніше'
@@ -120,9 +69,8 @@ const handlePreOrderSubmit = async e => {
 
 async function getActiveOrderModule() {
   try {
-    //TODO: тут приходять дані по активному модулю
+    // При вході в адмінку визначається активний модуль та визначається активна кнопка
     const data = await getMarkup();
-    // console.log(data);
 
     if (data.type === 'pre-order') {
       setActiveBtn(preOrderBtn);
@@ -135,6 +83,5 @@ async function getActiveOrderModule() {
 }
 
 orderAdmin.addEventListener('click', activateOrderModule);
-// formToOrder.addEventListener('submit', handleToOrderSubmit);
 formPreOrder.addEventListener('submit', handlePreOrderSubmit);
 getActiveOrderModule();
