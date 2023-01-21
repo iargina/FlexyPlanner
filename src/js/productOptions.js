@@ -21,14 +21,11 @@ const fetchOrderModule = async () => {
   let middleDataObj = {};
 
   try {
-    const response = await fetch('https://flexyplanner.onrender.com/markup');
-    const dataObj = await response.json();
-    middleDataObj = dataObj;
+    const response = await axios.get('https://flexyplanner.onrender.com/markup');
+    middleDataObj = response.data;
   } catch (error) {
     console.log(error.message);
   } finally {
-    // Прибераю спінер
-    document.querySelector('.preloader').classList.add('loader-is-hidden');
     // Рендерю список планерів
     listMarkupRender(middleDataObj);
   }
@@ -57,13 +54,13 @@ const fetchPlannersData = async (dataObj) => {
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-        console.log("Active module: Pre-Order!");
+        // console.log("Active module: Pre-Order!");
         // Формую об'єкт із ціною:
         order.price = filteredPreOrderPrice[0].price;
       }
 
       if (dataObj.type === 'to-order') {
-        console.log("Active module: Order!");
+        // console.log("Active module: Order!");
         // Формую об'єкт із ціною:
         order.price = filteredOrderPrice[0].price;
       }
@@ -74,6 +71,9 @@ const fetchPlannersData = async (dataObj) => {
   } catch (error) {
     console.log(error.message);
   } finally {
+
+    // Прибераю спінер
+    document.querySelector('.preloader').classList.add('loader-is-hidden');
 
     // Виводжу ціну наверху в секції
     priceMarkupRender(dataObj);
@@ -159,7 +159,6 @@ async function listMarkupRender(dataObj) {
   recalcAmount();
 
   // Застосовую початковий стан до планерів:
-  console.log(dataObj);
   initialState();
 }
 // ========================================================================
@@ -184,7 +183,6 @@ function priceMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    console.log('listItemsArr', listItemsArr)
     for (let i = 1; i < listItemsArr.length; i += 1) {
       resetAmount(listItemsArr[i]);
     }
@@ -327,7 +325,7 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-  console.log("Order: ", order.getWholeOrderData());
+  // console.log("Order: ", order.getWholeOrderData());
 
   let TotalPlannerAmounts = order.orderedPlanners.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0
   );
