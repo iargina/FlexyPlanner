@@ -1,3 +1,66 @@
+@keyframes morphing {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  }
+  5% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+@keyframes my-bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -20%, 0) scaleY(1.1);
+  }
+
+  70% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -10%, 0) scaleY(1.05);
+  }
+
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, -4%, 0) scaleY(1.02);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.description {
+  padding-bottom: 134px;
+
+  @media screen and (min-width: $desktop-width) {
+    padding-bottom: 172px;
+  }
+}
+
 .description__title {
   margin: 0 auto;
   margin-bottom: 136px;
@@ -10,24 +73,109 @@
 }
 
 .description__content {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.description__images {
-  display: inline-block;
+.img-wrapper {
   position: relative;
-  margin-bottom: 134px;
+}
+
+.btn-wrapper {
+  position: absolute;
+  bottom: 70px;
+  right: 60px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  transition: opacity $transition-duration $transition-timing-function,
+    transform $transition-duration $transition-timing-function;
+
+  background: linear-gradient(#ff7a2e, $accent-color);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  animation: morphing 10s infinite;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   @media screen and (min-width: $desktop-width) {
-    margin-bottom: 292px;
+    width: 220px;
+    height: 220px;
+    bottom: 160px;
+    right: 100px;
+  }
+}
+
+.description__button {
+  display: block;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $black-color;
+  box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  color: $white-color;
+  text-transform: uppercase;
+  font-family: $font-family700;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color $transition-duration $transition-timing-function,
+    color $transition-duration $transition-timing-function,
+    transform $transition-duration $transition-timing-function;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $black-color;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 24px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.btn-text {
+  transform: rotate(30deg);
+
+  transition: transform $transition-duration $transition-timing-function,
+    opacity $transition-duration $transition-timing-function;
+
+  &.fade {
+    transform: rotate(30deg) scale(0.5);
+    opacity: 0;
   }
 }
 
 .description__item {
   position: absolute;
   width: 64px;
+  opacity: 0;
+
+  transition: opacity $transition-duration $transition-timing-function;
+
+  &.active {
+    opacity: 1;
+  }
 
   &::before {
     content: '';
@@ -38,8 +186,8 @@
   }
 
   &:nth-child(1) {
-    top: -64px;
-    right: 56px;
+    top: -60px;
+    right: 60px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_1.png') center /
@@ -55,8 +203,8 @@
   }
 
   &:nth-child(2) {
-    top: 98px;
-    right: 0;
+    top: 60px;
+    right: -20px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_2.png') center /
@@ -72,8 +220,8 @@
   }
 
   &:nth-child(3) {
-    bottom: 5px;
-    right: 0;
+    bottom: 80px;
+    right: -20px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_3.png') center /
@@ -89,8 +237,8 @@
   }
 
   &:nth-child(4) {
-    bottom: -62px;
-    right: 138px;
+    bottom: -60px;
+    right: 60px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_4.png') center /
@@ -106,8 +254,8 @@
   }
 
   &:nth-child(5) {
-    bottom: 5px;
-    left: 0;
+    bottom: -60px;
+    left: 60px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_5.png') center /
@@ -123,8 +271,8 @@
   }
 
   &:nth-child(6) {
-    top: 98px;
-    left: 0;
+    bottom: 80px;
+    left: -15px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_6.png') center /
@@ -140,8 +288,8 @@
   }
 
   &:nth-child(7) {
-    top: -64px;
-    left: 60px;
+    top: 60px;
+    left: -15px;
 
     &::before {
       background: url('./../images/description/mob_1x_round_7.png') center /
@@ -157,7 +305,20 @@
   }
 
   &:nth-child(8) {
-    display: none;
+    top: -60px;
+    left: 60px;
+
+    &::before {
+      background: url('./../images/description/desk_1x_round_8.png') center /
+        60px 60px no-repeat;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url('./../images/description/desk_2x_round_8.png') center /
+          60px 60px no-repeat;
+      }
+    }
   }
 
   @media screen and (min-width: $desktop-width) {
@@ -170,8 +331,8 @@
     }
 
     &:nth-child(1) {
-      top: 214px;
-      left: -80px;
+      top: -100px;
+      right: 0;
 
       &::before {
         background: url('./../images/description/desk_1x_round_1.png') center /
@@ -187,8 +348,8 @@
     }
 
     &:nth-child(2) {
-      top: 214px;
-      right: -86px;
+      top: 150px;
+      right: 150px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_2.png') center /
@@ -204,8 +365,8 @@
     }
 
     &:nth-child(3) {
-      bottom: -92px;
-      right: -22px;
+      bottom: 230px;
+      right: 0;
 
       &::before {
         background: url('./../images/description/desk_1x_round_3.png') center /
@@ -221,8 +382,8 @@
     }
 
     &:nth-child(4) {
-      bottom: -120px;
-      left: -16px;
+      bottom: 0;
+      right: 150px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_4.png') center /
@@ -238,8 +399,8 @@
     }
 
     &:nth-child(5) {
-      bottom: 152px;
-      left: 796px;
+      bottom: 0;
+      left: 150px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_5.png') center /
@@ -255,8 +416,8 @@
     }
 
     &:nth-child(6) {
-      top: -58px;
-      left: 782px;
+      bottom: 230px;
+      left: 0;
 
       &::before {
         background: url('./../images/description/desk_1x_round_6.png') center /
@@ -272,8 +433,8 @@
     }
 
     &:nth-child(7) {
-      top: -58px;
-      left: -242px;
+      top: 150px;
+      left: 150px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_7.png') center /
@@ -289,9 +450,8 @@
     }
 
     &:nth-child(8) {
-      display: block;
-      top: 486px;
-      left: -254px;
+      top: -100px;
+      left: 0;
 
       &::before {
         background: url('./../images/description/desk_1x_round_8.png') center /
@@ -314,14 +474,23 @@
   font-family: $font-family700;
   line-height: calc(10 / 8);
   text-transform: uppercase;
+  opacity: 0;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 24px;
     line-height: calc(28 / 24);
   }
+
+  &.active {
+    animation-name: my-bounce;
+    animation-delay: 400ms;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+  }
 }
 
-.description__benefits {
+.benefits {
+  margin: 0 auto;
   width: 100%;
   max-width: 824px;
   padding: 14px 14px 14px 24px;

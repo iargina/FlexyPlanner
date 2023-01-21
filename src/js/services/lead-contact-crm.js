@@ -1,6 +1,6 @@
 import { order } from '../utils';
-
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 const contact = document.querySelector('.contacts__btn');
 contact.addEventListener('click', onContactClick);

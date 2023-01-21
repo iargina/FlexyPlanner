@@ -1,0 +1,17 @@
+.final__wrapper {
+  @media screen and (min-width: $desktop-width) {
+    position: absolute;
+    top: 260px;
+
+    left: 64vw;
+    padding: 0;
+    z-index: 1;
+  }
+}
+
+.final__wrapper-scroll {
+  @media screen and (min-width: $desktop-width) {
+    position: fixed;
+    top: 20px;
+  }
+}
