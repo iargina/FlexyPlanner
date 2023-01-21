@@ -99,8 +99,8 @@ function postToAdd() {
       destination: 'Flexy Planner',
     },
 
-    //redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
-    redirectUrl: 'http://localhost:59593/?' + queryData,
+    redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
+    //redirectUrl: 'http://localhost:59593/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
   };
