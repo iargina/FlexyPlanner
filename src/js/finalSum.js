@@ -100,7 +100,6 @@ function postToAdd() {
     },
 
     redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
-    //redirectUrl: 'http://localhost:59593/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
   };
@@ -108,7 +107,6 @@ function postToAdd() {
 
 const monoPost = async (paymentData, id) => {
   try {
-    console.log(id);
     const response = await axios({
       method: 'post',
       url: 'https://flexyplanner.onrender.com/mono/' + id,

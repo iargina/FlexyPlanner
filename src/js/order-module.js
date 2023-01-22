@@ -48,7 +48,6 @@ const loadModule = async ({ type, data }) => {
       template = getImportFile(data);
     } else {
       data.price = await getPriceForRenderModuleFromCrm('FP');
-      // console.log(data);
 
       const { default: getImportFile } = await import(
         `../templates/to-order.hbs`
