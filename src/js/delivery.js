@@ -155,10 +155,7 @@ function onWarehousesListClick(e) {
     recipient_phone: receiverPhoneRef.value,
   };
 
-  /*   console.log(order); */
-
   order.delivery = deliveryInfo;
-  /*   console.log(order); */
 
   warehousesListRef.innerHTML = '';
 }

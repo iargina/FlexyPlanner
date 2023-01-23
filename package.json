@@ -2,7 +2,7 @@
   "name": "FlexyPlanner",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://iargina.github.io/FlexyPlanner",
+  "homepage": "https://iargina.github.io/FlexyPlanner/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /"

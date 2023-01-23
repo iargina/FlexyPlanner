@@ -70,15 +70,17 @@ function createFinalOrderMarkup() {
     </div>
     `;
 }
+let queryData;
 
-const crmPostOrder = orderData => {
+const crmPostOrder = async orderData => {
   try {
-    console.log(orderData);
-    axios({
+    const response = await axios({
       method: 'post',
       url: 'https://flexyplanner.onrender.com/crm/order',
       data: orderData,
     });
+    const id = await response.data.id;
+    return id;
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
@@ -97,25 +99,20 @@ function postToAdd() {
       destination: 'Flexy Planner',
     },
     redirectUrl: 'https://flexyplanner.com/?' + queryData,
-    // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
-    // redirectUrl: 'http://localhost:1234/?' + queryData,
+    webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
   };
 }
 
-const monoPost = async paymentData => {
+const monoPost = async (paymentData, id) => {
   try {
-    console.log(orderCrmData);
     const response = await axios({
       method: 'post',
-      url: 'https://flexyplanner.onrender.com/mono',
+      url: 'https://flexyplanner.onrender.com/mono/' + id,
       data: paymentData,
     });
 
-    console.log(response);
     const page = response.data.pageUrl;
-    /*     const invoice = response.data.invoiceID;
-    console.log(invoice); */
     window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
@@ -124,13 +121,12 @@ const monoPost = async paymentData => {
   }
 };
 
-let queryData;
-function onFinalSumBtnClick(e) {
+async function onFinalSumBtnClick(e) {
   orderCrmDataForm();
-  crmPostOrder(orderCrmData);
+  const orderId = await crmPostOrder(orderCrmData);
   queryData = stringifyOrder(orderCrmData);
   const paymentData = postToAdd();
-  monoPost(paymentData);
+  monoPost(paymentData, orderId);
 }
 
 // Правильна форма слова "продукт"

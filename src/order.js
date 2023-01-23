@@ -8,3 +8,4 @@ import './js/utils.js';
 import './js/contacts.js';
 import './js/services/crm-order-data.js';
 import './js/services/lead-contact-crm.js';
+import './js/notifixInit.js';
