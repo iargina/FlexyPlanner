@@ -33,15 +33,34 @@
   }
 }
 
-@keyframes pulse {
+@keyframes sploosh {
   0% {
-    box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0px rgba(86, 86, 86, 0.7);
+    background: rgba(49, 49, 49, 0.7);
   }
   80% {
-    box-shadow: 0 0 0 0;
+    background: rgba(66, 166, 223, 0);
   }
-  to {
-    box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
+  100% {
+    box-shadow: 0 0 0 10px rgba(66, 166, 223, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  3.3% {
+    transform: scale(1.1);
+  }
+  16.5% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -93,13 +112,28 @@
 .description__button-wrapper {
   position: absolute;
 
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    animation: sploosh 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: infinite;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.33s;
+    animation-duration: 2.2s;
+  }
+
   &:nth-child(1) {
     top: 70px;
     right: 95px;
-
-    button {
-      animation-delay: 200ms;
-    }
 
     @media screen and (min-width: $desktop-width) {
       top: 140px;
@@ -111,10 +145,6 @@
     top: 140px;
     right: 90px;
 
-    button {
-      animation-delay: 300ms;
-    }
-
     @media screen and (min-width: $desktop-width) {
       top: 310px;
       right: 160px;
@@ -124,10 +154,6 @@
   &:nth-child(3) {
     bottom: 140px;
     right: 130px;
-
-    button {
-      animation-delay: 400ms;
-    }
 
     @media screen and (min-width: $desktop-width) {
       bottom: 350px;
@@ -139,10 +165,6 @@
     bottom: 65px;
     right: 95px;
 
-    button {
-      animation-delay: 500ms;
-    }
-
     @media screen and (min-width: $desktop-width) {
       bottom: 160px;
       right: 170px;
@@ -153,23 +175,15 @@
     bottom: 60px;
     left: 95px;
 
-    button {
-      animation-delay: 600ms;
-    }
-
     @media screen and (min-width: $desktop-width) {
       bottom: 130px;
-      left: 190px;
+      left: 200px;
     }
   }
 
   &:nth-child(6) {
     bottom: 160px;
     left: 80px;
-
-    button {
-      animation-delay: 700ms;
-    }
 
     @media screen and (min-width: $desktop-width) {
       bottom: 400px;
@@ -181,10 +195,6 @@
     top: 80px;
     left: 100px;
 
-    button {
-      animation-delay: 800ms;
-    }
-
     @media screen and (min-width: $desktop-width) {
       top: 170px;
       left: 220px;
@@ -194,10 +204,6 @@
   &:nth-child(8) {
     top: 30px;
     right: 170px;
-
-    button {
-      animation-delay: 900ms;
-    }
 
     @media screen and (min-width: $desktop-width) {
       top: 30px;
@@ -214,10 +220,7 @@
   border: none;
   background-color: $black-color;
   cursor: pointer;
-  box-shadow: 0 0 0 0 $black-color;
-  animation-name: pulse;
-  animation-duration: 3000ms;
-  animation-timing-function: $transition-timing-function;
+  animation: pulse 2s ease-out;
   animation-iteration-count: infinite;
 
   &.hidden {
