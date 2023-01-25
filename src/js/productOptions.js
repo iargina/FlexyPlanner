@@ -55,13 +55,13 @@ const fetchPlannersData = async (dataObj) => {
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-        console.log("Active module: Pre-Order!");
+        // console.log("Active module: Pre-Order!");
         // Формую об'єкт із ціною:
         order.price = filteredPreOrderPrice[0].price;
       }
 
       if (dataObj.type === 'to-order') {
-        console.log("Active module: Order!");
+        // console.log("Active module: Order!");
         // Формую об'єкт із ціною:
         order.price = filteredOrderPrice[0].price;
       }
