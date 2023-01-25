@@ -87,16 +87,28 @@ const crmPostOrder = async orderData => {
     );
   }
 };
-
+const monoBasket = () => {
+  const basket = order.orderedPlanners.map(planer => {
+    return {
+      name: planer.color,
+      qty: planer.amount,
+      sum: planer.amount * planer.price,
+      code: planer.code,
+    };
+  });
+  return basket;
+};
 // POST запит;
 function postToAdd() {
   const total = Number(order.total - order.discountValueSum) * 100;
+  const basketMono = monoBasket();
   return {
     amount: total,
     ccy: 980,
     merchantPaymInfo: {
       reference: `${reference}`,
       destination: 'Flexy Planner',
+      basketOrder: basketMono,
     },
     redirectUrl: 'https://flexyplanner.com/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
@@ -113,7 +125,7 @@ const monoPost = async (paymentData, id) => {
     });
 
     const page = response.data.pageUrl;
-    window.location.href = `${page}`;
+    //window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`

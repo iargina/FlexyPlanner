@@ -9,9 +9,10 @@ const priceEl = document.querySelector('.orderProcessing__priceCurrent');
 const priceCancelEl = document.querySelector(
   '.orderProcessing__priceCancelled'
 );
-const firstCostEl = document.querySelector(
-  '.orderProcessing__firstCostWrapper'
-);
+
+const firstCostEl = document.querySelector('.orderProcessing__firstCostWrapper');
+const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
+
 
 listEl.addEventListener('click', onElementClick);
 
@@ -22,7 +23,9 @@ const fetchOrderModule = async () => {
   let middleDataObj = {};
 
   try {
-    const response = await axios.get('https://flexyplanner.onrender.com/markup');
+    const response = await axios.get(
+      'https://flexyplanner.onrender.com/markup'
+    );
     middleDataObj = response.data;
   } catch (error) {
     console.log(error.message);
@@ -45,10 +48,9 @@ const fetchPlannersData = async dataObj => {
     );
     const productArr = response.data.data;
 
-    const filteredPreOrderPrice = productArr.filter(el =>
-      el.sku.startsWith('PO')
-    );
-    //
+  const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
+    // 
+
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
     //
     const filteredOrderPrice = productArr.filter(
@@ -57,14 +59,12 @@ const fetchPlannersData = async dataObj => {
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-
         // Формую об'єкт із ціною:
 
         order.price = filteredPreOrderPrice[0].price;
       }
 
       if (dataObj.type === 'to-order') {
-
         // Формую об'єкт із ціною:
 
         order.price = filteredOrderPrice[0].price;
@@ -76,11 +76,8 @@ const fetchPlannersData = async dataObj => {
   } catch (error) {
     console.log(error.message);
   } finally {
-
-
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
-
 
     // Виводжу ціну наверху в секції
 
@@ -102,24 +99,27 @@ async function listMarkupRender(dataObj) {
     filteredPlannersArr = plannersArr.filter(
       //
       // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-      //
-      el => el.sku.startsWith('FP') && el.price > 0
+
+      // 
+      el => el.sku.startsWith('FP') && el.quantity > 0
+
     );
   }
   if (dataObj.type === 'pre-order') {
-    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO'));
+    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
   }
 
   let plannerPrice = priceGetter();
 
-  const markup = filteredPlannersArr
-    .map(({ product, sku, quantity }) => {
-      let lastItemsMarkup = '';
-      if (dataObj.type === 'to-order' && quantity < 10) {
-        lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
-      }
+  if (filteredPlannersArr.length > 0) {
+    const markup = filteredPlannersArr
+      .map(({ product, sku, quantity }) => {
+        let lastItemsMarkup = '';
+        if (dataObj.type === 'to-order' && quantity < 20) {
+          lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
+        }
 
-      return `<li class="orderProcessing__item" data-idx="#2378560">
+        return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
               <div class="orderProcessing__ItemImgWrapper" >
                 <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
@@ -156,15 +156,24 @@ async function listMarkupRender(dataObj) {
               </div >
             </div >
           </li > `;
-    })
-    .join('');
+      })
+      .join('');
 
-  listEl.innerHTML = markup;
-  recalcAmount();
+    listEl.innerHTML = markup;
+    recalcAmount();
 
-  // Застосовую початковий стан до планерів:
+    // Застосовую початковий стан до планерів:
+    initialState();
+  } else {
+    amountWordEl.classList.add('visually-hidden');
+    listEl.innerHTML = `
+    <h4 class="orderProcessing__noPlannersWarning">На жаль, усі планери закінчились...</h4>
+    <h4 class="orderProcessing__noPlannersWarning">Але вже незабаром в наявності буде нова порція!)</h4>
+    `;
+  }
 
-  initialState();
+
+
 }
 // ========================================================================
 
@@ -313,12 +322,15 @@ function recalcAmount() {
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
-
+    const plParagraph = el.querySelector(
+      '.orderProcessing__itemParagraph'
+    ).innerText;
     if (Number(plAmount) !== 0) {
       products.push({
         color: plTitle,
         amount: Number(plAmount),
         price: priceGetter(),
+        code: plParagraph,
       });
     }
   });
@@ -327,7 +339,6 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-
 
   //console.log('Order: ', order.getWholeOrderData());
 
