@@ -22,7 +22,9 @@ const fetchOrderModule = async () => {
   let middleDataObj = {};
 
   try {
-    const response = await axios.get('https://flexyplanner.onrender.com/markup');
+    const response = await axios.get(
+      'https://flexyplanner.onrender.com/markup'
+    );
     middleDataObj = response.data;
   } catch (error) {
     console.log(error.message);
@@ -57,14 +59,12 @@ const fetchPlannersData = async dataObj => {
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-
         // Формую об'єкт із ціною:
 
         order.price = filteredPreOrderPrice[0].price;
       }
 
       if (dataObj.type === 'to-order') {
-
         // Формую об'єкт із ціною:
 
         order.price = filteredOrderPrice[0].price;
@@ -76,11 +76,8 @@ const fetchPlannersData = async dataObj => {
   } catch (error) {
     console.log(error.message);
   } finally {
-
-
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
-
 
     // Виводжу ціну наверху в секції
 
@@ -313,12 +310,15 @@ function recalcAmount() {
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
-
+    const plParagraph = el.querySelector(
+      '.orderProcessing__itemParagraph'
+    ).innerText;
     if (Number(plAmount) !== 0) {
       products.push({
         color: plTitle,
         amount: Number(plAmount),
         price: priceGetter(),
+        code: plParagraph,
       });
     }
   });
@@ -327,7 +327,6 @@ function recalcAmount() {
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-
 
   //console.log('Order: ', order.getWholeOrderData());
 
