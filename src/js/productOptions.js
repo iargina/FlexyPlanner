@@ -10,6 +10,7 @@ const priceCancelEl = document.querySelector(
   '.orderProcessing__priceCancelled'
 );
 const firstCostEl = document.querySelector('.orderProcessing__firstCostWrapper');
+const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
 
 listEl.addEventListener('click', onElementClick);
 
@@ -46,7 +47,7 @@ const fetchPlannersData = async (dataObj) => {
     );
     const productArr = response.data.data;
 
-    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO'));
+    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
     // 
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
     // 
@@ -54,13 +55,13 @@ const fetchPlannersData = async (dataObj) => {
 
     function priceSetter() {
       if (dataObj.type === 'pre-order') {
-        // console.log("Active module: Pre-Order!");
+        console.log("Active module: Pre-Order!");
         // Формую об'єкт із ціною:
         order.price = filteredPreOrderPrice[0].price;
       }
 
       if (dataObj.type === 'to-order') {
-        // console.log("Active module: Order!");
+        console.log("Active module: Order!");
         // Формую об'єкт із ціною:
         order.price = filteredOrderPrice[0].price;
       }
@@ -99,23 +100,24 @@ async function listMarkupRender(dataObj) {
       //
       // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
       // 
-      el => el.sku.startsWith('FP') && el.price > 0
+      el => el.sku.startsWith('FP') && el.quantity > 0
     );
   }
   if (dataObj.type === 'pre-order') {
-    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO'));
+    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
   }
 
   let plannerPrice = priceGetter();
 
-  const markup = filteredPlannersArr
-    .map(({ product, sku, quantity }) => {
-      let lastItemsMarkup = '';
-      if (dataObj.type === 'to-order' && quantity < 10) {
-        lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
-      }
+  if (filteredPlannersArr.length > 0) {
+    const markup = filteredPlannersArr
+      .map(({ product, sku, quantity }) => {
+        let lastItemsMarkup = '';
+        if (dataObj.type === 'to-order' && quantity < 20) {
+          lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
+        }
 
-      return `<li class="orderProcessing__item" data-idx="#2378560">
+        return `<li class="orderProcessing__item" data-idx="#2378560">
             <div class="orderProcessing__itemWrapper">
               <div class="orderProcessing__ItemImgWrapper" >
                 <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
@@ -152,14 +154,23 @@ async function listMarkupRender(dataObj) {
               </div >
             </div >
           </li > `;
-    })
-    .join('');
+      })
+      .join('');
 
-  listEl.innerHTML = markup;
-  recalcAmount();
+    listEl.innerHTML = markup;
+    recalcAmount();
 
-  // Застосовую початковий стан до планерів:
-  initialState();
+    // Застосовую початковий стан до планерів:
+    initialState();
+  } else {
+    amountWordEl.classList.add('visually-hidden');
+    listEl.innerHTML = `
+    <h4 class="orderProcessing__itemTitle">На жаль, усі планери закінчились...</h4>
+    <h4 class="orderProcessing__itemTitle">Але вже незабаром в наявності буде нова порція!)</h4>
+    `;
+  }
+
+
 }
 // ========================================================================
 
