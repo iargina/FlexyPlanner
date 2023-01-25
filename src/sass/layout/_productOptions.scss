@@ -439,3 +439,20 @@
 .orderProcessing__firstCostValue {
   color: $alert-color;
 }
+
+.orderProcessing__noPlannersWarning {
+  font-family: $font-familyLight400;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 4px;
+
+  color: $black-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 14px;
+    line-height: 1.29;
+    max-width: 375px;
+  }
+}

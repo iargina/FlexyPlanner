@@ -167,8 +167,8 @@ async function listMarkupRender(dataObj) {
   } else {
     amountWordEl.classList.add('visually-hidden');
     listEl.innerHTML = `
-    <h4 class="orderProcessing__itemTitle">На жаль, усі планери закінчились...</h4>
-    <h4 class="orderProcessing__itemTitle">Але вже незабаром в наявності буде нова порція!)</h4>
+    <h4 class="orderProcessing__noPlannersWarning">На жаль, усі планери закінчились...</h4>
+    <h4 class="orderProcessing__noPlannersWarning">Але вже незабаром в наявності буде нова порція!)</h4>
     `;
   }
 
