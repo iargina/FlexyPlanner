@@ -126,7 +126,7 @@ const monoPost = async (paymentData, id) => {
     });
 
     const page = response.data.pageUrl;
-    //window.location.href = `${page}`;
+    window.location.href = `${page}`;
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
