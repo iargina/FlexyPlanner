@@ -112,7 +112,8 @@ function postToAdd() {
       basketOrder: basketMono,
     },
 
-    redirectUrl: 'http://localhost:1234/?' + queryData,
+    
+    redirectUrl: 'http://localhost:1234/',
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
