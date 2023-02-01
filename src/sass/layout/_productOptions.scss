@@ -204,6 +204,7 @@
   // max-height: 68px;
   min-width: 52px;
   min-height: 68px;
+  overflow: hidden;
 
   @media screen and (min-width: $desktop-width) {
     min-width: 74px;
