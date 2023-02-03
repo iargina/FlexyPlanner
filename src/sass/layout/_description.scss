@@ -116,8 +116,8 @@
   height: 14px;
 
   @media screen and (min-width: $desktop-width) {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
   }
 
   span {
@@ -144,8 +144,8 @@
     right: 95px;
 
     @media screen and (min-width: $desktop-width) {
-      top: 140px;
-      right: 170px;
+      top: 130px;
+      right: 160px;
     }
   }
 
@@ -154,7 +154,7 @@
     right: 90px;
 
     @media screen and (min-width: $desktop-width) {
-      top: 310px;
+      top: 295px;
       right: 160px;
     }
   }
@@ -164,8 +164,8 @@
     right: 130px;
 
     @media screen and (min-width: $desktop-width) {
-      bottom: 350px;
-      right: 300px;
+      bottom: 320px;
+      right: 250px;
     }
   }
 
@@ -174,7 +174,7 @@
     right: 95px;
 
     @media screen and (min-width: $desktop-width) {
-      bottom: 160px;
+      bottom: 150px;
       right: 170px;
     }
   }
@@ -185,7 +185,7 @@
 
     @media screen and (min-width: $desktop-width) {
       bottom: 130px;
-      left: 200px;
+      left: 190px;
     }
   }
 
@@ -205,7 +205,7 @@
 
     @media screen and (min-width: $desktop-width) {
       top: 170px;
-      left: 220px;
+      left: 210px;
     }
   }
 
@@ -215,7 +215,7 @@
 
     @media screen and (min-width: $desktop-width) {
       top: 30px;
-      left: 340px;
+      left: 320px;
     }
   }
 }
@@ -400,11 +400,11 @@
   }
 
   @media screen and (min-width: $desktop-width) {
-    width: 160px;
+    width: 140px;
 
     &::before {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       margin-bottom: 16px;
     }
 
@@ -414,13 +414,13 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_5.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_5.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -431,30 +431,30 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_2.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_2.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
 
     &:nth-child(3) {
       bottom: 230px;
-      right: -60px;
+      right: 0;
 
       &::before {
         background: url('./../images/description/desk_1x_round_6.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_6.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -465,13 +465,13 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_1.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_1.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -482,30 +482,30 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_4.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_4.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
 
     &:nth-child(6) {
       bottom: 230px;
-      left: -40px;
+      left: 20px;
 
       &::before {
         background: url('./../images/description/desk_1x_round_3.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_3.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -516,13 +516,13 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_7.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_7.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -533,13 +533,13 @@
 
       &::before {
         background: url('./../images/description/desk_1x_round_8.png') center /
-          140px 140px no-repeat;
+          120px 120px no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
           background: url('./../images/description/desk_2x_round_8.png') center /
-            140px 140px no-repeat;
+            120px 120px no-repeat;
         }
       }
     }
@@ -555,7 +555,7 @@
   opacity: 0;
 
   @media screen and (min-width: $desktop-width) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: calc(28 / 24);
   }
 
@@ -629,8 +629,8 @@
 
   @media screen and (min-width: $desktop-width) {
     width: auto;
-    bottom: 0;
-    right: 425px;
+    bottom: -10px;
+    right: 445px;
   }
 
   &.hidden {
@@ -644,6 +644,7 @@
   font-size: 14px;
   bottom: -3px;
   left: -50px;
+  color: #555;
 
   @media screen and (min-width: $desktop-width) {
     font-size: inherit;
