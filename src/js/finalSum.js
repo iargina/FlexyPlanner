@@ -93,7 +93,8 @@ const monoBasket = () => {
     return {
       name: planer.color,
       qty: planer.amount,
-      sum: planer.amount * planer.price,
+      sum: planer.amount * planer.price * 100,
+      // sum: 20,
       code: planer.code,
     };
   });
@@ -112,7 +113,8 @@ function postToAdd() {
       basketOrder: basketMono,
     },
 
-    redirectUrl: 'http://localhost:1234/',
+    redirectUrl: 'https://flexyplanner.com',
+    // redirectUrl: 'http://localhost:1234/',
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
