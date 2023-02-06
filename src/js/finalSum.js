@@ -112,7 +112,6 @@ function postToAdd() {
       basketOrder: basketMono,
     },
 
-    
     redirectUrl: 'http://localhost:1234/',
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
@@ -143,9 +142,12 @@ async function onFinalSumBtnClick(e) {
   preloader.start();
   try {
     const orderId = await crmPostOrder(orderCrmData);
+    if (!orderId) {
+      throw new Error('no orderId');
+    }
     queryData = stringifyOrder(orderCrmData);
     const paymentData = postToAdd();
-    monoPost(paymentData, orderId);
+    await monoPost(paymentData, orderId);
   } catch (error) {
     console.log(error.message);
   } finally {
