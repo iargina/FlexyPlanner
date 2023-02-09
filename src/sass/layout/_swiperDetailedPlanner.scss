@@ -111,7 +111,10 @@
   }
   .swiper-pagination-bullet {
     opacity: 1;
-    transition: scale 300ms $transition-timing-function;
+
+    transition-property: scale, border, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: $transition-timing-function;
 
     &:hover {
       scale: 1.2;
@@ -120,5 +123,6 @@
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     border: 2px solid $accent-color;
     scale: 1.2;
+    background-color: $accent-color;
   }
 }
