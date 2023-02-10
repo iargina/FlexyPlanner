@@ -129,4 +129,17 @@
       width: 40px;
     }
   }
+  .qa__item-link {
+    color: $accent-color;
+    font-family: $font-family500;
+
+    transition-property: color, text-decoration;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+
+    &:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+  }
 }
