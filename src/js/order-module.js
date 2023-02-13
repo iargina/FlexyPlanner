@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { getCurrentPriceFromCrm } from './services/order-moduleApi';
 import toggleModal from './toggleModal';
+// import { moduleOrder } from './utils';
 
 const onOrderModule = async () => {
   try {
@@ -8,6 +9,8 @@ const onOrderModule = async () => {
       'https://flexyplanner.onrender.com/markup'
     ); // тут приходять дані по активному модулю
     loadModule(data); //Створення відповідної розмітки
+
+    // moduleOrder.setTypeModule(data.type);
 
     //TODO: викликати метод класу для передачі даних з ціною/активним модулем на сторінку замовлення.
   } catch (error) {
@@ -36,7 +39,11 @@ const getPriceForRenderModuleFromCrm = async typeOfModule => {
   }
 };
 
+const loadModuleBtn = document.querySelector('.load-module-btn');
+const btnLoader = document.querySelector('#btnLoader');
+
 const loadModule = async ({ type, data }) => {
+  btnLoader.classList.remove('loader-is-hidden');
   try {
     let template;
     if (type === 'pre-order') {
@@ -46,6 +53,20 @@ const loadModule = async ({ type, data }) => {
         `../templates/pre-order.hbs`
       );
       template = getImportFile(data);
+
+      btnLoader.classList.add('loader-is-hidden');
+      loadModuleBtn.innerHTML = 'Попереднє замовлення';
+      //       if (loadModuleBtn) {
+      //         heroContainer.insertAdjacentHTML(
+      //           'beforeend',
+      //           `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
+      // Попереднє замовлення
+      // 				</a>`
+      //         );
+      //       }
+
+      //  loadModuleBtn.innerHTML = 'Попереднє замовлення';
+      // loadModuleBtn.style.cssText = 'height:64px;padding:10px 0;font-size:20px';
     } else {
       data.price = await getPriceForRenderModuleFromCrm('FP');
 
@@ -53,6 +74,8 @@ const loadModule = async ({ type, data }) => {
         `../templates/to-order.hbs`
       );
       template = getImportFile(data);
+
+      loadModuleBtn.innerHTML = 'Замовити';
     }
     getOrderSection(template);
   } catch (error) {

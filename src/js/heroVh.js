@@ -15,6 +15,25 @@ import deskBlack2 from '../images/hero/desk_2x_planner_black.jpg';
 import deskRed2 from '../images/hero/desk_2x_planner_red.jpg';
 import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
 
+import { btnLoader } from './btnLoader';
+
+const getButton = () => {
+  // if (moduleOrder.type === 'pre-order') {
+  //   return `<a href="#order" class="hero__btn load-module-btn pre-order-btn" aria-label="link to order">
+  //   Попереднє замовлення
+  // </a>`;
+  // } else {
+  //   return `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
+  //   Замовити
+  // </a>`;
+  // }
+  return `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
+	${btnLoader}
+</a>`;
+  // height: 64px;
+  //     padding: 10px 0px;
+};
+
 const heroWrapper = document.querySelector('.hero-wrapper');
 const heroWrapperHeight = heroWrapper.offsetHeight;
 const heroMarkup = `<section class="hero" id="hero__up">
@@ -113,7 +132,8 @@ const heroMarkup = `<section class="hero" id="hero__up">
     <div class="hero__slider-text">
       Багатофункціональний адаптивний щоденник
     </div>
-    <a href="#order" class="hero__btn" aria-label="link to order">Замовити</a>
+		${getButton()}
+
   </div>
 </section>
 `;

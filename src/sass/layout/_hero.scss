@@ -170,7 +170,7 @@
     height: 507px;
   }
 }
-.swiper-slide > picture {  
+.swiper-slide > picture {
   display: inline-block;
   @media screen and (min-width: $desktop-width) {
     width: 486px;
@@ -229,4 +229,8 @@
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   border: 2px solid #e8e8e8;
   transform: scale(1.1);
+}
+
+.pre-order-btn {
+  // height: 80px;
 }
