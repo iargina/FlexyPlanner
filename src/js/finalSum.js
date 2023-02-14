@@ -4,6 +4,7 @@ import { orderCrmData, orderCrmDataForm } from './services/crm-order-data';
 import { stringifyOrder } from './services/query-methods';
 import axios from 'axios';
 import { Notify } from 'notiflix';
+import { preloader } from './preLoaderClass';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
@@ -92,7 +93,8 @@ const monoBasket = () => {
     return {
       name: planer.color,
       qty: planer.amount,
-      sum: planer.amount * planer.price,
+      sum: planer.amount * planer.price * 100,
+      // sum: 20,
       code: planer.code,
     };
   });
@@ -111,7 +113,9 @@ function postToAdd() {
       basketOrder: basketMono,
     },
 
-    redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
+    redirectUrl: 'https://flexyplanner.com',
+    // redirectUrl: 'http://localhost:1234/',
+    // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
     webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
     validity: 3600,
   };
@@ -136,10 +140,21 @@ const monoPost = async (paymentData, id) => {
 
 async function onFinalSumBtnClick(e) {
   orderCrmDataForm();
-  const orderId = await crmPostOrder(orderCrmData);
-  queryData = stringifyOrder(orderCrmData);
-  const paymentData = postToAdd();
-  monoPost(paymentData, orderId);
+  e.currentTarget.disabled = true;
+  preloader.start();
+  try {
+    const orderId = await crmPostOrder(orderCrmData);
+    if (!orderId) {
+      throw new Error('no orderId');
+    }
+    queryData = stringifyOrder(orderCrmData);
+    const paymentData = postToAdd();
+    await monoPost(paymentData, orderId);
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    preloader.finish();
+  }
 }
 
 // Правильна форма слова "продукт"
