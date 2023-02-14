@@ -82,7 +82,8 @@
 .desc-container {
   margin: 0 auto;
   padding: 0 20px;
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 1920px;
 }
 
 .description {
@@ -122,6 +123,7 @@
 
   @media screen and (min-width: $tablet-width) {
     width: 60vw;
+    max-width: 1152px;
   }
 }
 
@@ -381,6 +383,8 @@
     &::before {
       width: 8vw;
       height: 8vw;
+      max-width: 154px;
+      max-height: 154px;
     }
 
     &:nth-child(1) {
@@ -534,6 +538,10 @@
   @media screen and (min-width: $tablet-width) {
     font-size: 1.2vw;
     line-height: calc(28 / 24);
+  }
+
+  @media screen and (min-width: 1921px) {
+    font-size: 24px;
   }
 
   &.active {
