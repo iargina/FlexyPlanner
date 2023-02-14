@@ -9,3 +9,4 @@ import './js/contacts.js';
 import './js/services/crm-order-data.js';
 import './js/services/lead-contact-crm.js';
 import './js/notifixInit.js';
+import 'intl-tel-input/build/css/intlTelInput.css';

@@ -38,5 +38,6 @@ function onContactClick() {
       };
     }),
   };
+  console.log('leadCrmData :>> ', leadCrmData);
   crmPost(leadCrmData);
 }

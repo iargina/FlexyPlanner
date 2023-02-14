@@ -48,7 +48,7 @@ const fetchPlannersData = async dataObj => {
     );
     const productArr = response.data.data;
 
-  const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
+    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
     // 
 
     // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
@@ -349,8 +349,7 @@ function recalcAmount() {
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
-  <div class="orderProcessing__firstCostValue">${
-    TotalPlannerAmounts * order.price
-  } грн</div>
+  <div class="orderProcessing__firstCostValue">${TotalPlannerAmounts * order.price
+    } грн</div>
   `;
 }

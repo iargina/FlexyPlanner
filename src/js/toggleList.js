@@ -1,17 +1,6 @@
 import HandyCollapse from 'handy-collapse';
 import Aos from 'aos';
 
-const cards = document.querySelectorAll('.qa__item');
-
-    cards.forEach(card => {
-      card.addEventListener('click', e => {
-        const target = e.target;
-        if (target.classList.contains('qa__item-link')) {
-          window.open(target.getAttribute('href'))
-        }
-      });
-    });
-
 const featureAccordion = new HandyCollapse({
   nameSpace: 'lc',
   closeOthers: false,

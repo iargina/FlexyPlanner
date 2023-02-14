@@ -60,12 +60,10 @@
   max-width: 157px;
   margin-bottom: 24px;
   padding: 0;
-
   :nth-child(odd) {
     max-width: 158px;
     margin-right: 0;
   }
-
   letter-spacing: -0.02em;
   color: $black-color;
 
@@ -82,7 +80,6 @@
     margin: 0;
   }
 }
-
 .authors__text--item--accent--bold {
   font-family: $font-family700;
   margin-right: 0;
@@ -114,7 +111,6 @@
     max-width: 200px;
   }
 }
-
 .authors__info--subtitle {
   font-family: $font-family700;
   font-size: 18px;
@@ -127,12 +123,10 @@
     margin-bottom: 14px;
   }
 }
-
 .authors__info--subtitle--text {
   font-family: $font-family500;
   font-size: 14px;
   line-height: 1.29;
-
   letter-spacing: -0.02em;
   margin-bottom: 4px;
   color: $secondary-text-color;

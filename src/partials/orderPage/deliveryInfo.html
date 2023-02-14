@@ -1,45 +1,21 @@
 <div class="container delivery__container delivery__ishidden">
   <h3 class="subtitle">3. Доставка</h3>
   <div class="city-wrapper">
-    <label class="contacts__label contacts__label--checkbox"
-      ><input type="checkbox" id="receiverCheckbox" />Я отримувач</label
-    >
+    <label class="contacts__label contacts__label--checkbox"><input type="checkbox" id="receiverCheckbox" />Я
+      отримувач</label>
 
-    <label for="receiverName" class="contacts__label"
-      >Прізвище, ім’я отримувача</label
-    >
-    <input
-      type="text"
-      name="receiverName"
-      id="receiverName"
-      placeholder="Бандера Степан"
-      class="contacts__input"
-      pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$"
-      title="Введіть Ім’я та Прізвище"
-    />
-    <label for="receiverPhone" class="contacts__label"
-      >Мобільний телефон отримувача</label
-    >
-    <input
-      type="tel"
-      name="receiverPhone"
-      id="receiverPhone"
-      placeholder="+380"
-      class="contacts__input"
-      required
-      pattern="[\+]\d{12}"
-      minlength="13"
-      maxlength="13"
-    />
+    <label for="receiverName" class="contacts__label">Ім’я отримувача</label>
+    <input type="text" name="receiverName" id="receiverName" placeholder="Степан" class="contacts__input"
+      pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$" title="Введіть Ім’я" />
+    <label for="receiverLastName" class="contacts__label">Прізвище отримувача</label>
+    <input type="text" name="receiverLastName" id="receiverLastName" placeholder="Бандера" class="contacts__input"
+      pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$" title="Введіть Прізвище" />
+
+    <label for="receiverPhone" class="contacts__label">Мобільний телефон отримувача</label>
+    <input type="text" name="phone" id="phone" class="contacts__input reciever-contacts__phone" required />
     <label class="input-label" for="city">Ваше місто</label>
-    <input
-      type="text"
-      class="input input--city"
-      name="city"
-      id="city"
-      placeholder="Вкажіть населений пункт"
-      autocomplete="off"
-    />
+    <input type="text" class="input input--city" name="city" id="city" placeholder="Вкажіть населений пункт"
+      autocomplete="off" />
     <ul class="autocomplete-list cities"></ul>
   </div>
   <div class="warehouse-wrapper">
@@ -48,14 +24,8 @@
       Виберіть відповідне відділення
     </button>
     <div class="warehouse-search">
-      <input
-        type="text"
-        class="input input--warehouse"
-        name="warehouse"
-        id="warehouse"
-        placeholder="Введіть адресу або номер відділення"
-        autocomplete="off"
-      />
+      <input type="text" class="input input--warehouse" name="warehouse" id="warehouse"
+        placeholder="Введіть адресу або номер відділення" autocomplete="off" />
       <ul class="autocomplete-list warehouses"></ul>
     </div>
   </div>
