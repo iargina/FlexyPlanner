@@ -13,6 +13,7 @@ const warehouseInputRef = document.querySelector('#warehouse');
 const warehousesListRef = document.querySelector('.warehouses');
 const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
+const finalSumBtn = document.querySelector('.finalSum__btn');
 
 const receiverNameRef = document.querySelector('#receiverName');
 const receiverLastNameRef = document.querySelector('#receiverLastName');
@@ -188,6 +189,16 @@ function onWarehousesListClick(e) {
   order.delivery = deliveryInfo;
 
   warehousesListRef.innerHTML = '';
+
+  // Check if all inputs has values before select warehouse
+  // and enabled finalSumBtn 
+  if (receiverNameRef.value.length > 0 &&
+    receiverLastNameRef.value.length > 0 &&
+    recieverContactPhoneRef.value.length > 0
+  ) {
+    finalSumBtn.disabled = false;
+  }
+
 }
 
 function onInputBlur() {

@@ -121,7 +121,7 @@ submitBtnEl.addEventListener('click', e => {
     promoContainer.classList.remove('promo__ishidden');
   }
   submitBtnEl.style.display = 'none';
-  finalSumBtn.disabled = false;
+  // finalSumBtn.disabled = false;
 
   window.scrollBy({
     top: 500,
