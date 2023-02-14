@@ -15,6 +15,7 @@ const onPreOrderFormSubmit = () => {
     const emailData = formData.get('email');
     const commentData = formData.get('comment');
     const leadData = {
+      source_id: 1,
       title: commentData,
       pipeline_id: 1,
       contact: {
