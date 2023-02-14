@@ -104,12 +104,14 @@
 
 .hero__btn {
   display: block;
-  padding: 10px 56px;
+  padding: 10px 35px;
   margin: 0 auto;
   width: 199px;
-  height: 42px;
-  background-color: $black-color;
-  color: $white-color;
+  height: 60px;
+  // height: 42px;
+  background-color: $accent-color;
+  color: $black-color;
+
   border-radius: 4px;
   font-family: $font-family600;
   font-size: 18px;
@@ -128,15 +130,17 @@
   @media screen and (min-width: 1440px) {
     margin-left: 0;
     width: 227px;
-    height: 56px;
-    padding: 14px 56px;
+    // height: 56px;
+    height: 72px;
+    padding: 10px 20px;
     font-size: 24px;
     line-height: 117%;
   }
+
   &:hover,
   &:focus {
-    background-color: $accent-color;
-    color: $black-color;
+    background-color: $black-color;
+    color: $white-color;
   }
 }
 
@@ -231,6 +235,6 @@
   transform: scale(1.1);
 }
 
-.pre-order-btn {
-  // height: 80px;
+.hero__btn[disabled] {
+  pointer-events: none;
 }

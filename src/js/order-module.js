@@ -9,7 +9,12 @@ const showBtnText = (textHero, textFooter) => {
   const heroLoadModuleBtn = document.querySelector('.load-module-btn');
   const footerLoadModuleBtn = document.querySelector('.footer__button');
   btnLoader.classList.add('loader-is-hidden');
-  footerLoadModuleBtn.classList.remove('disable-link');
+
+  //під час запиту для отримання актуального модулю кнопка disabled
+  footerLoadModuleBtn.removeAttribute('disabled');
+  heroLoadModuleBtn.removeAttribute('disabled');
+
+  //вставка відповідного тексту для кнопки
   heroLoadModuleBtn.innerHTML = textHero;
   footerLoadModuleBtn.innerHTML = textFooter;
 };

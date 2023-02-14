@@ -84,7 +84,7 @@ footer {
   }
 }
 
-.disable-link {
+.footer__button[disabled] {
   pointer-events: none;
 }
 
