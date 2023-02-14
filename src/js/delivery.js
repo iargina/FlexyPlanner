@@ -3,6 +3,10 @@ import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
 import { order } from './utils';
 
+import IMask from 'imask';
+import { itiInit, maskInit } from './helpers/phoneNumberInit';
+import { maskOnCountryChange } from './helpers/maskOnCountryChange';
+
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
 const warehouseInputRef = document.querySelector('#warehouse');
@@ -10,11 +14,33 @@ const warehousesListRef = document.querySelector('.warehouses');
 const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 
-const userNameRef = document.querySelector('#username');
-const userPhoneRef = document.querySelector('#phone');
 const receiverNameRef = document.querySelector('#receiverName');
-const receiverPhoneRef = document.querySelector('#receiverPhone');
+const receiverLastNameRef = document.querySelector('#receiverLastName');
+const recieverContactPhoneRef = document.querySelector('.reciever-contacts__phone');
 const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
+
+// INITIAL STATE
+let itiDelvery = itiInit(recieverContactPhoneRef);
+let maskDelivery = maskInit(recieverContactPhoneRef);
+
+
+
+recieverContactPhoneRef.addEventListener("countrychange", (e) => {
+  const placeHolderMask = itiDelvery.telInput.placeholder;
+  const selectedCountryLabel = itiDelvery.getSelectedCountryData().iso2;
+  const maskOptions = maskOnCountryChange(selectedCountryLabel, placeHolderMask);
+  maskDelivery = IMask(recieverContactPhoneRef, maskOptions);
+  recieverContactPhoneRef.setSelectionRange(0, 0);
+  recieverContactPhoneRef.focus();
+});
+
+recieverContactPhoneRef.addEventListener("close:countrydropdown", (e) => {
+  maskDelivery.destroy();
+})
+
+
+
+
 
 const api = new PoshtaAPI();
 
@@ -32,8 +58,12 @@ async function selectCity(e) {
   }
 
   api.selectCity(e.target.value);
+  const warningEl = document.querySelector("#NotiflixNotifyWrap");
 
   try {
+    if (warningEl) {
+      warningEl.remove();
+    }
     const res = await api.getSettlements();
     const cities = res.data[0].Addresses;
     const citiesList = cities.map(
@@ -152,7 +182,7 @@ function onWarehousesListClick(e) {
     recipient_full_name: receiverNameRef.value,
 
     // receiver phone
-    recipient_phone: receiverPhoneRef.value,
+    recipient_phone: order.contactInfo.phone,
   };
 
   order.delivery = deliveryInfo;
@@ -173,17 +203,19 @@ function onInputBlur() {
 
 function onCheckboxChange(e) {
   if (e.target.checked) {
-    receiverNameRef.value = userNameRef.value;
+    receiverNameRef.value = order.contactInfo.username;
     receiverNameRef.disabled = true;
 
-    receiverPhoneRef.value = userPhoneRef.value;
-    receiverPhoneRef.disabled = true;
+    const contactDeliveryPhoneCodeString = `+${itiDelvery.getSelectedCountryData().dialCode}`;
+    const cuttedPhoneNumber = order.contactInfo.phone.slice(contactDeliveryPhoneCodeString.length);
+    maskDelivery.value = cuttedPhoneNumber;
+    receiverLastNameRef.focus();
   } else {
     receiverNameRef.value = '';
+    receiverLastNameRef.value = '';
     receiverNameRef.disabled = false;
-
-    receiverPhoneRef.value = '';
-    receiverPhoneRef.disabled = false;
+    maskDelivery.value = "";
+    receiverNameRef.focus();
   }
 }
 

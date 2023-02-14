@@ -1,38 +1,13 @@
 <div class="container contacts__container">
   <h3 class="subtitle">2. Контактні дані покупця</h3>
   <form class="contacts__form">
-    <label for="username" class="contacts__label">Прізвище, ім’я</label>
-    <input
-      type="text"
-      name="username"
-      placeholder="Бандера Степан"
-      class="contacts__input contacts__name"
-      id="username"
-      required
-      pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$"
-      title="Введіть Прізвище та
-    Ім'я"
-    />
+    <label for="username" class="contacts__label">Як тебе звати?</label>
+    <input type="text" name="username" placeholder="Степан" class="contacts__input contacts__name" id="username"
+      required pattern="^[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ-]+$" title="Введіть Ім'я" />
     <label for="phone" class="contacts__label">Мобільний телефон</label>
-    <input
-      type="tel"
-      name="phone"
-      placeholder="+380"
-      id="phone"
-      class="contacts__input contacts__phone"
-      required
-      pattern="[\+]\d{12}"
-      minlength="13"
-      maxlength="13"
-    />
-    <label for="comment" class="contacts__label"
-      >Коментар (не обов’язково)</label
-    >
-    <textarea
-      name="comment"
-      id="comment"
-      class="contacts__input contacts__input--textarea"
-    ></textarea>
+    <input type="text" name="phone" id="phone" class="contacts__input contacts__phone" required />
+    <label for="comment" class="contacts__label">Коментар (не обов’язково)</label>
+    <textarea name="comment" id="comment" class="contacts__input contacts__input--textarea"></textarea>
     <button type="submit" class="btn btn--secondary contacts__btn">
       Продовжити
     </button>
