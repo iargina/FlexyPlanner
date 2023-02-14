@@ -41,8 +41,8 @@ async function onFormSubmit(e) {
     if (!data.length) {
       refs.errorIcon.classList.remove('visually-hidden');
       refs.successContainer.classList.add('visually-hidden');
-      Notify.failure('Промокод введений не вірно!');
-      setTimeout(hideNotification, 3000);
+      Notify.failure('Промокод введений невірно!');
+      setTimeout(hideNotification, 5000);
       refs.promoForm.reset();
       order.discountValue = 0;
     } else {

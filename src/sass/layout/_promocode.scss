@@ -20,7 +20,11 @@
 .complite-form {
   background: $background-color;
   border-radius: 4px;
-  max-width: 420px;
+  max-width: 335px;
+
+  @media screen and (min-width: $desktop-width) {
+    max-width: 420px;
+  }
 }
 .promo__wrapper {
   display: flex;
