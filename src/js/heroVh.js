@@ -15,17 +15,25 @@ import deskBlack2 from '../images/hero/desk_2x_planner_black.jpg';
 import deskRed2 from '../images/hero/desk_2x_planner_red.jpg';
 import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
 
+import { btnLoader } from './btnLoader';
+
+const getButton = () => {
+  return `<a href="./order.html" class="hero__btn load-module-btn" disabled aria-label="link to order">
+	${btnLoader}
+</a>`;
+};
+
 const heroWrapper = document.querySelector('.hero-wrapper');
 const heroWrapperHeight = heroWrapper.offsetHeight;
 const heroMarkup = `<section class="hero" id="hero__up">
   <div class="container hero-container">
     <h1 class="visually-hidden">
-      Flexxy planner - організовуй своє життя у гнучкий, ефективний та
+      Flexy planner - організовуй своє життя у гнучкий, ефективний та
       захоплюючий спосіб.
     </h1>
     <div class="hero__main">
       <div class="hero__title">
-        <a href="" class="logo-link" aria-label="link to flexxy planner">
+        <a href="" class="logo-link" aria-label="link to flexy planner">
             <img src=${logo} alt="flexxy planner" class="hero__logo">          
         </a>
         <div class="hero__description">
@@ -113,7 +121,8 @@ const heroMarkup = `<section class="hero" id="hero__up">
     <div class="hero__slider-text">
       Багатофункціональний адаптивний щоденник
     </div>
-    <a href="#order" class="hero__btn" aria-label="link to order">Замовити</a>
+		${getButton()}
+
   </div>
 </section>
 `;
