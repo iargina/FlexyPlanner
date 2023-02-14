@@ -14,6 +14,9 @@ footer {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
   @media screen and (min-width: $desktop-width) {
     padding: 50px 100px 100px;
     z-index: 0;
@@ -56,6 +59,10 @@ footer {
   display: flex;
   flex-direction: row;
   gap: 18px;
+
+  @media screen and (min-width: 768px) {
+    order: 1;
+  }
 }
 
 .footer__icon {
@@ -68,13 +75,22 @@ footer {
     height: 32px;
   }
 }
+
+.footer-btn-wrapper {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: auto;
+    margin-right: 30px;
+  }
+}
+
 .footer__button {
-  display: inline;
+  display: flex;
   text-align: center;
   // width: 335px;
   width: 268px;
   height: 60px;
-
+  margin: 0 auto;
   // margin: auto;
   // padding: 10px 64px;
   padding: 10px 15px;
