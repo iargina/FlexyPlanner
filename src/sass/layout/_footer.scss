@@ -84,6 +84,10 @@ footer {
   }
 }
 
+.disable-link {
+  pointer-events: none;
+}
+
 .footer__button {
   display: flex;
   text-align: center;
@@ -91,6 +95,7 @@ footer {
   width: 268px;
   height: 60px;
   margin: 0 auto;
+
   // margin: auto;
   // padding: 10px 64px;
   padding: 10px 15px;
@@ -98,6 +103,8 @@ footer {
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
+  border: 1px solid transparent;
+
   // @media screen and (min-width: 591px) {
   //   // @media screen and (min-width: 768px) {
   //   // padding: 16px 31px;
@@ -110,10 +117,10 @@ footer {
 }
 .footer__button:hover,
 .footer__button:focus {
-  padding: 9px 64px;
+  // padding: 9px 64px;
   border: 1px solid $accent-color;
   @media screen and (min-width: 591px) {
     // @media screen and (min-width: 768px) {
-    padding: 15px 31px;
+    // padding: 15px 31px;
   }
 }

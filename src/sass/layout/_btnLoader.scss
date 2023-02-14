@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  margin: 0 auto;
 }
 
 .dot-flashing {
@@ -10,8 +11,8 @@
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: $accent-color;
-  color: $accent-color;
+  background-color: $white-color;
+  color: $white-color;
   animation: dot-flashing 1s infinite linear alternate;
   animation-delay: 0.5s;
 }
@@ -27,8 +28,8 @@
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: $accent-color;
-  color: $accent-color;
+  background-color: $white-color;
+  color: $white-color;
   animation: dot-flashing 1s infinite alternate;
   animation-delay: 0s;
 }
@@ -37,15 +38,15 @@
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: $accent-color;
-  color: $accent-color;
+  background-color: $white-color;
+  color: $white-color;
   animation: dot-flashing 1s infinite alternate;
   animation-delay: 1s;
 }
 
 @keyframes dot-flashing {
   0% {
-    background-color: $accent-color;
+    background-color: $white-color;
   }
   50%,
   100% {

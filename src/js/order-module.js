@@ -9,6 +9,7 @@ const showBtnText = (textHero, textFooter) => {
   const heroLoadModuleBtn = document.querySelector('.load-module-btn');
   const footerLoadModuleBtn = document.querySelector('.footer__button');
   btnLoader.classList.add('loader-is-hidden');
+  footerLoadModuleBtn.classList.remove('disable-link');
   heroLoadModuleBtn.innerHTML = textHero;
   footerLoadModuleBtn.innerHTML = textFooter;
 };

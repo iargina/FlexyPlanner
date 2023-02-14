@@ -18,7 +18,7 @@ import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
 import { btnLoader } from './btnLoader';
 
 const getButton = () => {
-  return `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
+  return `<a href="#order" class="hero__btn load-module-btn disable-link" aria-label="link to order">
 	${btnLoader}
 </a>`;
 };
