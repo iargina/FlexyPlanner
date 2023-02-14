@@ -53,7 +53,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
             <picture>
               <source
                 srcset="${deskRed1} 1x, ${deskRed2} 2x"
-                media="(min-width: 1440px)"
+                media="(min-width: 751px)"
                 type="image/jpg"
               />
               <source
@@ -71,7 +71,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
             <picture>
               <source
                 srcset="${deskYellow1} 1x, ${deskYellow2} 2x"
-                media="(min-width: 1440px)"
+                media="(min-width: 751px)"
                 type="image/jpg"
               />
               <source
@@ -89,7 +89,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
             <picture>
               <source
                 srcset="${deskBlack1} 1x, ${deskBlack2} 2x"
-                media="(min-width: 1440px)"
+                media="(min-width: 751px)"
                 type="image/jpg"
               />
               <source
