@@ -87,4 +87,18 @@ class Order {
   }
 }
 
+// class Module {
+//   type = '';
+
+//   // get typeModule() {
+//   //   return this.#type;
+//   // }
+
+//   setTypeModule(newType) {
+//     this.type = newType;
+//   }
+// }
+
 export const order = new Order();
+
+// export const moduleOrder = new Module();

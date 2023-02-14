@@ -1,6 +1,23 @@
 import axios from 'axios';
 import { getCurrentPriceFromCrm } from './services/order-moduleApi';
 import toggleModal from './toggleModal';
+// import { moduleOrder } from './utils';
+
+const btnLoader = document.querySelector('.btnLoader');
+
+const showBtnText = (textHero, textFooter) => {
+  const heroLoadModuleBtn = document.querySelector('.load-module-btn');
+  const footerLoadModuleBtn = document.querySelector('.footer__button');
+  btnLoader.classList.add('loader-is-hidden');
+
+  //під час запиту для отримання актуального модулю кнопка disabled
+  footerLoadModuleBtn.removeAttribute('disabled');
+  heroLoadModuleBtn.removeAttribute('disabled');
+
+  //вставка відповідного тексту для кнопки
+  heroLoadModuleBtn.innerHTML = textHero;
+  footerLoadModuleBtn.innerHTML = textFooter;
+};
 
 const onOrderModule = async () => {
   try {
@@ -8,6 +25,8 @@ const onOrderModule = async () => {
       'https://flexyplanner.onrender.com/markup'
     ); // тут приходять дані по активному модулю
     loadModule(data); //Створення відповідної розмітки
+
+    // moduleOrder.setTypeModule(data.type);
 
     //TODO: викликати метод класу для передачі даних з ціною/активним модулем на сторінку замовлення.
   } catch (error) {
@@ -37,6 +56,7 @@ const getPriceForRenderModuleFromCrm = async typeOfModule => {
 };
 
 const loadModule = async ({ type, data }) => {
+  btnLoader.classList.remove('loader-is-hidden');
   try {
     let template;
     if (type === 'pre-order') {
@@ -46,6 +66,8 @@ const loadModule = async ({ type, data }) => {
         `../templates/pre-order.hbs`
       );
       template = getImportFile(data);
+
+      showBtnText('Попереднє замовлення', 'Попереднє замовлення Flexy Planner');
     } else {
       data.price = await getPriceForRenderModuleFromCrm('FP');
 
@@ -53,6 +75,8 @@ const loadModule = async ({ type, data }) => {
         `../templates/to-order.hbs`
       );
       template = getImportFile(data);
+
+      showBtnText('Замовити', 'Замовити Flexy Planner');
     }
     getOrderSection(template);
   } catch (error) {

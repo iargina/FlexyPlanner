@@ -1,11 +1,21 @@
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: $black-color;
+}
+
 .footer__section {
+  max-width: 90vw;
+  padding: 0 20px;
   width: 100%;
   position: relative;
-  background-color: $black-color;
   padding: 40px 20px;
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
   @media screen and (min-width: $desktop-width) {
     padding: 50px 100px 100px;
     z-index: 0;
@@ -48,6 +58,10 @@
   display: flex;
   flex-direction: row;
   gap: 18px;
+
+  @media screen and (min-width: 768px) {
+    order: 1;
+  }
 }
 
 .footer__icon {
@@ -60,31 +74,36 @@
     height: 32px;
   }
 }
+
+.footer-btn-wrapper {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: auto;
+    margin-right: 30px;
+  }
+}
+
+.footer__button[disabled] {
+  pointer-events: none;
+}
+
 .footer__button {
-  display: inline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 335px;
-  margin: auto;
-  padding: 10px 64px;
+  width: 268px;
+  height: 60px;
+  margin: 0 auto;
+
+  padding: 10px 15px;
   font-family: $font-family600;
   font-size: 18px;
   line-height: 1.22;
   letter-spacing: -0.02em;
-  @media screen and (min-width: 591px) {
-    width: 268px;
-    padding: 16px 31px;
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    line-height: 1.33;
-  }
+  border: 1px solid transparent;
 }
 .footer__button:hover,
 .footer__button:focus {
-  padding: 9px 64px;
   border: 1px solid $accent-color;
-  @media screen and (min-width: 591px) {
-    padding: 15px 31px;
-  }
 }

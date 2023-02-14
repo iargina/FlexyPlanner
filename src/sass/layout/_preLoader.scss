@@ -1,58 +1,63 @@
 .preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1000;
-    transition: opacity 300ms $transition-timing-function;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  transition: opacity 300ms $transition-timing-function;
 }
 
 .preloader__loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
 @keyframes ldio-xfhgtdu60bg {
-    0% { transform: translate(-50%,-50%) rotate(0deg); }
-    100% { transform: translate(-50%,-50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  .ldio-xfhgtdu60bg div {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 20px solid #f3bb4a;
-    border-top-color: transparent;
-    border-radius: 50%;
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
-  .ldio-xfhgtdu60bg div {
-    animation: ldio-xfhgtdu60bg 1s linear infinite;
-    top: 100px;
-    left: 100px
-  }
-  .loadingio-spinner-rolling-6ai8xsspx39 {
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0);
-  }
-  .ldio-xfhgtdu60bg {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform: translateZ(0) scale(1);
-    backface-visibility: hidden;
-    transform-origin: 0 0; /* see note above */
-  }
-  .ldio-xfhgtdu60bg div { box-sizing: content-box; }
+}
+.ldio-xfhgtdu60bg div {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 20px solid #f3bb4a;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+.ldio-xfhgtdu60bg div {
+  animation: ldio-xfhgtdu60bg 1s linear infinite;
+  top: 100px;
+  left: 100px;
+}
+.loadingio-spinner-rolling-6ai8xsspx39 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0);
+}
+.ldio-xfhgtdu60bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-xfhgtdu60bg div {
+  box-sizing: content-box;
+}
 
-  .loader-is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 0;
+.loader-is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }
