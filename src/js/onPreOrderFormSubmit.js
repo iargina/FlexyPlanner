@@ -6,6 +6,7 @@ import IMask from 'imask';
 import { itiInit, maskInit } from './helpers/phoneNumberInit';
 import { maskOnCountryChange } from './helpers/maskOnCountryChange';
 import { getPhoneNumber } from './helpers/getPhoneNumber';
+import { hideNotification } from './helpers/hideNotification';
 
 const form = document.querySelector('.modalFeedBack__form');
 const inputs = document.querySelectorAll('.modalFeedBack__input');
@@ -112,6 +113,7 @@ const onPreOrderFormSubmit = () => {
     });
     clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
+    setTimeout(hideNotification, 3000);
   }
 
   function clearInputs() {

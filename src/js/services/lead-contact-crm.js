@@ -1,6 +1,7 @@
 import { order } from '../utils';
 import axios from 'axios';
 import { Notify } from 'notiflix';
+import { hideNotification } from '../helpers/hideNotification';
 
 const contact = document.querySelector('.contacts__btn');
 contact.addEventListener('click', onContactClick);
@@ -16,6 +17,7 @@ const crmPost = leadData => {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 };
 function onContactClick() {
@@ -38,6 +40,6 @@ function onContactClick() {
       };
     }),
   };
-  console.log('leadCrmData :>> ', leadCrmData);
+  // console.log('leadCrmData :>> ', leadCrmData);
   crmPost(leadCrmData);
 }

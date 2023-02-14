@@ -256,6 +256,7 @@ function operationMaker(listItem, operation) {
     // Здійснити перевірку на доступну кількість по quantity
     if (numberElValue === quantity) {
       Notify.info(`Ой, а планерів то більше нема...`);
+      setTimeout(hideNotification, 3000);
       return;
     }
     numberElValue += 1;

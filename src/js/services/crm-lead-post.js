@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix';
+import { hideNotification } from '../helpers/hideNotification';
 
 export const BASE_URL = 'https://openapi.keycrm.app/v1/leads';
 
@@ -20,5 +21,6 @@ export const crmLead = option => {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 };
