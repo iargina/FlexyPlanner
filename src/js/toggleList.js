@@ -55,7 +55,7 @@ const qaAccordion = new HandyCollapse({
 });
 
 for (let i = 1; i <= 5; i += 1) {
-  if (window.innerWidth < 1440 && i > 1) {
+  if (window.innerWidth < 751 && i > 1) {
     return;
   }
 
