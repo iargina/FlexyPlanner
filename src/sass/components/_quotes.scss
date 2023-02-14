@@ -37,8 +37,9 @@
   color: $white-color;
   @media screen and (min-width: $desktop-width) {
     width: 710px;
-    font-size: 32px;
-    line-height: calc(40 / 32);
+    font-size: 24px;
+    // font-size: 32px;
+    line-height: 1.3;
   }
 }
 .quotes__descr--accent {

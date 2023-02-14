@@ -132,14 +132,15 @@
 
 .motivation-block {
   padding: 14px;
-  width: 100%;
+  max-width: 824px;
+  margin: 0 auto;
   background-color: $background-color;
   text-align: left;
   font-family: $font-family400;
   line-height: calc(22 / 14);
 
   @media screen and (min-width: 1440px) {
-    margin: 0 auto;
+    // margin: 0 auto;
     padding: 62px 66px;
   }
 
