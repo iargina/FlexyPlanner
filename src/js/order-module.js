@@ -3,6 +3,16 @@ import { getCurrentPriceFromCrm } from './services/order-moduleApi';
 import toggleModal from './toggleModal';
 // import { moduleOrder } from './utils';
 
+const btnLoader = document.querySelector('.btnLoader');
+
+const showBtnText = (textHero, textFooter) => {
+  const heroLoadModuleBtn = document.querySelector('.load-module-btn');
+  const footerLoadModuleBtn = document.querySelector('.footer__button');
+  btnLoader.classList.add('loader-is-hidden');
+  heroLoadModuleBtn.innerHTML = textHero;
+  footerLoadModuleBtn.innerHTML = textFooter;
+};
+
 const onOrderModule = async () => {
   try {
     const { data } = await axios.get(
@@ -39,9 +49,6 @@ const getPriceForRenderModuleFromCrm = async typeOfModule => {
   }
 };
 
-const loadModuleBtn = document.querySelector('.load-module-btn');
-const btnLoader = document.querySelector('#btnLoader');
-
 const loadModule = async ({ type, data }) => {
   btnLoader.classList.remove('loader-is-hidden');
   try {
@@ -54,19 +61,7 @@ const loadModule = async ({ type, data }) => {
       );
       template = getImportFile(data);
 
-      btnLoader.classList.add('loader-is-hidden');
-      loadModuleBtn.innerHTML = 'Попереднє замовлення';
-      //       if (loadModuleBtn) {
-      //         heroContainer.insertAdjacentHTML(
-      //           'beforeend',
-      //           `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
-      // Попереднє замовлення
-      // 				</a>`
-      //         );
-      //       }
-
-      //  loadModuleBtn.innerHTML = 'Попереднє замовлення';
-      // loadModuleBtn.style.cssText = 'height:64px;padding:10px 0;font-size:20px';
+      showBtnText('Попереднє замовлення', 'Попереднє замовлення Flexy Planner');
     } else {
       data.price = await getPriceForRenderModuleFromCrm('FP');
 
@@ -75,7 +70,7 @@ const loadModule = async ({ type, data }) => {
       );
       template = getImportFile(data);
 
-      loadModuleBtn.innerHTML = 'Замовити';
+      showBtnText('Замовити', 'Замовити Flexy Planner');
     }
     getOrderSection(template);
   } catch (error) {

@@ -18,20 +18,9 @@ import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
 import { btnLoader } from './btnLoader';
 
 const getButton = () => {
-  // if (moduleOrder.type === 'pre-order') {
-  //   return `<a href="#order" class="hero__btn load-module-btn pre-order-btn" aria-label="link to order">
-  //   Попереднє замовлення
-  // </a>`;
-  // } else {
-  //   return `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
-  //   Замовити
-  // </a>`;
-  // }
   return `<a href="#order" class="hero__btn load-module-btn" aria-label="link to order">
 	${btnLoader}
 </a>`;
-  // height: 64px;
-  //     padding: 10px 0px;
 };
 
 const heroWrapper = document.querySelector('.hero-wrapper');
