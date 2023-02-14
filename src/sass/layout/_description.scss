@@ -122,7 +122,7 @@
   width: 90vw;
 
   @media screen and (min-width: $tablet-width) {
-    width: 60vw;
+    width: 50vw;
     max-width: 1152px;
   }
 }
@@ -389,7 +389,7 @@
 
     &:nth-child(1) {
       top: 10%;
-      right: 0;
+      right: 6%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_5.png') center /
@@ -406,7 +406,7 @@
 
     &:nth-child(2) {
       top: 30%;
-      right: 16%;
+      right: 20%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_2.png') center /
@@ -423,7 +423,7 @@
 
     &:nth-child(3) {
       bottom: 40%;
-      right: 0;
+      right: 6%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_6.png') center /
@@ -440,7 +440,7 @@
 
     &:nth-child(4) {
       bottom: 20%;
-      right: 16%;
+      right: 20%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_1.png') center /
@@ -457,7 +457,7 @@
 
     &:nth-child(5) {
       bottom: 20%;
-      left: 16%;
+      left: 20%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_4.png') center /
@@ -474,7 +474,7 @@
 
     &:nth-child(6) {
       bottom: 40%;
-      left: 0;
+      left: 6%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_3.png') center /
@@ -491,7 +491,7 @@
 
     &:nth-child(7) {
       top: 30%;
-      left: 16%;
+      left: 20%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_7.png') center /
@@ -508,7 +508,7 @@
 
     &:nth-child(8) {
       top: 10%;
-      left: 0;
+      left: 6%;
 
       &::before {
         background: url('./../images/description/desk_1x_round_8.png') center /
@@ -616,12 +616,6 @@
     opacity: 0;
     pointer-events: none;
   }
-
-  @media screen and (min-width: $tablet-width) {
-    width: 10%;
-    bottom: 4%;
-    right: 36%;
-  }
 }
 
 .hint {
@@ -635,6 +629,10 @@
     font-size: 1.4vw;
     bottom: -4%;
     left: -60%;
+  }
+
+  @media screen and (min-width: 1921px) {
+    font-size: 26px;
   }
 }
 
