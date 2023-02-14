@@ -11,6 +11,7 @@ const finalSum = document.querySelector('.finalSum__wrapper');
 const finalWrapper = document.querySelector('.final__wrapper ');
 
 finalSumBtn.disabled = true;
+
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
 let amount = 0;
 let sumAmount = 0;
@@ -65,9 +66,8 @@ function createFinalOrderMarkup() {
     </ul>
     <div class="finalSum__total">
       <p class="finalSum__totalDescr">До сплати</p>
-      <p class="finalSum__totalAmount">${
-        order.total - order.discountValueSum
-      } грн</p>
+      <p class="finalSum__totalAmount">${order.total - order.discountValueSum
+    } грн</p>
     </div>
     `;
 }
@@ -139,17 +139,18 @@ const monoPost = async (paymentData, id) => {
 };
 
 async function onFinalSumBtnClick(e) {
-  orderCrmDataForm();
+  // orderCrmDataForm();
   e.currentTarget.disabled = true;
   preloader.start();
   try {
-    const orderId = await crmPostOrder(orderCrmData);
-    if (!orderId) {
-      throw new Error('no orderId');
-    }
-    queryData = stringifyOrder(orderCrmData);
-    const paymentData = postToAdd();
-    await monoPost(paymentData, orderId);
+    console.log("Data was send");
+    // const orderId = await crmPostOrder(orderCrmData);
+    // if (!orderId) {
+    //   throw new Error('no orderId');
+    // }
+    // queryData = stringifyOrder(orderCrmData);
+    // const paymentData = postToAdd();
+    // await monoPost(paymentData, orderId);
   } catch (error) {
     console.log(error.message);
   } finally {

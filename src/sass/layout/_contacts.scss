@@ -67,3 +67,34 @@
     background: grey;
   }
 }
+
+.iti {
+  width: 100%;
+  letter-spacing: -0.01em;
+  color: #3c3b3b;
+  background: #f3f3f3;
+  border: none;
+  border-radius: 4px;
+  outline: #0000;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.16667;
+  @media screen and (min-width: $desktop-width) {
+    font-size: 18px;
+    line-height: 1.33333;
+  }
+}
+
+.iti__country-list {
+  width: 335px;
+  @media screen and (min-width: $desktop-width) {
+    width: 420px;
+  }
+}
+
+.contacts__input.contacts__phone {
+  padding-left: 84px !important;
+  @media screen and (min-width: $desktop-width) {
+    padding-left: 100px !important;
+  }
+}

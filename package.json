@@ -22,6 +22,8 @@
     "axios": "^1.2.2",
     "handy-collapse": "^1.1.0",
     "hbs": "^4.2.0",
+    "imask": "^6.4.3",
+    "intl-tel-input": "^17.0.19",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "moment": "^2.29.4",

@@ -22,7 +22,6 @@ function onContactClick() {
   const productsArr = order.orderedPlanners.filter(el => el.amount > 0);
 
   const leadCrmData = {
-    source_id: 1,
     title: order.contactInfo.comment,
     pipeline_id: 2,
     contact: {
@@ -38,5 +37,6 @@ function onContactClick() {
       };
     }),
   };
-  crmPost(leadCrmData);
+  console.log('leadCrmData :>> ', leadCrmData);
+  // crmPost(leadCrmData);
 }
