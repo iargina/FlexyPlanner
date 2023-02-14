@@ -108,12 +108,12 @@ const onPreOrderFormSubmit = () => {
       },
     };
 
-    console.log('leadData :>> ', leadData);
-    // axios({
-    //   method: 'post',
-    //   url: 'https://flexyplanner.onrender.com/crm/leads',
-    //   data: leadData,
-    // });
+    // console.log('leadData :>> ', leadData);
+    axios({
+      method: 'post',
+      url: 'https://flexyplanner.onrender.com/crm/leads',
+      data: leadData,
+    });
     clearInputs();
     Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
   }

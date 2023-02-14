@@ -37,5 +37,5 @@ function onContactClick() {
       };
     }),
   };
-  // crmPost(leadCrmData);
+  crmPost(leadCrmData);
 }
