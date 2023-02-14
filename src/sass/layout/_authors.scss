@@ -16,7 +16,7 @@
 .authors__wrap {
   margin: 0;
   max-width: 335px;
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     max-width: 822px;
   }
 }
@@ -41,7 +41,7 @@
       margin-top: 0px;
     }
   }
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     flex-direction: column;
     max-width: 822px;
     gap: 38px;
@@ -60,19 +60,17 @@
   max-width: 157px;
   margin-bottom: 24px;
   padding: 0;
-
   :nth-child(odd) {
     max-width: 158px;
     margin-right: 0;
   }
-
   letter-spacing: -0.02em;
   color: $black-color;
 
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     font-size: 24px;
     line-height: 1.33;
-    max-width: 822px;
+    max-width: 85vw;
     margin: 0;
   }
   @media screen and (max-width: 374px) {
@@ -82,7 +80,6 @@
     margin: 0;
   }
 }
-
 .authors__text--item--accent--bold {
   font-family: $font-family700;
   margin-right: 0;
@@ -97,6 +94,9 @@
   gap: 8px;
   margin-bottom: 28px;
   justify-content: center;
+  @media screen and (min-width: $tablet-width) {
+    gap: 75px;
+  }
   @media screen and (min-width: $desktop-width) {
     gap: 96px;
     margin-bottom: 76px;
@@ -104,11 +104,13 @@
 }
 .authors__picture {
   max-width: 90px;
+  @media screen and (min-width: $tablet-width) {
+    max-width: 150px;
+  }
   @media screen and (min-width: $desktop-width) {
     max-width: 200px;
   }
 }
-
 .authors__info--subtitle {
   font-family: $font-family700;
   font-size: 18px;
@@ -121,16 +123,14 @@
     margin-bottom: 14px;
   }
 }
-
 .authors__info--subtitle--text {
   font-family: $font-family500;
   font-size: 14px;
   line-height: 1.29;
-
   letter-spacing: -0.02em;
   margin-bottom: 4px;
   color: $secondary-text-color;
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     font-size: 18px;
     line-height: 1.33;
     margin-bottom: 24px;
@@ -140,7 +140,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     gap: 6px;
   }
 }
@@ -149,7 +149,7 @@
   font-size: 12px;
   line-height: 1.5;
   color: $secondary-text-color;
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     font-size: 18px;
     line-height: 1.33;
     width: 315px;
@@ -160,7 +160,11 @@
   background: #111111;
   border-radius: 4px;
   max-width: 335px;
-  padding: 14px;
+  padding: 18px 14px;
+  @media screen and (min-width: $tablet-width) {
+    max-width: 540px;
+    padding: 35px;
+  }
   @media screen and (min-width: $desktop-width) {
     max-width: 822px;
     padding: 45px;
@@ -173,6 +177,12 @@
   fill: #111111;
   width: 32px;
   height: 22px;
+  @media screen and (min-width: $tablet-width) {
+    left: 55px;
+    top: -25px;
+    width: 36px;
+    height: 30px;
+  }
   @media screen and (min-width: $desktop-width) {
     left: 184px;
     top: -35px;
@@ -184,7 +194,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     gap: 14px;
   }
 }
@@ -194,7 +204,10 @@
   line-height: 1.43;
   letter-spacing: -0.02em;
   color: $white-color;
-
+  @media screen and (min-width: $tablet-width) {
+    font-size: 18px;
+    line-height: 1.4;
+  }
   @media screen and (min-width: $desktop-width) {
     font-size: 24px;
     line-height: 1.33;

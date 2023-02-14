@@ -4,7 +4,11 @@
   line-height: calc(32 / 28);
   text-align: center;
   margin-bottom: 40px;
-
+  @media screen and (min-width: $tablet-width) {
+    font-size: 50px;
+    line-height: calc(54 / 50);
+    margin-bottom: 72px;
+  }
   @media screen and (min-width: $desktop-width) {
     font-size: 64px;
     line-height: calc(68 / 64);

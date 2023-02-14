@@ -14,30 +14,29 @@ const userPhoneRef = document.querySelector('.user-contacts__phone');
 const userEmailRef = document.querySelector('.user-contacts__email');
 const sendInfoBtnRef = document.querySelector('.modalFeedBack__btn');
 
-
 // INITIAL STATE
 let itiDelvery = itiInit(userPhoneRef);
 let maskDelivery = maskInit(userPhoneRef);
 sendInfoBtnRef.disabled = true;
 
-userPhoneRef.addEventListener("countrychange", (e) => {
+userPhoneRef.addEventListener('countrychange', e => {
   const placeHolderMask = itiDelvery.telInput.placeholder;
   const selectedCountryLabel = itiDelvery.getSelectedCountryData().iso2;
-  const maskOptions = maskOnCountryChange(selectedCountryLabel, placeHolderMask);
+  const maskOptions = maskOnCountryChange(
+    selectedCountryLabel,
+    placeHolderMask
+  );
   maskDelivery = IMask(userPhoneRef, maskOptions);
   userPhoneRef.setSelectionRange(0, 0);
   userPhoneRef.focus();
 });
 
-userPhoneRef.addEventListener("close:countrydropdown", (e) => {
+userPhoneRef.addEventListener('close:countrydropdown', e => {
   maskDelivery.destroy();
-})
-
-
+});
 
 form.addEventListener('input', e => {
-
-  const warningEl = document.querySelector("#NotiflixNotifyWrap");
+  const warningEl = document.querySelector('#NotiflixNotifyWrap');
 
   if (
     !userNameRef.validity.patternMismatch &&
@@ -51,20 +50,20 @@ form.addEventListener('input', e => {
     sendInfoBtnRef.disabled = true;
   }
 
-
   if (warningEl && !userNameRef.validity.patternMismatch) {
     warningEl.remove();
   }
   if (warningEl && !userEmailRef.validity.patternMismatch) {
     warningEl.remove();
   }
-
 });
 
 form.addEventListener('change', e => {
-
   let regexp = /['’ʼ-]/;
-  if (userNameRef.value && userNameRef.value[userNameRef.value.length - 1].match(regexp)) {
+  if (
+    userNameRef.value &&
+    userNameRef.value[userNameRef.value.length - 1].match(regexp)
+  ) {
     Notify.info(`Ви впевнені, що в імені немає помилки?`);
   }
 
@@ -81,13 +80,9 @@ form.addEventListener('change', e => {
   if (!isValid && unmaskedLength > 0) {
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
-
 });
 
-
-
 const onPreOrderFormSubmit = () => {
-
   form.addEventListener('submit', sendData);
 
   function sendData(e) {
@@ -99,6 +94,7 @@ const onPreOrderFormSubmit = () => {
     const emailData = formData.get('email');
     const commentData = formData.get('comment');
     const leadData = {
+      source_id: 1,
       title: commentData,
       pipeline_id: 1,
       contact: {
@@ -122,7 +118,7 @@ const onPreOrderFormSubmit = () => {
     inputs.forEach(input => {
       input.value = '';
     });
-    maskDelivery.value = "";
+    maskDelivery.value = '';
   }
 };
 
