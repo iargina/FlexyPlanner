@@ -109,7 +109,9 @@
 
   @media screen and (min-width: $desktop-width) {
     flex-direction: row;
-    width: 330px;
+    // width: 330px;
+    width: 290px;
+    height: 100px;
     margin-left: 24px;
   }
 }
@@ -234,7 +236,7 @@
 
   @media screen and (min-width: $desktop-width) {
     padding-left: 98px;
-    gap: 166px;
+    gap: 152px;
   }
 }
 
@@ -400,6 +402,9 @@
 .orderProcessing__cost {
   font-family: MacPawFixelDisplay600, sans-serif;
 
+  // height: 26px;
+  // min-width: 110px;
+
   @media screen and (min-width: $desktop-width) {
   }
 }
@@ -424,6 +429,8 @@
     font-family: MacPawFixelDisplay500, sans-serif;
     font-size: 18px;
     line-height: 1.33;
+
+    min-width: 130px;
   }
 }
 
@@ -481,7 +488,7 @@
 
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
-    gap: 170px;
+    gap: 135px;
   }
 }
 

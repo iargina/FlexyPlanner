@@ -105,7 +105,7 @@ async function listMarkupRender(dataObj) {
                   
                 </div>
                 <div class="orderProcessing__costBlock">
-                  <p class="orderProcessing__price">${price.toFixed(2)} грн</p>
+                  <p class="orderProcessing__price">${price.toFixed(2)} грн</p>                  
                   <p class="orderProcessing__cost">${price.toFixed(2)} грн</p>
                   ${lastItemsMarkup}
                 </div>
@@ -142,9 +142,16 @@ async function listMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
+    console.log('listItemsArr[0] :>> ', listItemsArr[0]);
 
     for (let i = 1; i < listItemsArr.length; i += 1) {
       resetAmount(listItemsArr[i]);
+
+
+      // const amountCostEl = listItemsArr[i].querySelector('.orderProcessing__cost');
+      // console.log('amountCostEl :>> ', amountCostEl);
+      // amountCostEl.classList.add("visually-hidden");
+      // amountCostEl.innerText = "";
     }
   } catch (error) {
     console.log(message.error);
@@ -223,13 +230,18 @@ function resetAmount(listItem) {
     '.orderProcessing__inputWrapper'
   );
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
-  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
+  // const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
   numberEl.textContent = 0;
   inputWrapperEl.classList.add('visually-hidden');
   addBtnEl.classList.remove('visually-hidden');
 
-  amountCostEl.innerText = `0.00 грн`;
+
+  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
+  console.log('amountCostEl reset:>> ', amountCostEl);
+  amountCostEl.classList.add("visually-hidden");
+
+  // amountCostEl.innerText = `0.00 грн`;
 
   recalcAmount();
 }
@@ -248,6 +260,9 @@ function addItem(listItem) {
   numberEl.textContent = 1;
   inputWrapperEl.classList.remove('visually-hidden');
   addBtnEl.classList.add('visually-hidden');
+
+  console.log('amountCostEl addItem:>> ', amountCostEl);
+  amountCostEl.classList.remove("visually-hidden");
 
   amountCostEl.innerText = `${priceValue} грн`;
 
