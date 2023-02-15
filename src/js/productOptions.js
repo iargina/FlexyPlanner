@@ -105,8 +105,8 @@ async function listMarkupRender(dataObj) {
                   
                 </div>
                 <div class="orderProcessing__costBlock">
-                  <p class="orderProcessing__price">${price} грн</p>
-                  <p class="orderProcessing__cost">${price} грн</p>
+                  <p class="orderProcessing__price">${price.toFixed(2)} грн</p>
+                  <p class="orderProcessing__cost">${price.toFixed(2)} грн</p>
                   ${lastItemsMarkup}
                 </div>
                 <svg class="orderProcessing__close" data-action="reset">
@@ -212,7 +212,7 @@ function operationMaker(listItem, operation) {
   numberEl.textContent = numberElValue;
 
   let planersCost = numberElValue * priceValue;
-  amountCostEl.innerText = `${planersCost} грн`;
+  amountCostEl.innerText = `${planersCost.toFixed(2)} грн`;
 
   recalcAmount();
 }
@@ -229,7 +229,7 @@ function resetAmount(listItem) {
   inputWrapperEl.classList.add('visually-hidden');
   addBtnEl.classList.remove('visually-hidden');
 
-  amountCostEl.innerText = `0 грн`;
+  amountCostEl.innerText = `0.00 грн`;
 
   recalcAmount();
 }
@@ -241,7 +241,7 @@ function addItem(listItem) {
     '.orderProcessing__inputWrapper'
   );
   const priceEl = listItem.querySelector('.orderProcessing__price');
-  const priceValue = Number(priceEl.innerText.slice(0, -4));
+  const priceValue = Number(priceEl.innerText.slice(0, -4)).toFixed(2);
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
@@ -281,13 +281,9 @@ function recalcAmount() {
   // console.log('Order: ', order);
   // console.log('order.getWholeOrderData: ', order.getWholeOrderData());
 
-  let TotalPlannerAmounts = order.orderedPlanners.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.amount,
-    0
-  );
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
-  <div class="orderProcessing__firstCostValue">${order.total} грн</div>
+  <div class="orderProcessing__firstCostValue">${order.total.toFixed(2)} грн</div>
   `;
 }

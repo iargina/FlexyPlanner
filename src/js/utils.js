@@ -20,7 +20,7 @@ class Order {
   }
 
   // Щось має бути по знижці
-  useDiscount() {}
+  useDiscount() { }
 
   // Array of ordered objects
   get orderedPlanners() {
@@ -74,7 +74,7 @@ class Order {
   }
 
   get discountValueSum() {
-    return this.#discountValueSum.toFixed(0);
+    return this.#discountValueSum;
   }
 
   getWholeOrderData() {
