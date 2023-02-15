@@ -3,10 +3,11 @@
   padding: 0 20px;
   max-width: 90vw;
 
-  @media screen and (min-width: $phone-width) {
+  @media screen and (max-width: $phone-width) {
+    padding: 0;
   }
 
   @media screen and (min-width: $tablet-width) {
-    padding: 0 100px;
+    // padding: 0 100px;
   }
 }

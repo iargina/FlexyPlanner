@@ -2,6 +2,10 @@
   padding: 28px 0;
   background-color: $black-color;
   width: 100%;
+  @media screen and (max-width: $phone-width) {
+    padding: 28px 20px;
+  }
+
   @media screen and (min-width: $desktop-width) {
     padding: 50px 0;
   }
@@ -11,6 +15,9 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: $tablet-width) {
+    max-width: 450px;
+  }
   @media screen and (min-width: $desktop-width) {
     max-width: 840px;
   }
@@ -35,6 +42,15 @@
   line-height: calc(18 / 14);
   letter-spacing: -0.02em;
   color: $white-color;
+  @media screen and (max-width: $phone-width) {
+    // width: 200px;
+  }
+
+  @media screen and (min-width: $tablet-width) {
+    width: 380px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
   @media screen and (min-width: $desktop-width) {
     width: 710px;
     font-size: 24px;
