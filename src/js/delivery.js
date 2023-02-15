@@ -6,6 +6,7 @@ import { order } from './utils';
 import IMask from 'imask';
 import { itiInit, maskInit } from './helpers/phoneNumberInit';
 import { maskOnCountryChange } from './helpers/maskOnCountryChange';
+import { hideNotification } from './helpers/hideNotification';
 
 const cityInputRef = document.querySelector('#city');
 const citiesListRef = document.querySelector('.cities');
@@ -76,6 +77,7 @@ async function selectCity(e) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 }
 
@@ -95,6 +97,7 @@ async function selectWarehouse(e) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 }
 
@@ -142,6 +145,7 @@ async function onCitiesListClick(e) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 }
 

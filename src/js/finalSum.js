@@ -86,6 +86,7 @@ const crmPostOrder = async orderData => {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 };
 const monoBasket = () => {
@@ -135,6 +136,7 @@ const monoPost = async (paymentData, id) => {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
     );
+    setTimeout(hideNotification, 3000);
   }
 };
 

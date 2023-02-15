@@ -1,3 +1,11 @@
+.container.orderProcessing__container {
+  max-width: 375px;
+  padding: 0 20px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1440px;
+  }
+}
+
 .header {
   margin-top: 20px;
 }
@@ -140,18 +148,14 @@
 }
 
 .orderProcessing__price {
-  font-family: $font-family500;
-  font-size: 12px;
-  line-height: 1.5;
-
   letter-spacing: -0.02em;
   color: $secondary-text-color;
   margin-bottom: 8px;
 
-  @media screen and (min-width: $desktop-width) {
-    font-size: 18px;
-    line-height: 1.33;
-  }
+  // @media screen and (min-width: $desktop-width) {
+  //   font-size: 18px;
+  //   line-height: 1.33;
+  // }
 }
 
 .orderProcessing__priceCancelled {
@@ -184,7 +188,8 @@
 }
 
 .orderProcessing__amount {
-  margin-top: 40px;
+  max-width: 335px;
+  // margin-top: 40px;
   display: flex;
   flex-direction: column;
   // align-items: flex-start;
@@ -193,8 +198,6 @@
 
   @media screen and (min-width: $desktop-width) {
     max-width: 545px;
-    margin-left: 210px;
-    margin-top: -110px;
   }
 }
 
@@ -218,6 +221,31 @@
   scale: 3;
   z-index: -2;
   max-width: 100%;
+}
+
+.orderProcessing_listTitles {
+  display: flex;
+  padding-left: 68px;
+  gap: 62px;
+
+  @media screen and (min-width: $desktop-width) {
+    padding-left: 98px;
+    gap: 166px;
+  }
+}
+
+.orderProcessing__forFirstLine:after {
+  content: '';
+  display: block;
+  width: 335px;
+  height: 1px;
+  background: $black-color;
+  opacity: 0.1;
+  margin-top: 10px;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 545px;
+  }
 }
 
 .orderProcessing__amountTitle {
@@ -363,15 +391,34 @@
   }
 }
 
+.orderProcessing__cost {
+  font-family: MacPawFixelDisplay600, sans-serif;
+
+  @media screen and (min-width: $desktop-width) {
+  }
+}
+
 .orderProcessing__costBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 28px;
   font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
 
   color: $black-color;
+
+  font-family: MacPawFixelDisplay500, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+
+  @media screen and (min-width: $desktop-width) {
+    font-family: MacPawFixelDisplay500, sans-serif;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .orderProcessing__addBtn {
@@ -422,11 +469,13 @@
   display: flex;
   font-size: 14px;
   font-weight: $bold-text;
-  justify-content: space-between;
+  gap: 40px;
+  // justify-content: space-between;
   // color: $alert-color;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
+    gap: 170px;
   }
 }
 

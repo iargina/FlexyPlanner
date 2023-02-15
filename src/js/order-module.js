@@ -40,6 +40,7 @@ const getPriceFromCrm = async () => {
     return orderPriceArray;
   } catch (error) {
     Notify.failure(error.message);
+    setTimeout(hideNotification, 3000);
   }
 };
 
@@ -52,6 +53,7 @@ const getPriceForRenderModuleFromCrm = async typeOfModule => {
     return Math.max(...priceArr.map(item => item.price));
   } catch (error) {
     Notify.failure(error.message);
+    setTimeout(hideNotification, 3000);
   }
 };
 

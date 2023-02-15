@@ -33,6 +33,7 @@ const formEl = document.querySelector('form');
 submitBtnEl.disabled = true;
 
 if (window.innerWidth >= 1440) {
+  // if (window.innerWidth >= 375) {
   document
     .querySelector('.finalSum__container')
     .classList.remove('finalSum__ishidden');
@@ -110,7 +111,7 @@ submitBtnEl.addEventListener('click', e => {
   order.contactInfo = obj;
   // console.log('order.contactInfo :>> ', order.contactInfo);
 
-  const finalSumBtn = document.querySelector('.finalSum__btn');
+  // const finalSumBtn = document.querySelector('.finalSum__btn');
   const deliveryContainer = document.querySelector('.delivery__container');
   const finalSumContainer = document.querySelector('.finalSum__container');
   const promoContainer = document.querySelector('.promo__container');

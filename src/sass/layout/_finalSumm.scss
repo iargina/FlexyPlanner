@@ -1,3 +1,11 @@
+.container.finalSum__container {
+  max-width: 375px;
+  padding: 0px 20px 36px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1440px;
+  }
+}
+
 .finalSum__container {
   @media screen and (min-width: $desktop-width) {
     padding: 0;

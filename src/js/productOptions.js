@@ -3,20 +3,16 @@ import { makeMarkup } from './finalSum';
 import sprite from '../icons/sprite.svg';
 import { Notify } from 'notiflix';
 import axios from 'axios';
+import { hideNotification } from './helpers/hideNotification';
 
 const listEl = document.querySelector('.orderProcessing__list');
-const priceEl = document.querySelector('.orderProcessing__priceCurrent');
-const priceCancelEl = document.querySelector(
-  '.orderProcessing__priceCancelled'
-);
-
 const firstCostEl = document.querySelector('.orderProcessing__firstCostWrapper');
 const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
 
+let products = [];
 
 listEl.addEventListener('click', onElementClick);
 
-let products = [];
 
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
@@ -46,74 +42,36 @@ const fetchPlannersData = async dataObj => {
     const response = await axios.get(
       'https://flexyplanner.onrender.com/crm/offers'
     );
-    const productArr = response.data.data;
-
-    const filteredPreOrderPrice = productArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
-    // 
-
-    // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-    //
-    const filteredOrderPrice = productArr.filter(
-      el => el.sku.startsWith('FP') && el.price !== 0
-    );
-
-    function priceSetter() {
-      if (dataObj.type === 'pre-order') {
-        // Формую об'єкт із ціною:
-
-        order.price = filteredPreOrderPrice[0].price;
-      }
-
-      if (dataObj.type === 'to-order') {
-        // Формую об'єкт із ціною:
-
-        order.price = filteredOrderPrice[0].price;
-      }
-    }
-    priceSetter();
-
-    return productArr;
+    return response.data.data;
   } catch (error) {
     console.log(error.message);
   } finally {
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
 
-    // Виводжу ціну наверху в секції
-
-    priceMarkupRender(dataObj);
   }
 };
 
 async function listMarkupRender(dataObj) {
-  // USING FAKE JSON DATA
-  // const res = response_2;
-  /*   const plannersArr = res.data; */
-
-  // USING REAL REQUEST
   const data = await fetchPlannersData(dataObj);
   const plannersArr = data;
   let filteredPlannersArr = [];
 
   if (dataObj.type === 'to-order') {
     filteredPlannersArr = plannersArr.filter(
-      //
-      // В наступний список включати той планер із нульовою ціною? Бо поки я його просто проігнорував
-
-      // 
       el => el.sku.startsWith('FP') && el.quantity > 0
-
     );
   }
   if (dataObj.type === 'pre-order') {
     filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
   }
 
-  let plannerPrice = priceGetter();
+  // console.log('order :>> ', order);
+  // console.log('filteredPlannersArr :>> ', filteredPlannersArr);
 
   if (filteredPlannersArr.length > 0) {
     const markup = filteredPlannersArr
-      .map(({ product, sku, quantity }) => {
+      .map(({ product, sku, quantity, price }) => {
         let lastItemsMarkup = '';
         if (dataObj.type === 'to-order' && quantity < 20) {
           lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
@@ -147,7 +105,8 @@ async function listMarkupRender(dataObj) {
                   
                 </div>
                 <div class="orderProcessing__costBlock">
-                  <p class="orderProcessing__cost">${plannerPrice} грн</p>
+                  <p class="orderProcessing__price">${price} грн</p>
+                  <p class="orderProcessing__cost">${price} грн</p>
                   ${lastItemsMarkup}
                 </div>
                 <svg class="orderProcessing__close" data-action="reset">
@@ -177,20 +136,9 @@ async function listMarkupRender(dataObj) {
 }
 // ========================================================================
 
-// ========================================================================
-// ========================================================================
-// ========== Section price view (TOP) ====================================
-function priceMarkupRender(dataObj) {
-  if (dataObj.type === 'pre-order') {
-    priceEl.innerHTML = `${order.price} грн`;
-    priceCancelEl.innerHTML = `${dataObj.data.price} грн`;
-  }
 
-  if (dataObj.type === 'to-order') {
-    priceEl.innerHTML = `${order.price} грн`;
-  }
-}
 
+// ========================================================================
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
@@ -236,13 +184,14 @@ function onElementClick(e) {
 
 function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
+  const priceEl = listItem.querySelector('.orderProcessing__price');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
   const quantity = Number(
     listItem.querySelector('.orderProcessing__plus').dataset.quantity
   );
 
   let numberElValue = Number(numberEl.textContent);
-  let priceValue = Number(priceEl.innerText.slice(0, -4));
+  const priceValue = Number(priceEl.innerText.slice(0, -4));
 
   if (operation === 'minus') {
     if (numberElValue === 1) {
@@ -253,17 +202,17 @@ function operationMaker(listItem, operation) {
     numberElValue -= 1;
   }
   if (operation === 'plus') {
-    // Здійснити перевірку на доступну кількість по quantity
     if (numberElValue === quantity) {
       Notify.info(`Ой, а планерів то більше нема...`);
+      setTimeout(hideNotification, 3000);
       return;
     }
     numberElValue += 1;
   }
   numberEl.textContent = numberElValue;
 
-  let planerCost = numberElValue * priceValue;
-  amountCostEl.innerText = `${planerCost} грн`;
+  let planersCost = numberElValue * priceValue;
+  amountCostEl.innerText = `${planersCost} грн`;
 
   recalcAmount();
 }
@@ -286,12 +235,13 @@ function resetAmount(listItem) {
 }
 
 function addItem(listItem) {
-  let plannerPrice = priceGetter();
 
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const inputWrapperEl = listItem.querySelector(
     '.orderProcessing__inputWrapper'
   );
+  const priceEl = listItem.querySelector('.orderProcessing__price');
+  const priceValue = Number(priceEl.innerText.slice(0, -4));
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
@@ -299,20 +249,9 @@ function addItem(listItem) {
   inputWrapperEl.classList.remove('visually-hidden');
   addBtnEl.classList.add('visually-hidden');
 
-  amountCostEl.innerText = `${plannerPrice} грн`;
+  amountCostEl.innerText = `${priceValue} грн`;
 
   recalcAmount();
-}
-
-function priceGetter() {
-  let price = 0;
-  // if (Object.keys(order.price).length > 1) {
-  //   price = order.price.preOrderPrice;
-  // } else {
-  //   price = order.price.orderPrice;
-  // }
-  price = order.price;
-  return price;
 }
 
 function recalcAmount() {
@@ -322,14 +261,13 @@ function recalcAmount() {
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
-    const plParagraph = el.querySelector(
-      '.orderProcessing__itemParagraph'
-    ).innerText;
+    const plPrice = el.querySelector('.orderProcessing__price').innerText;
+    const plParagraph = el.querySelector('.orderProcessing__itemParagraph').innerText;
     if (Number(plAmount) !== 0) {
       products.push({
         color: plTitle,
         amount: Number(plAmount),
-        price: priceGetter(),
+        price: Number(plPrice.slice(0, -4)),
         code: plParagraph,
       });
     }
@@ -340,7 +278,8 @@ function recalcAmount() {
   order.setDiscount();
   makeMarkup();
 
-  //console.log('Order: ', order.getWholeOrderData());
+  // console.log('Order: ', order);
+  // console.log('order.getWholeOrderData: ', order.getWholeOrderData());
 
   let TotalPlannerAmounts = order.orderedPlanners.reduce(
     (accumulator, currentValue) => accumulator + currentValue.amount,
@@ -349,7 +288,6 @@ function recalcAmount() {
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
-  <div class="orderProcessing__firstCostValue">${TotalPlannerAmounts * order.price
-    } грн</div>
+  <div class="orderProcessing__firstCostValue">${order.total} грн</div>
   `;
 }

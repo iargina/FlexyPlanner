@@ -1,5 +1,5 @@
 <section class="orderProcessing">
-  <div class="container">
+  <div class="container orderProcessing__container">
     <div class="header">
       <a href="/">
         <picture>
@@ -17,35 +17,15 @@
       <h2 class="orderProcessing__title">Оформлення замовлення</h2>
     </div>
     <div class="orderProcessing__productWrapper">
-      <h3 class="section__title">1. Товар</h3>
-      <div class="orderProcessing__plannerWrapper">
-        <picture>
-          <source srcset="
-              ./images/order/mob_order_1x.jpg 1x,
-              ./images/order/mob_order_2x.jpg 2x
-            " media="(max-width: 375px)" />
-          <source srcset="
-              ./images/order/desk_order_1x.jpg 1x,
-              ./images/order/desk_order_2x.jpg 2x
-            " media="(min-width: 1440px)" />
-          <img src="./images/order/mob_order_1x.jpg" alt="Flexxy Planner Folder" class="orderProcessing__planner" />
-        </picture>
-        <div class="orderProcessing__textPlannerWrapper">
-          <div class="orderProcessing__plannerDescr">
-            <h4 class="orderProcessing__plannerTitle">Flexy Planner</h4>
-            <p class="orderProcessing__plannerParagraph">
-              Багатофункціональний адаптивний щоденник
-            </p>
-          </div>
-          <div class="orderProcessing__priceDescr">
-            <p class="orderProcessing__price">Ціна одного</p>
-            <p class="orderProcessing__priceCancelled"></p>
-            <p class="orderProcessing__priceCurrent"></p>
+      <h3 class="section__title">1. Обери свій планер</h3>
+      <div class="orderProcessing__amount">
+        <div class="orderProcessing__forFirstLine">
+          <div class="orderProcessing_listTitles">
+            <h4 class="orderProcessing__amountTitle">Колір та кількість</h4>
+            <h4 class="orderProcessing__amountTitle">Ціна та вартість</h4>
           </div>
         </div>
-      </div>
-      <div class="orderProcessing__amount">
-        <h4 class="orderProcessing__amountTitle">Кількість</h4>
+
         <ul class="orderProcessing__list">
         </ul>
         <div class="orderProcessing__firstCostWrapper">

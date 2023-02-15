@@ -2,6 +2,7 @@ import { checkPromocode } from './services/promoAPI';
 import { Notify } from 'notiflix';
 import { order } from './utils';
 import { makeMarkup } from './finalSum';
+import { hideNotification } from './helpers/hideNotification';
 
 export const refs = {
   promoForm: document.querySelector('.promo__form'),
@@ -40,7 +41,8 @@ async function onFormSubmit(e) {
     if (!data.length) {
       refs.errorIcon.classList.remove('visually-hidden');
       refs.successContainer.classList.add('visually-hidden');
-      Notify.failure('Промокод введений не вірно!');
+      Notify.failure('Промокод введений невірно!');
+      setTimeout(hideNotification, 5000);
       refs.promoForm.reset();
       order.discountValue = 0;
     } else {
@@ -50,6 +52,7 @@ async function onFormSubmit(e) {
       const discount = data[0].discount;
       refs.discount.innerText = `${discount} %`;
       Notify.success('Промокод застосовано!');
+      setTimeout(hideNotification, 3000);
       refs.promoForm.reset();
       order.discountValue = discount;
       order.promocode = promoFromInput;
