@@ -1,5 +1,14 @@
 @import '../utils/mixins';
 
+.container.promo__container {
+  max-width: 375px;
+  padding: 36px 20px 36px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1440px;
+    padding: 0px 20px 36px;
+  }
+}
+
 .promo__container {
   padding-top: 36px;
   padding-bottom: 28px;
@@ -31,7 +40,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px;
-  width: 335px;
+  // width: 335px;
   height: 46px;
   background: $background-color;
   border-radius: 4px;

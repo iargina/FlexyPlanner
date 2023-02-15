@@ -1,3 +1,11 @@
+.container.contacts__container {
+  max-width: 375px;
+  padding: 72px 20px 36px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1440px;
+  }
+}
+
 .contacts__container {
   padding-top: 72px;
   padding-bottom: 36px;

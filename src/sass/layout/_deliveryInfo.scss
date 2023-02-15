@@ -1,17 +1,25 @@
 @import '../utils/mixins';
 
+.container.delivery__container {
+  max-width: 375px;
+  padding: 0px 20px 36px;
+  @media screen and (min-width: $desktop-width) {
+    max-width: 1440px;
+  }
+}
+
 .delivery__container {
-  padding-top: 36px;
-  padding-bottom: 36px;
+  // padding-top: 36px;
+  // padding-bottom: 36px;
   max-height: 100%;
   transition-property: opacity;
   transition-duration: 500ms;
   transition-timing-function: $transition-timing-function;
 
-  @media screen and (min-width: $desktop-width) {
-    padding-top: 50px;
-    padding-bottom: 200px;
-  }
+  // @media screen and (min-width: $desktop-width) {
+  //   padding-top: 50px;
+  //   padding-bottom: 200px;
+  // }
   &.delivery__ishidden {
     @include visually-hidden;
   }
