@@ -103,6 +103,9 @@
     max-width: 670px;
     margin-bottom: 20px;
   }
+  @media screen and (min-width: $desktop-width) {
+    max-width: 980px;
+  }
 }
 
 .description__content {

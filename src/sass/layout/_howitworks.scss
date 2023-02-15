@@ -37,6 +37,12 @@
     margin-top: 40px;
 
     @media screen and (min-width: $tablet-width) {
+      margin-top: 60px;
+      :last-child {
+        border: none;
+      }
+    }
+    @media screen and (min-width: $desktop-width) {
       margin-top: 100px;
       :last-child {
         border: none;
