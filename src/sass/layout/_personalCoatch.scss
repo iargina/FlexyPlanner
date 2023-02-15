@@ -8,7 +8,7 @@
 .personal-coatch__wrapper {
   margin: 0 auto;
   margin-bottom: 72px;
-  max-width: 335px;
+  // max-width: 335px;
   @media screen and (min-width: $desktop-width) {
     max-width: 1032px;
     margin-bottom: 172px;
@@ -16,19 +16,34 @@
 }
 
 .personal-coatch__title {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
   &--accent {
     color: $accent-color;
+  }
+  @media screen and (min-width: $tablet-width) {
+    width: 500px;
+
+    // margin-bottom: 30px;
+  }
+  @media screen and (min-width: $desktop-width) {
+    width: 724px;
   }
 }
 
 .personal-coatch__list {
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    gap: 10px 20px;
+    height: 224px;
+  }
+  @media screen and (min-width: $desktop-width) {
+    width: 1032px;
     gap: 24px 20px;
     height: 300px;
-    width: 1032px;
   }
 }
 

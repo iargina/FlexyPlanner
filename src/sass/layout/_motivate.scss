@@ -3,7 +3,11 @@
   flex-direction: column;
   gap: 40px;
   margin-bottom: 72px;
+  @media screen and (min-width: $tablet-width) {
+    gap: 42px;
+  }
   @media screen and (min-width: $desktop-width) {
+    max-width: 1032px;
     gap: 72px;
     margin-bottom: 172px;
   }
@@ -21,23 +25,31 @@
 }
 
 .motivate__list {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 16px;
 
-  @media screen and (min-width: $desktop-width) {
+  @media screen and (min-width: $tablet-width) {
     grid-template-rows: repeat(4, auto);
-
     grid-auto-flow: column;
-    grid-auto-columns: 421px;
-    gap: 28px 190px;
+    // grid-auto-columns: 421px;
+    grid-auto-columns: 44%;
+    column-gap: 20px;
+    row-gap: 28px;
+  }
+  @media screen and (min-width: $desktop-width) {
+    column-gap: 175px;
     max-width: 1032px;
+    grid-auto-columns: 38%;
+    row-gap: 38px;
   }
 }
 
 .motivate__item {
   display: flex;
-  align-items: flex-start;
+  // align-items: flex-start;
+  align-items: center;
 
   @media screen and (min-width: $desktop-width) {
     align-items: stretch;
@@ -63,6 +75,11 @@
   font-weight: $medium-text;
   letter-spacing: -0.02em;
 
+  @media screen and (min-width: $tablet-width) {
+    font-size: 18px;
+    line-height: 1.22222;
+  }
+
   @media screen and (min-width: $desktop-width) {
     font-size: 24px;
     line-height: calc(32 / 24);
@@ -85,6 +102,12 @@
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -0.02em;
+
+  @media screen and (min-width: $tablet-width) {
+    width: 450px;
+    font-size: 44px;
+    line-height: 1.22;
+  }
 
   @media screen and (min-width: $desktop-width) {
     width: 554px;
