@@ -17,31 +17,30 @@ const finalSumBtn = document.querySelector('.finalSum__btn');
 
 const receiverNameRef = document.querySelector('#receiverName');
 const receiverLastNameRef = document.querySelector('#receiverLastName');
-const recieverContactPhoneRef = document.querySelector('.reciever-contacts__phone');
+const recieverContactPhoneRef = document.querySelector(
+  '.reciever-contacts__phone'
+);
 const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
 
 // INITIAL STATE
 let itiDelvery = itiInit(recieverContactPhoneRef);
 let maskDelivery = maskInit(recieverContactPhoneRef);
 
-
-
-recieverContactPhoneRef.addEventListener("countrychange", (e) => {
+recieverContactPhoneRef.addEventListener('countrychange', e => {
   const placeHolderMask = itiDelvery.telInput.placeholder;
   const selectedCountryLabel = itiDelvery.getSelectedCountryData().iso2;
-  const maskOptions = maskOnCountryChange(selectedCountryLabel, placeHolderMask);
+  const maskOptions = maskOnCountryChange(
+    selectedCountryLabel,
+    placeHolderMask
+  );
   maskDelivery = IMask(recieverContactPhoneRef, maskOptions);
   recieverContactPhoneRef.setSelectionRange(0, 0);
   recieverContactPhoneRef.focus();
 });
 
-recieverContactPhoneRef.addEventListener("close:countrydropdown", (e) => {
+recieverContactPhoneRef.addEventListener('close:countrydropdown', e => {
   maskDelivery.destroy();
-})
-
-
-
-
+});
 
 const api = new PoshtaAPI();
 
@@ -53,13 +52,22 @@ async function selectCity(e) {
   warehousesListRef.classList.remove('show');
   warehouseBtnRef.classList.remove('active');
 
+  const warningEl = document.querySelector('#NotiflixNotifyWrap');
+
   if (!e.target.value) {
     citiesListRef.classList.remove('show');
+    if (warningEl) {
+      warningEl.remove();
+    }
     return;
   }
 
-  api.selectCity(e.target.value);
-  const warningEl = document.querySelector("#NotiflixNotifyWrap");
+  api.selectCity(e.target.value.trim());
+
+  if (cityInputRef.validity.patternMismatch) {
+    Notify.info(`Введіть назву міста українською мовою`);
+    return;
+  }
 
   try {
     if (warningEl) {
@@ -191,14 +199,14 @@ function onWarehousesListClick(e) {
   warehousesListRef.innerHTML = '';
 
   // Check if all inputs has values before select warehouse
-  // and enabled finalSumBtn 
-  if (receiverNameRef.value.length > 0 &&
+  // and enabled finalSumBtn
+  if (
+    receiverNameRef.value.length > 0 &&
     receiverLastNameRef.value.length > 0 &&
     recieverContactPhoneRef.value.length > 0
   ) {
     finalSumBtn.disabled = false;
   }
-
 }
 
 function onInputBlur() {
@@ -217,15 +225,19 @@ function onCheckboxChange(e) {
     receiverNameRef.value = order.contactInfo.username;
     receiverNameRef.disabled = true;
 
-    const contactDeliveryPhoneCodeString = `+${itiDelvery.getSelectedCountryData().dialCode}`;
-    const cuttedPhoneNumber = order.contactInfo.phone.slice(contactDeliveryPhoneCodeString.length);
+    const contactDeliveryPhoneCodeString = `+${
+      itiDelvery.getSelectedCountryData().dialCode
+    }`;
+    const cuttedPhoneNumber = order.contactInfo.phone.slice(
+      contactDeliveryPhoneCodeString.length
+    );
     maskDelivery.value = cuttedPhoneNumber;
     receiverLastNameRef.focus();
   } else {
     receiverNameRef.value = '';
     receiverLastNameRef.value = '';
     receiverNameRef.disabled = false;
-    maskDelivery.value = "";
+    maskDelivery.value = '';
     receiverNameRef.focus();
   }
 }
