@@ -142,16 +142,8 @@ async function listMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    console.log('listItemsArr[0] :>> ', listItemsArr[0]);
-
     for (let i = 1; i < listItemsArr.length; i += 1) {
       resetAmount(listItemsArr[i]);
-
-
-      // const amountCostEl = listItemsArr[i].querySelector('.orderProcessing__cost');
-      // console.log('amountCostEl :>> ', amountCostEl);
-      // amountCostEl.classList.add("visually-hidden");
-      // amountCostEl.innerText = "";
     }
   } catch (error) {
     console.log(message.error);
@@ -230,7 +222,6 @@ function resetAmount(listItem) {
     '.orderProcessing__inputWrapper'
   );
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
-  // const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
   numberEl.textContent = 0;
   inputWrapperEl.classList.add('visually-hidden');
@@ -238,10 +229,7 @@ function resetAmount(listItem) {
 
 
   const amountCostEl = listItem.querySelector('.orderProcessing__cost');
-  console.log('amountCostEl reset:>> ', amountCostEl);
   amountCostEl.classList.add("visually-hidden");
-
-  // amountCostEl.innerText = `0.00 грн`;
 
   recalcAmount();
 }

@@ -73,6 +73,9 @@ formEl.addEventListener('input', e => {
 
 formEl.addEventListener('change', e => {
 
+  contactPhone.setSelectionRange(0, 0);
+  contactPhone.focus();
+
   let regexp = /['’ʼ-]/;
   if (contactName.value && contactName.value[contactName.value.length - 1].match(regexp)) {
     Notify.info(`Ви впевнені, що в імені немає помилки?`);

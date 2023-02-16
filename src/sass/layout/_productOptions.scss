@@ -414,7 +414,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 28px;
+  padding-bottom: 25px;
   font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
@@ -482,13 +482,11 @@
   display: flex;
   font-size: 14px;
   font-weight: $bold-text;
-  gap: 40px;
-  // justify-content: space-between;
-  // color: $alert-color;
+  gap: 25px;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
-    gap: 135px;
+    gap: 126px;
   }
 }
 
