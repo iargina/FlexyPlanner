@@ -44,8 +44,8 @@
     width: 18px;
     height: 18px;
     position: absolute;
-    left: 295px;
-    top: 14px;
+    right: 18px;
+    top: 18px;
 
     &:hover {
       cursor: pointer;
@@ -54,8 +54,8 @@
     @media screen and (min-width: $desktop-width) {
       width: 24px;
       height: 24px;
-      left: 848px;
-      top: 24px;
+      right: 30px;
+      top: 30px;
     }
   }
 

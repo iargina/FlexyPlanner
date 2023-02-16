@@ -15,3 +15,4 @@ import './js/description.js';
 import { toggleList } from './js/toggleList.js';
 import './js/notifixInit.js';
 import 'intl-tel-input/build/css/intlTelInput.css';
+import './js/succesPreOrderModal';

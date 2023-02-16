@@ -14,6 +14,8 @@ const userNameRef = document.querySelector('.user-contacts__name');
 const userPhoneRef = document.querySelector('.user-contacts__phone');
 const userEmailRef = document.querySelector('.user-contacts__email');
 const sendInfoBtnRef = document.querySelector('.modalFeedBack__btn');
+const modal = document.querySelector('.modalFeedBack');
+const successModal = document.querySelector('.modalFeedBackSuccess');
 
 // INITIAL STATE
 let itiDelvery = itiInit(userPhoneRef);
@@ -105,15 +107,14 @@ const onPreOrderFormSubmit = () => {
       },
     };
 
-    // console.log('leadData :>> ', leadData);
     axios({
       method: 'post',
       url: 'https://flexyplanner.onrender.com/crm/leads',
       data: leadData,
     });
     clearInputs();
-    Notify.success('Дякуємо! Ваші дані відправлені! Очікуйте повідомлення!');
-    setTimeout(hideNotification, 3000);
+    modal.classList.add('modal-is-hidden');
+    successModal.classList.remove('modal-is-hidden');
   }
 
   function clearInputs() {
