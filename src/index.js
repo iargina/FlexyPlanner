@@ -9,6 +9,7 @@ import './js/button-up.js';
 import './js/onPreOrderFormSubmit.js';
 import './js/preLoader.js';
 import './js/footer.js';
+import './js/socialButton.js';
 import './js/successPayment.js';
 import './js/services/crm-lead-post.js';
 import './js/description.js';

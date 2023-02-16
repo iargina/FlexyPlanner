@@ -1,0 +1,133 @@
+* {
+  transition: 0.33s ease;
+}
+.chatButton__wrapper {
+  width: 64px;
+  height: 64px;
+  background: rgba(243, 187, 74, 0.2);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  transition: opacity 0.2s linear;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 80px;
+    height: 80px;
+    right: 100px;
+  }
+}
+
+.chatButton {
+  width: 56px;
+  height: 56px;
+  background: #f3bb4a;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 100;
+
+  @media screen and (min-width: $desktop-width) {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+.chatButton:hover {
+  transform: scale(1);
+  box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.5);
+}
+.chatButton:active {
+  transform: scale(0.96);
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.53);
+}
+.chatButton.open {
+  transform: scale(0.92);
+  background-color: $secondary-text-color;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.58);
+}
+
+.chatButton__icon {
+  width: 20px;
+  height: 20px;
+  @media screen and (min-width: $desktop-width) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.chatButton.open:hover {
+  box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.5);
+}
+.chatButton.open:active {
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.53);
+}
+.social-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 65px;
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transform: scale(0.8);
+  border-radius: 100%;
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  z-index: 99;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  @media screen and (min-width: $desktop-width) {
+    width: 80px;
+    height: 80px;
+    right: 0;
+  }
+}
+
+.social-button:hover {
+  transform: scale(1);
+  transition: 0.35s cubic-bezier(0.3, 0.2, 0, 2.5);
+}
+
+.social-button.telegram-button.active {
+  bottom: 60px;
+  right: 40px;
+  visibility: visible;
+  background: #f3bb4a;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  @media screen and (min-width: $desktop-width) {
+    bottom: 80px;
+    right: 40px;
+  }
+}
+.social-button.insta-button.active {
+  bottom: 0px;
+  right: 70px;
+  background: #f3bb4a;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @media screen and (min-width: $desktop-width) {
+    bottom: 0px;
+    right: 90px;
+  }
+}
