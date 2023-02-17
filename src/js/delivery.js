@@ -13,6 +13,7 @@ const citiesListRef = document.querySelector('.cities');
 const warehouseInputRef = document.querySelector('#warehouse');
 const warehousesListRef = document.querySelector('.warehouses');
 const warehouseSearchRef = document.querySelector('.warehouse-search');
+const warehouseWrapperEl = document.querySelector('.warehouse-wrapper');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 const finalSumBtn = document.querySelector('.finalSum__btn');
 
@@ -120,6 +121,7 @@ function toggleWarehouseSearch(e) {
   }
 
   warehousesListRef.classList.add('show');
+
   e.stopPropagation();
 
   warehouseSearchRef.classList.toggle('show');
@@ -153,6 +155,7 @@ async function onCitiesListClick(e) {
     });
     warehousesListRef.innerHTML = warehousesList.join('');
     warehousesListRef.classList.add('show');
+    warehouseWrapperEl.style.marginBottom = "100px";
   } catch (error) {
     Notify.failure(
       `Вибачте, щось пішло не так... Статуc помилки: ${error.message}`
@@ -230,6 +233,9 @@ function onInputBlur() {
 }
 
 function onCheckboxChange(e) {
+  const contactPhone = document.querySelector('.contacts__phone');
+  itiDelvery.setCountry(contactPhone.dataset.country || "ua");
+
   if (e.target.checked) {
     receiverNameRef.value = order.contactInfo.username;
     receiverNameRef.disabled = true;
@@ -266,6 +272,24 @@ cityWrapperEl.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("keydown", event => {
+
+  if (event.code !== "Backspace" || event.code !== "Delete") {
+    // console.log("Ховаю сповіщення");
+    hideNotification();
+  }
+
+  // console.log('receiverNameRef.value.length :>> ', receiverNameRef.value.length);
+  if (receiverNameRef.value.length === 1 && event.code === "Backspace") {
+    Notify.info(`Введіть ім'я`);
+  }
+  // console.log('receiverLastNameRef.value.length :>> ', receiverLastNameRef.value.length);
+  if (receiverLastNameRef.value.length === 1 && event.code === "Backspace") {
+    Notify.info(`Введіть прізвище`);
+  }
+
+});
+
 cityWrapperEl.addEventListener("input", (e) => {
 
   const warningEl = document.querySelector('#NotiflixNotifyWrap');
@@ -276,18 +300,10 @@ cityWrapperEl.addEventListener("input", (e) => {
     return;
   }
 
-  if (!receiverNameRef.validity.patternMismatch && warningEl) {
-    hideNotification();
-  }
-
   if (receiverLastNameRef.validity.patternMismatch) {
     Notify.info(`Введіть своє прізвище коректно`);
     finalSumBtn.classList.add("visually-hidden");
     return;
-  }
-
-  if (!receiverLastNameRef.validity.patternMismatch && warningEl) {
-    hideNotification();
   }
 
   if (e.target.value.length === 0 || !itiDelvery.isValidNumber()) {
@@ -300,6 +316,7 @@ cityWrapperEl.addEventListener("input", (e) => {
     recieverContactPhoneRef.value.length > 0 &&
     warehouseInputRef.value.length > 0 &&
     e.target.value.length > 0) {
+    // console.log("Видалення сповіщення на 322");
     hideNotification();
     finalSumBtn.classList.remove("visually-hidden");
   }
@@ -328,5 +345,16 @@ cityWrapperEl.addEventListener("change", (e) => {
 
   if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && itiDelvery.isValidNumber()) {
     cityInputRef.focus();
+  }
+
+})
+
+warehousesListRef.addEventListener("click", e => {
+  if (receiverNameRef.value.length === 0 ||
+    receiverLastNameRef.value.length === 0 ||
+    recieverContactPhoneRef.value.length === 0 ||
+    warehouseInputRef.value.length === 0 ||
+    e.target.value.length === 0) {
+    Notify.info(`Заповність, будь ласка, усі поля`);
   }
 })

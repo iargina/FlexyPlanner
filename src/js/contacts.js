@@ -17,6 +17,7 @@ let maskContact = maskInit(contactPhone);
 contactPhone.addEventListener("countrychange", (e) => {
   const placeHolderMask = itiContact.telInput.placeholder;
   let selectedCountryLabel = itiContact.getSelectedCountryData().iso2;
+  contactPhone.dataset.country = selectedCountryLabel;
   maskOptions = maskOnCountryChange(selectedCountryLabel, placeHolderMask);
   maskContact = IMask(contactPhone, maskOptions);
   contactPhone.setSelectionRange(0, 0);
@@ -104,9 +105,9 @@ formEl.addEventListener('change', e => {
 
 });
 
-formEl.addEventListener('click', e => {
-  e.target.focus();
-});
+// formEl.addEventListener('click', e => {
+//   e.target.focus();
+// });
 
 
 submitBtnEl.addEventListener('click', e => {

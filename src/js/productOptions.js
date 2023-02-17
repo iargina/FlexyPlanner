@@ -141,9 +141,7 @@ async function listMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    console.log('listItemsArr :>> ', listItemsArr);
     for (let i = 0; i < listItemsArr.length; i += 1) {
-      console.log('i :>> ', i);
       resetAmount(listItemsArr[i]);
     }
   } catch (error) {
