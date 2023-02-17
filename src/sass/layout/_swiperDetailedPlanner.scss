@@ -10,17 +10,19 @@
     margin: 0;
     overflow: hidden;
     /* width: 550px; */
-
-    
   }
 
   .swiper-slide > picture {
     object-fit: fill;
 
+    @media screen and (min-width: $tablet-width) {
+      position: static;
+      width: auto;
+    }
+
     @media screen and (min-width: $desktop-width) {
       width: 1240px;
       position: static;
-      max-width: 800px;
     }
   }
 
@@ -43,8 +45,9 @@
       left: -70px;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-width) {
       position: static;
+      margin-right: 0;
     }
 
     @media screen and (min-width: $desktop-width) {
@@ -53,7 +56,8 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      max-height: 100%;
+      margin: 0 auto;
+      /*       max-height: 100%; */
     }
   }
 
@@ -63,20 +67,23 @@
     height: 447px;
     // max-width: auto;
 
-    @media screen and (min-width: 768px) {
-      width: 650px;
-      height: 100%;
+    @media screen and (min-width: $tablet-width) {
+      width: auto;
+      height: 600px;
     }
 
     @media screen and (min-width: $desktop-width) {
-      width: 100%;
-      height: 100%;
+      margin: 0 auto;
+      width: auto;
+      height: 908px;
     }
   }
 
   .swiper-wrapper {
     height: 600px;
-
+    @media screen and (min-width: $tablet-width) {
+      height: auto;
+    }
     @media screen and (min-width: $desktop-width) {
       height: auto;
     }
