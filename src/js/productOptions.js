@@ -99,7 +99,7 @@ async function listMarkupRender(dataObj) {
                     </svg>
                   </div>
 
-                  <p class="orderProcessing__addBtn visually-hidden" data-action="addAmount">
+                  <p class="orderProcessing__addBtn own-visually-hidden" data-action="addAmount">
                     Додати
                   </p>
                   
@@ -123,7 +123,7 @@ async function listMarkupRender(dataObj) {
     // Застосовую початковий стан до планерів:
     initialState();
   } else {
-    amountWordEl.classList.add('visually-hidden');
+    amountWordEl.classList.add('own-visually-hidden');
     listEl.innerHTML = `
     <h4 class="orderProcessing__noPlannersWarning">На жаль, усі планери закінчились...</h4>
     <h4 class="orderProcessing__noPlannersWarning">Але вже незабаром в наявності буде нова порція!)</h4>
@@ -219,12 +219,12 @@ function resetAmount(listItem) {
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
 
   numberEl.textContent = 0;
-  inputWrapperEl.classList.add('visually-hidden');
-  addBtnEl.classList.remove('visually-hidden');
+  inputWrapperEl.classList.add('own-visually-hidden');
+  addBtnEl.classList.remove('own-visually-hidden');
 
   // Приховую кнопку reset
   const closeBtnEl = listItem.querySelector(".orderProcessing__close");
-  closeBtnEl.classList.add("visually-hidden");
+  closeBtnEl.classList.add("own-visually-hidden");
 
   recalcAmount();
 }
@@ -238,11 +238,11 @@ function addItem(listItem) {
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
 
   numberEl.textContent = 1;
-  inputWrapperEl.classList.remove('visually-hidden');
-  addBtnEl.classList.add('visually-hidden');
+  inputWrapperEl.classList.remove('own-visually-hidden');
+  addBtnEl.classList.add('own-visually-hidden');
 
   const closeBtnEl = listItem.querySelector(".orderProcessing__close");
-  closeBtnEl.classList.remove("visually-hidden");
+  closeBtnEl.classList.remove("own-visually-hidden");
 
   recalcAmount();
 }

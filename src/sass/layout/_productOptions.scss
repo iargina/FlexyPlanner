@@ -17,8 +17,6 @@
 
 .orderProcessing__title {
   font-family: $font-family700;
-  // font-style: normal;
-  // font-weight: 700;
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -67,14 +65,10 @@
 .orderProcessing__textPlannerWrapper {
   display: flex;
   width: 100%;
-  // justify-content: space-between;
 }
 
 .orderProcessing__textWrapper {
   display: flex;
-  width: 100%;
-  // margin-right: 16px;
-  // justify-content: space-between;
 }
 
 .orderProcessing__plannerDescr {
@@ -102,8 +96,6 @@
 .orderProcessing__itemDescr {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
 
   width: 155px;
   margin-left: 16px;
@@ -111,7 +103,6 @@
 
   @media screen and (min-width: $desktop-width) {
     flex-direction: row;
-    // width: 330px;
     width: 290px;
     height: 100px;
     margin-left: 24px;
@@ -155,11 +146,6 @@
   letter-spacing: -0.02em;
   color: $secondary-text-color;
   margin-bottom: 8px;
-
-  // @media screen and (min-width: $desktop-width) {
-  //   font-size: 18px;
-  //   line-height: 1.33;
-  // }
 }
 
 .orderProcessing__priceCancelled {
@@ -193,10 +179,8 @@
 
 .orderProcessing__amount {
   max-width: 335px;
-  // margin-top: 40px;
   display: flex;
   flex-direction: column;
-  // align-items: flex-start;
   padding: 0px;
   gap: 28px;
 
@@ -207,8 +191,6 @@
 
 .orderProcessing__ItemImgWrapper {
   position: relative;
-  // max-width: 52px;
-  // max-height: 68px;
   min-width: 52px;
   min-height: 68px;
   overflow: hidden;
@@ -258,7 +240,6 @@
   }
 }
 
-// .orderProcessing__item:not(:last-child):after {
 .orderProcessing__item:after {
   content: '';
   display: block;
@@ -307,18 +288,15 @@
 
 .orderProcessing__inputWrapper {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
+  align-items: center;
 
   @media screen and (min-width: $desktop-width) {
     width: 77px;
-    // margin-top: -2px;
-    height: 25px;
+    align-items: baseline;
   }
 }
 
 .orderProcessing__minus {
-  // display: block;
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -333,9 +311,6 @@
   width: 14px;
   height: 14px;
   display: flex;
-  // @media screen and (min-width: $desktop-width) {
-  //   margin-top: 2px;
-  // }
 }
 
 .orderProcessing__number {
@@ -361,7 +336,6 @@
     border: 0.8px solid rgba(17, 17, 17, 0.2);
 
     font-size: 14px;
-    // line-height: 1.14;
   }
 }
 
@@ -370,8 +344,6 @@
   flex-direction: column;
   align-items: center;
   width: 80px;
-  // justify-content: space-between;
-  padding-bottom: 25px;
   font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
@@ -403,11 +375,7 @@
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.01em;
-
     color: #3c3b3b;
-
-    height: 25px;
-    outline: 1px solid tomato;
   }
 }
 
@@ -428,14 +396,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  font-size: 12px;
+  margin-top: 10px;
+  font-size: 8px;
   font-weight: $bold-text;
   color: $secondary-text-color;
-  height: 20px;
+  height: 18px;
   background-color: $accent-color;
   border-radius: 10px;
-  width: 90px;
+  width: 70px;
+  @media screen and (min-width: $desktop-width) {
+    width: 80px;
+    font-size: 10px;
+  }
 }
 
 .orderProcessing__firstCostWrapper {
@@ -451,14 +423,14 @@
 .orderProcessing__firstCostTitle {
   width: 148px;
   margin-left: 68px;
+  margin-right: 16px;
   @media screen and (min-width: $desktop-width) {
     margin-left: 98px;
-    width: 310px;
+    width: 290px;
   }
 }
 
 .orderProcessing__firstCostValue {
-  color: $alert-color;
   width: 130px;
   text-align: center;
 }
@@ -480,6 +452,12 @@
   }
 }
 
-// .orderProcessing__closeBtnWrapper {
-//   height: 25px;
-// }
+.own-visually-hidden {
+  position: absolute;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
