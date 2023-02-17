@@ -290,7 +290,6 @@ cityWrapperEl.addEventListener("input", (e) => {
     hideNotification();
   }
 
-
   if (e.target.value.length === 0 || !itiDelvery.isValidNumber()) {
     finalSumBtn.classList.add("visually-hidden");
     return;
@@ -305,20 +304,6 @@ cityWrapperEl.addEventListener("input", (e) => {
     finalSumBtn.classList.remove("visually-hidden");
   }
 
-});
-
-cityWrapperEl.addEventListener("keydown", (e) => {
-
-  if (e.code.startsWith("Key")) {
-    hideNotification();
-  }
-
-  if ((e.key === "Backspace" && e.target.value.length === 1)
-    || (e.key === "Delete" && e.target.value.length === 1)
-    || (e.key === "Backspace" && itiDelvery.isValidNumber() === true)
-  ) {
-    Notify.info(`Щоб здійснити оплату, заповніть усі поля коректно`);
-  }
 });
 
 cityWrapperEl.addEventListener("change", (e) => {
