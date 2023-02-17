@@ -1,11 +1,17 @@
 <section class="modal-is-hidden modalFeedBack backdrop">
   <div class="modalFeedBack__modal">
     <picture>
-      <source srcset="
+      <source
+        srcset="
           ./images/hero/desk_1x_planner_yellow.jpg,
           ./images/hero/desk_2x_planner_yellow.jpg
-          " />
-      <img class="modalFeedBack__img" src="./images/hero/desk_1x_planner_yellow.jpg" alt="flexxy planner logo" />
+        "
+      />
+      <img
+        class="modalFeedBack__img"
+        src="./images/hero/desk_1x_planner_yellow.jpg"
+        alt="flexxy planner logo"
+      />
     </picture>
     <svg class="modalFeedBack__icon">
       <use href="./icons/sprite.svg#close_modal"></use>
@@ -14,28 +20,59 @@
       <h2 class="modalFeedBack__title">Повідомити про наявність</h2>
     </div>
     <form class="modalFeedBack__form">
-      <label for="username" class="modalFeedBack__label">Прізвище, ім’я
-        <input type="text" name="username" placeholder="Рожило Андрій" class="modalFeedBack__input user-contacts__name"
-          id="username" required pattern="[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+\s[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ]+$" title="Введіть Ім’я та
-            Прізвище" />
+      <label for="username" class="modalFeedBack__label"
+        >Як тебе звати?
+        <input
+          type="text"
+          name="username"
+          placeholder="Леся Українка"
+          class="modalFeedBack__input user-contacts__name"
+          id="username"
+          required
+          title="Введіть Ім’я та
+            Прізвище"
+        />
       </label>
 
-      <label for="userPhone" class="modalFeedBack__label">Мобільний телефон
-        <input type="text" name="phone" id="userPhone" class="modalFeedBack__input user-contacts__phone" required />
+      <label for="userPhone" class="modalFeedBack__label"
+        >Мобільний телефон
+        <input
+          type="text"
+          name="phone"
+          id="userPhone"
+          class="modalFeedBack__input user-contacts__phone"
+          required
+        />
       </label>
 
-      <label for="email" class="modalFeedBack__label">Ваш email
-        <input type="email" name="email" placeholder="email@gmail.com" id="email"
-          class="modalFeedBack__input user-contacts__email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          title="Введіть Вашу електрону пошту" />
+      <label for="email" class="modalFeedBack__label"
+        >Твій email
+        <input
+          type="email"
+          name="email"
+          placeholder="email@gmail.com"
+          id="email"
+          class="modalFeedBack__input user-contacts__email"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          title="Введіть Вашу електрону пошту"
+        />
       </label>
 
-      <label for="comment" class="modalFeedBack__label">Повідомлення
-        <textarea name="comment" id="comment" class="modalFeedBack__input modalFeedBack__input--comment"
-          title="Залиште коментар"></textarea>
+      <label for="comment" class="modalFeedBack__label"
+        >Можеш щось написати
+        <textarea
+          name="comment"
+          id="comment"
+          placeholder="Хочу проінвестувати в ваш бізнес &#128522"
+          class="modalFeedBack__input modalFeedBack__input--comment"
+          title="Залиште коментар"
+        ></textarea>
       </label>
 
-      <button type="submit" class="btn modalFeedBack__btn btn--primary">Відправити</button>
+      <button type="submit" class="btn modalFeedBack__btn btn--primary">
+        Відправити
+      </button>
     </form>
   </div>
 </section>
