@@ -67,13 +67,14 @@
 .orderProcessing__textPlannerWrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 .orderProcessing__textWrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  // margin-right: 16px;
+  // justify-content: space-between;
 }
 
 .orderProcessing__plannerDescr {
@@ -106,6 +107,7 @@
 
   width: 155px;
   margin-left: 16px;
+  margin-right: 16px;
 
   @media screen and (min-width: $desktop-width) {
     flex-direction: row;
@@ -229,45 +231,6 @@
   }
 }
 
-.orderProcessing_listTitles {
-  display: flex;
-  padding-left: 68px;
-  gap: 62px;
-
-  @media screen and (min-width: $desktop-width) {
-    padding-left: 98px;
-    gap: 152px;
-  }
-}
-
-.orderProcessing__forFirstLine:after {
-  content: '';
-  display: block;
-  width: 335px;
-  height: 1px;
-  background: $black-color;
-  opacity: 0.1;
-  margin-top: 10px;
-
-  @media screen and (min-width: $desktop-width) {
-    width: 545px;
-  }
-}
-
-.orderProcessing__amountTitle {
-  font-family: $font-familyLight400;
-  font-size: 12px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: $secondary-text-color;
-
-  @media screen and (min-width: $desktop-width) {
-    font-family: $font-familyLight400;
-    font-size: 18px;
-    line-height: 1.33;
-  }
-}
-
 .orderProcessing__list {
   display: flex;
   flex-direction: column;
@@ -321,7 +284,7 @@
 
   @media screen and (min-width: $desktop-width) {
     font-size: 14px;
-    line-height: 1.29;
+    line-height: calc(18 / 14);
     max-width: 180px;
   }
 }
@@ -344,11 +307,13 @@
 
 .orderProcessing__inputWrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 
   @media screen and (min-width: $desktop-width) {
     width: 77px;
+    // margin-top: -2px;
+    height: 25px;
   }
 }
 
@@ -367,9 +332,10 @@
   cursor: pointer;
   width: 14px;
   height: 14px;
-  @media screen and (min-width: $desktop-width) {
-    margin-top: 2px;
-  }
+  display: flex;
+  // @media screen and (min-width: $desktop-width) {
+  //   margin-top: 2px;
+  // }
 }
 
 .orderProcessing__number {
@@ -399,21 +365,12 @@
   }
 }
 
-.orderProcessing__cost {
-  font-family: MacPawFixelDisplay600, sans-serif;
-
-  // height: 26px;
-  // min-width: 110px;
-
-  @media screen and (min-width: $desktop-width) {
-  }
-}
-
 .orderProcessing__costBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  width: 80px;
+  // justify-content: space-between;
   padding-bottom: 25px;
   font-family: $font-family600;
   font-size: 12px;
@@ -427,8 +384,8 @@
 
   @media screen and (min-width: $desktop-width) {
     font-family: MacPawFixelDisplay500, sans-serif;
-    font-size: 18px;
-    line-height: 1.33;
+    font-size: 16px;
+    line-height: calc(18 / 16);
 
     min-width: 130px;
   }
@@ -448,6 +405,9 @@
     letter-spacing: -0.01em;
 
     color: #3c3b3b;
+
+    height: 25px;
+    outline: 1px solid tomato;
   }
 }
 
@@ -482,11 +442,9 @@
   display: flex;
   font-size: 14px;
   font-weight: $bold-text;
-  // gap: 25px;
 
   @media screen and (min-width: $desktop-width) {
-    font-size: 18px;
-    // gap: 112px;
+    font-size: 16px;
   }
 }
 
@@ -495,7 +453,7 @@
   margin-left: 68px;
   @media screen and (min-width: $desktop-width) {
     margin-left: 98px;
-    width: 296px;
+    width: 310px;
   }
 }
 
@@ -521,3 +479,7 @@
     max-width: 375px;
   }
 }
+
+// .orderProcessing__closeBtnWrapper {
+//   height: 25px;
+// }

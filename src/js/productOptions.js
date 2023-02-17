@@ -77,7 +77,7 @@ async function listMarkupRender(dataObj) {
           lastItemsMarkup = `<p class="orderProcessing__lastItemsLabel">закінчується</p>`;
         }
 
-        return `<li class="orderProcessing__item" data-idx="#2378560">
+        return `<li class="orderProcessing__item">
             <div class="orderProcessing__itemWrapper">
               <div class="orderProcessing__ItemImgWrapper" >
                 <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
@@ -105,13 +105,12 @@ async function listMarkupRender(dataObj) {
                   
                 </div>
                 <div class="orderProcessing__costBlock">
-                  <p class="orderProcessing__price">${price.toFixed(2)} грн</p>                  
-                  <p class="orderProcessing__cost">${price.toFixed(2)} грн</p>
+                  <p class="orderProcessing__price">${price.toFixed(2)} грн.</p>                  
                   ${lastItemsMarkup}
                 </div>
-                <svg class="orderProcessing__close" data-action="reset">
-                  <use href="${sprite}#reset_order"></use>
-                </svg >
+                  <svg class="orderProcessing__close" data-action="reset">
+                    <use href="${sprite}#reset_order"></use>
+                  </svg>
               </div >
             </div >
           </li > `;
@@ -142,11 +141,13 @@ async function listMarkupRender(dataObj) {
 async function initialState() {
   try {
     const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-    for (let i = 1; i < listItemsArr.length; i += 1) {
+    console.log('listItemsArr :>> ', listItemsArr);
+    for (let i = 0; i < listItemsArr.length; i += 1) {
+      console.log('i :>> ', i);
       resetAmount(listItemsArr[i]);
     }
   } catch (error) {
-    console.log(message.error);
+    console.log(error.message);
   }
 }
 
@@ -183,14 +184,11 @@ function onElementClick(e) {
 
 function operationMaker(listItem, operation) {
   const numberEl = listItem.querySelector('.orderProcessing__number');
-  const priceEl = listItem.querySelector('.orderProcessing__price');
-  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
   const quantity = Number(
     listItem.querySelector('.orderProcessing__plus').dataset.quantity
   );
 
   let numberElValue = Number(numberEl.textContent);
-  const priceValue = Number(priceEl.innerText.slice(0, -4));
 
   if (operation === 'minus') {
     if (numberElValue === 1) {
@@ -210,9 +208,6 @@ function operationMaker(listItem, operation) {
   }
   numberEl.textContent = numberElValue;
 
-  let planersCost = numberElValue * priceValue;
-  amountCostEl.innerText = `${planersCost.toFixed(2)} грн`;
-
   recalcAmount();
 }
 
@@ -227,9 +222,9 @@ function resetAmount(listItem) {
   inputWrapperEl.classList.add('visually-hidden');
   addBtnEl.classList.remove('visually-hidden');
 
-
-  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
-  amountCostEl.classList.add("visually-hidden");
+  // Приховую кнопку reset
+  const closeBtnEl = listItem.querySelector(".orderProcessing__close");
+  closeBtnEl.classList.add("visually-hidden");
 
   recalcAmount();
 }
@@ -240,19 +235,14 @@ function addItem(listItem) {
   const inputWrapperEl = listItem.querySelector(
     '.orderProcessing__inputWrapper'
   );
-  const priceEl = listItem.querySelector('.orderProcessing__price');
-  const priceValue = Number(priceEl.innerText.slice(0, -4)).toFixed(2);
   const addBtnEl = listItem.querySelector('.orderProcessing__addBtn');
-  const amountCostEl = listItem.querySelector('.orderProcessing__cost');
 
   numberEl.textContent = 1;
   inputWrapperEl.classList.remove('visually-hidden');
   addBtnEl.classList.add('visually-hidden');
 
-  console.log('amountCostEl addItem:>> ', amountCostEl);
-  amountCostEl.classList.remove("visually-hidden");
-
-  amountCostEl.innerText = `${priceValue} грн`;
+  const closeBtnEl = listItem.querySelector(".orderProcessing__close");
+  closeBtnEl.classList.remove("visually-hidden");
 
   recalcAmount();
 }
@@ -287,6 +277,6 @@ function recalcAmount() {
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Разом:</div>    
-  <div class="orderProcessing__firstCostValue">${order.total.toFixed(2)} грн</div>
+  <div class="orderProcessing__firstCostValue">${order.total.toFixed(2)} грн.</div>
   `;
 }
