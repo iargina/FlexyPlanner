@@ -286,7 +286,7 @@ function recalcAmount() {
 
 
   firstCostEl.innerHTML = `
-  <div class="orderProcessing__firstCostTitle">Попередня вартість:</div>    
+  <div class="orderProcessing__firstCostTitle">Разом:</div>    
   <div class="orderProcessing__firstCostValue">${order.total.toFixed(2)} грн</div>
   `;
 }

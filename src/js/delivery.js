@@ -22,10 +22,14 @@ const recieverContactPhoneRef = document.querySelector(
   '.reciever-contacts__phone'
 );
 const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
+const cityWrapperEl = document.querySelector(".city-wrapper");
 
 // INITIAL STATE
 let itiDelvery = itiInit(recieverContactPhoneRef);
 let maskDelivery = maskInit(recieverContactPhoneRef);
+
+finalSumBtn.disabled = false;
+finalSumBtn.classList.add("visually-hidden");
 
 recieverContactPhoneRef.addEventListener('countrychange', e => {
   const placeHolderMask = itiDelvery.telInput.placeholder;
@@ -209,7 +213,8 @@ function onWarehousesListClick(e) {
     receiverLastNameRef.value.length > 0 &&
     recieverContactPhoneRef.value.length > 0
   ) {
-    finalSumBtn.disabled = false;
+    // finalSumBtn.disabled = false;
+    finalSumBtn.classList.remove("visually-hidden");
   }
 }
 
@@ -229,9 +234,8 @@ function onCheckboxChange(e) {
     receiverNameRef.value = order.contactInfo.username;
     receiverNameRef.disabled = true;
 
-    const contactDeliveryPhoneCodeString = `+${
-      itiDelvery.getSelectedCountryData().dialCode
-    }`;
+    const contactDeliveryPhoneCodeString = `+${itiDelvery.getSelectedCountryData().dialCode
+      }`;
     const cuttedPhoneNumber = order.contactInfo.phone.slice(
       contactDeliveryPhoneCodeString.length
     );
@@ -255,3 +259,89 @@ warehouseBtnRef.addEventListener('click', toggleWarehouseSearch);
 
 document.body.addEventListener('click', onInputBlur);
 receiverCheckboxRef.addEventListener('change', onCheckboxChange);
+
+cityWrapperEl.addEventListener("click", (e) => {
+  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && !itiDelvery.isValidNumber()) {
+    Notify.info(`З номером щось не так. Перегляньте ще раз`);
+  }
+});
+
+cityWrapperEl.addEventListener("input", (e) => {
+
+  const warningEl = document.querySelector('#NotiflixNotifyWrap');
+
+  if (receiverNameRef.validity.patternMismatch) {
+    Notify.info(`Введіть своє ім'я коректно`);
+    finalSumBtn.classList.add("visually-hidden");
+    return;
+  }
+
+  if (!receiverNameRef.validity.patternMismatch && warningEl) {
+    hideNotification();
+  }
+
+  if (receiverLastNameRef.validity.patternMismatch) {
+    Notify.info(`Введіть своє прізвище коректно`);
+    finalSumBtn.classList.add("visually-hidden");
+    return;
+  }
+
+  if (!receiverLastNameRef.validity.patternMismatch && warningEl) {
+    hideNotification();
+  }
+
+
+  if (e.target.value.length === 0 || !itiDelvery.isValidNumber()) {
+    finalSumBtn.classList.add("visually-hidden");
+    return;
+  }
+
+  if (receiverNameRef.value.length > 0 &&
+    receiverLastNameRef.value.length > 0 &&
+    recieverContactPhoneRef.value.length > 0 &&
+    warehouseInputRef.value.length > 0 &&
+    e.target.value.length > 0) {
+    hideNotification();
+    finalSumBtn.classList.remove("visually-hidden");
+  }
+
+});
+
+cityWrapperEl.addEventListener("keydown", (e) => {
+
+  if (e.code.startsWith("Key")) {
+    hideNotification();
+  }
+
+  if ((e.key === "Backspace" && e.target.value.length === 1)
+    || (e.key === "Delete" && e.target.value.length === 1)
+    || (e.key === "Backspace" && itiDelvery.isValidNumber() === true)
+  ) {
+    Notify.info(`Щоб здійснити оплату, заповніть усі поля коректно`);
+  }
+});
+
+cityWrapperEl.addEventListener("change", (e) => {
+
+  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0) {
+    recieverContactPhoneRef.setSelectionRange(0, 0);
+    recieverContactPhoneRef.focus();
+  }
+
+  let unmaskedLength = maskDelivery.unmaskedValue.length;
+  let isValid = itiDelvery.isValidNumber();
+  if (!isValid && unmaskedLength > 0) {
+    Notify.info(`З номером щось не так. Перегляньте ще раз`);
+  }
+
+  if (receiverNameRef.value.length > 0 &&
+    receiverLastNameRef.value.length > 0 &&
+    itiDelvery.isValidNumber() &&
+    cityInputRef.value.length > 0) {
+    return;
+  }
+
+  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && itiDelvery.isValidNumber()) {
+    cityInputRef.focus();
+  }
+})

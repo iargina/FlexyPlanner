@@ -482,23 +482,27 @@
   display: flex;
   font-size: 14px;
   font-weight: $bold-text;
-  gap: 25px;
+  // gap: 25px;
 
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
-    gap: 126px;
+    // gap: 112px;
   }
 }
 
 .orderProcessing__firstCostTitle {
+  width: 148px;
   margin-left: 68px;
   @media screen and (min-width: $desktop-width) {
     margin-left: 98px;
+    width: 296px;
   }
 }
 
 .orderProcessing__firstCostValue {
   color: $alert-color;
+  width: 130px;
+  text-align: center;
 }
 
 .orderProcessing__noPlannersWarning {

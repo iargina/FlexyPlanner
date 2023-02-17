@@ -143,9 +143,9 @@ const monoPost = async (paymentData, id) => {
 async function onFinalSumBtnClick(e) {
   orderCrmDataForm();
   e.currentTarget.disabled = true;
+
   preloader.start();
   try {
-    // console.log("Data was send");
     const orderId = await crmPostOrder(orderCrmData);
     if (!orderId) {
       throw new Error('no orderId');
