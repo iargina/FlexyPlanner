@@ -16,29 +16,33 @@
 }
 
 .personal-coatch__title {
-  width: 350px;
+  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
   &--accent {
     color: $accent-color;
   }
   @media screen and (min-width: $tablet-width) {
-    width: 500px;
+    max-width: 500px;
 
     // margin-bottom: 30px;
   }
   @media screen and (min-width: $desktop-width) {
-    width: 724px;
+    max-width: 724px;
   }
 }
 
 .personal-coatch__list {
+  width: 90vw;
+  margin: 0 auto;
   @media screen and (min-width: $tablet-width) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     gap: 10px 20px;
     height: 224px;
+    width: 90vw;
+    margin: 0 auto;
   }
   @media screen and (min-width: $desktop-width) {
     width: 1032px;
@@ -53,9 +57,17 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  background-color: $background-color;
+
+  margin: 0 auto;
   &:last-child {
     margin-bottom: 0;
+  }
+  @media screen and (min-width: 500px) {
+    width: 70%;
+  }
+  @media screen and (min-width: $tablet-width) {
+    width: auto;
+    margin: 0;
   }
   @media screen and (min-width: $desktop-width) {
     margin-bottom: 0;
@@ -71,7 +83,8 @@
   align-items: center;
   width: 44px;
   height: 44px;
-  background-color: $white-color;
+  border: 1px solid $secondary-text-color;
+  border-radius: 50%;
   @media screen and (min-width: $desktop-width) {
     width: 52px;
     height: 52px;
