@@ -268,13 +268,13 @@
     right: 0;
 
     &::before {
-      background: url('./../images/description/mob_1x_round_2.png') center /
+      background: url('./../images/description/mob_1x_round_6.png') center /
         100% 100% no-repeat;
 
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background: url('./../images/description/mob_2x_round_2.png') center /
+        background: url('./../images/description/mob_2x_round_6.png') center /
           100% 100% no-repeat;
       }
     }
@@ -285,13 +285,13 @@
     right: 0;
 
     &::before {
-      background: url('./../images/description/mob_1x_round_6.png') center /
+      background: url('./../images/description/mob_1x_round_2.png') center /
         100% 100% no-repeat;
 
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background: url('./../images/description/mob_2x_round_6.png') center /
+        background: url('./../images/description/mob_2x_round_2.png') center /
           100% 100% no-repeat;
       }
     }
@@ -412,13 +412,13 @@
       right: 20%;
 
       &::before {
-        background: url('./../images/description/desk_1x_round_2.png') center /
+        background: url('./../images/description/desk_1x_round_6.png') center /
           100% 100% no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
-          background: url('./../images/description/desk_2x_round_2.png') center /
+          background: url('./../images/description/desk_2x_round_6.png') center /
             100% 100% no-repeat;
         }
       }
@@ -429,13 +429,13 @@
       right: 6%;
 
       &::before {
-        background: url('./../images/description/desk_1x_round_6.png') center /
+        background: url('./../images/description/desk_1x_round_2.png') center /
           100% 100% no-repeat;
 
         @media (min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
           (min-resolution: 2dppx) {
-          background: url('./../images/description/desk_2x_round_6.png') center /
+          background: url('./../images/description/desk_2x_round_2.png') center /
             100% 100% no-repeat;
         }
       }
