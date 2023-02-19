@@ -51,7 +51,7 @@ function createFinalOrderMarkup() {
     <ul class="finalSum__list">
       <li class="finalSum__item">
         <p class="finalSum__descr">${sumAmount} ${wordAmount} на суму</p>
-        <p class="finalSum__amount">${order.total.toFixed(2)} грн</p>
+        <p class="finalSum__amount">${order.total.toFixed(2)} грн.</p>
       </li>
       <li class="finalSum__item">
         <p class="finalSum__descr">Вартість доставки</p>
@@ -61,13 +61,13 @@ function createFinalOrderMarkup() {
       </li>
       <li class="finalSum__item">
         <p class="finalSum__descr">Знижка за промокодом</p>
-        <p class="finalSum__amount">${order.discountValueSum.toFixed(2)} грн</p>
+        <p class="finalSum__amount">${order.discountValueSum.toFixed(2)} грн.</p>
       </li>
     </ul>
     <div class="finalSum__total">
       <p class="finalSum__totalDescr">До сплати</p>
       <p class="finalSum__totalAmount">${(order.total - order.discountValueSum).toFixed(2)
-    } грн</p>
+    } грн.</p>
     </div>
     `;
 }
@@ -143,9 +143,9 @@ const monoPost = async (paymentData, id) => {
 async function onFinalSumBtnClick(e) {
   orderCrmDataForm();
   e.currentTarget.disabled = true;
+
   preloader.start();
   try {
-    // console.log("Data was send");
     const orderId = await crmPostOrder(orderCrmData);
     if (!orderId) {
       throw new Error('no orderId');

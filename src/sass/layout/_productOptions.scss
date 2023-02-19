@@ -17,8 +17,6 @@
 
 .orderProcessing__title {
   font-family: $font-family700;
-  // font-style: normal;
-  // font-weight: 700;
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -67,13 +65,10 @@
 .orderProcessing__textPlannerWrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
 }
 
 .orderProcessing__textWrapper {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
 }
 
 .orderProcessing__plannerDescr {
@@ -101,15 +96,15 @@
 .orderProcessing__itemDescr {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
 
   width: 155px;
   margin-left: 16px;
+  margin-right: 16px;
 
   @media screen and (min-width: $desktop-width) {
     flex-direction: row;
-    width: 330px;
+    width: 290px;
+    height: 100px;
     margin-left: 24px;
   }
 }
@@ -151,11 +146,6 @@
   letter-spacing: -0.02em;
   color: $secondary-text-color;
   margin-bottom: 8px;
-
-  // @media screen and (min-width: $desktop-width) {
-  //   font-size: 18px;
-  //   line-height: 1.33;
-  // }
 }
 
 .orderProcessing__priceCancelled {
@@ -189,10 +179,8 @@
 
 .orderProcessing__amount {
   max-width: 335px;
-  // margin-top: 40px;
   display: flex;
   flex-direction: column;
-  // align-items: flex-start;
   padding: 0px;
   gap: 28px;
 
@@ -203,8 +191,6 @@
 
 .orderProcessing__ItemImgWrapper {
   position: relative;
-  // max-width: 52px;
-  // max-height: 68px;
   min-width: 52px;
   min-height: 68px;
   overflow: hidden;
@@ -224,45 +210,6 @@
   max-width: 100%;
   @media screen and (min-width: $desktop-width) {
     top: 26px;
-  }
-}
-
-.orderProcessing_listTitles {
-  display: flex;
-  padding-left: 68px;
-  gap: 62px;
-
-  @media screen and (min-width: $desktop-width) {
-    padding-left: 98px;
-    gap: 166px;
-  }
-}
-
-.orderProcessing__forFirstLine:after {
-  content: '';
-  display: block;
-  width: 335px;
-  height: 1px;
-  background: $black-color;
-  opacity: 0.1;
-  margin-top: 10px;
-
-  @media screen and (min-width: $desktop-width) {
-    width: 545px;
-  }
-}
-
-.orderProcessing__amountTitle {
-  font-family: $font-familyLight400;
-  font-size: 12px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: $secondary-text-color;
-
-  @media screen and (min-width: $desktop-width) {
-    font-family: $font-familyLight400;
-    font-size: 18px;
-    line-height: 1.33;
   }
 }
 
@@ -293,7 +240,6 @@
   }
 }
 
-// .orderProcessing__item:not(:last-child):after {
 .orderProcessing__item:after {
   content: '';
   display: block;
@@ -319,7 +265,7 @@
 
   @media screen and (min-width: $desktop-width) {
     font-size: 14px;
-    line-height: 1.29;
+    line-height: calc(18 / 14);
     max-width: 180px;
   }
 }
@@ -343,15 +289,14 @@
 .orderProcessing__inputWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   @media screen and (min-width: $desktop-width) {
     width: 77px;
+    align-items: baseline;
   }
 }
 
 .orderProcessing__minus {
-  // display: block;
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -365,9 +310,7 @@
   cursor: pointer;
   width: 14px;
   height: 14px;
-  @media screen and (min-width: $desktop-width) {
-    margin-top: 2px;
-  }
+  display: flex;
 }
 
 .orderProcessing__number {
@@ -393,14 +336,6 @@
     border: 0.8px solid rgba(17, 17, 17, 0.2);
 
     font-size: 14px;
-    // line-height: 1.14;
-  }
-}
-
-.orderProcessing__cost {
-  font-family: MacPawFixelDisplay600, sans-serif;
-
-  @media screen and (min-width: $desktop-width) {
   }
 }
 
@@ -408,8 +343,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 28px;
+  width: 80px;
   font-family: $font-family600;
   font-size: 12px;
   line-height: 1;
@@ -422,8 +356,10 @@
 
   @media screen and (min-width: $desktop-width) {
     font-family: MacPawFixelDisplay500, sans-serif;
-    font-size: 18px;
-    line-height: 1.33;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+
+    min-width: 130px;
   }
 }
 
@@ -439,7 +375,6 @@
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.01em;
-
     color: #3c3b3b;
   }
 }
@@ -461,39 +396,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  font-size: 12px;
+  margin-top: 10px;
+  font-size: 8px;
   font-weight: $bold-text;
   color: $secondary-text-color;
-  height: 20px;
+  height: 18px;
   background-color: $accent-color;
   border-radius: 10px;
-  width: 90px;
+  width: 70px;
+  @media screen and (min-width: $desktop-width) {
+    width: 80px;
+    font-size: 10px;
+  }
 }
 
 .orderProcessing__firstCostWrapper {
   display: flex;
   font-size: 14px;
   font-weight: $bold-text;
-  gap: 40px;
-  // justify-content: space-between;
-  // color: $alert-color;
 
   @media screen and (min-width: $desktop-width) {
-    font-size: 18px;
-    gap: 170px;
+    font-size: 16px;
   }
 }
 
 .orderProcessing__firstCostTitle {
+  width: 148px;
   margin-left: 68px;
+  margin-right: 16px;
   @media screen and (min-width: $desktop-width) {
     margin-left: 98px;
+    width: 290px;
   }
 }
 
 .orderProcessing__firstCostValue {
-  color: $alert-color;
+  width: 130px;
+  text-align: center;
 }
 
 .orderProcessing__noPlannersWarning {
@@ -511,4 +450,14 @@
     line-height: 1.29;
     max-width: 375px;
   }
+}
+
+.own-visually-hidden {
+  position: absolute;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

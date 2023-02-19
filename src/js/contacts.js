@@ -1,14 +1,14 @@
 import { order } from './utils';
 import { Notify } from 'notiflix';
 import IMask from 'imask';
-import { itiInit, maskInit, onCountryChange } from './helpers/phoneNumberInit';
+import { itiInit, maskInit } from './helpers/phoneNumberInit';
 import { maskOnCountryChange } from './helpers/maskOnCountryChange';
 import { getPhoneNumber } from './helpers/getPhoneNumber';
 
 const submitBtnEl = document.querySelector('.contacts__btn');
 const contactName = document.querySelector('.contacts__name');
 const contactPhone = document.querySelector('.contacts__phone');
-
+const receiverNameRef = document.querySelector('#receiverName');
 
 let itiContact = itiInit(contactPhone);
 let maskContact = maskInit(contactPhone);
@@ -17,6 +17,7 @@ let maskContact = maskInit(contactPhone);
 contactPhone.addEventListener("countrychange", (e) => {
   const placeHolderMask = itiContact.telInput.placeholder;
   let selectedCountryLabel = itiContact.getSelectedCountryData().iso2;
+  contactPhone.dataset.country = selectedCountryLabel;
   maskOptions = maskOnCountryChange(selectedCountryLabel, placeHolderMask);
   maskContact = IMask(contactPhone, maskOptions);
   contactPhone.setSelectionRange(0, 0);
@@ -73,19 +74,26 @@ formEl.addEventListener('input', e => {
 
 formEl.addEventListener('change', e => {
 
+
   let regexp = /['’ʼ-]/;
   if (contactName.value && contactName.value[contactName.value.length - 1].match(regexp)) {
     Notify.info(`Ви впевнені, що в імені немає помилки?`);
   }
 
-  if (contactName.validity.patternMismatch) {
-    Notify.info(`Введіть своє ім'я коректно`);
+  if (!contactName.validity.patternMismatch) {
+    contactPhone.setSelectionRange(0, 0);
+    contactPhone.focus();
   }
 
   let unmaskedLength = maskContact.unmaskedValue.length;
   let isValid = itiContact.isValidNumber();
   if (!isValid && unmaskedLength > 0) {
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
+  }
+
+  if (contactName.value.length > 0 && isValid) {
+    const comment = document.querySelector("#comment");
+    comment.focus();
   }
 
   if (isValid) {
@@ -96,6 +104,10 @@ formEl.addEventListener('change', e => {
   }
 
 });
+
+// formEl.addEventListener('click', e => {
+//   e.target.focus();
+// });
 
 
 submitBtnEl.addEventListener('click', e => {
@@ -109,20 +121,19 @@ submitBtnEl.addEventListener('click', e => {
     phone: getPhoneNumber(itiContact, maskContact),
   }
   order.contactInfo = obj;
-  // console.log('order.contactInfo :>> ', order.contactInfo);
 
-  // const finalSumBtn = document.querySelector('.finalSum__btn');
   const deliveryContainer = document.querySelector('.delivery__container');
   const finalSumContainer = document.querySelector('.finalSum__container');
   const promoContainer = document.querySelector('.promo__container');
 
   deliveryContainer.classList.remove('delivery__ishidden');
+  receiverNameRef.focus();
+
   if (window.innerWidth <= 1440) {
     finalSumContainer.classList.remove('finalSum__ishidden');
     promoContainer.classList.remove('promo__ishidden');
   }
   submitBtnEl.style.display = 'none';
-  // finalSumBtn.disabled = false;
 
   window.scrollBy({
     top: 500,
