@@ -10,7 +10,7 @@ const crmPost = leadData => {
   try {
     axios({
       method: 'post',
-      url: 'https://flexyplanner.onrender.com/crm/leads',
+      url: 'https://api.flexyplanner.com/crm/leads',
       data: leadData,
     });
   } catch (error) {

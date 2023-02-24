@@ -22,7 +22,7 @@ const showBtnText = (textHero, textFooter) => {
 const onOrderModule = async () => {
   try {
     const { data } = await axios.get(
-      'https://flexyplanner.onrender.com/markup'
+      'https://api.flexyplanner.com/markup'
     ); // тут приходять дані по активному модулю
     loadModule(data); //Створення відповідної розмітки
 

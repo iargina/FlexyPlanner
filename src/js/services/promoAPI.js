@@ -1,6 +1,6 @@
 import axios from 'axios';
 const instancePromocode = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/promo',
+  baseURL: 'https://api.flexyplanner.com/promo',
 });
 
 export const checkPromocode = async promo => {

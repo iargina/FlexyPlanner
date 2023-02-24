@@ -77,7 +77,7 @@ const crmPostOrder = async orderData => {
   try {
     const response = await axios({
       method: 'post',
-      url: 'https://flexyplanner.onrender.com/crm/order',
+      url: 'https://api.flexyplanner.com/crm/order',
       data: orderData,
     });
     const id = await response.data.id;
@@ -117,7 +117,7 @@ function postToAdd() {
     redirectUrl: 'https://flexyplanner.com',
     // redirectUrl: 'http://localhost:1234/',
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
-    webHookUrl: 'https://flexyplanner.onrender.com/mono/acquiring/webhook',
+    webHookUrl: 'https://api.flexyplanner.com/mono/acquiring/webhook',
     validity: 3600,
   };
 }
@@ -126,7 +126,7 @@ const monoPost = async (paymentData, id) => {
   try {
     const response = await axios({
       method: 'post',
-      url: 'https://flexyplanner.onrender.com/mono/' + id,
+      url: 'https://api.flexyplanner.com/mono/' + id,
       data: paymentData,
     });
 
