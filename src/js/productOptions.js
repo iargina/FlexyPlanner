@@ -20,7 +20,7 @@ const fetchOrderModule = async () => {
 
   try {
     const response = await axios.get(
-      'https://flexyplanner.onrender.com/markup'
+      'https://api.flexyplanner.com/markup'
     );
     middleDataObj = response.data;
   } catch (error) {
@@ -40,7 +40,7 @@ fetchOrderModule();
 const fetchPlannersData = async dataObj => {
   try {
     const response = await axios.get(
-      'https://flexyplanner.onrender.com/crm/offers'
+      'https://api.flexyplanner.com/crm/offers'
     );
     return response.data.data;
   } catch (error) {
