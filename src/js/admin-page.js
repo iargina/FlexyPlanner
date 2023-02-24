@@ -4,7 +4,7 @@ const logoutButton = document.querySelector('#logoutButton');
 const spinnerLoader = document.querySelector('.spinner-border');
 
 const instanceLogout = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/auth/logout',
+  baseURL: 'https://api.flexyplanner.com/auth/logout',
   headers: {
     Authorization: `Bearer ${window.sessionStorage.getItem('accessToken')}`,
   },

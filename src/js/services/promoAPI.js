@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instancePromocode = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com',
+  baseURL: 'https://api.flexyplanner.com',
   headers: {
     Authorization: `Bearer ${window.sessionStorage.getItem('accessToken')}`,
     // Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2I4NWJjNDdmMDBlYTAwMzRjNGQ1ZGUiLCJzaWQiOiI2M2MxY2Y5YTEyNmYzNDAwMzQzMTdhZWQiLCJpYXQiOjE2NzM2NDU5NzksImV4cCI6MTY3MzY0OTU3OX0.n4Mx9rkeSBK1z7cC6EjvhwWpZzE8jhH4g63CyGaQLCs`,

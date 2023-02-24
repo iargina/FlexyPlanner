@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com',
+  baseURL: 'https://api.flexyplanner.com',
 });
 
 export const getMarkup = async () => {
