@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix';
 
 const instance = axios.create({
-  baseURL: 'https://flexyplanner.onrender.com/auth/login',
+  baseURL: 'https://api.flexyplanner.com/auth/login',
   headers: {
     'Content-Type': 'application/json',
   },
