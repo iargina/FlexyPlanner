@@ -1,0 +1,116 @@
+.promocode-container {
+  min-width: 320px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1280px;
+  }
+}
+li {
+  max-width: 1200px;
+}
+
+.promocode__title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.promocode__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.discount__wrapper,
+.promocode__wrapper,
+.date__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  border-bottom: 1px solid $background-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.date__wrapper {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 500px;
+  }
+}
+.promocode__group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.form-check-input {
+  margin-top: 0;
+}
+.promocode__input {
+  margin-top: 15px;
+  width: 300px;
+}
+.btn.btn-primary,
+.btn.btn-success,
+.btn.btn-danger {
+  width: 250px;
+  height: 45px;
+  padding: 0;
+}
+.btn.btn-success {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 5px;
+  }
+}
+.list__item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $background-color;
+}
+.common__wrapper,
+.personal__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: $background-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+.personal-promocode {
+  margin-bottom: 70px;
+}
+.promo__name {
+  padding: 8px;
+  border-radius: 7px;
+  margin-left: 20px;
+  font-size: 34px;
+  background-color: $secondary-text-color;
+  color: $white-color;
+}
+.btn-outline-primary {
+  outline: 1px solid #0d6efd;
+}
+.title-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+/* Webfont: MacPawFixelDisplay-Bold */@font-face {
+    font-family: 'MacPawFixelDisplayBold';
+    src: url('MacPawFixelDisplay-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('MacPawFixelDisplay-Bold.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+

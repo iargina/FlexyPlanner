@@ -1,0 +1,36 @@
+<div class="order-admin">
+  <h3 class="shadow p-3 mb-5 bg-body rounded">
+    Активізація модулів замовлення
+  </h3>
+
+  <div class="wrap">
+    <p>Попереднє замовлення</p>
+    <form class="form-pre-order">
+      <label>
+        <span>Декоративна ціна</span>
+        <input type="number" min="1" step="any" name="price" required />
+      </label>
+
+      <button type="submit" class="btn btn-primary">Додати ціну</button>
+      <button
+        type="button"
+        data-status="pre-order"
+        class="btn btn-danger btn-order-js"
+      >
+        Активувати
+      </button>
+    </form>
+    <p class="preorder-price-info"></p>
+  </div>
+
+  <div class="wrap">
+    <p>Оформити замовлення</p>
+    <button
+      type="button"
+      data-status="to-order"
+      class="btn btn-danger btn-order-js"
+    >
+      Активувати
+    </button>
+  </div>
+</div>
