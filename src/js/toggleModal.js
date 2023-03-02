@@ -1,5 +1,4 @@
 export default function toggleModal(triggerBtn, closeBtn, backdrop) {
-
   const openModalBtn = document.querySelector(triggerBtn),
     closeModalBtn = document.querySelector(closeBtn),
     backdropSection = document.querySelector(backdrop);
@@ -9,39 +8,39 @@ export default function toggleModal(triggerBtn, closeBtn, backdrop) {
   }
 
   openModalBtn.addEventListener('click', () => {
+    fbq('track', 'ViewContent');
     backdropSection.classList.toggle('modal-is-hidden');
   });
 
   closeModalBtn.addEventListener('click', () => {
     backdropSection.classList.toggle('modal-is-hidden');
 
-    const warningEl = document.querySelector(".notiflix-notify");
+    const warningEl = document.querySelector('.notiflix-notify');
     if (warningEl) {
       warningEl.remove();
     }
   });
 
   backdropSection.addEventListener('click', e => {
+    fbq('track', 'ViewContent');
     if (e.target === backdropSection) {
       backdropSection.classList.toggle('modal-is-hidden');
     }
 
-    const warningEl = document.querySelector(".notiflix-notify");
+    const warningEl = document.querySelector('.notiflix-notify');
     if (warningEl) {
       warningEl.remove();
     }
   });
 
-  window.addEventListener('keydown', (e) => {
-
+  window.addEventListener('keydown', e => {
     if (e.code === 'Escape') {
       backdropSection.classList.add('modal-is-hidden');
     }
 
-    const warningEl = document.querySelector(".notiflix-notify");
+    const warningEl = document.querySelector('.notiflix-notify');
     if (warningEl) {
       warningEl.remove();
     }
-
   });
 }

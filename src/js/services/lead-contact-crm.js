@@ -21,6 +21,7 @@ const crmPost = leadData => {
   }
 };
 function onContactClick() {
+  fbq('track', 'Lead');
   const productsArr = order.orderedPlanners.filter(el => el.amount > 0);
 
   const leadCrmData = {

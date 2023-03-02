@@ -90,7 +90,7 @@ const onPreOrderFormSubmit = () => {
 
   function sendData(e) {
     e.preventDefault();
-
+    fbq('track', 'Lead');
     const formData = new FormData(form);
     const nameData = formData.get('username');
     const phoneData = getPhoneNumber(itiDelvery, maskDelivery);

@@ -61,13 +61,16 @@ function createFinalOrderMarkup() {
       </li>
       <li class="finalSum__item">
         <p class="finalSum__descr">Знижка за промокодом</p>
-        <p class="finalSum__amount">${order.discountValueSum.toFixed(2)} грн.</p>
+        <p class="finalSum__amount">${order.discountValueSum.toFixed(
+          2
+        )} грн.</p>
       </li>
     </ul>
     <div class="finalSum__total">
       <p class="finalSum__totalDescr">До сплати</p>
-      <p class="finalSum__totalAmount">${(order.total - order.discountValueSum).toFixed(2)
-    } грн.</p>
+      <p class="finalSum__totalAmount">${(
+        order.total - order.discountValueSum
+      ).toFixed(2)} грн.</p>
     </div>
     `;
 }
@@ -105,6 +108,7 @@ const monoBasket = () => {
 function postToAdd() {
   const total = Number(order.total - order.discountValueSum) * 100;
   const basketMono = monoBasket();
+  fbq('track', 'Purchase', { value: total, currency: 'UAH' });
   return {
     amount: total,
     ccy: 980,

@@ -6,13 +6,14 @@ import axios from 'axios';
 import { hideNotification } from './helpers/hideNotification';
 
 const listEl = document.querySelector('.orderProcessing__list');
-const firstCostEl = document.querySelector('.orderProcessing__firstCostWrapper');
+const firstCostEl = document.querySelector(
+  '.orderProcessing__firstCostWrapper'
+);
 const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
 
 let products = [];
 
 listEl.addEventListener('click', onElementClick);
-
 
 // ========== OrderModule Checking ============================
 const fetchOrderModule = async () => {
@@ -48,7 +49,6 @@ const fetchPlannersData = async dataObj => {
   } finally {
     // Прибераю спінер
     document.querySelector('.preloader').classList.add('loader-is-hidden');
-
   }
 };
 
@@ -63,7 +63,9 @@ async function listMarkupRender(dataObj) {
     );
   }
   if (dataObj.type === 'pre-order') {
-    filteredPlannersArr = plannersArr.filter(el => el.sku.startsWith('PO') && el.quantity > 0);
+    filteredPlannersArr = plannersArr.filter(
+      el => el.sku.startsWith('PO') && el.quantity > 0
+    );
   }
 
   // console.log('order :>> ', order);
@@ -80,7 +82,9 @@ async function listMarkupRender(dataObj) {
         return `<li class="orderProcessing__item">
             <div class="orderProcessing__itemWrapper">
               <div class="orderProcessing__ItemImgWrapper" >
-                <img src="${product.thumbnail_url}" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
+                <img src="${
+                  product.thumbnail_url
+                }" alt="Flexxy Planner Folder" class="orderProcessing__ItemImg" />
               </div>
               <div class="orderProcessing__textWrapper">
                 <div class="orderProcessing__itemDescr">
@@ -105,7 +109,9 @@ async function listMarkupRender(dataObj) {
                   
                 </div>
                 <div class="orderProcessing__costBlock">
-                  <p class="orderProcessing__price">${price.toFixed(2)} грн.</p>                  
+                  <p class="orderProcessing__price">${price.toFixed(
+                    2
+                  )} грн.</p>                  
                   ${lastItemsMarkup}
                 </div>
                   <svg class="orderProcessing__close" data-action="reset">
@@ -129,13 +135,8 @@ async function listMarkupRender(dataObj) {
     <h4 class="orderProcessing__noPlannersWarning">Але вже незабаром в наявності буде нова порція!)</h4>
     `;
   }
-
-
-
 }
 // ========================================================================
-
-
 
 // ========================================================================
 async function initialState() {
@@ -150,6 +151,8 @@ async function initialState() {
 }
 
 function onElementClick(e) {
+  fbq('track', 'ViewContent');
+
   if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
     const btnName = e.target.closest('svg').dataset.action;
     const listItem = e.target.closest('li');
@@ -221,14 +224,13 @@ function resetAmount(listItem) {
   addBtnEl.classList.remove('own-visually-hidden');
 
   // Приховую кнопку reset
-  const closeBtnEl = listItem.querySelector(".orderProcessing__close");
-  closeBtnEl.classList.add("own-visually-hidden");
+  const closeBtnEl = listItem.querySelector('.orderProcessing__close');
+  closeBtnEl.classList.add('own-visually-hidden');
 
   recalcAmount();
 }
 
 function addItem(listItem) {
-
   const numberEl = listItem.querySelector('.orderProcessing__number');
   const inputWrapperEl = listItem.querySelector(
     '.orderProcessing__inputWrapper'
@@ -239,21 +241,23 @@ function addItem(listItem) {
   inputWrapperEl.classList.remove('own-visually-hidden');
   addBtnEl.classList.add('own-visually-hidden');
 
-  const closeBtnEl = listItem.querySelector(".orderProcessing__close");
-  closeBtnEl.classList.remove("own-visually-hidden");
+  const closeBtnEl = listItem.querySelector('.orderProcessing__close');
+  closeBtnEl.classList.remove('own-visually-hidden');
 
   recalcAmount();
 }
 
 function recalcAmount() {
   const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-
+  fbq('track', 'AddToCart');
   products = [];
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
     const plPrice = el.querySelector('.orderProcessing__price').innerText;
-    const plParagraph = el.querySelector('.orderProcessing__itemParagraph').innerText;
+    const plParagraph = el.querySelector(
+      '.orderProcessing__itemParagraph'
+    ).innerText;
     if (Number(plAmount) !== 0) {
       products.push({
         color: plTitle,
@@ -272,9 +276,10 @@ function recalcAmount() {
   // console.log('Order: ', order);
   // console.log('order.getWholeOrderData: ', order.getWholeOrderData());
 
-
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Разом:</div>    
-  <div class="orderProcessing__firstCostValue">${order.total.toFixed(2)} грн.</div>
+  <div class="orderProcessing__firstCostValue">${order.total.toFixed(
+    2
+  )} грн.</div>
   `;
 }
