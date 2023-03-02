@@ -107,8 +107,9 @@ const monoBasket = () => {
 // POST запит;
 function postToAdd() {
   const total = Number(order.total - order.discountValueSum) * 100;
+  const totalForPixel = Number(order.total - order.discountValueSum);
   const basketMono = monoBasket();
-  fbq('track', 'Purchase', { value: total, currency: 'UAH' });
+  fbq('track', 'Purchase', { value: totalForPixel, currency: 'UAH' });
   return {
     amount: total,
     ccy: 980,
