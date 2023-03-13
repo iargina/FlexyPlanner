@@ -123,10 +123,10 @@
 .img-wrapper {
   position: relative;
   width: 90vw;
+  max-width: 960px;
 
   @media screen and (min-width: $tablet-width) {
     width: 50vw;
-    max-width: 1152px;
   }
 }
 
@@ -612,9 +612,9 @@
 
 .description__hint {
   position: absolute;
-  bottom: 0;
+  bottom: 2%;
   right: 30%;
-  width: 20%;
+  width: 16%;
   opacity: 1;
   transition: opacity $transition-duration $transition-timing-function;
 
@@ -627,18 +627,20 @@
 .hint {
   position: absolute;
   font-size: 3vw;
-  bottom: -4%;
-  left: -70%;
+  bottom: -6%;
+  left: -90%;
   color: #555;
 
   @media screen and (min-width: $tablet-width) {
-    font-size: 1.4vw;
-    bottom: -4%;
-    left: -50%;
+    font-size: 2vw;
+    bottom: -10%;
+    left: -100%;
   }
 
-  @media screen and (min-width: 1921px) {
+  @media screen and (min-width: 1401px) {
     font-size: 26px;
+    bottom: -6%;
+    left: -80%;
   }
 }
 
