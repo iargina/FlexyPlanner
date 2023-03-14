@@ -27,7 +27,7 @@ export const orderCrmData = {
 };
 
 export function orderCrmDataForm() {
-  orderCrmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss');
+  orderCrmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss a');
   orderCrmData.buyer_comment = order.contactInfo.comment;
   orderCrmData.buyer = {
     full_name: order.contactInfo.username,
@@ -40,7 +40,7 @@ export function orderCrmDataForm() {
   const products = order.orderedPlanners.filter(el => el.amount > 0);
   orderCrmData.products = products.map(el => {
     return {
-      sku: el.color,
+      sku: el.code,
       price: el.price,
       quantity: el.amount,
       name: el.color,
