@@ -27,7 +27,7 @@ export const orderCrmData = {
 };
 
 export function orderCrmDataForm() {
-  orderCrmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss a');
+  orderCrmData.ordered_at = moment().format('YYYY-MM-DD hh:mm:ss');
   orderCrmData.buyer_comment = order.contactInfo.comment;
   orderCrmData.buyer = {
     full_name: order.contactInfo.username,
