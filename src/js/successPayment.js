@@ -1,10 +1,8 @@
-import { parseOrder } from './services/query-methods';
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
 const urlParams = new URLSearchParams(window.location.search);
 const buyer = urlParams.get('buyer');
 const products = urlParams.get('products');
-/* npm start */
 
 function openSuccessModal() {
   backdropSection.classList.toggle('is-hidden');
