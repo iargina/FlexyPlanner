@@ -39,10 +39,11 @@ export function orderCrmDataForm() {
   const products = order.orderedPlanners.filter(el => el.amount > 0);
   orderCrmData.products = products.map(el => {
     return {
-      sku: el.code,
+      sku: el.code.slice(1),
       price: el.price,
       quantity: el.amount,
       name: el.color,
+      picture: el.image,
     };
   });
   orderCrmData.shipping = { delivery_service_id: 1, ...order.delivery };

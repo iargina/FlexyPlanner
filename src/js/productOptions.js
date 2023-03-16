@@ -251,6 +251,7 @@ function recalcAmount() {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
     const plPrice = el.querySelector('.orderProcessing__price').innerText;
+    const plImg = el.querySelector('.orderProcessing__ItemImg');
     const plParagraph = el.querySelector(
       '.orderProcessing__itemParagraph'
     ).innerText;
@@ -260,6 +261,7 @@ function recalcAmount() {
         amount: Number(plAmount),
         price: Number(plPrice.slice(0, -4)),
         code: plParagraph,
+        image: plImg.href,
       });
     }
   });
