@@ -261,7 +261,7 @@ function recalcAmount() {
         amount: Number(plAmount),
         price: Number(plPrice.slice(0, -4)),
         code: plParagraph,
-        image: plImg.href,
+        image: plImg.src,
       });
     }
   });
