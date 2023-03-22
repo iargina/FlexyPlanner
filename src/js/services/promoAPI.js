@@ -12,3 +12,7 @@ export const deletePromocode = async promocode => {
   const response = await instancePromocode.delete('/promo', promocode);
   return response.data;
 };
+export const togglePromocodeStatus = async promocode => {
+  const response = await instancePromocode.patch('/promo', promocode);
+  return response.data;
+};

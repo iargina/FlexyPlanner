@@ -1,9 +1,10 @@
-import { checkPromocode } from './services/promoAPI';
+import { checkPromocode, togglePromocodeStatus } from './services/promoAPI';
 import { Notify } from 'notiflix';
 import { order } from './utils';
 import { makeMarkup } from './finalSum';
 import { hideNotification } from './helpers/hideNotification';
 
+const DATE_NOW = new Date().toISOString();
 export const refs = {
   promoForm: document.querySelector('.promo__form'),
   btnToggle: document.querySelector('.promo__toggle'),
@@ -29,40 +30,55 @@ function onBtnToggle(e) {
     refs.inputContainer.classList.add('visually-hidden');
   }
 }
+
 async function onFormSubmit(e) {
   try {
     e.preventDefault();
     if (!e.target.elements.promo.value) {
       return;
     }
-    const promoFromInput = e.target.elements.promo.value.trim();
+    const promoFromInput = e.target.elements.promo.value;
     const data = await checkPromocode(promoFromInput);
 
     if (!data.length) {
-      refs.errorIcon.classList.remove('visually-hidden');
-      refs.successContainer.classList.add('visually-hidden');
-      Notify.failure('Промокод введений невірно!');
-      setTimeout(hideNotification, 5000);
-      refs.promoForm.reset();
-      order.discountValue = 0;
+      showError('Промокод введений невірно!');
     } else {
+      console.log(data[0]);
+      const { period, discount, type, promo, isUsing } = data[0];
+
+      if (period.to < DATE_NOW) {
+        showError('Термін дії промокоду вичерпано!');
+        if (isUsing) {
+          const res = await togglePromocodeStatus();
+          console.log(res);
+        }
+        return;
+      }
+
       const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
       if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
       refs.successContainer.classList.remove('visually-hidden');
-      console.log(data[0]);
-      const discount = data[0].discount;
-      const type = data[0].type;
+
       refs.discount.innerText = `${discount} %`;
       Notify.success('Промокод застосовано!');
       setTimeout(hideNotification, 3000);
       refs.promoForm.reset();
       order.discountValue = discount;
-      order.promocode = promoFromInput;
+      order.promocode = promo;
       order.promocodeType = type;
-      console.log(order);
+
       makeMarkup();
     }
   } catch (error) {
     console.log(error.message);
   }
+}
+
+function showError(errorMessage) {
+  refs.errorIcon.classList.remove('visually-hidden');
+  refs.successContainer.classList.add('visually-hidden');
+  Notify.failure(errorMessage);
+  setTimeout(hideNotification, 5000);
+  refs.promoForm.reset();
+  order.discountValue = 0;
 }
