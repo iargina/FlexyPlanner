@@ -20,9 +20,7 @@ const fetchOrderModule = async () => {
   let middleDataObj = {};
 
   try {
-    const response = await axios.get(
-      'https://api.flexyplanner.com/markup'
-    );
+    const response = await axios.get('https://api.flexyplanner.com/markup');
     middleDataObj = response.data;
   } catch (error) {
     console.log(error.message);
@@ -40,9 +38,7 @@ fetchOrderModule();
 
 const fetchPlannersData = async dataObj => {
   try {
-    const response = await axios.get(
-      'https://api.flexyplanner.com/crm/offers'
-    );
+    const response = await axios.get('https://api.flexyplanner.com/crm/offers');
     return response.data.data;
   } catch (error) {
     console.log(error.message);
@@ -255,6 +251,7 @@ function recalcAmount() {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
     const plAmount = el.querySelector('.orderProcessing__number').innerText;
     const plPrice = el.querySelector('.orderProcessing__price').innerText;
+    const plImg = el.querySelector('.orderProcessing__ItemImg');
     const plParagraph = el.querySelector(
       '.orderProcessing__itemParagraph'
     ).innerText;
@@ -264,6 +261,7 @@ function recalcAmount() {
         amount: Number(plAmount),
         price: Number(plPrice.slice(0, -4)),
         code: plParagraph,
+        image: plImg.src,
       });
     }
   });

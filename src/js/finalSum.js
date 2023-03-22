@@ -92,13 +92,20 @@ const crmPostOrder = async orderData => {
     setTimeout(hideNotification, 3000);
   }
 };
+
 const monoBasket = () => {
+  let discount;
+  if (order.discountValue) {
+    discount = Number((100 - order.discountValue) / 100);
+  } else {
+    discount = 1;
+  }
+
   const basket = order.orderedPlanners.map(planer => {
     return {
       name: planer.color,
       qty: planer.amount,
-      sum: planer.amount * planer.price * 100,
-      // sum: 20,
+      sum: planer.price * 100 * discount,
       code: planer.code,
     };
   });
@@ -119,7 +126,7 @@ function postToAdd() {
       basketOrder: basketMono,
     },
 
-    redirectUrl: 'https://flexyplanner.com',
+    redirectUrl: 'https://flexyplanner.com/?' + queryData,
     // redirectUrl: 'http://localhost:1234/',
     // redirectUrl: 'https://iargina.github.io/FlexyPlanner/?' + queryData,
     webHookUrl: 'https://api.flexyplanner.com/mono/acquiring/webhook',

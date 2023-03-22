@@ -34,7 +34,7 @@ function onContactClick() {
     },
     products: productsArr.map(el => {
       return {
-        sku: el.color,
+        sku: el.code,
         price: el.price,
         quantity: el.amount,
         name: el.color,

@@ -1,6 +1,13 @@
 import HandyCollapse from 'handy-collapse';
 import Aos from 'aos';
 
+const links = document.querySelectorAll('.qa__item-link');
+links.forEach(el =>
+  el.addEventListener('click', function (e) {
+    e.stopPropagation();
+  })
+);
+
 const featureAccordion = new HandyCollapse({
   nameSpace: 'lc',
   closeOthers: false,
