@@ -35,7 +35,7 @@ async function onFormSubmit(e) {
     if (!e.target.elements.promo.value) {
       return;
     }
-    const promoFromInput = e.target.elements.promo.value;
+    const promoFromInput = e.target.elements.promo.value.trim();
     const data = await checkPromocode(promoFromInput);
 
     if (!data.length) {
@@ -49,13 +49,17 @@ async function onFormSubmit(e) {
       const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
       if (!isErrorShown) refs.errorIcon.classList.add('visually-hidden');
       refs.successContainer.classList.remove('visually-hidden');
+      console.log(data[0]);
       const discount = data[0].discount;
+      const type = data[0].type;
       refs.discount.innerText = `${discount} %`;
       Notify.success('Промокод застосовано!');
       setTimeout(hideNotification, 3000);
       refs.promoForm.reset();
       order.discountValue = discount;
       order.promocode = promoFromInput;
+      order.promocodeType = type;
+      console.log(order);
       makeMarkup();
     }
   } catch (error) {
