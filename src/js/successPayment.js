@@ -1,6 +1,6 @@
 import { parseOrder } from './services/query-methods';
 import { order } from './utils';
-import { deletePromocode } from './services/promoAPI';
+import { togglePromocodeStatus } from './services/promoAPI';
 
 const closeModalBtn = document.querySelector('.close-btn');
 const backdropSection = document.querySelector('.success');
@@ -20,14 +20,11 @@ backdropSection.addEventListener('click', e => {
   }
 });
 
-async function checkAndDeletePromocode() {
+async function checkAndTogglePromocode() {
   try {
-    console.log(order);
     if (order.promocodeType === 'Personal') {
-      await deletePromocode({
-        data: {
-          promocode: order.promocode,
-        },
+      await togglePromocodeStatus({
+        promocode: order.promocode,
       });
     }
   } catch (error) {
@@ -38,7 +35,7 @@ async function checkAndDeletePromocode() {
 function successPayment() {
   if (buyer && products) {
     openSuccessModal();
-    checkAndDeletePromocode();
+    checkAndTogglePromocode();
   }
   return;
 }

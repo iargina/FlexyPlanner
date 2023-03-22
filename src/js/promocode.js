@@ -43,14 +43,19 @@ async function onFormSubmit(e) {
     if (!data.length) {
       showError('Промокод введений невірно!');
     } else {
-      console.log(data[0]);
       const { period, discount, type, promo, isUsing } = data[0];
 
+      if (isUsing) {
+        showError('Даний промокод уже був застосований!');
+        return;
+      }
+
       if (period.to < DATE_NOW) {
-        showError('Термін дії промокоду вичерпано!');
-        if (isUsing) {
-          const res = await togglePromocodeStatus();
-          console.log(res);
+        showError('На жаль, термін дії цього промокоду вичерпано!');
+        if (!isUsing) {
+          await togglePromocodeStatus({
+            promocode: promo,
+          });
         }
         return;
       }
@@ -81,4 +86,6 @@ function showError(errorMessage) {
   setTimeout(hideNotification, 5000);
   refs.promoForm.reset();
   order.discountValue = 0;
+  order.promocode = '';
+  order.promocodeType = '';
 }

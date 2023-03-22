@@ -5,13 +5,9 @@ const instancePromocode = axios.create({
 
 export const checkPromocode = async promo => {
   const { data } = await instancePromocode.get(`/promo?promo=${promo}`);
-  console.log(data);
   return data;
 };
-export const deletePromocode = async promocode => {
-  const response = await instancePromocode.delete('/promo', promocode);
-  return response.data;
-};
+
 export const togglePromocodeStatus = async promocode => {
   const response = await instancePromocode.patch('/promo', promocode);
   return response.data;
