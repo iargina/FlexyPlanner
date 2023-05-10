@@ -57,7 +57,9 @@
     min-height: 95px;
     resize: none;
     margin-bottom: 18px;
+
   }
+
   @media screen and (min-width: $desktop-width) {
     font-size: 18px;
     line-height: calc(24 / 18);
@@ -105,4 +107,13 @@
   @media screen and (min-width: $desktop-width) {
     padding-left: 100px !important;
   }
+}
+.contacts__name.invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+.contacts__input.invalid {
+  border: 1px solid red;
+  outline: none;
 }

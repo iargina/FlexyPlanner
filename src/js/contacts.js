@@ -9,7 +9,7 @@ const submitBtnEl = document.querySelector('.contacts__btn');
 const contactName = document.querySelector('.contacts__name');
 const contactPhone = document.querySelector('.contacts__phone');
 const receiverNameRef = document.querySelector('#receiverName');
-
+const conactInfo = document.querySelectorAll('.contacts__input');
 let itiContact = itiInit(contactPhone);
 let maskContact = maskInit(contactPhone);
 
@@ -27,6 +27,14 @@ contactPhone.addEventListener("countrychange", (e) => {
 contactPhone.addEventListener("close:countrydropdown", (e) => {
   maskContact.destroy();
 })
+
+conactInfo.forEach(input => input.addEventListener('input', () => {
+  if (input.validity.valid) {
+    input.classList.remove('invalid');
+  } else {
+    input.classList.add('invalid');
+  }
+}))
 
 
 

@@ -834,6 +834,7 @@ section {
   resize: none;
   margin-bottom: 18px;
 }
+
 @media screen and (min-width: 1440px) {
   .contacts__input {
     font-size: 18px;
