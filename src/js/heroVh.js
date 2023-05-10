@@ -2,18 +2,28 @@ import logo from '../icons/logo.svg';
 import mobBlack1 from '../images/hero/mob_1x_planner_black.jpg';
 import mobRed1 from '../images/hero/mob_1x_planner_red.jpg';
 import mobYellow1 from '../images/hero/mob_1x_planner_yellow.jpg';
+import mobBlue1 from '../images/hero/mob_1x_planner_blue.jpg';
+import mobBrown1 from '../images/hero/mob_1x_planner_brown.jpg';
 
 import mobBlack2 from '../images/hero/mob_2x_planner_black.jpg';
 import mobRed2 from '../images/hero/mob_2x_planner_red.jpg';
 import mobYellow2 from '../images/hero/mob_2x_planner_yellow.jpg';
+import mobBlue2 from '../images/hero/mob_2x_planner_blue.jpg';
+import mobBrown2 from '../images/hero/mob_2x_planner_brown.jpg';
 
 import deskBlack1 from '../images/hero/desk_1x_planner_black.jpg';
 import deskRed1 from '../images/hero/desk_1x_planner_red.jpg';
 import deskYellow1 from '../images/hero/desk_1x_planner_yellow.jpg';
+import deskBlue1 from '../images/hero/desk_1x_planner_blue.jpg';
+import deskBrown1 from '../images/hero/desk_1x_planner_brown.jpg';
 
 import deskBlack2 from '../images/hero/desk_2x_planner_black.jpg';
 import deskRed2 from '../images/hero/desk_2x_planner_red.jpg';
 import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
+import deskBlue2 from '../images/hero/desk_2x_planner_blue.jpg';
+import deskBrown2 from '../images/hero/desk_2x_planner_brown.jpg';
+
+
 
 import { btnLoader } from './btnLoader';
 
@@ -103,6 +113,42 @@ const heroMarkup = `<section class="hero" id="hero__up">
               />
             </picture>
           </div>
+          <div class="hero__swiper-slide swiper-slide">
+          <picture>
+            <source
+              srcset="${deskBlue1} 1x, ${deskBlue2} 2x"
+              media="(min-width: 751px)"
+              type="image/jpg"
+            />
+            <source
+              srcset="${mobBlue1} 1x, ${mobBlue2} 2x"
+              media="(min-width: 320px)"
+              type="image/jpg"
+            />
+            <img
+              src="${mobBlue2}"
+              alt="flexxy planner red"
+            />
+          </picture>
+        </div>
+        <div class="hero__swiper-slide swiper-slide">
+        <picture>
+          <source
+            srcset="${deskBrown1} 1x, ${deskBrown2} 2x"
+            media="(min-width: 751px)"
+            type="image/jpg"
+          />
+          <source
+            srcset="${mobBrown1} 1x, ${mobBrown2} 2x"
+            media="(min-width: 320px)"
+            type="image/jpg"
+          />
+          <img
+            src="${mobBrown2}"
+            alt="flexxy planner red"
+          />
+        </picture>
+      </div>
         </div>
         <!-- If we need pagination -->
         <ul class="hero__pagination swiper-pagination">
@@ -115,6 +161,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <li class="bullet bullet-black">
             <span aria-label="flexxy planer black"></span>
           </li>
+          <li class="bullet bullet-blue">
+          <span aria-label="flexxy planer blue"></span>
+        </li>
+        <li class="bullet bullet-brown">
+        <span aria-label="flexxy planer brown"></span>
+      </li>
         </ul>
       </div>
     </div>
