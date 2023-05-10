@@ -81,6 +81,7 @@ form.addEventListener('change', e => {
   let unmaskedLength = maskDelivery.unmaskedValue.length;
   let isValid = itiDelvery.isValidNumber();
   if (!isValid && unmaskedLength > 0) {
+    userPhoneRef.classList.add('invalid')
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
 });

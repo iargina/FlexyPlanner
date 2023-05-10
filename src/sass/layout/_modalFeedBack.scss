@@ -101,6 +101,7 @@
   }
 
   .modalFeedBack__input {
+    width: 100%;
     padding: 12px 0;
     padding-left: 12px;
     background-color: $background-color;
@@ -178,4 +179,7 @@
 
 .modalFeedBack__form .iti {
   margin-bottom: 0px;
+}
+.modalFeedBack__input.invalid {
+border: 1px solid red;
 }

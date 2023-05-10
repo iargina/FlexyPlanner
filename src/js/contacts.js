@@ -96,6 +96,7 @@ formEl.addEventListener('change', e => {
   let unmaskedLength = maskContact.unmaskedValue.length;
   let isValid = itiContact.isValidNumber();
   if (!isValid && unmaskedLength > 0) {
+    contactPhone.classList.add('invalid')
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
 
