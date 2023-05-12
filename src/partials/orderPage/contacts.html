@@ -10,6 +10,7 @@
       id="username"
       required
       pattern="^[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ-]+$"
+      oninput="this.value = this.value.replace(/\s/g, '')"
       title="Введіть Ім'я"
     />
     <label for="phone" class="contacts__label">Мобільний телефон</label>
@@ -20,14 +21,7 @@
       class="contacts__input contacts__phone"
       required
     />
-    <label for="comment" class="contacts__label"
-      >Коментар (не обов’язково)</label
-    >
-    <textarea
-      name="comment"
-      id="comment"
-      class="contacts__input contacts__input--textarea"
-    ></textarea>
+
     <button type="submit" class="btn btn--secondary contacts__btn">
       Продовжити
     </button>

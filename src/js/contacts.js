@@ -100,10 +100,10 @@ formEl.addEventListener('change', e => {
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
 
-  if (contactName.value.length > 0 && isValid) {
+/*   if (contactName.value.length > 0 && isValid) {
     const comment = document.querySelector("#comment");
     comment.focus();
-  }
+  } */
 
   if (isValid) {
     order.contactInfo = {
@@ -114,9 +114,7 @@ formEl.addEventListener('change', e => {
 
 });
 
-// formEl.addEventListener('click', e => {
-//   e.target.focus();
-// });
+
 
 
 submitBtnEl.addEventListener('click', e => {

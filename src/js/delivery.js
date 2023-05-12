@@ -17,6 +17,8 @@ const warehouseWrapperEl = document.querySelector('.warehouse-wrapper');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 const finalSumBtn = document.querySelector('.finalSum__btn');
 
+
+
 const receiverNameRef = document.querySelector('#receiverName');
 const receiverLastNameRef = document.querySelector('#receiverLastName');
 const recieverContactPhoneRef = document.querySelector(
@@ -30,6 +32,7 @@ let itiDelvery = itiInit(recieverContactPhoneRef);
 let maskDelivery = maskInit(recieverContactPhoneRef);
 
 finalSumBtn.disabled = false;
+
 finalSumBtn.classList.add("visually-hidden");
 
 recieverContactPhoneRef.addEventListener('countrychange', e => {
@@ -214,7 +217,7 @@ function onWarehousesListClick(e) {
   if (
     receiverNameRef.value.length > 0 &&
     receiverLastNameRef.value.length > 0 &&
-    recieverContactPhoneRef.value.length > 0
+    recieverContactPhoneRef.value.length > 0 
   ) {
     // finalSumBtn.disabled = false;
     finalSumBtn.classList.remove("visually-hidden");
@@ -316,11 +319,14 @@ cityWrapperEl.addEventListener("input", (e) => {
     recieverContactPhoneRef.value.length > 0 &&
     warehouseInputRef.value.length > 0 &&
     e.target.value.length > 0) {
-    // console.log("Видалення сповіщення на 322");
+
     hideNotification();
     finalSumBtn.classList.remove("visually-hidden");
-  }
 
+  }
+  if(order.total === 0){
+    finalSumBtn.disabled = true
+  } 
 });
 
 cityWrapperEl.addEventListener("change", (e) => {

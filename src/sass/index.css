@@ -415,8 +415,7 @@ section {
   height: 100%;
   position: relative;
   transform: translateZ(0) scale(1);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-origin: 0 0; /* see note above */
 }
 
@@ -834,7 +833,6 @@ section {
   resize: none;
   margin-bottom: 18px;
 }
-
 @media screen and (min-width: 1440px) {
   .contacts__input {
     font-size: 18px;
@@ -890,6 +888,21 @@ section {
   .contacts__input.contacts__phone {
     padding-left: 100px !important;
   }
+}
+
+.contacts__name.invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+.contacts__input.invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+.contacts__phone.invalid {
+  border: 1px solid red;
+  outline: none;
 }
 
 .container.delivery__container {
@@ -1231,11 +1244,11 @@ section {
 .img-wrapper {
   position: relative;
   width: 90vw;
+  max-width: 960px;
 }
 @media screen and (min-width: 751px) {
   .img-wrapper {
     width: 50vw;
-    max-width: 1152px;
   }
 }
 
@@ -1639,9 +1652,9 @@ section {
 
 .description__hint {
   position: absolute;
-  bottom: 0;
+  bottom: 2%;
   right: 30%;
-  width: 20%;
+  width: 16%;
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1653,20 +1666,22 @@ section {
 .hint {
   position: absolute;
   font-size: 3vw;
-  bottom: -4%;
-  left: -70%;
+  bottom: -6%;
+  left: -90%;
   color: #555;
 }
 @media screen and (min-width: 751px) {
   .hint {
-    font-size: 1.4vw;
-    bottom: -4%;
-    left: -50%;
+    font-size: 2vw;
+    bottom: -10%;
+    left: -100%;
   }
 }
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: 1401px) {
   .hint {
     font-size: 26px;
+    bottom: -6%;
+    left: -80%;
   }
 }
 
@@ -1885,7 +1900,7 @@ section {
 @media screen and (min-width: 1440px) {
   .hero-container {
     padding: 0 100px;
-    max-width: 1920px;
+    max-width: 1600px;
   }
 }
 
@@ -2151,8 +2166,14 @@ section {
 .hero__pagination span:first-of-type {
   background-color: #c34627;
 }
-.hero__pagination span:last-of-type {
+.hero__pagination span:nth-of-type(3) {
   background-color: #111111;
+}
+.hero__pagination span:nth-of-type(4) {
+  background-color: #19939e;
+}
+.hero__pagination span:last-of-type {
+  background-color: #bb9d85;
 }
 @media screen and (min-width: 1440px) {
   .hero__pagination {
@@ -4087,6 +4108,7 @@ footer {
   }
 }
 .modalFeedBack .modalFeedBack__input {
+  width: 100%;
   padding: 12px 0;
   padding-left: 12px;
   background-color: #f3f3f3;
@@ -4141,6 +4163,11 @@ footer {
 .modalFeedBack .modalFeedBack__btn:hover {
   cursor: pointer;
 }
+.modalFeedBack .modalFeedBack__btn:disabled {
+  background-color: transparent;
+  color: grey;
+  border: 1px solid #f3bb4a;
+}
 @media screen and (min-width: 1440px) {
   .modalFeedBack .modalFeedBack__btn {
     font-size: 24px;
@@ -4163,6 +4190,10 @@ footer {
 
 .modalFeedBack__form .iti {
   margin-bottom: 0px;
+}
+
+.modalFeedBack__input.invalid {
+  border: 1px solid red;
 }
 
 .button-up__wrapper {
@@ -4322,7 +4353,6 @@ footer {
   box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   z-index: 99;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 @media screen and (min-width: 1440px) {

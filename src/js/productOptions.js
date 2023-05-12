@@ -10,7 +10,7 @@ const firstCostEl = document.querySelector(
   '.orderProcessing__firstCostWrapper'
 );
 const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
-
+const finalSumBtn = document.querySelector('.finalSum__btn');
 let products = [];
 
 listEl.addEventListener('click', onElementClick);
@@ -241,6 +241,7 @@ function addItem(listItem) {
   closeBtnEl.classList.remove('own-visually-hidden');
 
   recalcAmount();
+
 }
 
 function recalcAmount() {
@@ -264,15 +265,21 @@ function recalcAmount() {
         image: plImg.src,
       });
     }
+
   });
 
   order.orderedPlanners = products;
   order.setTotal();
   order.setDiscount();
   makeMarkup();
+  
+if(order.total !== 0){
+    finalSumBtn.disabled = false
+  } 
+  if(order.total === 0){
+    finalSumBtn.disabled = true
+  } 
 
-  // console.log('Order: ', order);
-  // console.log('order.getWholeOrderData: ', order.getWholeOrderData());
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Разом:</div>    

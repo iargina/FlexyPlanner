@@ -1,0 +1,10 @@
+.video_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video_mob, 
+.video_web {
+    max-height: 90vh;
+    max-width: 80vw;
+}

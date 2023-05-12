@@ -9,8 +9,9 @@ import { preloader } from './preLoaderClass';
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
 const finalWrapper = document.querySelector('.final__wrapper ');
+const comment = document.querySelector(".contacts__input--textarea")
 
-finalSumBtn.disabled = true;
+finalSumBtn.disabled = true
 
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
 let amount = 0;
@@ -153,7 +154,9 @@ const monoPost = async (paymentData, id) => {
 };
 
 async function onFinalSumBtnClick(e) {
+  order.buyer_comment = comment.value
   orderCrmDataForm();
+
   e.currentTarget.disabled = true;
 
   preloader.start();
@@ -169,7 +172,7 @@ async function onFinalSumBtnClick(e) {
     console.log(error.message);
   } finally {
     preloader.finish();
-  }
+  } 
 }
 
 // Правильна форма слова "продукт"

@@ -72,9 +72,13 @@
   }
 }
 .contacts__btn {
+  margin-top: 14px;
   padding: 10px 44px;
   &:disabled {
     background: grey;
+  }
+  @media screen and (min-width: $desktop-width){
+    margin-top: 24px;
   }
 }
 
@@ -106,6 +110,7 @@
   padding-left: 84px !important;
   @media screen and (min-width: $desktop-width) {
     padding-left: 100px !important;
+
   }
 }
 .contacts__name.invalid {

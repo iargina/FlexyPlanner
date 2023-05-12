@@ -27,7 +27,7 @@ export const orderCrmData = {
 };
 
 export function orderCrmDataForm() {
-  orderCrmData.buyer_comment = order.contactInfo.comment;
+  orderCrmData.buyer_comment = order.buyer_comment
   orderCrmData.buyer = {
     full_name: order.contactInfo.username,
     phone: order.contactInfo.phone,
