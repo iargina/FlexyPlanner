@@ -2,7 +2,7 @@ import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import PoshtaAPI from './services/poshtaApi';
 import { order } from './utils';
-
+import { getPhoneNumber } from './helpers/getPhoneNumber';
 import IMask from 'imask';
 import { itiInit, maskInit } from './helpers/phoneNumberInit';
 import { maskOnCountryChange } from './helpers/maskOnCountryChange';
@@ -24,11 +24,12 @@ const receiverLastNameRef = document.querySelector('#receiverLastName');
 const recieverContactPhoneRef = document.querySelector(
   '.reciever-contacts__phone'
 );
+
 const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
 const cityWrapperEl = document.querySelector(".city-wrapper");
 
 // INITIAL STATE
-let itiDelvery = itiInit(recieverContactPhoneRef);
+let itiDelivery = itiInit(recieverContactPhoneRef);
 let maskDelivery = maskInit(recieverContactPhoneRef);
 
 finalSumBtn.disabled = false;
@@ -36,8 +37,8 @@ finalSumBtn.disabled = false;
 finalSumBtn.classList.add("visually-hidden");
 
 recieverContactPhoneRef.addEventListener('countrychange', e => {
-  const placeHolderMask = itiDelvery.telInput.placeholder;
-  const selectedCountryLabel = itiDelvery.getSelectedCountryData().iso2;
+  const placeHolderMask = itiDelivery.telInput.placeholder;
+  const selectedCountryLabel = itiDelivery.getSelectedCountryData().iso2;
   const maskOptions = maskOnCountryChange(
     selectedCountryLabel,
     placeHolderMask
@@ -202,14 +203,13 @@ function onWarehousesListClick(e) {
     shipping_short_address: warehouseObj.ShortAddress,
 
     // receiver name
-    recipient_full_name: receiverNameRef.value,
+    recipient_full_name: receiverNameRef.value +" "+ receiverLastNameRef.value,
 
     // receiver phone
-    recipient_phone: order.contactInfo.phone,
+    recipient_phone: getPhoneNumber(itiDelivery, maskDelivery),
   };
-
+ 
   order.delivery = deliveryInfo;
-
   warehousesListRef.innerHTML = '';
 
   // Check if all inputs has values before select warehouse
@@ -237,13 +237,13 @@ function onInputBlur() {
 
 function onCheckboxChange(e) {
   const contactPhone = document.querySelector('.contacts__phone');
-  itiDelvery.setCountry(contactPhone.dataset.country || "ua");
+  itiDelivery.setCountry(contactPhone.dataset.country || "ua");
 
   if (e.target.checked) {
     receiverNameRef.value = order.contactInfo.username;
     receiverNameRef.disabled = true;
 
-    const contactDeliveryPhoneCodeString = `+${itiDelvery.getSelectedCountryData().dialCode
+    const contactDeliveryPhoneCodeString = `+${itiDelivery.getSelectedCountryData().dialCode
       }`;
     const cuttedPhoneNumber = order.contactInfo.phone.slice(
       contactDeliveryPhoneCodeString.length
@@ -270,7 +270,7 @@ document.body.addEventListener('click', onInputBlur);
 receiverCheckboxRef.addEventListener('change', onCheckboxChange);
 
 cityWrapperEl.addEventListener("click", (e) => {
-  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && !itiDelvery.isValidNumber()) {
+  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && !itiDelivery.isValidNumber()) {
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
 });
@@ -309,7 +309,7 @@ cityWrapperEl.addEventListener("input", (e) => {
     return;
   }
 
-  if (e.target.value.length === 0 || !itiDelvery.isValidNumber()) {
+  if (e.target.value.length === 0 || !itiDelivery.isValidNumber()) {
     finalSumBtn.classList.add("visually-hidden");
     return;
   }
@@ -337,19 +337,19 @@ cityWrapperEl.addEventListener("change", (e) => {
   }
 
   let unmaskedLength = maskDelivery.unmaskedValue.length;
-  let isValid = itiDelvery.isValidNumber();
+  let isValid = itiDelivery.isValidNumber();
   if (!isValid && unmaskedLength > 0) {
     Notify.info(`З номером щось не так. Перегляньте ще раз`);
   }
 
   if (receiverNameRef.value.length > 0 &&
     receiverLastNameRef.value.length > 0 &&
-    itiDelvery.isValidNumber() &&
+    itiDelivery.isValidNumber() &&
     cityInputRef.value.length > 0) {
     return;
   }
 
-  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && itiDelvery.isValidNumber()) {
+  if (receiverNameRef.value.length > 0 && receiverLastNameRef.value.length > 0 && itiDelivery.isValidNumber()) {
     cityInputRef.focus();
   }
 

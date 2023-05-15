@@ -32,7 +32,7 @@ export function orderCrmDataForm() {
     full_name: order.contactInfo.username,
     phone: order.contactInfo.phone,
   };
-
+  
   orderCrmData.promocode = order.promocode;
   orderCrmData.discount_amount = order.discountValueSum;
 
