@@ -25,7 +25,9 @@
       placeholder="Бандера"
       class="contacts__input"
       pattern="^[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ-]+$"
+      oninput="this.value = this.value.replace(/\s/g, '')"
       title="Введіть Прізвище"
+      required
     />
 
     <label for="receiverPhone" class="contacts__label"
