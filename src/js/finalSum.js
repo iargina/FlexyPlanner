@@ -5,13 +5,13 @@ import { stringifyOrder } from './services/query-methods';
 import axios from 'axios';
 import { Notify } from 'notiflix';
 import { preloader } from './preLoaderClass';
+import { checkPromocode, togglePromocodeStatus } from './services/promoAPI';
 
 const finalSumBtn = document.querySelector('.finalSum__btn');
 const finalSum = document.querySelector('.finalSum__wrapper');
 const finalWrapper = document.querySelector('.final__wrapper ');
-const comment = document.querySelector(".contacts__input--textarea")
-
-finalSumBtn.disabled = true
+const comment = document.querySelector('.contacts__input--textarea');
+finalSumBtn.disabled = true;
 
 let reference = moment().format('YYYY-MM-DD hh:mm:ss.SS');
 let amount = 0;
@@ -154,7 +154,18 @@ const monoPost = async (paymentData, id) => {
 };
 
 async function onFinalSumBtnClick(e) {
-  order.buyer_comment = comment.value
+  if (order.promocode) {
+    const data = await checkPromocode(order.promocode);
+
+    const { period, discount, type, promo, isUsing } = data[0];
+    if (type === 'Personal') {
+      await togglePromocodeStatus({
+        promocode: order.promocode,
+      });
+    }
+  }
+
+  order.buyer_comment = comment.value;
   orderCrmDataForm();
 
   e.currentTarget.disabled = true;
@@ -172,7 +183,7 @@ async function onFinalSumBtnClick(e) {
     console.log(error.message);
   } finally {
     preloader.finish();
-  } 
+  }
 }
 
 // Правильна форма слова "продукт"

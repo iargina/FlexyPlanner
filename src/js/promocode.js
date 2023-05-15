@@ -45,19 +45,25 @@ async function onFormSubmit(e) {
     } else {
       const { period, discount, type, promo, isUsing } = data[0];
 
-      if (isUsing) {
-        showError('Даний промокод уже був застосований!');
-        return;
-      }
-
-      if (period.to < DATE_NOW) {
-        showError('На жаль, термін дії цього промокоду вичерпано!');
+      if (type === 'Personal') {
         if (!isUsing) {
-          await togglePromocodeStatus({
-            promocode: promo,
-          });
+          showError('Даний промокод не дійсний');
+          return;
         }
-        return;
+      } else {
+        if (isUsing) {
+          showError('Даний промокод не дійсний');
+          return;
+        }
+        if (period.to < DATE_NOW) {
+          showError('На жаль, термін дії цього промокоду вичерпано!');
+          if (!isUsing) {
+            await togglePromocodeStatus({
+              promocode: promo,
+            });
+          }
+          return;
+        }
       }
 
       const isErrorShown = refs.errorIcon.classList.contains('visually-hidden');
