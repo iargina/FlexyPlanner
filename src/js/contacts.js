@@ -10,10 +10,17 @@ const contactName = document.querySelector('.contacts__name');
 const contactPhone = document.querySelector('.contacts__phone');
 const receiverNameRef = document.querySelector('#receiverName');
 const conactInfo = document.querySelectorAll('.contacts__input');
+const receiverCheckboxRef = document.querySelector('#receiverCheckbox');
+
+
+
 let itiContact = itiInit(contactPhone);
 let maskContact = maskInit(contactPhone);
 
+contactName.addEventListener("input", (e)=> {
+  if(receiverCheckboxRef.checked){receiverNameRef.value = e.target.value}
 
+})
 contactPhone.addEventListener("countrychange", (e) => {
   const placeHolderMask = itiContact.telInput.placeholder;
   let selectedCountryLabel = itiContact.getSelectedCountryData().iso2;

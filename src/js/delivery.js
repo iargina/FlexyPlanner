@@ -16,7 +16,7 @@ const warehouseSearchRef = document.querySelector('.warehouse-search');
 const warehouseWrapperEl = document.querySelector('.warehouse-wrapper');
 const warehouseBtnRef = document.querySelector('.warehouse-btn');
 const finalSumBtn = document.querySelector('.finalSum__btn');
-
+const contactName = document.querySelector('.contacts__name');
 
 
 const receiverNameRef = document.querySelector('#receiverName');
@@ -240,7 +240,7 @@ function onCheckboxChange(e) {
   itiDelivery.setCountry(contactPhone.dataset.country || "ua");
 
   if (e.target.checked) {
-    receiverNameRef.value = order.contactInfo.username;
+    receiverNameRef.value = contactName.value;
     receiverNameRef.disabled = true;
 
     const contactDeliveryPhoneCodeString = `+${itiDelivery.getSelectedCountryData().dialCode
