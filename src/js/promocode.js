@@ -32,6 +32,7 @@ function onBtnToggle(e) {
 }
 
 async function onFormSubmit(e) {
+  console.log(DATE_NOW);
   try {
     e.preventDefault();
     if (!e.target.elements.promo.value) {
@@ -44,18 +45,13 @@ async function onFormSubmit(e) {
       showError('Промокод введений невірно!');
     } else {
       const { period, discount, type, promo, isUsing } = data[0];
-
-      if (type === 'Personal') {
-        if (!isUsing) {
-          showError('Даний промокод не дійсний');
-          return;
-        }
-      } else {
-        if (isUsing) {
-          showError('Даний промокод не дійсний');
-          return;
-        }
+      if (isUsing) {
+        showError('Даний промокод не дійсний');
+        return;
+      }
+      if (type !== 'Personal') {
         if (period.to < DATE_NOW) {
+          console.log(DATE_NOW);
           showError('На жаль, термін дії цього промокоду вичерпано!');
           if (!isUsing) {
             await togglePromocodeStatus({
