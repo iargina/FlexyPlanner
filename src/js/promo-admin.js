@@ -59,11 +59,13 @@ async function onFormSubmit(e) {
       promocodeObj.amount = Number(amount.value);
       promocodeObj.discount = Number(discount.value);
     } else {
+      const dateToValue = new Date(dateTo.value);
+dateToValue.setHours(23, 59, 59);
       promocodeObj.type = promocode.value;
       promocodeObj.discount = Number(discount.value);
       promocodeObj.amount = Number(amount.value);
       promocodeObj.from = new Date(dateStart.value).toISOString();
-      promocodeObj.to = new Date(dateTo.value).toISOString();
+      promocodeObj.to = dateToValue.toISOString();
     }
 
     const response = await postPromocodesCreate(promocodeObj);
