@@ -1,0 +1,10 @@
+%centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%transition {
+  transition: color $transition-duration $transition-timing-function,
+    background-color $transition-duration $transition-timing-function;
+}
