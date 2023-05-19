@@ -164,11 +164,9 @@ async function onFinalSumBtnClick(e) {
       });
     }
   }
-
   order.buyer_comment = comment.value;
   orderCrmDataForm();
-
-  e.currentTarget.disabled = true;
+finalSumBtn.disabled = true;
 
   preloader.start();
   try {
