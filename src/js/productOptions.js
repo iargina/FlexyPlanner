@@ -11,7 +11,25 @@ const firstCostEl = document.querySelector(
 );
 const amountWordEl = document.querySelector('.orderProcessing__amountTitle');
 const finalSumBtn = document.querySelector('.finalSum__btn');
+const additionalText = document.querySelector('.orderProcessing__additional');
+
 let products = [];
+const orderText =  `<p class='orderProcessing__addText'>
+Ми відправимо твоє замовлення протягом 2-ох днів.
+</p>`
+const preorderText =  `<p class='orderProcessing__addText'>
+Дату відправлення уточнюй в
+<a
+  class='orderProcessing__link'
+  target='_blank'
+  href='https://www.instagram.com/flexy.planner/'
+>Instagram</a>, або запитуй в
+<a
+  class='orderProcessing__link'
+  target='_blank'
+  href='https://t.me/FlexyPlanner_bot'
+>Telegram</a>.
+</p>`
 
 listEl.addEventListener('click', onElementClick);
 
@@ -22,11 +40,15 @@ const fetchOrderModule = async () => {
   try {
     const response = await axios.get('https://api.flexyplanner.com/markup');
     middleDataObj = response.data;
+    console.log(middleDataObj);
   } catch (error) {
     console.log(error.message);
   } finally {
     // Рендерю список планерів
     listMarkupRender(middleDataObj);
+
+
+
   }
 };
 
@@ -48,17 +70,20 @@ const fetchPlannersData = async dataObj => {
   }
 };
 
+
 async function listMarkupRender(dataObj) {
   const data = await fetchPlannersData(dataObj);
   const plannersArr = data;
   let filteredPlannersArr = [];
 
   if (dataObj.type === 'to-order') {
+    additionalText.innerHTML=orderText
     filteredPlannersArr = plannersArr.filter(
       el => el.sku.startsWith('FP') && el.quantity > 0
     );
   }
   if (dataObj.type === 'pre-order') {
+    
     filteredPlannersArr = plannersArr.filter(
       el => el.sku.startsWith('PO') && el.quantity > 0
     );
@@ -118,7 +143,6 @@ async function listMarkupRender(dataObj) {
           </li > `;
       })
       .join('');
-
     listEl.innerHTML = markup;
     recalcAmount();
 
@@ -147,8 +171,6 @@ async function initialState() {
 }
 
 function onElementClick(e) {
-  fbq('track', 'ViewContent');
-
   if (e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
     const btnName = e.target.closest('svg').dataset.action;
     const listItem = e.target.closest('li');
@@ -241,12 +263,10 @@ function addItem(listItem) {
   closeBtnEl.classList.remove('own-visually-hidden');
 
   recalcAmount();
-
 }
 
 function recalcAmount() {
   const listItemsArr = document.querySelectorAll('.orderProcessing__item');
-  fbq('track', 'AddToCart');
   products = [];
   listItemsArr.forEach(el => {
     const plTitle = el.querySelector('.orderProcessing__itemTitle').innerText;
@@ -265,21 +285,19 @@ function recalcAmount() {
         image: plImg.src,
       });
     }
-
   });
 
   order.orderedPlanners = products;
   order.setTotal();
   order.setDiscount();
   makeMarkup();
-  
-if(order.total !== 0){
-    finalSumBtn.disabled = false
-  } 
-  if(order.total === 0){
-    finalSumBtn.disabled = true
-  } 
 
+  if (order.total !== 0) {
+    finalSumBtn.disabled = false;
+  }
+  if (order.total === 0) {
+    finalSumBtn.disabled = true;
+  }
 
   firstCostEl.innerHTML = `
   <div class="orderProcessing__firstCostTitle">Разом:</div>    

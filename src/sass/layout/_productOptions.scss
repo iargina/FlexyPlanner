@@ -461,3 +461,38 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.orderProcessing__addText {
+ 
+  font-family: $font-family500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+
+  color: $black-color;
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+}
+.orderProcessing__additional{
+  max-width: 756px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+.orderProcessing__link {
+  color: $accent-color;
+    font-family: $font-family500;
+
+    transition-property: color, text-decoration;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+
+    &:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+}

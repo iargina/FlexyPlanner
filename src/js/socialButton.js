@@ -6,7 +6,6 @@ function onClick() {
   social.forEach(function (el) {
     el.classList.toggle('active');
 
-    fbq('track', 'ViewContent');
   });
 }
 button.addEventListener('click', onClick);

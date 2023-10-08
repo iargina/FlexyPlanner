@@ -1,15 +1,10 @@
 import logo from '../icons/logo.svg';
-import mobBlack1 from '../images/hero/mob_1x_planner_black.jpg';
-import mobRed1 from '../images/hero/mob_1x_planner_red.jpg';
-import mobYellow1 from '../images/hero/mob_1x_planner_yellow.jpg';
-import mobBlue1 from '../images/hero/mob_1x_planner_blue.jpg';
-import mobBrown1 from '../images/hero/mob_1x_planner_brown.jpg';
+import mobBlack1 from '../images/hero/mob/FP_black.jpg';
+import mobRed1 from '../images/hero/mob/FP_red.jpg';
+import mobYellow1 from '../images/hero/mob/FP_yellow.jpg';
+import mobBlue1 from '../images/hero/mob/FP_blue.jpg';
+import mobBrown1 from '../images/hero/mob/FP_brown.jpg';
 
-import mobBlack2 from '../images/hero/mob_2x_planner_black.jpg';
-import mobRed2 from '../images/hero/mob_2x_planner_red.jpg';
-import mobYellow2 from '../images/hero/mob_2x_planner_yellow.jpg';
-import mobBlue2 from '../images/hero/mob_2x_planner_blue.jpg';
-import mobBrown2 from '../images/hero/mob_2x_planner_brown.jpg';
 
 import deskBlack1 from '../images/hero/desk_1x_planner_black.jpg';
 import deskRed1 from '../images/hero/desk_1x_planner_red.jpg';
@@ -24,12 +19,11 @@ import deskBlue2 from '../images/hero/desk_2x_planner_blue.jpg';
 import deskBrown2 from '../images/hero/desk_2x_planner_brown.jpg';
 
 
-
 import { btnLoader } from './btnLoader';
 
 const getButton = () => {
   return `<a href="./order.html" class="hero__btn load-module-btn" disabled aria-label="link to order">
-	${btnLoader}
+  ${btnLoader}
 </a>`;
 };
 
@@ -67,12 +61,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
                 type="image/jpg"
               />
               <source
-                srcset="${mobRed1} 1x, ${mobRed2} 2x"
+                srcset="${mobRed1}"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="${mobRed2}"
+                src="${mobRed1}"
                 alt="flexxy planner red"
               />
             </picture>
@@ -85,12 +79,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
                 type="image/jpg"
               />
               <source
-                srcset="${mobYellow1} 1x, ${mobYellow2} 2x"
+                srcset="${mobYellow1}"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="${mobYellow2}"
+                src="${mobYellow1}"
                 alt="flexxy planner yellow"
               />
             </picture>
@@ -103,12 +97,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
                 type="image/jpg"
               />
               <source
-                srcset="${mobBlack1} 1x, ${mobBlack2} 2x"
+                srcset="${mobBlack1}"
                 media="(min-width: 320px)"
                 type="image/jpg"
               />
               <img
-                src="${mobBlack2}"
+                src="${mobBlack1}"
                 alt="flexxy planner yellow"
               />
             </picture>
@@ -121,12 +115,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
               type="image/jpg"
             />
             <source
-              srcset="${mobBlue1} 1x, ${mobBlue2} 2x"
+              srcset="${mobBlue1}"
               media="(min-width: 320px)"
               type="image/jpg"
             />
             <img
-              src="${mobBlue2}"
+              src="${mobBlue1}"
               alt="flexxy planner red"
             />
           </picture>
@@ -139,12 +133,12 @@ const heroMarkup = `<section class="hero" id="hero__up">
             type="image/jpg"
           />
           <source
-            srcset="${mobBrown1} 1x, ${mobBrown2} 2x"
+            srcset="${mobBrown1}"
             media="(min-width: 320px)"
             type="image/jpg"
           />
           <img
-            src="${mobBrown2}"
+            src="${mobBrown1}"
             alt="flexxy planner red"
           />
         </picture>
@@ -173,7 +167,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
     <div class="hero__slider-text">
       Багатофункціональний адаптивний щоденник
     </div>
-		${getButton()}
+    ${getButton()}
 
   </div>
 </section>

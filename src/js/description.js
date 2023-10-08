@@ -5,7 +5,6 @@ const hintRef = document.querySelector('.description__hint');
 buttonsRef.forEach((el, idx) => {
   el.addEventListener('click', () => {
     const itemTextEl = itemsRef[idx].querySelector('.description__text');
-    fbq('track', 'ViewContent');
     itemsRef[idx].classList.add('active');
     itemTextEl.classList.add('active');
 

@@ -8,7 +8,6 @@ export default function toggleModal(triggerBtn, closeBtn, backdrop) {
   }
 
   openModalBtn.addEventListener('click', () => {
-    fbq('track', 'ViewContent');
     backdropSection.classList.toggle('modal-is-hidden');
   });
 
@@ -22,7 +21,7 @@ export default function toggleModal(triggerBtn, closeBtn, backdrop) {
   });
 
   backdropSection.addEventListener('click', e => {
-    fbq('track', 'ViewContent');
+  
     if (e.target === backdropSection) {
       backdropSection.classList.toggle('modal-is-hidden');
     }
