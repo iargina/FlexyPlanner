@@ -14,10 +14,10 @@ const finalSumBtn = document.querySelector('.finalSum__btn');
 const additionalText = document.querySelector('.orderProcessing__additional');
 
 let products = [];
-const orderText =  `<p class='orderProcessing__addText'>
+const orderText = `<p class='orderProcessing__addText'>
 Ми відправимо твоє замовлення протягом 2-ох днів.
-</p>`
-const preorderText =  `<p class='orderProcessing__addText'>
+</p>`;
+const preorderText = `<p class='orderProcessing__addText'>
 Дату відправлення уточнюй в
 <a
   class='orderProcessing__link'
@@ -29,7 +29,7 @@ const preorderText =  `<p class='orderProcessing__addText'>
   target='_blank'
   href='https://t.me/FlexyPlanner_bot'
 >Telegram</a>.
-</p>`
+</p>`;
 
 listEl.addEventListener('click', onElementClick);
 
@@ -46,9 +46,6 @@ const fetchOrderModule = async () => {
   } finally {
     // Рендерю список планерів
     listMarkupRender(middleDataObj);
-
-
-
   }
 };
 
@@ -70,20 +67,18 @@ const fetchPlannersData = async dataObj => {
   }
 };
 
-
 async function listMarkupRender(dataObj) {
   const data = await fetchPlannersData(dataObj);
   const plannersArr = data;
   let filteredPlannersArr = [];
 
   if (dataObj.type === 'to-order') {
-    additionalText.innerHTML=orderText
+    additionalText.innerHTML = orderText;
     filteredPlannersArr = plannersArr.filter(
       el => el.sku.startsWith('FP') && el.quantity > 0
     );
   }
   if (dataObj.type === 'pre-order') {
-    
     filteredPlannersArr = plannersArr.filter(
       el => el.sku.startsWith('PO') && el.quantity > 0
     );
