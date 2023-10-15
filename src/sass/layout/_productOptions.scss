@@ -367,19 +367,30 @@
   font-family: $font-family400;
   font-size: 12px;
   line-height: 1;
-  color: #111111;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  padding: 5px;
+  max-height: 30px;
+  background-color: black;
+  border-radius: 4px;
+  max-width: 55px;
 
   @media screen and (min-width: $desktop-width) {
     margin-left: 17px;
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.01em;
-    color: #3c3b3b;
+    max-width: none;
+    padding: 10px;
   }
 }
-
-.orderProcessing__addBtn::after {
+.orderProcessing__addBtn:hover{
+background-color: #f3bb4a;
+color: black;
+}
+/* .orderProcessing__addBtn::after {
   content: '';
   display: block;
   width: 43px;
@@ -390,7 +401,7 @@
   @media screen and (min-width: $desktop-width) {
     width: 49px;
   }
-}
+} */
 
 .orderProcessing__lastItemsLabel {
   display: flex;

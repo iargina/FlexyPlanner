@@ -5,18 +5,12 @@ import mobYellow1 from '../images/hero/mob/FP_yellow.jpg';
 import mobBlue1 from '../images/hero/mob/FP_blue.jpg';
 import mobBrown1 from '../images/hero/mob/FP_brown.jpg';
 
+import deskBlack1 from '../images/hero/desk/FP_black.jpg';
+import deskRed1 from '../images/hero/desk/FP_red.jpg';
+import deskYellow1 from '../images/hero/desk/FP_yellow.jpg';
+import deskBlue1 from '../images/hero/desk/FP_blue.jpg';
+import deskBrown1 from '../images/hero/desk/FP_brown.jpg';
 
-import deskBlack1 from '../images/hero/desk_1x_planner_black.jpg';
-import deskRed1 from '../images/hero/desk_1x_planner_red.jpg';
-import deskYellow1 from '../images/hero/desk_1x_planner_yellow.jpg';
-import deskBlue1 from '../images/hero/desk_1x_planner_blue.jpg';
-import deskBrown1 from '../images/hero/desk_1x_planner_brown.jpg';
-
-import deskBlack2 from '../images/hero/desk_2x_planner_black.jpg';
-import deskRed2 from '../images/hero/desk_2x_planner_red.jpg';
-import deskYellow2 from '../images/hero/desk_2x_planner_yellow.jpg';
-import deskBlue2 from '../images/hero/desk_2x_planner_blue.jpg';
-import deskBrown2 from '../images/hero/desk_2x_planner_brown.jpg';
 
 
 import { btnLoader } from './btnLoader';
@@ -56,7 +50,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="${deskRed1} 1x, ${deskRed2} 2x"
+                srcset="${deskRed1}"
                 media="(min-width: 751px)"
                 type="image/jpg"
               />
@@ -74,7 +68,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="${deskYellow1} 1x, ${deskYellow2} 2x"
+                srcset="${deskYellow1}"
                 media="(min-width: 751px)"
                 type="image/jpg"
               />
@@ -92,7 +86,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
             <picture>
               <source
-                srcset="${deskBlack1} 1x, ${deskBlack2} 2x"
+                srcset="${deskBlack1}"
                 media="(min-width: 751px)"
                 type="image/jpg"
               />
@@ -110,7 +104,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
           <div class="hero__swiper-slide swiper-slide">
           <picture>
             <source
-              srcset="${deskBlue1} 1x, ${deskBlue2} 2x"
+              srcset="${deskBlue1}"
               media="(min-width: 751px)"
               type="image/jpg"
             />
@@ -128,7 +122,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
         <div class="hero__swiper-slide swiper-slide">
         <picture>
           <source
-            srcset="${deskBrown1} 1x, ${deskBrown2} 2x"
+            srcset="${deskBrown1} 1x"
             media="(min-width: 751px)"
             type="image/jpg"
           />
@@ -139,7 +133,7 @@ const heroMarkup = `<section class="hero" id="hero__up">
           />
           <img
             src="${mobBrown1}"
-            alt="flexxy planner red"
+            alt="flexxy planner brown"
           />
         </picture>
       </div>
